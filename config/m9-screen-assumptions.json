@@ -1,0 +1,28 @@
+{
+  "status": "Electrical and housing thermal engineering screen; path bounds are assumptions pending measurement",
+  "phase_to_phase_resistance_ohm": 1.7,
+  "inverter_efficiency_assumption": 0.95,
+  "inverter_efficiency_basis": "Separate engineering screen assumption, not a measured moteus efficiency; use actual motor shaft power, with physical belt losses already represented in the plant",
+  "phase_current_convention": "Peak sinusoidal phase current gives copper=0.75*Rline-line*Iq^2; if catalog current is RMS, double copper",
+  "housing_air_C": 40,
+  "stator_cp_J_kg_K": 385,
+  "stator_capacity_basis": "Credit only adopted 34g stator at conservative copper heat capacity; ignore rotor/housing thermal capacity and do not credit chassis conduction",
+  "winding_to_housing_air_K_W_sensitivity": [20, 40, 80],
+  "thermal_path_basis": "Unqualified range including winding-to-case contact plus natural cooling inside housing; report required path and temperatures, not a claimed thermal pass",
+  "winding_design_limit_C": 125,
+  "catalog_insulation_class": "F (155C class; design screen keeps 30C hot-spot margin)",
+  "pack_capacity_Ah": 0.85,
+  "pack_nominal_V": 22.2,
+  "pack_full_V": 25.2,
+  "usable_capacity_fraction": 0.8,
+  "auxiliary_power_W_assumption": 6,
+  "retained_external_bus_capacitance_F": 0.001,
+  "example_bus_ceiling_V": 26.8,
+  "regen_basis": "At full charge assume zero battery acceptance; gross negative mechanical work is a winding/dump upper bound. Net estimate subtracts simultaneous positive motor work, copper and 6W auxiliary load. M9 dump thermal and software flux-brake response remain unqualified",
+  "sources": {
+    "RO40": "https://www.cubemars.com/product/ro40-kv140-lite-without-hall-frameless-torque-motor.html",
+    "pack": "https://genstattu.com/tattu-r-line-version-5-0-850mah-6s-22-2v-150c-lipo-battery-pack-with-xt30u-f-plug/",
+    "moteus_regen": "https://mjbots.github.io/moteus/troubleshooting/overvoltage-fault-34/",
+    "moteus_electrical": "https://mjbots.github.io/moteus/guides/electrical-setup/"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "description": "M3 posture-aware cascade tuned for CAD mass/inertia and actuator/sensor variations; velocity-based sliding-friction compensation with smooth torque-based breakaway.",
+  "pitch_kp": 2.0,
+  "pitch_kd": 0.24,
+  "speed_kp": 0.4,
+  "speed_ki": 0.1,
+  "speed_integral_limit": 0.3,
+  "hold_kp": 0.8,
+  "max_hold_speed": 0.1,
+  "max_pitch_offset": 0.22,
+  "max_command_acceleration": 8,
+  "heading_kp": 0.5,
+  "yaw_rate_kd": 0.035,
+  "joint_kp": 8,
+  "joint_kd": 0.4,
+  "posture_gain_schedule": true,
+  "wheel_friction_compensation": 0.06,
+  "friction_compensation_scale": 0.01,
+  "friction_velocity_threshold_rad_s": 1.0
+}

@@ -1,0 +1,30 @@
+{
+  "checkpoint": "artifacts/m14/checkpoints/locomotion_s2/model_7999.pt",
+  "checkpoint_sha256": "58410065b2eee8f954147b44e0a6351666446909d8b521627f62b24b0ae2f0a7",
+  "stages": {
+    "training": {
+      "exit": 0,
+      "minutes": 0.6,
+      "log": "training.log",
+      "finished": "2026-11-02T13:21:48+00:00",
+      "commit": "5f13ade4677b23ec02d6f4854182d43d4af9ce29",
+      "dirty": false,
+      "environment": {
+        "python": "3.11.15",
+        "machine": "x86_64",
+        "cpus": 16,
+        "node": "laptop",
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "mujoco": "3.11.0",
+        "torch": "2.14.1",
+        "mjlab": "1.6.0",
+        "rsl-rl-lib": "5.4.2"
+      },
+      "device": "cuda:0",
+      "worlds": 1000,
+      "episodes": 1000,
+      "episode_s": 10.0
+    }
+  }
+}

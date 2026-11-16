@@ -1,0 +1,23 @@
+{
+  "description": "M9 sensor-only cascade: hold pitch damping0.15, drive0.13; finite PI/anti-windup preserved. Completion candidate subject to frozen acceptance.",
+  "pitch_kp": 1.3,
+  "pitch_kd": 0.15,
+  "speed_kp": 0.3,
+  "speed_ki": 0.2,
+  "hold_speed_kp": 0.4,
+  "hold_speed_ki": 0.1,
+  "speed_integral_limit": 0.3,
+  "hold_kp": 0.8,
+  "max_hold_speed": 0.1,
+  "max_pitch_offset": 0.22,
+  "max_command_acceleration": 3,
+  "heading_kp": 0.5,
+  "yaw_rate_kd": 0.035,
+  "joint_kp": 8.0,
+  "joint_kd": 0.05,
+  "posture_gain_schedule": true,
+  "wheel_friction_compensation": 0.005,
+  "friction_compensation_scale": 0.01,
+  "friction_velocity_threshold_rad_s": 1.0,
+  "drive_pitch_kd": 0.13
+}

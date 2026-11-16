@@ -1,0 +1,49 @@
+{
+  "description": "M10 LSM6DSO IMU (M9 assumptions); AS5047P on each RO40 rotor, so the joint angles include both belt deflections; AS5047P on each axle end reading the hub magnet, so the wheel angle is relative to the shin. Catalog INL is a deterministic periodic term, not quantization. Noise, bias, delay and filter values are the M9 assumptions.",
+  "gyro_noise_std_rad_s": 0.003,
+  "gyro_residual_bias_rad_s": [
+    0.0003,
+    -0.0003,
+    0.0003
+  ],
+  "accel_noise_std_m_s2": 0.06,
+  "accel_bias_m_s2": [
+    0.01,
+    -0.01,
+    0.01
+  ],
+  "wheel_encoder_counts_per_rev": 16384,
+  "joint_encoder_counts_per_rev": 65536,
+  "transport_delay_s": 0.005,
+  "velocity_filter_tau_s": 0.005,
+  "gyro_anti_alias_tau_s": 0.003,
+  "accel_anti_alias_tau_s": 0.005,
+  "posture_filter_tau_s": 0.02,
+  "joint_velocity_filter_tau_s": 0.002,
+  "local_joint_velocity_filter_tau_s": 0.002,
+  "attitude_correction_tau_s": 3.0,
+  "accel_norm_gate_m_s2": 1.5,
+  "imu_velocity_fusion_tau_s": 0.2,
+  "imu_velocity_innovation_limit_m_s": 0.05,
+  "imu_accel_bias_tau_s": 3.0,
+  "seed": 20260930,
+  "local_joint_encoder_counts_per_rev": 65536,
+  "joint_encoder_bias_rad": [
+    0.0001,
+    -0.0001,
+    0.0001,
+    -0.0001
+  ],
+  "joint_encoder_periodic_error_rad": 0.005235987755982988,
+  "wheel_encoder_periodic_error_rad": 0.020943951023931952,
+  "parts": {
+    "joint": "AS5047P 14 bit on the RO40 rotor; 16384 counts per rotor revolution are 65536 per output revolution through the 4:1 belt. The output ranges (a1 60 deg, a2 54 deg) stay within one rotor turn, so the reading is absolute.",
+    "wheel": "AS5047P 14 bit on the fixed axle end, reading a 6 x 1 mm diametric magnet in the hub wall (m10.internals.hub): wheel angle relative to the shin.",
+    "imu": "LSM6DSO retained",
+    "references": [
+      "https://look.ams-osram.com/m/d05ee39221f9857/original/AS5047P-DS000324.pdf"
+    ],
+    "error_basis": "AS5047P displaced/full-temperature INL bound 1.2 deg. Joint: divided by the 4:1 belt and modelled as sin(2 x output angle), so the amplitude is right but the rotor-side harmonic is not reproduced. Wheel: modelled as sin(angle). Transport 5 ms is a host assumption including device readout.",
+    "fusion_basis": "Phase C6: the velocity estimate is the IMU point's forward velocity, predicted with the horizontal specific force and corrected towards wheel odometry moved to the IMU point (innovation clipped at 0.05 m/s, so tire hops and airborne wheel spin cannot drag it). A second state estimates the forward accelerometer bias (sensor bias plus pitch error x g) with a 3 s time constant, so a constant bias leaves no steady velocity error."
+  }
+}

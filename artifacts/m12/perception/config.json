@@ -1,0 +1,223 @@
+{
+ "evidence": "rendered frames under stated assumptions; not real footage, not a Pi",
+ "perception_inputs": {
+  "description": "M12 phase C perception: the head-camera model, the AprilTag detector settings, the rendered-frame test sets and the measurement model. bipe.m12.perception reads the inputs, writes artifacts/m12/perception/ and fills measurement_model. Evidence: measured on rendered frames only; there is no real footage, and the distortion, light and noise are assumptions.",
+  "status": "Phase C, signed off by the user as recommended on 21 October 2026 (docs/milestones/12-camera-following-plan.md, phase C sign-off): pupil-apriltags; 1152 x 648 with region-of-interest tracking and frames over 2 cores at 30 Hz; the Pi Zero 2 W kept and to be benchmarked on a real board before phase E; the 42 degree waist-tag camera pitch kept",
+  "camera": {
+   "lens": "wide",
+   "lens_basis": "User decision (20 October 2026), config/following-m12.json camera.lens_decision",
+   "output": {
+    "width_px": 1152,
+    "height_px": 648,
+    "native_pixels_per_output_pixel": 4,
+    "frame_rate_hz": 30,
+    "basis": "The 2304 x 1296 sensor mode (2 x 2 binned, full field, up to 56 fps) scaled to half by the ISP into a 1152 x 648 stream, so one output pixel spans 4 x 4 native 1.4 um pixels; 30 Hz is the phase A assumption under test"
+   },
+   "render": {
+    "supersample": 2,
+    "basis": "Render pixels per output pixel at the image centre; the remap filters the render to the output pitch, so edges and tag cells are resolved from a finer image than the output"
+   },
+   "blur": {
+    "pixel_aperture_sigma_px": 0.29,
+    "lens_sigma_px": 0.5,
+    "basis": "Pixel aperture: a one-pixel box has a standard deviation of 1/sqrt(12) = 0.29 px. Lens and ISP scaler: an assumed 0.5 px Gaussian (the f/2.2 diffraction spot, 1.22 lambda N = 1.5 um, is a quarter of the 5.6 um output pixel; the rest stands for lens aberration and the scaler's filter). Depth of field: with focus at 1 m the hyperfocal distance is about 1.2 m (f^2 / (N c), c = 2 native pixels), so 0.5-2 m stays within a few native pixels of blur, under one output pixel; defocus is not modelled"
+   },
+   "exposure": {
+    "exposure_s": 0.01,
+    "subframes": 5,
+    "comparison_exposures_s": [
+     0.005,
+     0.01,
+     0.02
+    ],
+    "shutter": "global (sub-frame mean); rolling shutter is a later option",
+    "basis": "The exposure is capped at 10 ms through the libcamera exposure limits so that motion blur stays bounded at the following yaw rates; analogue gain makes up the brightness at indoor light. Five sub-frames over 10 ms sample the motion every 2 ms (at 1.4 rad/s, 0.16 degree, under one output pixel at the image centre). 5 and 20 ms are compared in the blur set"
+   },
+   "noise": {
+    "illuminance_lux": 200,
+    "low_light_lux": 50,
+    "photons_per_lux_s_m2": 4100000000000000.0,
+    "lens_transmission": 0.9,
+    "quantum_efficiency": 0.3,
+    "read_noise_e_native": 2.0,
+    "white_level": 0.85,
+    "basis": "Light: 200 lx on the tag, ordinary indoor room lighting (homes 100-300 lx, offices to 500 lx); 50 lx is the dim comparison. Photons: 1 lx at 555 nm is 1/683 W/m^2, or 4.1e15 photons/s/m^2 (the fewest photons per lux of any visible light, so conservative). Camera equation for a Lambertian scene: sensor illuminance = E R T / (4 N^2). QE 0.3: luminance-weighted quantum efficiency through the colour filters (IMX708 QE is not published; typical back-illuminated sensors peak near 0.7 before the colour filter). Read noise 2 e- per native pixel (typical of current 1.4 um back-illuminated sensors; not published for the IMX708), summed in quadrature over the 16 native pixels of an output pixel. White level: auto exposure puts a perfect white diffuser at 85 % of linear full scale before the sRGB tone curve; ISP denoising and sharpening are not modelled. All assumptions until real footage exists"
+   }
+  },
+  "tag": {
+   "family": "tag36h11",
+   "id": 0,
+   "basis": "Phase A sign-off: tag36h11, 0.16 m black square (0.20 m printed). The tag image is drawn from the library's tag36h11 family codes (bipe.m12.detector.tag_image) and built as matte geometry: a white board with black cells 0.2 mm proud"
+  },
+  "detector": {
+   "library": "pupil-apriltags 1.0.4.post11 (MIT-licensed Python bindings to the AprilRobotics apriltag C library 3.x, BSD-2-Clause)",
+   "decision": "pupil-apriltags, signed off by the user on 21 October 2026",
+   "quad_decimate": [
+    1.0,
+    1.5,
+    2.0
+   ],
+   "threads": [
+    1,
+    2,
+    4
+   ],
+   "refine_edges": true,
+   "decode_sharpening": 0.25,
+   "quad_sigma": 0.0,
+   "max_hamming": 0,
+   "roi": {
+    "scale": 2.0,
+    "margin_px": 24,
+    "basis": "Region of interest from the last detection: the tag's bounding box grown to twice its size plus a margin, searched at full resolution (quad_decimate 1); a miss falls back to the full frame at the setting's decimation"
+   },
+   "pose": "The four corners are undistorted through the lens model and the tag pose is fitted to them (homography start, Levenberg-Marquardt on the reprojection error). Range and bearing are taken in the levelled heading frame of the robot using the camera's attitude; the attitude is the simulator's (the balance estimator's attitude error is a phase D input)",
+   "basis": "Settings swept as in the phase C plan: decimation 1, 1.5 and 2, threads 1-4 (timing), edge refinement on, the library's default sharpening, no pre-blur, and only exact code matches (max_hamming 0) so a corrupted decode cannot pass as the tag"
+  },
+  "grid": {
+   "layouts": [
+    "waist_tag",
+    "low_tag"
+   ],
+   "ranges_m": [
+    0.5,
+    0.7,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+    2.0
+   ],
+   "bearing_fractions": [
+    0.0,
+    0.5,
+    1.0
+   ],
+   "view_angles_deg": [
+    0,
+    15,
+    30,
+    45,
+    60,
+    70,
+    80
+   ],
+   "body_pitch_offsets_deg": [
+    -8,
+    0,
+    8
+   ],
+   "samples": 4,
+   "held_out_samples": 2,
+   "jitter_m": 0.01,
+   "posture_deg": 40,
+   "basis": "Range 0.5-1.5 m (the engage window and the following band) plus 1.75 and 2.0 m to find the range limit; bearing from 0 to the horizontal allowance (field of view less the 10 % margin and half the tag), one side (the lens is symmetric); view angle 0-60 degrees plus 70 and 80 to find the detector's limit (phase A left it to phase C); body pitch at the balance pitch and the 8 degree allowance either way. Each point is rendered 4 times with up to 1 cm of random placement and fresh noise (sub-pixel phase), and twice more for the held-out check of the measurement model"
+  },
+  "blur_set": {
+   "layout": "waist_tag",
+   "ranges_m": [
+    0.7,
+    1.0,
+    1.5
+   ],
+   "yaw_rates_rad_s": [
+    0.0,
+    0.5,
+    1.0,
+    1.4
+   ],
+   "pitch_rates_rad_s": [
+    0.0,
+    1.0
+   ],
+   "samples": 4,
+   "basis": "Static robot pose with a constant body yaw rate and pitch rate through the exposure. 1.0 rad/s is the signed-off yaw rate; 1.4 rad/s is about the phase B weave and push peaks (the build reports the peaks from artifacts/m12/speed/traces). Pitch rates to 1 rad/s cover the phase B fast cases"
+  },
+  "replays": {
+   "layout": "waist_tag",
+   "comparison_layout": "low_tag",
+   "scenarios": [
+    "straight_0.3",
+    "straight_0.6",
+    "straight_1.0",
+    "start_stop",
+    "curve_r1",
+    "curve_r2",
+    "corner_90",
+    "lateral_crossing",
+    "approach",
+    "loss_fov",
+    "occlusion_short",
+    "occlusion_long"
+   ],
+   "start_s": 1.0,
+   "settle_s": 2.0,
+   "basis": "The phase A scenarios with the phase B balance controller in the loop: the C core and sensor model replay the ideal follower's commands (as the phase B replay gates do), the plant's state at each sub-frame time is rendered with the target where its scripted path puts it, and each 30 Hz frame is detected. The robot does not react to its own detections here (closed-loop following is phase D and F)"
+  },
+  "timing": {
+   "repeats": 20,
+   "host_cpu": "AMD Ryzen 7 260 (Zen 4, up to 5.1 GHz)",
+   "host_geekbench6_single": 2451,
+   "pi_zero_2w_geekbench6_single": [
+    61,
+    84
+   ],
+   "pi_zero_2w_cores": 4,
+   "basis": "Geekbench 6 single-core: Ryzen 7 260 2451 (CPU-Monkey listing). No Zero 2 W Geekbench 6 entry was found; its RP3A0 is the Pi 3's BCM2837 Cortex-A53 at 1.0 GHz, so the Pi 3 Model B results (73 and 87 at 1.2 GHz, Geekbench browser 447040 and 8846649) and the Pi 3 B+ (118 at 1.4 GHz, 1252369) are scaled by clock to 61-84. The host-to-Pi ratio is then 29-40. Geekbench mixes in floating-point and vector work where the A53 falls further behind, while the detector is integer and memory bound, so the ratio is taken as an upper-to-lower bracket, not a point. Cross-check: PhotonVision users report 13-15 fps at 640 x 480 on a Pi 3B+ (Chief Delphi, 2023)",
+   "latency_budget": {
+    "readout_s": 0.0179,
+    "isp_s": 0.0333,
+    "link_s": 0.002,
+    "basis": "Readout: the 2304 x 1296 mode runs at up to 56 fps, so a frame reads out in at most 1/56 s (rolling shutter; the frame's centre is half that after its first row). ISP and transfer to the ARM: one frame period at 30 Hz, an assumption (libcamera delivers a completed buffer after the ISP pass). Link: a 1 Mbaud UART message of about 40 bytes is 0.4 ms; 2 ms allows for scheduling, an assumption until phase E. Latency is counted from the middle of the exposure to the measurement arriving at the Teensy"
+   }
+  },
+  "model_check": {
+   "detection_probability_tolerance": 0.1,
+   "noise_ratio_bounds": [
+    0.5,
+    2.0
+   ],
+   "bias_tolerance": {
+    "range_m": 0.02,
+    "bearing_deg": 0.5
+   },
+   "minimum_samples": 8,
+   "basis": "Held-out rendered runs (the grid's held-out samples and the scenario replays) agree with the model when, per bin with at least 8 samples, the detection rate is within 0.1 of the model's probability, the standard deviation of range and bearing error is within a factor of 2 of the model's, and the mean error is within the model's bias plus the stated tolerance"
+  }
+ },
+ "perception_inputs_sha256": "59a5b780e67325cf581e0f917cf2837ba4b06e8364142caa35eb30d6cce77e21",
+ "following_sha256": "f9992e62f0503180b2dbef32744ed758bc30a5364743733725b31fbac2052ebb",
+ "camera_sensor": {
+  "pixel_size_m": 1.4e-06,
+  "active_pixels": [
+   4608,
+   2592
+  ],
+  "diagonal_fov_wide_deg": 120,
+  "source": "Raspberry Pi camera documentation, hardware specification table (pixel size, sensor resolution; https://www.raspberrypi.com/documentation/accessories/camera.html, read 21 October 2026); the 120 degree diagonal angle of view of the Wide is from the Raspberry Pi product page (https://www.raspberrypi.com/products/camera-module-3/) and resellers, not the documentation table",
+  "note": "Phase C (perception) inputs; kept beside m12.camera so the phase A record stays current"
+ },
+ "intrinsics": {
+  "width_px": 1152,
+  "height_px": 648,
+  "pixel_pitch_m": 5.6e-06,
+  "f_px": 491.07142857142856,
+  "cx_px": 575.5,
+  "cy_px": 323.5,
+  "k1": 0.0030806105515611528,
+  "k2": -0.02359255188414651,
+  "diagonal_fov_deg": 113.89869789138099,
+  "basis": "focal length 2.75 mm (Raspberry Pi camera documentation, hardware specification table (https://www.raspberrypi.com/documentation/accessories/camera.html), read 20 October 2026) and 1.4 um pixels (Raspberry Pi camera documentation, hardware specification table (pixel size, sensor resolution; https://www.raspberrypi.com/documentation/accessories/camera.html, read 21 October 2026); the 120 degree diagonal angle of view of the Wide is from the Raspberry Pi product page (https://www.raspberrypi.com/products/camera-module-3/) and resellers, not the documentation table); The 2304 x 1296 sensor mode (2 x 2 binned, full field, up to 56 fps) scaled to half by the ISP into a 1152 x 648 stream, so one output pixel spans 4 x 4 native 1.4 um pixels; 30 Hz is the phase A assumption under test; principal point at the image centre and k1, k2 fitted to the documented horizontal and vertical fields (an assumption until a calibration exists)"
+ },
+ "distortion_monotonic": true,
+ "render": {
+  "width": 2630,
+  "height": 1480,
+  "fovy_deg": 73.99272699309462,
+  "f_px": 982.1428571428571,
+  "supersample": 2
+ },
+ "electrons_at_white": 3586.3140495867756,
+ "detector_library": "pupil-apriltags 1.0.4.post11",
+ "mujoco_gl": "egl"
+}

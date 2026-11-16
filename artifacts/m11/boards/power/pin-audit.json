@@ -1,0 +1,534 @@
+{
+  "board": "bipe-m11-power",
+  "size_mm": [
+    60.0,
+    20.0
+  ],
+  "components": [
+    {
+      "ref": "J1",
+      "kind": "Conn2",
+      "value": "PACK IN (fused XT30 pigtail, 20 AWG)",
+      "footprint": "Connector_Wire:SolderWire-0.5sqmm_1x02_P4.6mm_D0.9mm_OD2.1mm",
+      "xy": [
+        2.5,
+        3.5
+      ],
+      "rot": 270,
+      "nets": {
+        "1": "VBAT",
+        "2": "GND"
+      },
+      "mpn": "PACK IN (fused XT30 pigtail, 20 AWG)",
+      "lcsc": "",
+      "source": "",
+      "fpname": "SolderWire-0.5sqmm_1x02_P4.6mm_D0.9mm_OD2.1mm"
+    },
+    {
+      "ref": "C1",
+      "kind": "C",
+      "value": "4.7uF 50V",
+      "footprint": "Capacitor_SMD:C_1206_3216Metric",
+      "xy": [
+        7.5,
+        7.2
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "VBAT",
+        "2": "GND"
+      },
+      "mpn": "4.7uF 50V",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_1206_3216Metric"
+    },
+    {
+      "ref": "C2",
+      "kind": "C",
+      "value": "4.7uF 50V",
+      "footprint": "Capacitor_SMD:C_1206_3216Metric",
+      "xy": [
+        7.5,
+        10.4
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "VBAT",
+        "2": "GND"
+      },
+      "mpn": "4.7uF 50V",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_1206_3216Metric"
+    },
+    {
+      "ref": "Q1",
+      "kind": "NMOS",
+      "value": "AOD4184A",
+      "footprint": "Package_TO_SOT_SMD:TO-252-2",
+      "xy": [
+        16.0,
+        8.0
+      ],
+      "rot": 180,
+      "nets": {
+        "1": "GATE_Q",
+        "2": "VBAT",
+        "3": "BUS"
+      },
+      "mpn": "AOD4184A",
+      "lcsc": "C99124",
+      "source": "https://www.aosmd.com/res/datasheets/AOD4184A.pdf",
+      "fpname": "TO-252-2"
+    },
+    {
+      "ref": "U1",
+      "kind": "LM5060",
+      "value": "LM5060MM/NOPB",
+      "footprint": "Package_SO:VSSOP-10_3x3mm_P0.5mm",
+      "xy": [
+        28.5,
+        12.0
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "SENSE",
+        "2": "VBAT",
+        "3": "GND",
+        "4": "UVLO",
+        "5": "EN",
+        "6": "GND",
+        "7": "TIMER",
+        "8": "PWR_GOOD_N",
+        "9": "BUS",
+        "10": "GATE"
+      },
+      "mpn": "LM5060MM/NOPB",
+      "lcsc": "C74456",
+      "source": "https://www.ti.com/lit/ds/symlink/lm5060.pdf",
+      "fpname": "VSSOP-10_3x3mm_P0.5mm"
+    },
+    {
+      "ref": "R1",
+      "kind": "R",
+      "value": "10k 1%",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "xy": [
+        24.0,
+        9.3
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "VBAT",
+        "2": "SENSE"
+      },
+      "mpn": "0603 10k 1%",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "R_0603_1608Metric"
+    },
+    {
+      "ref": "C3",
+      "kind": "C",
+      "value": "100nF 50V",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "xy": [
+        24.0,
+        12.8
+      ],
+      "rot": 90,
+      "nets": {
+        "1": "VBAT",
+        "2": "GND"
+      },
+      "mpn": "100nF 50V",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_0603_1608Metric"
+    },
+    {
+      "ref": "C4",
+      "kind": "C",
+      "value": "22nF 50V C0G",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "xy": [
+        33.0,
+        9.3
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "GATE",
+        "2": "GND"
+      },
+      "mpn": "22nF 50V C0G",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_0603_1608Metric"
+    },
+    {
+      "ref": "R2",
+      "kind": "R",
+      "value": "10R",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "xy": [
+        21.5,
+        14.2
+      ],
+      "rot": 90,
+      "nets": {
+        "1": "GATE",
+        "2": "GATE_Q"
+      },
+      "mpn": "0603 10R",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "R_0603_1608Metric"
+    },
+    {
+      "ref": "C5",
+      "kind": "C",
+      "value": "330nF 25V",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "xy": [
+        32.5,
+        14.2
+      ],
+      "rot": 90,
+      "nets": {
+        "1": "TIMER",
+        "2": "GND"
+      },
+      "mpn": "330nF 25V",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_0603_1608Metric"
+    },
+    {
+      "ref": "R3",
+      "kind": "R",
+      "value": "10k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "xy": [
+        19.5,
+        18.2
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "SW_ON",
+        "2": "EN"
+      },
+      "mpn": "0603 10k",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "R_0603_1608Metric"
+    },
+    {
+      "ref": "R4",
+      "kind": "R",
+      "value": "53.6k 1%",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "xy": [
+        23.0,
+        18.2
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "SW_ON",
+        "2": "UVLO"
+      },
+      "mpn": "0603 53.6k 1%",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "R_0603_1608Metric"
+    },
+    {
+      "ref": "R5",
+      "kind": "R",
+      "value": "4.7k 1%",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "xy": [
+        26.5,
+        18.2
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "UVLO",
+        "2": "GND"
+      },
+      "mpn": "0603 4.7k 1%",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "R_0603_1608Metric"
+    },
+    {
+      "ref": "C6",
+      "kind": "C",
+      "value": "10nF 50V",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "xy": [
+        30.0,
+        18.2
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "UVLO",
+        "2": "GND"
+      },
+      "mpn": "10nF 50V",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_0603_1608Metric"
+    },
+    {
+      "ref": "D1",
+      "kind": "D",
+      "value": "SMBJ30A",
+      "footprint": "Diode_SMD:D_SMB",
+      "xy": [
+        28.0,
+        6.0
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "BUS",
+        "2": "GND"
+      },
+      "mpn": "SMBJ30A-13-F",
+      "lcsc": "C135065",
+      "source": "Diodes Inc. SMBJ30A (30 V standoff, 48.4 V clamp, 600 W)",
+      "fpname": "D_SMB"
+    },
+    {
+      "ref": "J2",
+      "kind": "Conn2",
+      "value": "BUS OUT (T-splice trunk, 20 AWG)",
+      "footprint": "Connector_Wire:SolderWire-0.5sqmm_1x02_P4.6mm_D0.9mm_OD2.1mm",
+      "xy": [
+        40.0,
+        2.5
+      ],
+      "rot": 270,
+      "nets": {
+        "1": "BUS",
+        "2": "GND"
+      },
+      "mpn": "BUS OUT (T-splice trunk, 20 AWG)",
+      "lcsc": "",
+      "source": "",
+      "fpname": "SolderWire-0.5sqmm_1x02_P4.6mm_D0.9mm_OD2.1mm"
+    },
+    {
+      "ref": "J3",
+      "kind": "Conn2",
+      "value": "BEC12S-PRO IN",
+      "footprint": "Connector_Wire:SolderWire-0.25sqmm_1x02_P4.2mm_D0.65mm_OD1.7mm",
+      "xy": [
+        46.5,
+        2.5
+      ],
+      "rot": 270,
+      "nets": {
+        "1": "BUS",
+        "2": "GND"
+      },
+      "mpn": "BEC12S-PRO IN",
+      "lcsc": "",
+      "source": "",
+      "fpname": "SolderWire-0.25sqmm_1x02_P4.2mm_D0.65mm_OD1.7mm"
+    },
+    {
+      "ref": "R6",
+      "kind": "R",
+      "value": "180k 1%",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "xy": [
+        49.6,
+        4.6
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "BUS",
+        "2": "BUS_SENSE"
+      },
+      "mpn": "0603 180k 1%",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "R_0603_1608Metric"
+    },
+    {
+      "ref": "J4",
+      "kind": "Conn3",
+      "value": "MON: BUS_SENSE PGD_N GND",
+      "footprint": "Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical",
+      "xy": [
+        37.0,
+        13.2
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "BUS_SENSE",
+        "2": "PWR_GOOD_N",
+        "3": "GND"
+      },
+      "mpn": "B3B-PH-K-S(LF)(SN)",
+      "lcsc": "C131339",
+      "source": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf",
+      "fpname": "JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical"
+    },
+    {
+      "ref": "J6",
+      "kind": "Conn3",
+      "value": "CAN END: H L GND",
+      "footprint": "Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical",
+      "xy": [
+        46.0,
+        13.2
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "CAN_H",
+        "2": "CAN_L",
+        "3": "GND"
+      },
+      "mpn": "B3B-PH-K-S(LF)(SN)",
+      "lcsc": "C131339",
+      "source": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf",
+      "fpname": "JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical"
+    },
+    {
+      "ref": "R7",
+      "kind": "R",
+      "value": "60.4R 1%",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "xy": [
+        43.5,
+        9.5
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "CAN_H",
+        "2": "CAN_MID"
+      },
+      "mpn": "0603 60.4R 1%",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "R_0603_1608Metric"
+    },
+    {
+      "ref": "R8",
+      "kind": "R",
+      "value": "60.4R 1%",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "xy": [
+        47.0,
+        9.5
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "CAN_MID",
+        "2": "CAN_L"
+      },
+      "mpn": "0603 60.4R 1%",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "R_0603_1608Metric"
+    },
+    {
+      "ref": "C7",
+      "kind": "C",
+      "value": "4.7nF 50V",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "xy": [
+        50.3,
+        9.6
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "CAN_MID",
+        "2": "GND"
+      },
+      "mpn": "4.7nF 50V",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_0603_1608Metric"
+    },
+    {
+      "ref": "J5",
+      "kind": "Conn2",
+      "value": "SWITCH: VBAT SW_ON (rear-wall slide switch)",
+      "footprint": "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
+      "xy": [
+        54.0,
+        5.5
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "VBAT",
+        "2": "SW_ON"
+      },
+      "mpn": "B2B-PH-K-S(LF)(SN)",
+      "lcsc": "C131337",
+      "source": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf",
+      "fpname": "JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical"
+    },
+    {
+      "ref": "#FLG01",
+      "kind": "PWR_FLAG",
+      "value": "PWR_FLAG",
+      "footprint": "",
+      "xy": [
+        0,
+        0
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "VBAT"
+      },
+      "mpn": "",
+      "lcsc": "",
+      "source": "",
+      "fpname": ""
+    },
+    {
+      "ref": "#FLG02",
+      "kind": "PWR_FLAG",
+      "value": "PWR_FLAG",
+      "footprint": "",
+      "xy": [
+        0,
+        0
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "GND"
+      },
+      "mpn": "",
+      "lcsc": "",
+      "source": "",
+      "fpname": ""
+    }
+  ],
+  "net_names": [
+    "BUS",
+    "BUS_SENSE",
+    "CAN_H",
+    "CAN_L",
+    "CAN_MID",
+    "EN",
+    "GATE",
+    "GATE_Q",
+    "GND",
+    "PWR_GOOD_N",
+    "SENSE",
+    "SW_ON",
+    "TIMER",
+    "UVLO",
+    "VBAT"
+  ],
+  "power_nets": [
+    "VBAT",
+    "BUS"
+  ],
+  "status": "M11 phase D digital candidate; not hardware validated or released"
+}

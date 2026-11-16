@@ -1,0 +1,69 @@
+{
+  "assumptions": {
+    "motor_module_m": [
+      0.0493,
+      0.0155
+    ],
+    "pulleys_m": {
+      "small_r": 0.0075,
+      "large_r": 0.027,
+      "width": 0.007
+    },
+    "planetary_width_m": 0.012,
+    "battery_m": [
+      0.032,
+      0.047,
+      0.065
+    ],
+    "moteus_m": [
+      0.038,
+      0.038,
+      0.009
+    ],
+    "host_m": [
+      0.04,
+      0.01,
+      0.03
+    ],
+    "hip_pod_proud_of_body_m": 0.0030000000000000027
+  },
+  "A_rear_motor_row": {
+    "body_lwh_m": [
+      0.145,
+      0.102,
+      0.08
+    ],
+    "hip_drive_outer_y_m": 0.0485,
+    "thigh_shift_outboard_m": 0.0,
+    "overall_width_m": 0.205,
+    "clashes": [],
+    "outside_interior_mm": {},
+    "nominal_thigh_deg_below_horizontal_back": 25.990131059881264,
+    "nominal_axle_x_m": -0.012676417825294849,
+    "static_drive_Nm": {
+      "thigh_drive_Nm": -0.39488806315292674,
+      "shin_drive_Nm": 0.333815207438641
+    }
+  },
+  "B_coaxial_planetary": {
+    "body_lwh_m": [
+      0.13,
+      0.092,
+      0.08
+    ],
+    "hip_drive_outer_y_m": 0.0655,
+    "thigh_shift_outboard_m": 0.013000000000000005,
+    "overall_width_m": 0.231,
+    "clashes": [],
+    "outside_interior_mm": {
+      "thigh_motor_gear_1": 16.5,
+      "thigh_motor_gear_-1": 16.5
+    },
+    "nominal_thigh_deg_below_horizontal_back": 27.547243573585035,
+    "nominal_axle_x_m": -0.01063440857823754,
+    "static_drive_Nm": {
+      "thigh_drive_Nm": -0.3895109427960667,
+      "shin_drive_Nm": 0.3416896452960668
+    }
+  }
+}

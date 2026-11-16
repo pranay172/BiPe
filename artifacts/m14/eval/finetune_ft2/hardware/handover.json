@@ -1,0 +1,33 @@
+{
+  "checkpoint": "artifacts/m14/checkpoints/finetune2_s1/model_10997.pt",
+  "checkpoint_sha256": "2c2a0c97e8568d9c51f5e5af322619b0b7acdd153567f5c40310d02c1476242a",
+  "runtime": "firmware/src/locomotion/learned.c",
+  "variant": "hardware",
+  "deferred": true,
+  "wheel_tick": "driver",
+  "fault_s": null,
+  "leg_filter": {
+    "tau_s": 0.0,
+    "band_rad": 0.06
+  },
+  "suite": "acceptance",
+  "cases": [
+    "belt_hold_h0.1125_n0.225_k0",
+    "belt_hold_h0.1125_n0.225_k1",
+    "belt_hold_h0.1125_n0.9_k0",
+    "belt_hold_h0.1125_n0.9_k1",
+    "belt_hold_h0.45_n0.225_k0",
+    "belt_hold_h0.45_n0.225_k1",
+    "belt_hold_h0.45_n0.9_k0",
+    "belt_hold_h0.45_n0.9_k1",
+    "push_hold_+2",
+    "push_hold_-2",
+    "push_drive_+2.5",
+    "push_low_-2.5",
+    "sensors_combined",
+    "backlash_turn_0.6",
+    "slope_up_8",
+    "delay_15ms_noise_x2_drive",
+    "wheel_lag_25ms_drive"
+  ]
+}

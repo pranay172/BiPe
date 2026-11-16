@@ -1,0 +1,59 @@
+{
+  "scope": "estimate from the ARM build run under an instruction-accurate emulator; the Teensy's DWT cycle counter replaces it at the bench check",
+  "network": {
+    "multiply_accumulates": 47744,
+    "elu_neurons": 448,
+    "parameters_bytes": 192992
+  },
+  "build": {
+    "compiler": "arm-none-eabi-gcc (15:13.2.rel1-2) 13.2.1 20231009",
+    "flags": "-std=c11 -O2 -mcpu=cortex-m7 -mthumb -mfpu=fpv5-d16 -mfloat-abi=hard; newlib libm expm1f",
+    "note": "Teensy's PlatformIO toolchain (gcc 11.3) was not reachable from the build host; the Debian arm-none-eabi gcc 13.2 stands in",
+    "sections_bytes": {
+      ".text": 5140,
+      ".rodata": 193060,
+      ".data": 1352,
+      ".persistent": 0,
+      ".bss": 376,
+      ".noinit": 0
+    },
+    "stack_bytes": 1956,
+    "memory_note": "the weights are const: Teensy 4.0's linker copies them to DTCM (RAM1, 512 KB shared with ITCM) unless marked PROGMEM, leaving them in QSPI flash behind the 32 KB cache"
+  },
+  "instructions_per_call": {
+    "calls_measured": 121,
+    "max": 307867,
+    "mean": 304852.52892561984,
+    "min": 304018,
+    "mac_loop_at_max": 286664,
+    "expm1f_at_max": 16125
+  },
+  "cycle_model": {
+    "mac_loop_cycles_per_mac": [
+      3,
+      8
+    ],
+    "other_cycles_per_instruction": [
+      1,
+      2
+    ],
+    "basis": "Cortex-M7 dual issue and FP add/multiply latency (ARM Cortex-M7 TRM); one accumulator chain per output; DTCM zero wait state"
+  },
+  "time_s": {
+    "best": 0.000274225,
+    "worst": 0.0007077077777777779,
+    "clock_Hz": 600000000.0
+  },
+  "against": {
+    "m11_compute_bound_s": 0.0005,
+    "m11_margin_s": 0.00156,
+    "policy_period_s": 0.02,
+    "worst_over_compute_bound": 1.4154155555555556,
+    "worst_fits_in_tick_margin": true,
+    "worst_fraction_of_policy_period": 0.03538538888888889
+  },
+  "identity": {
+    "checkpoint_sha256": "76f5d32ed82acffc06bbc6ffb97f8f1c0f09539eab4f2875e983c89a72bd2fff",
+    "arm_image_sha256": "8d65e1b35ed7bf3cfbd5062ca87bfe8c098ad88cf8a7ff12c800cfdbebaf39b1"
+  }
+}

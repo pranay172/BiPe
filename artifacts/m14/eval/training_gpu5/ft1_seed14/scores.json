@@ -1,0 +1,46 @@
+{
+  "scores": {
+    "name": "ft1_seed14",
+    "checkpoint": "artifacts/m14/checkpoints/finetune_s1/model_9998.pt",
+    "checkpoint_sha256": "8cfe26ae6f50f3627a83ba25fea85638920e2ad82a811b07938247ff445da304",
+    "acceptance": null,
+    "speed": null,
+    "stress": null,
+    "hardware": null,
+    "training": {
+      "episodes": 1000,
+      "falls": 50,
+      "fall_rate": 0.05,
+      "interval_95": [
+        0.03813007264328189,
+        0.0653141360844696
+      ],
+      "episode_s": 10.0,
+      "complete": true,
+      "causes": {
+        "tipped": 14,
+        "shell_contact": 12,
+        "rolled": 9,
+        "joint_limit": 3,
+        "nan": 0,
+        "leaned": 15
+      }
+    },
+    "stages": {
+      "training": {
+        "exit": 0,
+        "commit": "0d9389bea6cda67d09497bfda9122ce6b35da00c",
+        "dirty": false
+      }
+    },
+    "gates": {
+      "5_training_fall_rate": {
+        "value": 0.05,
+        "mark": 0.05,
+        "complete": true,
+        "passed": true
+      }
+    }
+  },
+  "baseline": null
+}

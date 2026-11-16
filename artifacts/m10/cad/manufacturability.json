@@ -1,0 +1,215 @@
+{
+  "basis": "Inward normal rays from a 5x5 parameter grid per face on the nominal assembly; thin features such as fillet lips and split-line edges register as short runs",
+  "threshold_mm": 1.0,
+  "threshold_basis": "SLS PA12/TPU minimum wall guidance about 0.8-1.0 mm (assumption)",
+  "parts": {
+    "BodyCover": {
+      "material": "pa12",
+      "samples": 1269,
+      "min_mm": 2.0,
+      "p05_mm": 2.0,
+      "median_mm": 2.0,
+      "below_threshold": 0
+    },
+    "BodyTub": {
+      "material": "pa12",
+      "samples": 1476,
+      "min_mm": 1.5,
+      "p05_mm": 2.0,
+      "median_mm": 2.0,
+      "below_threshold": 0
+    },
+    "BatteryHatch": {
+      "material": "pa12",
+      "samples": 170,
+      "min_mm": 1.9,
+      "p05_mm": 2.0,
+      "median_mm": 2.0,
+      "below_threshold": 0
+    },
+    "FrontCameraBezel": {
+      "material": "pa12",
+      "samples": 117,
+      "min_mm": 3.0,
+      "p05_mm": 3.0,
+      "median_mm": 3.27,
+      "below_threshold": 0
+    },
+    "HeadRear": {
+      "material": "pa12",
+      "samples": 944,
+      "min_mm": 1.43,
+      "p05_mm": 1.59,
+      "median_mm": 1.96,
+      "below_threshold": 0
+    },
+    "HeadFront": {
+      "material": "pa12",
+      "samples": 1457,
+      "min_mm": 0.34,
+      "p05_mm": 1.6,
+      "median_mm": 3.37,
+      "below_threshold": 2
+    },
+    "CameraBezel": {
+      "material": "pa12",
+      "samples": 250,
+      "min_mm": 3.0,
+      "p05_mm": 3.0,
+      "median_mm": 12.16,
+      "below_threshold": 0
+    },
+    "Neck": {
+      "material": "pa12",
+      "samples": 140,
+      "min_mm": 12.0,
+      "p05_mm": 12.0,
+      "median_mm": 14.0,
+      "below_threshold": 0
+    },
+    "Ear": {
+      "material": "tpu",
+      "samples": 458,
+      "min_mm": 3.13,
+      "p05_mm": 7.0,
+      "median_mm": 12.41,
+      "below_threshold": 0
+    },
+    "HipHousing": {
+      "material": "pa12",
+      "samples": 140,
+      "min_mm": 3.0,
+      "p05_mm": 3.0,
+      "median_mm": 3.02,
+      "below_threshold": 0
+    },
+    "Thigh": {
+      "material": "pa12",
+      "samples": 819,
+      "min_mm": 1.27,
+      "p05_mm": 1.9,
+      "median_mm": 2.0,
+      "below_threshold": 0
+    },
+    "ThighLid": {
+      "material": "pa12",
+      "samples": 910,
+      "min_mm": 1.2,
+      "p05_mm": 1.6,
+      "median_mm": 2.46,
+      "below_threshold": 0
+    },
+    "KneeStopPad": {
+      "material": "tpu",
+      "samples": 260,
+      "min_mm": 3.8,
+      "p05_mm": 3.8,
+      "median_mm": 6.0,
+      "below_threshold": 0
+    },
+    "ThighPanel": {
+      "material": "pa12",
+      "samples": 250,
+      "min_mm": 3.8,
+      "p05_mm": 3.8,
+      "median_mm": 22.81,
+      "below_threshold": 0
+    },
+    "HipCap": {
+      "material": "pa12",
+      "samples": 117,
+      "min_mm": 1.2,
+      "p05_mm": 1.2,
+      "median_mm": 1.32,
+      "below_threshold": 0
+    },
+    "Tire": {
+      "material": "tpu",
+      "samples": 100,
+      "min_mm": 8.0,
+      "p05_mm": 8.0,
+      "median_mm": 9.41,
+      "below_threshold": 0
+    },
+    "HubDisc": {
+      "material": "pa12",
+      "samples": 182,
+      "min_mm": 1.1,
+      "p05_mm": 1.1,
+      "median_mm": 4.45,
+      "below_threshold": 0
+    },
+    "HubBlade": {
+      "material": "pa12",
+      "samples": 150,
+      "min_mm": 1.5,
+      "p05_mm": 1.5,
+      "median_mm": 2.0,
+      "below_threshold": 0
+    },
+    "HubCap": {
+      "material": "pa12",
+      "samples": 117,
+      "min_mm": 2.1,
+      "p05_mm": 2.1,
+      "median_mm": 2.28,
+      "below_threshold": 0
+    },
+    "Tread": {
+      "material": "tpu",
+      "samples": 21600,
+      "min_mm": 0.8,
+      "p05_mm": 0.8,
+      "median_mm": 2.5,
+      "below_threshold": 7200
+    },
+    "SkidSkin": {
+      "material": "tpu",
+      "samples": 334,
+      "min_mm": 1.2,
+      "p05_mm": 1.2,
+      "median_mm": 1.2,
+      "below_threshold": 0
+    },
+    "WheelRingSkin": {
+      "material": "tpu",
+      "samples": 150,
+      "min_mm": 1.2,
+      "p05_mm": 1.2,
+      "median_mm": 1.2,
+      "below_threshold": 0
+    },
+    "WheelRingCarrier": {
+      "material": "pa12",
+      "samples": 366,
+      "min_mm": 1.49,
+      "p05_mm": 1.49,
+      "median_mm": 5.0,
+      "below_threshold": 0
+    },
+    "KneeDriveStopPad": {
+      "material": "tpu",
+      "samples": 272,
+      "min_mm": 3.8,
+      "p05_mm": 3.8,
+      "median_mm": 6.0,
+      "below_threshold": 0
+    },
+    "HipStopPad": {
+      "material": "tpu",
+      "samples": 272,
+      "min_mm": 3.8,
+      "p05_mm": 3.8,
+      "median_mm": 6.0,
+      "below_threshold": 0
+    },
+    "KneeBoss": {
+      "material": "pa12",
+      "samples": 66,
+      "min_mm": 2.0,
+      "p05_mm": 2.0,
+      "median_mm": 2.0,
+      "below_threshold": 0
+    }
+  }
+}

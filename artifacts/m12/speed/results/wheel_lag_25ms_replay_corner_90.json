@@ -1,0 +1,126 @@
+{
+  "case": {
+    "name": "wheel_lag_25ms_replay_corner_90",
+    "purpose": "replay_corner_90 with wheel_lag_25ms",
+    "replay": {
+      "layout": "waist_tag",
+      "scenario": "corner_90",
+      "start_s": 1.0
+    },
+    "duration": 18.34,
+    "gate": "survive",
+    "variant": "wheel_lag_25ms"
+  },
+  "failure": "physical limit at 9.072s: pitch=20.04, roll=0.08, contact=False, joint_limit=False",
+  "warnings": {},
+  "general_passed": false,
+  "longest_saturation_s": 0.0005,
+  "max_joint_error_deg": 2.6385148979554596,
+  "physical": {
+    "physical_pass": false,
+    "recovered": false,
+    "duration_s": 9.071500000001533,
+    "failure": "physical limit at 9.072s: pitch=20.04, roll=0.08, contact=False, joint_limit=False",
+    "warnings": {},
+    "peak_pitch_deg": 20.042203724062556,
+    "late_pitch_pp_deg": null,
+    "max_travel_m": 4.579717184251731,
+    "rollback_m": 0.002111645148238396,
+    "late_speed_peak_m_s": null,
+    "max_joint_error_deg": 2.6385148979554596,
+    "peak_motor_Nm": 0.5688409340848787,
+    "peak_wheel_Nm": 0.30324456464166044,
+    "rms_wheel_Nm": 0.03879372228743196,
+    "push_impulse_Ns": 0.0,
+    "positive_motor_work_J": 4.861000870275922,
+    "negative_motor_work_J": 1.3393401211653115,
+    "peak_conditional_dc_input_A": 2.108388898469299,
+    "peak_regen_mechanical_W": 4.233494903547697,
+    "backlash": {
+      "physics_substeps": 36286,
+      "belt_peak_transmitted_Nm": [
+        0.5283540020868355,
+        0.5501917217678836,
+        0.4868301122361813,
+        0.6372294770089364,
+        0.6106572838577836,
+        0.7066090355910314
+      ],
+      "phase_current_peak_A": [
+        1.8844108938446242,
+        1.9324851389055933,
+        1.7345063482348588,
+        2.251662030752645,
+        1.4756157207246603,
+        2.021630430944403
+      ],
+      "hub_voltage_limited": [
+        1.0,
+        1.0
+      ],
+      "last_belt_transmitted_Nm": [
+        0.2968297482175075,
+        -0.4175167687161728,
+        0.306952359587691,
+        -0.5193607955624195,
+        -0.46709686610664963,
+        -0.5781517169312389
+      ],
+      "state_projection_count": 0,
+      "rotor_inertia_basis": "RO40 rotor bodies carry the manufacturer core inertia; GL40 rotor inertia is in the wheel body"
+    },
+    "late_pitch_peak_deg": null,
+    "phase_current_peak_A": [
+      1.8844108938446242,
+      1.9324851389055933,
+      1.7345063482348588,
+      2.251662030752645,
+      1.4756157207246603,
+      2.021630430944403
+    ],
+    "phase_current_rms_A": [
+      1.5109700945957292,
+      1.3247839338009753,
+      1.4812256056258208,
+      1.395191012268146,
+      0.2549764192133775,
+      0.25862481524954656
+    ],
+    "estimated_dc_input_work_J": 158.1799579229899,
+    "negative_motor_work_each_J": [
+      0.010380388038064322,
+      0.04101568943422143,
+      0.0072533050041813174,
+      0.0449255218084049,
+      0.7381679785794495,
+      0.4975972383009891
+    ],
+    "peak_net_regen_estimate_W": 0.0,
+    "net_regen_estimate_J": 0.0
+  },
+  "speed": {
+    "peak_pitch_deg": 20.042203724062556,
+    "peak_roll_deg": 0.07688884730184699,
+    "peak_speed_m_s": 1.2641519900058154,
+    "peak_command_m_s": 1.1567327976226807,
+    "peak_yaw_rate_rad_s": 1.1795933478888627,
+    "final_heading_error_deg": 4.101838274972664,
+    "peak_wheel_Nm": 0.30324456464166044,
+    "plateau_speed_error_m_s": [],
+    "yaw_rate_error_rad_s": [],
+    "stops": [],
+    "path_error_m": 0.1773277717289051
+  },
+  "electrical": {
+    "hub_phase_current_peak_A": 2.021630430944403,
+    "hub_time_at_current_limit_fraction": 0.0,
+    "hub_time_at_voltage_limit_fraction": 0.0,
+    "hub_phase_voltage_demand_peak_V": 14.03511380458435,
+    "hub_rotor_speed_peak_rad_s": 35.938269337952285,
+    "leg_phase_current_peak_A": 2.251662030752645,
+    "bus_current_peak_A_pack_low": 3.570851256209052,
+    "bus_current_rms_A_pack_low": 1.2937916389558106,
+    "bus_power_mean_W": 24.547276852976594,
+    "runtime_at_this_load_min": 36.89859390208359
+  }
+}

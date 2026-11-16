@@ -1,0 +1,61 @@
+{
+ "groups": {
+  "latency_0.10": {
+   "runs": 12,
+   "passed": 12,
+   "falls": 0,
+   "classical_passed": 12
+  },
+  "latency_0.20": {
+   "runs": 12,
+   "passed": 11,
+   "falls": 0,
+   "classical_passed": 10
+  },
+  "variants": {
+   "runs": 20,
+   "passed": 20,
+   "falls": 0,
+   "classical_passed": 15
+  },
+  "light_side_light": {
+   "runs": 3,
+   "passed": 1,
+   "falls": 0,
+   "classical_passed": 1
+  },
+  "light_dim": {
+   "runs": 3,
+   "passed": 2,
+   "falls": 0,
+   "classical_passed": 3
+  },
+  "slopes": {
+   "runs": 2,
+   "passed": 2,
+   "falls": 0,
+   "classical_passed": 0
+  }
+ },
+ "all": {
+  "runs": 52,
+  "passed": 48,
+  "falls": 0,
+  "classical_passed": 41
+ },
+ "against_classical": {
+  "lost": [
+   "corner_90_seed0_lat0.15_dim"
+  ],
+  "gained": [
+   "corner_90_seed0_lat0.15_delay_15ms_noise_x2",
+   "curve_r1_seed0_lat0.15_delay_15ms_noise_x2",
+   "lateral_crossing_seed0_lat0.15_delay_15ms_noise_x2",
+   "loss_fov_seed0_lat0.15_delay_15ms_noise_x2",
+   "start_stop_seed0_lat0.20",
+   "straight_0.6_seed0_lat0.15_slope+4",
+   "straight_0.6_seed0_lat0.15_slope-4",
+   "straight_1.0_seed0_lat0.15_delay_15ms_noise_x2"
+  ]
+ }
+}

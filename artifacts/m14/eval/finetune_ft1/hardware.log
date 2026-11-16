@@ -1,0 +1,70 @@
+/home/claude/BiPe/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+current push_drive_+2.5 True None
+current push_low_-2.5 True None
+current push_hold_-2 True None
+current push_hold_+2 True None
+current belt_hold_h0.1125_n0.225_k0 True None
+current slope_up_8 False None
+current backlash_turn_0.6 True None
+current belt_hold_h0.1125_n0.225_k1 True None
+current belt_hold_h0.1125_n0.9_k0 True None
+current belt_hold_h0.1125_n0.9_k1 True None
+current belt_hold_h0.45_n0.225_k0 True None
+current belt_hold_h0.45_n0.225_k1 True None
+current belt_hold_h0.45_n0.9_k0 True None
+current belt_hold_h0.45_n0.9_k1 True None
+current wheel_lag_25ms_drive False None
+current sensors_combined False None
+current delay_15ms_noise_x2_drive False None
+{
+  "current": {
+    "push_hold_-1_Ns": 2,
+    "largest_observed_passing_push_hold_-1_Ns": 2,
+    "largest_survived_push_hold_-1_Ns": 2,
+    "push_hold_+1_Ns": 2,
+    "largest_observed_passing_push_hold_+1_Ns": 2,
+    "largest_survived_push_hold_+1_Ns": 2,
+    "push_drive_-1_Ns": 0.0,
+    "largest_observed_passing_push_drive_-1_Ns": 0.0,
+    "largest_survived_push_drive_-1_Ns": 0.0,
+    "push_drive_+1_Ns": 2.5,
+    "largest_observed_passing_push_drive_+1_Ns": 2.5,
+    "largest_survived_push_drive_+1_Ns": 2.5,
+    "push_low_-1_Ns": 2.5,
+    "largest_observed_passing_push_low_-1_Ns": 2.5,
+    "largest_survived_push_low_-1_Ns": 2.5,
+    "push_low_+1_Ns": 0.0,
+    "largest_observed_passing_push_low_+1_Ns": 0.0,
+    "largest_survived_push_low_+1_Ns": 0.0,
+    "stable_slope_hold_deg": null,
+    "stable_slope_up_deg": 8,
+    "stable_slope_down_deg": null,
+    "backlash_hold_0_pp_deg": null,
+    "backlash_hold_0.3_pp_deg": null,
+    "backlash_hold_0.6_pp_deg": null,
+    "slope_hold_10_rollback_m": null,
+    "robustness_physical_passes": 6,
+    "robustness_cases": 6,
+    "targets": {
+      "survive_2_Ns_both_directions": true,
+      "recover_2_Ns_both_directions": true,
+      "slope_10_rollback_at_most_0p3_m": false,
+      "slope_10_rollback_within_limit": false,
+      "backlash_0p6_pp_at_most_1p5_deg": false,
+      "all_three_backlash_cycles_at_most_1p5_deg": false,
+      "all_slopes_through_10_survive": false,
+      "all_slope_hold_rollbacks_within_limit": false,
+      "belt_range_cycles_at_most_1p5_deg": true
+    },
+    "slope_hold_max_rollback_m": 0,
+    "belt_range_max_pitch_pp_deg": 0.6640090604133467,
+    "inherited_passes": 0,
+    "inherited_cases": 3,
+    "inherited_failures": [
+      "delay_15ms_noise_x2_drive",
+      "sensors_combined",
+      "wheel_lag_25ms_drive"
+    ]
+  }
+}

@@ -1,0 +1,1548 @@
+{
+ "status": "proposed requirements for sign-off; evidence: layout study and ideal follower under stated assumptions (no balance dynamics, no perception)",
+ "following": {
+  "description": "M12 camera-following requirements, proposed in phase A for the user's sign-off at the phase exit. Each value carries its basis. bipe.m12.requirements checks them against the head-camera geometry and the ideal follower and writes artifacts/m12/requirements/requirements.json.",
+  "status": "signed off by the user on 20 October 2026 as proposed, with the waist-tag layout, the Wide lens, and the brief brake-and-reacquire of a single worn tag in 1 m curves and 90 degree corners accepted; amended at the phase D sign-off on 22 October 2026 (range.band_m floor 0.6 m, loss.coast_s 0.45 s with a 0.95 m stopping distance; the slope-start peak pitch and the delay_15ms_noise_x2 falls accepted as recorded in docs/milestones/12-camera-following-plan.md)",
+  "range": {
+   "nominal_m": 1.0,
+   "band_m": [
+    0.6,
+    1.5
+   ],
+   "basis": "Phase D sign-off (22 October 2026): the floor is 0.6 m, lowered from 0.7 m. In the phase D closed loop the range dips to 0.63-0.66 m (0.58 m at 0.20 s latency) when the target stops or crosses, the latency plus the robot's stopping response; it never comes near the 0.4 m stop range. Close enough for the tag to stay large in the image, far enough that a stopping person is not reached before the robot brakes (loss stopping distance below). The band holds while the target stays inside the target limits; a faster approach may take the range below the band, never below close_range.stop_range_m."
+  },
+  "bearing": {
+   "steady_tolerance_deg": 10,
+   "basis": "Straight following keeps the tag near the image centre, leaving most of the field of view for turns and lateral motion. Transient bearing is bounded by the field of view less the edge margin (no loss)."
+  },
+  "target": {
+   "speed_max_m_s": 1.0,
+   "acceleration_max_m_s2": 1.0,
+   "lateral_acceleration_max_m_s2": 0.5,
+   "curve_radius_min_m": [
+    [
+     0.7,
+     1.0
+    ],
+    [
+     1.0,
+     2.0
+    ]
+   ],
+   "corner": {
+    "radius_m": 0.3,
+    "speed_m_s": 0.5
+   },
+   "lateral_speed_max_m_s": 1.0,
+   "basis": "User decision (19 October 2026): follow to about 1.0 m/s, a slow-to-normal walk. 1.0 m/s^2 covers gait initiation and stopping at a walk. Curves keep the lateral acceleration at 0.5 m/s^2 (1 m radius at 0.7 m/s, 2 m at 1.0 m/s); a 90 degree corner is taken at 0.5 m/s on a 0.3 m radius. A carried tag may move sideways across the view at up to 1.0 m/s (1 rad/s of bearing at the nominal range)."
+  },
+  "engage": {
+   "consecutive_detections": 5,
+   "minimum_s": 0.15,
+   "range_m": [
+    0.5,
+    1.5
+   ],
+   "basis": "Following starts from hold only after a stable track: five consecutive detections spanning at least 0.15 s with the range inside the engage window. A single false detection cannot start the robot."
+  },
+  "loss": {
+   "coast_s": 0.45,
+   "brake_deceleration_m_s2": 1.0,
+   "stopping_distance_max_m": 0.95,
+   "search": false,
+   "basis": "Phase D sign-off (user decision, 22 October 2026): the coast is a flat 0.45 s, lengthened from 0.3 s so that it outlasts the 0.26-0.34 s full-frame search after a miss (phase D lost the target in 90 degree corners and 1 m curves for longer than the 0.3 s coast). The user accepted the longer stop: from the 1.0 m/s target speed, 0.45 m coasting plus 0.5 m braking at 1.0 m/s^2 is 0.95 m (it was 0.8 m with the 0.3 s coast). Without a detection the follower coasts on its prediction for 0.45 s (a short occlusion, a missed frame or the re-acquisition search), then brakes to hold at 1.0 m/s^2 and holds the heading. From 1.0 m/s that is 0.45 m coasting plus 0.5 m braking, 0.95 m, inside the 1.0 m nominal range, so the robot stops short of where the person was when last seen. No search: a lost target leaves the robot balancing at hold."
+  },
+  "reacquisition": {
+   "gate_m": 0.3,
+   "basis": "During the coast or the braking, a detection within 0.3 m of the predicted target position resumes following at once. Once the robot is at hold, the engage rule applies again."
+  },
+  "close_range": {
+   "reverse_speed_max_m_s": 0.3,
+   "stop_range_m": 0.4,
+   "basis": "The robot backs away from an approaching target at no more than the validated 0.3 m/s reverse speed; below 0.4 m it holds rather than reversing further."
+  },
+  "tag": {
+   "family": "tag36h11 (phase C confirms with the detector)",
+   "size_m": 0.16,
+   "size_definition": "edge of the black square; with the one-cell white border the printed tag is 0.20 m, an A4 sheet",
+   "layout": "waist_tag",
+   "layout_decision": "User decision (20 October 2026): the waist tag, with the head camera re-pitched to about 42 degrees in phase E; the low-tag layout stays in the checks for comparison",
+   "layouts": {
+    "low_tag": {
+     "centre_height_m": 0.4,
+     "camera_pitch_deg": 15,
+     "note": "current head; the tag is worn low on the back of the leg or carried low"
+    },
+    "waist_tag": {
+     "centre_height_m": 0.95,
+     "camera_pitch_deg": 42,
+     "note": "tag on a belt at the back of the waist; needs the head camera re-pitched from 15 to 42 degrees (a head CAD change, phase E)"
+    }
+   },
+   "max_view_angle_deg": 60,
+   "minimum_pixels_per_cell": 3,
+   "cells_across_black_square": 8,
+   "basis": "Size: the largest tag with its white border on an A4 sheet. Detection needs at least 3 pixels per cell; at the 1.5 m band edge and a 60 degree view angle with the Wide lens that takes an image about 1100 pixels wide (camera.image_width_px). Height: the tag must stay inside the vertical field of view across the 0.5-1.5 m ranges, the operating postures and the balancing pitch (see the geometry table). With the 15 degree camera that is a low tag (Wide lens 0.17-0.62 m); a waist tag needs the camera pitched to about 42 degrees. The two layouts are a decision for the user. View angle: phase C measures the detector's limit."
+  },
+  "camera": {
+   "edge_margin_fraction": 0.1,
+   "body_pitch_allowance_deg": 8,
+   "perception_latency_s_assumption": 0.1,
+   "detection_rate_hz_assumption": 30,
+   "lens_proposal": "wide",
+   "lens_decision": "User decision (20 October 2026): the Wide lens; phase C confirms the fit of its 12.4 mm depth in the head",
+   "image_width_px": 1152,
+   "basis": "Image width: 1152 pixels, half of the 2304 x 1296 sensor mode, keeps 3 pixels per tag cell at 1.5 m and a 60 degree view angle with the Wide lens; phase C checks the detection rate at that size on the Pi Zero 2 W. Edge margin: the tag is kept 10 % of the half field of view inside the image edge (lens distortion and detector border). Pitch: the quasi-static lean atan(a/g) at the phase B acceleration target (1.25 m/s^2: 7.3 degrees), rounded up; the M10 acceptance peak under 2 N s pushes is 5.8 degrees. Latency and rate: exposure, transfer, detection and the link, assumptions phase C replaces with a measured budget. Lens: the Wide lens is proposed because the standard lens leaves a 6 cm tag-height band and no bearing-rate margin at 1 rad/s; phase C makes the choice."
+  },
+  "ideal_follower": {
+   "dt_s": 0.01,
+   "range_gain_1_s": 1.0,
+   "bearing_gain_1_s": 2.5,
+   "speed_lag_s": 0.2,
+   "yaw_lag_s": 0.2,
+   "coast_s": 0.3,
+   "basis": "Coast: the ideal follower keeps the phase A 0.3 s coast, so its traces stay the phase B and phase C replay inputs as recorded; the phase D sign-off lengthened the firmware follower's coast (loss.coast_s). Perfect target knowledge and no balance dynamics: commands from the range and bearing errors with the target's own motion fed forward, applied through first-order lags of 0.2 s (the M10 heading lag in the turn case, artifacts/m12/requirements/yaw_response)."
+  }
+ },
+ "following_sha256": "3ee1859035e9e78408a203b789a4165c0b4846e7b9b6eccf1213b6acce84a868",
+ "camera": {
+  "module": "Raspberry Pi Camera Module 3",
+  "sensor": "Sony IMX708, 1.4 um pixels, 1/2.43 inch optical size",
+  "video_modes": [
+   [
+    2304,
+    1296,
+    56
+   ],
+   [
+    1536,
+    864,
+    120
+   ]
+  ],
+  "lenses": {
+   "standard": {
+    "horizontal_fov_deg": 66,
+    "vertical_fov_deg": 41,
+    "focal_length_m": 0.00474,
+    "f_number": 1.8,
+    "focus_minimum_m": 0.1,
+    "module_depth_m": 0.0115
+   },
+   "wide": {
+    "horizontal_fov_deg": 102,
+    "vertical_fov_deg": 67,
+    "focal_length_m": 0.00275,
+    "f_number": 2.2,
+    "focus_minimum_m": 0.05,
+    "module_depth_m": 0.0124
+   }
+  },
+  "source": "Raspberry Pi camera documentation, hardware specification table (https://www.raspberrypi.com/documentation/accessories/camera.html), read 20 October 2026",
+  "optical_centre_assumption": "The pinhole sits on the pitched lens axis at the front face of the lens block (m10.internals.head; the lens block and its offset are assumptions until checked against the Camera Module 3 mechanical drawing)",
+  "fit_note": "The Wide module is 12.4 mm deep against the 11.5 mm head envelope; phase C checks the fit if the Wide lens is chosen"
+ },
+ "yaw_response": {
+  "case": "moving_experiment turn: 0.4 rad/s 2-5 s, -0.4 rad/s 7-10 s, 12 s, nominal posture, Python controller, sensor model",
+  "steps": [
+   {
+    "command_rad_s": 0.4,
+    "dead_time_s": 0.16000000000016268,
+    "rise_10_90_s": 0.10999999999993904,
+    "peak_yaw_acceleration_rad_s2": 3.454478653559225,
+    "steady_heading_lag_s": 0.20491156316919384
+   },
+   {
+    "command_rad_s": -0.4,
+    "dead_time_s": 0.30000000000317595,
+    "rise_10_90_s": 0.12000000000014666,
+    "peak_yaw_acceleration_rad_s2": 3.1578736385699515,
+    "steady_heading_lag_s": 0.19565445703544312
+   }
+  ],
+  "heading_lag_s": 0.20491156316919384,
+  "yaw_acceleration_rad_s2": 3.1578736385699515,
+  "dead_time_s": 0.30000000000317595,
+  "peak_pitch_error_deg": 0.8693018020687561,
+  "inputs": {
+   "controller_sha256": "d10a99a848db7d20973d573d438af81cb6e1f77d1e949a85c5d2027187c1d90f",
+   "sensors_sha256": "198b04693dc6bf85900f93c27b4e1f4f45701bfa24e594d8439fe79789361c9b",
+   "plant_geometry_source_sha256": "760c9202ec08fbc142fd47fac24a84d8e9e06cd00ff0fbca780d9dc8f74f6c85",
+   "seed": 20260930
+  }
+ },
+ "geometry": {
+  "mount": {
+   "position_m": [
+    0.06176133351267968,
+    0.0,
+    0.06453412571881546
+   ],
+   "pitch_deg": 15,
+   "basis": "m10.head, m10.body and m10.exterior.head as cad/m10 builds the bezel and camera; The pinhole sits on the pitched lens axis at the front face of the lens block (m10.internals.head; the lens block and its offset are assumptions until checked against the Camera Module 3 mechanical drawing)"
+  },
+  "poses": [
+   {
+    "posture_deg": 30,
+    "body_pitch_deg": -8.000000000000002,
+    "hip_height_m": 0.13558900843690347,
+    "height_m": 0.208090608784789,
+    "ahead_of_axle_m": 0.04944712048223514,
+    "elevation_deg": 23.0
+   },
+   {
+    "posture_deg": 30,
+    "body_pitch_deg": -1.2588564898132845e-15,
+    "hip_height_m": 0.135,
+    "height_m": 0.19953412571881549,
+    "ahead_of_axle_m": 0.0729162881754593,
+    "elevation_deg": 15.000000000000002
+   },
+   {
+    "posture_deg": 30,
+    "body_pitch_deg": 7.999999999999998,
+    "hip_height_m": 0.1324840691739275,
+    "height_m": 0.18779463691303616,
+    "ahead_of_axle_m": 0.09496622326039661,
+    "elevation_deg": 7.000000000000002
+   },
+   {
+    "posture_deg": 40,
+    "body_pitch_deg": -8.000000000000002,
+    "hip_height_m": 0.10405395564108436,
+    "height_m": 0.1765555559889699,
+    "ahead_of_axle_m": 0.05499304972356357,
+    "elevation_deg": 23.0
+   },
+   {
+    "posture_deg": 40,
+    "body_pitch_deg": -1.8126269061197397e-15,
+    "hip_height_m": 0.10300000000000001,
+    "height_m": 0.16753412571881546,
+    "ahead_of_axle_m": 0.07401941372811348,
+    "elevation_deg": 15.000000000000002
+   },
+   {
+    "posture_deg": 40,
+    "body_pitch_deg": 7.999999999999998,
+    "hip_height_m": 0.10064196557028607,
+    "height_m": 0.15595253330939474,
+    "ahead_of_axle_m": 0.09160507404028086,
+    "elevation_deg": 7.000000000000002
+   },
+   {
+    "posture_deg": 60,
+    "body_pitch_deg": -8.000000000000004,
+    "hip_height_m": 0.07342796480000609,
+    "height_m": 0.14592956514789163,
+    "ahead_of_axle_m": 0.05982199433909842,
+    "elevation_deg": 23.000000000000004
+   },
+   {
+    "posture_deg": 60,
+    "body_pitch_deg": -3.144321419108233e-15,
+    "hip_height_m": 0.07200000000000001,
+    "height_m": 0.13653412571881546,
+    "ahead_of_axle_m": 0.07453904927127175,
+    "elevation_deg": 15.000000000000004
+   },
+   {
+    "posture_deg": 60,
+    "body_pitch_deg": 7.999999999999997,
+    "hip_height_m": 0.06987133614938698,
+    "height_m": 0.12518190388849565,
+    "ahead_of_axle_m": 0.08780528639629165,
+    "elevation_deg": 7.000000000000003
+   }
+  ],
+  "pitch_allowance_deg": 8,
+  "bearing_rate_lag_s": 0.3049115631691939,
+  "bearing_rate_lag_basis": "M10 steady heading lag in the turn case plus the perception latency assumption",
+  "lenses": {
+   "standard": {
+    "vertical_band_range_band": {
+     "low_m": 0.4074603646332543,
+     "high_m": 0.3307247702988372,
+     "width_m": -0.07673559433441712
+    },
+    "vertical_band_engage_window": {
+     "low_m": 0.4074603646332543,
+     "high_m": 0.28313429256378025,
+     "width_m": -0.12432607206947405
+    },
+    "camera_pitch_windows": {
+     "0.30": {
+      "low_deg": 16.5550370952683,
+      "high_deg": 10.904895677185385,
+      "feasible": false
+     },
+     "0.40": {
+      "low_deg": 24.91089091036306,
+      "high_deg": 14.716719265283688,
+      "feasible": false
+     },
+     "0.50": {
+      "low_deg": 31.840789943782042,
+      "high_deg": 18.49112921426073,
+      "feasible": false
+     },
+     "0.60": {
+      "low_deg": 37.52494187127506,
+      "high_deg": 22.1966660583615,
+      "feasible": false
+     },
+     "0.80": {
+      "low_deg": 46.02906075476675,
+      "high_deg": 29.2933837575953,
+      "feasible": false
+     },
+     "0.95": {
+      "low_deg": 50.62508052436296,
+      "high_deg": 34.260569507138875,
+      "feasible": false
+     },
+     "1.10": {
+      "low_deg": 54.18832870793277,
+      "high_deg": 38.87548369995811,
+      "feasible": false
+     }
+    },
+    "by_range": [
+     {
+      "range_m": 0.5,
+      "visible_heights_nominal_m": [
+       0.13739075695362324,
+       0.4978497821618224
+      ],
+      "pixels_on_tag": 283.8279101303039,
+      "pixels_on_tag_at_max_view_angle": 141.91395506515198,
+      "bearing_allowance_deg": 20.609723079177673,
+      "max_bearing_rate_rad_s_m10_yaw": 0.8256871979578618
+     },
+     {
+      "range_m": 0.7,
+      "visible_heights_nominal_m": [
+       0.12533340944754634,
+       0.6299760447390251
+      ],
+      "pixels_on_tag": 202.73422152164565,
+      "pixels_on_tag_at_max_view_angle": 101.36711076082285,
+      "bearing_allowance_deg": 23.18019824834301,
+      "max_bearing_rate_rad_s_m10_yaw": 0.9032172144848629
+     },
+     {
+      "range_m": 1.0,
+      "visible_heights_nominal_m": [
+       0.10724738818843102,
+       0.8281654386048293
+      ],
+      "pixels_on_tag": 141.91395506515195,
+      "pixels_on_tag_at_max_view_angle": 70.95697753257599,
+      "bearing_allowance_deg": 25.126078740099135,
+      "max_bearing_rate_rad_s_m10_yaw": 0.9598303897569326
+     },
+     {
+      "range_m": 1.5,
+      "visible_heights_nominal_m": [
+       0.0771040194232388,
+       1.1584810950478361
+      ],
+      "pixels_on_tag": 94.60930337676797,
+      "pixels_on_tag_at_max_view_angle": 47.30465168838399,
+      "bearing_allowance_deg": 26.64711748520757,
+      "max_bearing_rate_rad_s_m10_yaw": 1.0029483004481077
+     },
+     {
+      "range_m": 2.0,
+      "visible_heights_nominal_m": [
+       0.04696065065804658,
+       1.4887967514908431
+      ],
+      "pixels_on_tag": 70.95697753257598,
+      "pixels_on_tag_at_max_view_angle": 35.478488766287995,
+      "bearing_allowance_deg": 27.409389957361466,
+      "max_bearing_rate_rad_s_m10_yaw": 1.0242050458136582
+     }
+    ]
+   },
+   "wide": {
+    "vertical_band_range_band": {
+     "low_m": 0.21282487816121665,
+     "high_m": 0.49978197087671367,
+     "width_m": 0.286957092715497
+    },
+    "vertical_band_engage_window": {
+     "low_m": 0.22536916659847872,
+     "high_m": 0.4240152930453441,
+     "width_m": 0.19864612644686536
+    },
+    "camera_pitch_windows": {
+     "0.30": {
+      "low_deg": 4.855037095268301,
+      "high_deg": 22.60489567718539,
+      "feasible": true
+     },
+     "0.40": {
+      "low_deg": 13.21089091036306,
+      "high_deg": 26.41671926528369,
+      "feasible": true
+     },
+     "0.50": {
+      "low_deg": 20.140789943782043,
+      "high_deg": 30.191129214260727,
+      "feasible": true
+     },
+     "0.60": {
+      "low_deg": 25.82494187127506,
+      "high_deg": 33.8966660583615,
+      "feasible": true
+     },
+     "0.80": {
+      "low_deg": 34.32906075476675,
+      "high_deg": 40.993383757595296,
+      "feasible": true
+     },
+     "0.95": {
+      "low_deg": 38.92508052436295,
+      "high_deg": 45.96056950713887,
+      "feasible": true
+     },
+     "1.10": {
+      "low_deg": 42.48832870793276,
+      "high_deg": 50.57548369995811,
+      "feasible": true
+     }
+    },
+    "by_range": [
+     {
+      "range_m": 0.5,
+      "visible_heights_nominal_m": [
+       0.03215556273718456,
+       0.6701589974919047
+      ],
+      "pixels_on_tag": 149.2593929985037,
+      "pixels_on_tag_at_max_view_angle": 74.62969649925186,
+      "bearing_allowance_deg": 36.80972307917768,
+      "max_bearing_rate_rad_s_m10_yaw": 1.269767538849826
+     },
+     {
+      "range_m": 0.7,
+      "visible_heights_nominal_m": [
+       -0.02199586245546778,
+       0.8712089462011403
+      ],
+      "pixels_on_tag": 106.61385214178836,
+      "pixels_on_tag_at_max_view_angle": 53.30692607089419,
+      "bearing_allowance_deg": 39.380198248343014,
+      "max_bearing_rate_rad_s_m10_yaw": 1.3323456950906847
+     },
+     {
+      "range_m": 1.0,
+      "visible_heights_nominal_m": [
+       -0.10322300024444633,
+       1.172783869264994
+      ],
+      "pixels_on_tag": 74.62969649925185,
+      "pixels_on_tag_at_max_view_angle": 37.31484824962593,
+      "bearing_allowance_deg": 41.32607874009914,
+      "max_bearing_rate_rad_s_m10_yaw": 1.3786061218064913
+     },
+     {
+      "range_m": 1.5,
+      "visible_heights_nominal_m": [
+       -0.23860156322607726,
+       1.6754087410380831
+      ],
+      "pixels_on_tag": 49.75313099950123,
+      "pixels_on_tag_at_max_view_angle": 24.876565499750622,
+      "bearing_allowance_deg": 42.84711748520757,
+      "max_bearing_rate_rad_s_m10_yaw": 1.4141397315272823
+     },
+     {
+      "range_m": 2.0,
+      "visible_heights_nominal_m": [
+       -0.37398012620770815,
+       2.1780336128111726
+      ],
+      "pixels_on_tag": 37.314848249625925,
+      "pixels_on_tag_at_max_view_angle": 18.657424124812966,
+      "bearing_allowance_deg": 43.60938995736147,
+      "max_bearing_rate_rad_s_m10_yaw": 1.4317491611716766
+     }
+    ]
+   }
+  },
+  "source": "Raspberry Pi camera documentation, hardware specification table (https://www.raspberrypi.com/documentation/accessories/camera.html), read 20 October 2026"
+ },
+ "pitch_allowance_covers_lean": true,
+ "envelope_run": {
+  "assumptions": "perfect target knowledge, no limits, no latency, first-order speed and yaw lags (config ideal_follower)",
+  "by_scenario": {
+   "straight_0.3": {
+    "peak_speed_m_s": 0.3351605754008336,
+    "peak_reverse_m_s": 0.03522834459768856,
+    "peak_acceleration_m_s2": 0.8481632639789156,
+    "peak_yaw_rate_rad_s": 0.0,
+    "peak_yaw_acceleration_rad_s2": 0.0,
+    "range_min_m": 0.9561348991888732,
+    "range_max_m": 1.0438202178375409,
+    "peak_bearing_deg": 0.0,
+    "peak_view_angle_deg": 0.0,
+    "min_pixels": 71.49669571821528,
+    "invisible_while_following_s": 0.0,
+    "range_in_band": true,
+    "steady_bearing_ok": true
+   },
+   "straight_0.6": {
+    "peak_speed_m_s": 0.6668216994331996,
+    "peak_reverse_m_s": 0.06700277214439412,
+    "peak_acceleration_m_s2": 1.0819965086218253,
+    "peak_yaw_rate_rad_s": 0.0,
+    "peak_yaw_acceleration_rad_s2": 0.0,
+    "range_min_m": 0.9166549448475312,
+    "range_max_m": 1.083239622385916,
+    "peak_bearing_deg": 0.0,
+    "peak_view_angle_deg": 0.0,
+    "min_pixels": 68.89491019066897,
+    "invisible_while_following_s": 0.0,
+    "range_in_band": true,
+    "steady_bearing_ok": true
+   },
+   "straight_1.0": {
+    "peak_speed_m_s": 1.1001310893602703,
+    "peak_reverse_m_s": 0.10046925379729348,
+    "peak_acceleration_m_s2": 1.1194607922113098,
+    "peak_yaw_rate_rad_s": 0.0,
+    "peak_yaw_acceleration_rad_s2": 0.0,
+    "range_min_m": 0.8750062531727671,
+    "range_max_m": 1.124757363518894,
+    "peak_bearing_deg": 0.0,
+    "peak_view_angle_deg": 0.0,
+    "min_pixels": 66.35181855201803,
+    "invisible_while_following_s": 0.0,
+    "range_in_band": true,
+    "steady_bearing_ok": true
+   },
+   "start_stop": {
+    "peak_speed_m_s": 1.1001310893602703,
+    "peak_reverse_m_s": 0.09930558630800183,
+    "peak_acceleration_m_s2": 1.1283932576312095,
+    "peak_yaw_rate_rad_s": 0.0,
+    "peak_yaw_acceleration_rad_s2": 0.0,
+    "range_min_m": 0.8764110389746422,
+    "range_max_m": 1.124757363518894,
+    "peak_bearing_deg": 0.0,
+    "peak_view_angle_deg": 0.0,
+    "min_pixels": 66.35181855201803,
+    "invisible_while_following_s": 0.0,
+    "range_in_band": true
+   },
+   "curve_r1": {
+    "peak_speed_m_s": 0.7761636300480774,
+    "peak_reverse_m_s": 0.07015866715332028,
+    "peak_acceleration_m_s2": 1.106431402242251,
+    "peak_yaw_rate_rad_s": 0.6050781172432278,
+    "peak_yaw_acceleration_rad_s2": 0.461493016500418,
+    "range_min_m": 0.9126806278000119,
+    "range_max_m": 1.0948245829974583,
+    "peak_bearing_deg": 2.25416115827593,
+    "peak_view_angle_deg": 66.43204247257437,
+    "min_pixels": 30.356202004492307,
+    "invisible_while_following_s": 1.2,
+    "range_in_band": true
+   },
+   "curve_r2": {
+    "peak_speed_m_s": 1.1001310893602703,
+    "peak_reverse_m_s": 0.0975951287082334,
+    "peak_acceleration_m_s2": 1.120295233417084,
+    "peak_yaw_rate_rad_s": 0.49512417467880554,
+    "peak_yaw_acceleration_rad_s2": 0.4390267085006284,
+    "range_min_m": 0.8785356805730786,
+    "range_max_m": 1.124757363518894,
+    "peak_bearing_deg": 2.8139504911285305,
+    "peak_view_angle_deg": 33.241113769172934,
+    "min_pixels": 62.52510484396258,
+    "invisible_while_following_s": 0.0,
+    "range_in_band": true
+   },
+   "corner_90": {
+    "peak_speed_m_s": 1.1001310893602703,
+    "peak_reverse_m_s": 0.09608112149063591,
+    "peak_acceleration_m_s2": 1.124305835663539,
+    "peak_yaw_rate_rad_s": 0.8358678643226706,
+    "peak_yaw_acceleration_rad_s2": 0.7742163647371105,
+    "range_min_m": 0.8804298535176373,
+    "range_max_m": 1.124757363518894,
+    "peak_bearing_deg": 3.788292739621893,
+    "peak_view_angle_deg": 74.43474860949125,
+    "min_pixels": 21.03183522090237,
+    "invisible_while_following_s": 0.6,
+    "range_in_band": true
+   },
+   "lateral_crossing": {
+    "peak_speed_m_s": 0.9001179250401862,
+    "peak_reverse_m_s": 0.0671983339593046,
+    "peak_acceleration_m_s2": 1.074292331710774,
+    "peak_yaw_rate_rad_s": 0.9062873894665515,
+    "peak_yaw_acceleration_rad_s2": 1.131460535227074,
+    "range_min_m": 0.9163846459057842,
+    "range_max_m": 1.0895547165906991,
+    "peak_bearing_deg": 4.05601196958841,
+    "peak_view_angle_deg": 1.2074182697257333e-06,
+    "min_pixels": 68.49559307381453,
+    "invisible_while_following_s": 0.0,
+    "range_in_band": true
+   },
+   "approach": {
+    "peak_speed_m_s": 0.6647175027155531,
+    "peak_reverse_m_s": 0.2999990158419108,
+    "peak_acceleration_m_s2": 1.1153265756633783,
+    "peak_yaw_rate_rad_s": 2.621665393187932e-16,
+    "peak_yaw_acceleration_rad_s2": 5.422047841678367e-16,
+    "range_min_m": 0.540597459306322,
+    "range_max_m": 1.0806110323215312,
+    "peak_bearing_deg": 0.0,
+    "peak_view_angle_deg": 0.0,
+    "min_pixels": 69.06249729740507,
+    "invisible_while_following_s": 0.0,
+    "range_in_band": false
+   },
+   "occlusion_short": {
+    "peak_speed_m_s": 0.6668216994331996,
+    "peak_reverse_m_s": 0.06700269787222651,
+    "peak_acceleration_m_s2": 1.0819965086218253,
+    "peak_yaw_rate_rad_s": 0.0,
+    "peak_yaw_acceleration_rad_s2": 0.0,
+    "range_min_m": 0.9166550345181275,
+    "range_max_m": 1.083239622385916,
+    "peak_bearing_deg": 0.0,
+    "peak_view_angle_deg": 0.0,
+    "min_pixels": 68.89491019066897,
+    "invisible_while_following_s": 0.32,
+    "range_in_band": true
+   },
+   "occlusion_long": {
+    "peak_speed_m_s": 0.6668216994331996,
+    "peak_reverse_m_s": 0.06693638370825923,
+    "peak_acceleration_m_s2": 1.0837132063468857,
+    "peak_yaw_rate_rad_s": 0.0,
+    "peak_yaw_acceleration_rad_s2": 0.0,
+    "range_min_m": 0.9167341835291438,
+    "range_max_m": 1.083239622385916,
+    "peak_bearing_deg": 0.0,
+    "peak_view_angle_deg": 0.0,
+    "min_pixels": 68.89491019066897,
+    "invisible_while_following_s": 3.43,
+    "range_in_band": true
+   }
+  },
+  "peaks": {
+   "speed": 1.1001310893602703,
+   "acceleration": 1.1283932576312095,
+   "yaw_rate": 0.9062873894665515,
+   "yaw_acceleration": 1.131460535227074
+  },
+  "targets": {
+   "speed": 1.2000000000000002,
+   "acceleration": 1.25,
+   "yaw_rate": 1.0,
+   "yaw_acceleration": 1.25,
+   "reverse": 0.3,
+   "lean_deg": 7.261554383523292
+  }
+ },
+ "phase_b_targets": {
+  "speed": 1.2000000000000002,
+  "acceleration": 1.25,
+  "yaw_rate": 1.0,
+  "yaw_acceleration": 1.25,
+  "reverse": 0.3,
+  "lean_deg": 7.261554383523292
+ },
+ "check_run": {
+  "assumptions": "phase B targets as limits, perception latency and detection rate assumptions, geometric visibility, engage, loss and reacquisition rules",
+  "lens": "wide",
+  "layouts": {
+   "low_tag": {
+    "straight_0.3": {
+     "summary": {
+      "peak_speed_m_s": 0.35498846936220924,
+      "peak_reverse_m_s": 0.0550416380820281,
+      "peak_acceleration_m_s2": 0.9799216024928068,
+      "peak_yaw_rate_rad_s": 0.0,
+      "peak_yaw_acceleration_rad_s2": 0.0,
+      "range_min_m": 0.9315290869588502,
+      "range_max_m": 1.0684927989395911,
+      "peak_bearing_deg": 0.0,
+      "peak_view_angle_deg": 0.0,
+      "min_pixels": 69.84576458850908,
+      "invisible_while_following_s": 0.0,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       }
+      ],
+      "range_in_band": true,
+      "steady_bearing_ok": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": [],
+      "steady_bearing_ok": true
+     }
+    },
+    "straight_0.6": {
+     "summary": {
+      "peak_speed_m_s": 0.7045276502782164,
+      "peak_reverse_m_s": 0.10470470222798,
+      "peak_acceleration_m_s2": 1.2299730505975295,
+      "peak_yaw_rate_rad_s": 0.0,
+      "peak_yaw_acceleration_rad_s2": 0.0,
+      "range_min_m": 0.8697507030870391,
+      "range_max_m": 1.1302202486940045,
+      "peak_bearing_deg": 0.0,
+      "peak_view_angle_deg": 0.0,
+      "min_pixels": 66.03110905638806,
+      "invisible_while_following_s": 0.0,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       }
+      ],
+      "range_in_band": true,
+      "steady_bearing_ok": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": [],
+      "steady_bearing_ok": true
+     }
+    },
+    "straight_1.0": {
+     "summary": {
+      "peak_speed_m_s": 1.1567328438578948,
+      "peak_reverse_m_s": 0.1570180988006257,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 0.0,
+      "peak_yaw_acceleration_rad_s2": 0.0,
+      "range_min_m": 0.8047705363023461,
+      "range_max_m": 1.195296042987711,
+      "peak_bearing_deg": 0.0,
+      "peak_view_angle_deg": 0.0,
+      "min_pixels": 62.43616126487848,
+      "invisible_while_following_s": 0.0,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       }
+      ],
+      "range_in_band": true,
+      "steady_bearing_ok": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": [],
+      "steady_bearing_ok": true
+     }
+    },
+    "start_stop": {
+     "summary": {
+      "peak_speed_m_s": 1.1567328438578948,
+      "peak_reverse_m_s": 0.15525566034126828,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 0.0,
+      "peak_yaw_acceleration_rad_s2": 0.0,
+      "range_min_m": 0.8068881451903684,
+      "range_max_m": 1.195296042987711,
+      "peak_bearing_deg": 0.0,
+      "peak_view_angle_deg": 0.0,
+      "min_pixels": 62.43616126487848,
+      "invisible_while_following_s": 0.0,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": []
+     }
+    },
+    "curve_r1": {
+     "summary": {
+      "peak_speed_m_s": 0.8191775201934672,
+      "peak_reverse_m_s": 0.11301472560761978,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 0.8256525507265644,
+      "peak_yaw_acceleration_rad_s2": 1.25,
+      "range_min_m": 0.8594209510117691,
+      "range_max_m": 1.1484947413735969,
+      "peak_bearing_deg": 13.573019213235632,
+      "peak_view_angle_deg": 60.14743213600952,
+      "min_pixels": 38.499906153451164,
+      "invisible_while_following_s": 0.03,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       },
+       {
+        "t": 8.38,
+        "event": "lost",
+        "speed": 0.3897117330519172,
+        "x": 3.561008671410148,
+        "y": 1.0080759741057035
+       },
+       {
+        "t": 8.8,
+        "event": "reacquired",
+        "from": "braking"
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": []
+     }
+    },
+    "curve_r2": {
+     "summary": {
+      "peak_speed_m_s": 1.1567328438578948,
+      "peak_reverse_m_s": 0.15500382954811717,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 0.4968215055967277,
+      "peak_yaw_acceleration_rad_s2": 0.5229646929633341,
+      "range_min_m": 0.807267121516425,
+      "range_max_m": 1.195296042987711,
+      "peak_bearing_deg": 3.4355630939854693,
+      "peak_view_angle_deg": 30.492321621256732,
+      "min_pixels": 62.43616126487848,
+      "invisible_while_following_s": 0.0,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": []
+     }
+    },
+    "corner_90": {
+     "summary": {
+      "peak_speed_m_s": 1.1567328438578948,
+      "peak_reverse_m_s": 0.15364111736157962,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 0.9627609206061142,
+      "peak_yaw_acceleration_rad_s2": 1.25,
+      "range_min_m": 0.8089263121152154,
+      "range_max_m": 1.195296042987711,
+      "peak_bearing_deg": 19.160514291531804,
+      "peak_view_angle_deg": 62.72166745031411,
+      "min_pixels": 36.55807462140789,
+      "invisible_while_following_s": 0.04,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       },
+       {
+        "t": 7.3100000000000005,
+        "event": "lost",
+        "speed": 0.30550557905099457,
+        "x": 4.4707374540511715,
+        "y": 0.02806460725505776
+       },
+       {
+        "t": 7.57,
+        "event": "reacquired",
+        "from": "braking"
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": []
+     }
+    },
+    "lateral_crossing": {
+     "summary": {
+      "peak_speed_m_s": 0.9356213442018602,
+      "peak_reverse_m_s": 0.11795796966361316,
+      "peak_acceleration_m_s2": 1.2095709555114749,
+      "peak_yaw_rate_rad_s": 0.9447351721149227,
+      "peak_yaw_acceleration_rad_s2": 1.25,
+      "range_min_m": 0.8533316920290704,
+      "range_max_m": 1.1009358315365119,
+      "peak_bearing_deg": 6.065714579964582,
+      "peak_view_angle_deg": 1.2074182697257333e-06,
+      "min_pixels": 67.78750801043104,
+      "invisible_while_following_s": 0.0,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": []
+     }
+    },
+    "approach": {
+     "summary": {
+      "peak_speed_m_s": 0.7021795782140762,
+      "peak_reverse_m_s": 0.2999990313910416,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 1.1351618086736777e-15,
+      "peak_yaw_acceleration_rad_s2": 5.635697929651526e-15,
+      "range_min_m": 0.5107202621273765,
+      "range_max_m": 1.1272882413169554,
+      "peak_bearing_deg": 2.5444437451708134e-14,
+      "peak_view_angle_deg": 0.0,
+      "min_pixels": 66.20285190952195,
+      "invisible_while_following_s": 0.0,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       }
+      ],
+      "range_in_band": false
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": []
+     }
+    },
+    "loss_fov": {
+     "summary": {
+      "peak_speed_m_s": 0.0,
+      "peak_reverse_m_s": 0.2894381375694677,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 0.9370278332020195,
+      "peak_yaw_acceleration_rad_s2": 1.25,
+      "range_min_m": 0.6275209706604183,
+      "range_max_m": 0.9725302865956673,
+      "peak_bearing_deg": 40.5407911255698,
+      "peak_view_angle_deg": 8.537736462515939e-07,
+      "min_pixels": 76.73765797103592,
+      "invisible_while_following_s": 0.02,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       },
+       {
+        "t": 2.05,
+        "event": "lost",
+        "speed": -0.04677987636405111,
+        "x": -0.17668765787207538,
+        "y": -0.029100323654680887
+       },
+       {
+        "t": 3.68,
+        "event": "holding",
+        "stopping_distance_m": 0.0008711623802452288
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": [
+       0.0008711623802452288
+      ]
+     }
+    },
+    "occlusion_short": {
+     "summary": {
+      "peak_speed_m_s": 0.7045276502782164,
+      "peak_reverse_m_s": 0.10470419067793428,
+      "peak_acceleration_m_s2": 1.2299730505975295,
+      "peak_yaw_rate_rad_s": 0.0,
+      "peak_yaw_acceleration_rad_s2": 0.0,
+      "range_min_m": 0.8697513377405262,
+      "range_max_m": 1.1302202486940045,
+      "peak_bearing_deg": 0.0,
+      "peak_view_angle_deg": 0.0,
+      "min_pixels": 66.03110905638806,
+      "invisible_while_following_s": 0.02,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       },
+       {
+        "t": 4.11,
+        "event": "lost",
+        "speed": 0.6133043102560666,
+        "x": 1.6766358486052102,
+        "y": 0.0
+       },
+       {
+        "t": 4.17,
+        "event": "reacquired",
+        "from": "braking"
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": []
+     }
+    },
+    "occlusion_long": {
+     "summary": {
+      "peak_speed_m_s": 0.7051154610347233,
+      "peak_reverse_m_s": 0.1045731708028392,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 0.0,
+      "peak_yaw_acceleration_rad_s2": 0.0,
+      "range_min_m": 0.8698900197271637,
+      "range_max_m": 1.3584683240877424,
+      "peak_bearing_deg": 0.0,
+      "peak_view_angle_deg": 0.0,
+      "min_pixels": 54.93664826477881,
+      "invisible_while_following_s": 0.04,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       },
+       {
+        "t": 4.05,
+        "event": "lost",
+        "speed": 0.6144632307720692,
+        "x": 1.6398091051412573,
+        "y": 0.0
+       },
+       {
+        "t": 4.67,
+        "event": "holding",
+        "stopping_distance_m": 0.18572257077096221
+       },
+       {
+        "t": 7.4,
+        "event": "engaged",
+        "from": "holding"
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": [
+       0.18572257077096221
+      ]
+     }
+    }
+   },
+   "waist_tag": {
+    "straight_0.3": {
+     "summary": {
+      "peak_speed_m_s": 0.35498846936220924,
+      "peak_reverse_m_s": 0.0550416380820281,
+      "peak_acceleration_m_s2": 0.9799216024928068,
+      "peak_yaw_rate_rad_s": 0.0,
+      "peak_yaw_acceleration_rad_s2": 0.0,
+      "range_min_m": 0.9315290869588502,
+      "range_max_m": 1.0684927989395911,
+      "peak_bearing_deg": 0.0,
+      "peak_view_angle_deg": 0.0,
+      "min_pixels": 69.84576458850908,
+      "invisible_while_following_s": 0.0,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       }
+      ],
+      "range_in_band": true,
+      "steady_bearing_ok": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": [],
+      "steady_bearing_ok": true
+     }
+    },
+    "straight_0.6": {
+     "summary": {
+      "peak_speed_m_s": 0.7045276502782164,
+      "peak_reverse_m_s": 0.10470470222798,
+      "peak_acceleration_m_s2": 1.2299730505975295,
+      "peak_yaw_rate_rad_s": 0.0,
+      "peak_yaw_acceleration_rad_s2": 0.0,
+      "range_min_m": 0.8697507030870391,
+      "range_max_m": 1.1302202486940045,
+      "peak_bearing_deg": 0.0,
+      "peak_view_angle_deg": 0.0,
+      "min_pixels": 66.03110905638806,
+      "invisible_while_following_s": 0.0,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       }
+      ],
+      "range_in_band": true,
+      "steady_bearing_ok": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": [],
+      "steady_bearing_ok": true
+     }
+    },
+    "straight_1.0": {
+     "summary": {
+      "peak_speed_m_s": 1.1567328438578948,
+      "peak_reverse_m_s": 0.1570180988006257,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 0.0,
+      "peak_yaw_acceleration_rad_s2": 0.0,
+      "range_min_m": 0.8047705363023461,
+      "range_max_m": 1.195296042987711,
+      "peak_bearing_deg": 0.0,
+      "peak_view_angle_deg": 0.0,
+      "min_pixels": 62.43616126487848,
+      "invisible_while_following_s": 0.0,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       }
+      ],
+      "range_in_band": true,
+      "steady_bearing_ok": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": [],
+      "steady_bearing_ok": true
+     }
+    },
+    "start_stop": {
+     "summary": {
+      "peak_speed_m_s": 1.1567328438578948,
+      "peak_reverse_m_s": 0.15525566034126828,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 0.0,
+      "peak_yaw_acceleration_rad_s2": 0.0,
+      "range_min_m": 0.8068881451903684,
+      "range_max_m": 1.195296042987711,
+      "peak_bearing_deg": 0.0,
+      "peak_view_angle_deg": 0.0,
+      "min_pixels": 62.43616126487848,
+      "invisible_while_following_s": 0.0,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": []
+     }
+    },
+    "curve_r1": {
+     "summary": {
+      "peak_speed_m_s": 0.8191775201934672,
+      "peak_reverse_m_s": 0.11301472560761978,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 0.8256525507265644,
+      "peak_yaw_acceleration_rad_s2": 1.25,
+      "range_min_m": 0.8594209510117691,
+      "range_max_m": 1.1484947413735969,
+      "peak_bearing_deg": 13.573019213235632,
+      "peak_view_angle_deg": 60.14743213600952,
+      "min_pixels": 38.499906153451164,
+      "invisible_while_following_s": 0.03,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       },
+       {
+        "t": 8.38,
+        "event": "lost",
+        "speed": 0.3897117330519172,
+        "x": 3.561008671410148,
+        "y": 1.0080759741057035
+       },
+       {
+        "t": 8.8,
+        "event": "reacquired",
+        "from": "braking"
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": []
+     }
+    },
+    "curve_r2": {
+     "summary": {
+      "peak_speed_m_s": 1.1567328438578948,
+      "peak_reverse_m_s": 0.15500382954811717,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 0.4968215055967277,
+      "peak_yaw_acceleration_rad_s2": 0.5229646929633341,
+      "range_min_m": 0.807267121516425,
+      "range_max_m": 1.195296042987711,
+      "peak_bearing_deg": 3.4355630939854693,
+      "peak_view_angle_deg": 30.492321621256732,
+      "min_pixels": 62.43616126487848,
+      "invisible_while_following_s": 0.0,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": []
+     }
+    },
+    "corner_90": {
+     "summary": {
+      "peak_speed_m_s": 1.1567328438578948,
+      "peak_reverse_m_s": 0.15364111736157962,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 0.9627609206061142,
+      "peak_yaw_acceleration_rad_s2": 1.25,
+      "range_min_m": 0.8089263121152154,
+      "range_max_m": 1.195296042987711,
+      "peak_bearing_deg": 19.160514291531804,
+      "peak_view_angle_deg": 62.72166745031411,
+      "min_pixels": 36.55807462140789,
+      "invisible_while_following_s": 0.04,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       },
+       {
+        "t": 7.3100000000000005,
+        "event": "lost",
+        "speed": 0.30550557905099457,
+        "x": 4.4707374540511715,
+        "y": 0.02806460725505776
+       },
+       {
+        "t": 7.57,
+        "event": "reacquired",
+        "from": "braking"
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": []
+     }
+    },
+    "lateral_crossing": {
+     "summary": {
+      "peak_speed_m_s": 0.9356213442018602,
+      "peak_reverse_m_s": 0.11795796966361316,
+      "peak_acceleration_m_s2": 1.2095709555114749,
+      "peak_yaw_rate_rad_s": 0.9447351721149227,
+      "peak_yaw_acceleration_rad_s2": 1.25,
+      "range_min_m": 0.8533316920290704,
+      "range_max_m": 1.1009358315365119,
+      "peak_bearing_deg": 6.065714579964582,
+      "peak_view_angle_deg": 1.2074182697257333e-06,
+      "min_pixels": 67.78750801043104,
+      "invisible_while_following_s": 0.0,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": []
+     }
+    },
+    "approach": {
+     "summary": {
+      "peak_speed_m_s": 0.7021795782140762,
+      "peak_reverse_m_s": 0.2999990313910416,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 1.1351618086736777e-15,
+      "peak_yaw_acceleration_rad_s2": 5.635697929651526e-15,
+      "range_min_m": 0.5107202621273765,
+      "range_max_m": 1.1272882413169554,
+      "peak_bearing_deg": 2.5444437451708134e-14,
+      "peak_view_angle_deg": 0.0,
+      "min_pixels": 66.20285190952195,
+      "invisible_while_following_s": 0.0,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       }
+      ],
+      "range_in_band": false
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": []
+     }
+    },
+    "loss_fov": {
+     "summary": {
+      "peak_speed_m_s": 0.0,
+      "peak_reverse_m_s": 0.2894381375694677,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 0.9370278332020195,
+      "peak_yaw_acceleration_rad_s2": 1.25,
+      "range_min_m": 0.6275209706604183,
+      "range_max_m": 0.9725302865956673,
+      "peak_bearing_deg": 40.5407911255698,
+      "peak_view_angle_deg": 8.537736462515939e-07,
+      "min_pixels": 76.73765797103592,
+      "invisible_while_following_s": 0.02,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       },
+       {
+        "t": 2.05,
+        "event": "lost",
+        "speed": -0.04677987636405111,
+        "x": -0.17668765787207538,
+        "y": -0.029100323654680887
+       },
+       {
+        "t": 3.68,
+        "event": "holding",
+        "stopping_distance_m": 0.0008711623802452288
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": [
+       0.0008711623802452288
+      ]
+     }
+    },
+    "occlusion_short": {
+     "summary": {
+      "peak_speed_m_s": 0.7045276502782164,
+      "peak_reverse_m_s": 0.10470419067793428,
+      "peak_acceleration_m_s2": 1.2299730505975295,
+      "peak_yaw_rate_rad_s": 0.0,
+      "peak_yaw_acceleration_rad_s2": 0.0,
+      "range_min_m": 0.8697513377405262,
+      "range_max_m": 1.1302202486940045,
+      "peak_bearing_deg": 0.0,
+      "peak_view_angle_deg": 0.0,
+      "min_pixels": 66.03110905638806,
+      "invisible_while_following_s": 0.02,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       },
+       {
+        "t": 4.11,
+        "event": "lost",
+        "speed": 0.6133043102560666,
+        "x": 1.6766358486052102,
+        "y": 0.0
+       },
+       {
+        "t": 4.17,
+        "event": "reacquired",
+        "from": "braking"
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": []
+     }
+    },
+    "occlusion_long": {
+     "summary": {
+      "peak_speed_m_s": 0.7051154610347233,
+      "peak_reverse_m_s": 0.1045731708028392,
+      "peak_acceleration_m_s2": 1.25,
+      "peak_yaw_rate_rad_s": 0.0,
+      "peak_yaw_acceleration_rad_s2": 0.0,
+      "range_min_m": 0.8698900197271637,
+      "range_max_m": 1.3584683240877424,
+      "peak_bearing_deg": 0.0,
+      "peak_view_angle_deg": 0.0,
+      "min_pixels": 54.93664826477881,
+      "invisible_while_following_s": 0.04,
+      "events": [
+       {
+        "t": 0.17,
+        "event": "engaged",
+        "from": "waiting"
+       },
+       {
+        "t": 4.05,
+        "event": "lost",
+        "speed": 0.6144632307720692,
+        "x": 1.6398091051412573,
+        "y": 0.0
+       },
+       {
+        "t": 4.67,
+        "event": "holding",
+        "stopping_distance_m": 0.18572257077096221
+       },
+       {
+        "t": 7.4,
+        "event": "engaged",
+        "from": "holding"
+       }
+      ],
+      "range_in_band": true
+     },
+     "checks": {
+      "engaged_at_s": 0.17,
+      "engage_ok": true,
+      "expectation_met": true,
+      "stopping_distances_m": [
+       0.18572257077096221
+      ]
+     }
+    }
+   }
+  },
+  "all_expectations_met": true
+ },
+ "render": {
+  "backend": "egl",
+  "mujoco": "3.14.0",
+  "gl": {
+   "vendor": "NVIDIA Corporation",
+   "renderer": "NVIDIA GeForce RTX 5050 Laptop GPU/PCIe/SSE2",
+   "version": "4.6.0 NVIDIA 595.99.02"
+  },
+  "size": [
+   360,
+   640
+  ],
+  "render_fovy_deg": {
+   "standard": 41,
+   "wide": 69.5699795961589
+  },
+  "repeat_identical": [
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "geometry_agrees_with_render": {
+   "checked": 78,
+   "agree": 78
+  }
+ },
+ "frames": 88
+}

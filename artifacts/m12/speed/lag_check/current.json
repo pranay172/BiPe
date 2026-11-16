@@ -1,0 +1,94 @@
+{
+  "controller": {
+    "description": "M10 serial-leg cascade: the M9 sensor-only cascade with the pitch-rate gains lowered from 0.15 / 0.13 (hold / drive) to 0.07. With the 5 ms sensor transport delay, the M9 rate gains drive a ~19 Hz oscillation through the knee-belt compliance (wheel torque reacts on the shin, which the 1:1 knee belt holds): the tires hop, the airborne wheels spin up and corrupt the velocity estimate. Physical limits and acceptance thresholds are not changed by tuning. Phase C6: a whole-robot momentum observer (slope_observer_tau_s) compares the wheel torque before friction compensation with the CoM momentum (axle velocity plus the rate of the CoM's horizontal offset) and adds the static slope lean, bounded by slope_feedforward_limit_rad and slew limited by slope_lean_rate_limit_rad_s so a push cannot step it. The hold integral limit rises from 0.3 to 1.0 so the integral can trim the remaining slope error. M12 phase B (speed envelope to 1.2 m/s): the velocity reference is jerk limited (command_jerk_m_s3) at the 1.25 m/s^2 envelope acceleration (max_command_acceleration, was 3) and the lean reference adds atan(a/g) of the reference acceleration (acceleration_feedforward); a stop brakes the reference to rest and holds there. The hold reference, the position loop's output, keeps the earlier 3 m/s^2 rate limit without the jerk limit and the feedforward (hold_command_acceleration): shaping the feedback loop's output cost the push recovery at rest under a 25 ms hub lag (artifacts/m12/speed/lag_check/attribution.json). Tuning: artifacts/m12/speed/tuning/tuning.json.",
+    "pitch_kp": 1.3,
+    "pitch_kd": 0.07,
+    "speed_kp": 0.3,
+    "speed_ki": 0.2,
+    "hold_speed_kp": 0.4,
+    "hold_speed_ki": 0.1,
+    "speed_integral_limit": 1.0,
+    "hold_kp": 0.8,
+    "max_hold_speed": 0.1,
+    "max_pitch_offset": 0.22,
+    "max_command_acceleration": 1.25,
+    "heading_kp": 0.5,
+    "yaw_rate_kd": 0.035,
+    "joint_kp": 8.0,
+    "joint_kd": 0.05,
+    "posture_gain_schedule": true,
+    "wheel_friction_compensation": 0.005,
+    "friction_compensation_scale": 0.01,
+    "friction_velocity_threshold_rad_s": 1.0,
+    "drive_pitch_kd": 0.07,
+    "slope_observer_tau_s": 0.2,
+    "slope_feedforward_limit_rad": 0.2,
+    "slope_lean_rate_limit_rad_s": 0.1,
+    "command_jerk_m_s3": 10,
+    "hold_command_acceleration": 3,
+    "acceleration_feedforward": 1.0,
+    "tuning_record": "artifacts/m10/tuning/summary.json"
+  },
+  "rows": [
+    {
+      "scenario": "drive",
+      "hub_lag_s": 0.025,
+      "passed": false,
+      "failure": "physical limit at 7.208s: pitch=-20.06, roll=-0.00, contact=False, joint_limit=False",
+      "max_pitch_error_deg": 20.06371852645369,
+      "plateau_speed_mae_m_s": 0.4383359761354963,
+      "max_stopping_travel_m": 0.04910576731020174,
+      "peak_speed_m_s": 1.1789060420383437
+    },
+    {
+      "scenario": "drive",
+      "hub_lag_s": 0.01,
+      "passed": true,
+      "failure": null,
+      "max_pitch_error_deg": 11.374919494081531,
+      "plateau_speed_mae_m_s": 0.003532793369330879,
+      "max_stopping_travel_m": 0.08055735350181026,
+      "peak_speed_m_s": 0.41992211136504615
+    },
+    {
+      "scenario": "combined",
+      "hub_lag_s": 0.025,
+      "passed": false,
+      "failure": "physical limit at 4.015s: pitch=20.02, roll=-0.00, contact=False, joint_limit=False",
+      "max_pitch_error_deg": 20.0199108981957,
+      "plateau_speed_mae_m_s": null,
+      "max_stopping_travel_m": null,
+      "peak_speed_m_s": 0.6824431908730262
+    },
+    {
+      "scenario": "combined",
+      "hub_lag_s": 0.01,
+      "passed": true,
+      "failure": null,
+      "max_pitch_error_deg": 8.98592152257826,
+      "plateau_speed_mae_m_s": null,
+      "max_stopping_travel_m": null,
+      "peak_speed_m_s": 0.2707851694646299
+    },
+    {
+      "scenario": "push",
+      "hub_lag_s": 0.025,
+      "passed": true,
+      "failure": null,
+      "max_pitch_error_deg": 3.7118574947470053,
+      "plateau_speed_mae_m_s": null,
+      "max_stopping_travel_m": null,
+      "peak_speed_m_s": 0.12235580211112494
+    },
+    {
+      "scenario": "push",
+      "hub_lag_s": 0.01,
+      "passed": true,
+      "failure": null,
+      "max_pitch_error_deg": 2.514853359383138,
+      "plateau_speed_mae_m_s": null,
+      "max_stopping_travel_m": null,
+      "peak_speed_m_s": 0.09801367818155485
+    }
+  ]
+}

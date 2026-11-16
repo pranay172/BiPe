@@ -1,0 +1,77 @@
+{
+  "description": "M12 phase D following controller: the target estimator, the mode logic and the follower law that run in the supervised Teensy core (firmware/src/follower.c, Python reference bipe/m12/follow.py), and the measurement link model that stands in for the Pi (bipe/m12/pi_model.py). tools/generate_follower_config.py writes firmware/include/follower_config.h from this file. SI units; angles in radians unless the name says degrees.",
+  "status": "Phase D, for the user's sign-off at the phase exit",
+  "timing": {
+    "control_dt_s": 0.005,
+    "history_s": 0.5,
+    "max_age_s": 0.5,
+    "link_delay_s": 0.002,
+    "frame_s": 0.03333333333333333,
+    "basis": "The follower steps with the balance core at 200 Hz (config/robot.json simulation.control_dt). The pose history covers 0.5 s, which holds the 0.26-0.34 s re-acquisition latency (artifacts/m12/perception/timing.json) with margin; a measurement older than that is rejected. The link delay is the phase C latency budget's 2 ms (an assumption until phase E). Frames arrive at 30 Hz (phase C sign-off)."
+  },
+  "camera": {
+    "ahead_of_axle_m": 0.0740,
+    "ahead_per_lean_m_rad": 0.1311,
+    "basis": "Head camera at the nominal 40 degree posture, pitched 42 degrees for the waist tag (bipe.m12.geometry.camera_pose; config/following-m12.json tag.layouts.waist_tag). Body lean from the balanced equilibrium moves the camera along the body: 0.0647 m at -4 degrees, 0.0830 m at +4 degrees, so 0.1311 m/rad (central difference; 0.0550 and 0.0916 m at -8 and +8 degrees, within 1 mm of the line). Each pose in the history carries the camera position at its lean, so the lean is not read as target motion (the first closed-loop runs without it held a 2 Hz, +-8 degree pitch oscillation: the +-1.8 cm camera motion entered the target velocity estimate and the speed command). The follower law holds the range from the upright camera, a fixed point on the robot"
+  },
+  "estimator": {
+    "process_acceleration_density_m2_s3": 1.0,
+    "initial_velocity_sigma_m_s": 1.0,
+    "noise_table": {
+      "range_m": [0.5, 0.7, 1.0, 1.25, 1.5, 1.75, 2.0],
+      "range_std_m": [0.00108, 0.00221, 0.00376, 0.00495, 0.00684, 0.00988, 0.01602],
+      "bearing_std_deg": [0.0110, 0.0076, 0.0061, 0.0080, 0.0058, 0.0054, 0.0124],
+      "basis": "The phase C measurement model (config/perception-m12.json measurement_model.table): at each range, the largest standard deviation over view angles up to 60 degrees; linear in range, held at the ends"
+    },
+    "noise_scale": 3.0,
+    "range_std_floor_m": 0.01,
+    "bearing_std_floor_deg": 0.25,
+    "noise_basis": "The rendered-frame spreads are a floor (phase C: lens calibration, levelling error, rolling shutter, ISP and real light are not in them), so the filter uses three times the table with floors of 1 cm and 0.25 degree. The range bias is not corrected (phase D decision 1, 21 October 2026)",
+    "process_basis": "Constant-velocity target in the robot's odometry frame with white acceleration noise; the density is tuned in the open-loop tests (artifacts/m12/following/open_loop) against the target's 1.0 m/s^2 acceleration requirement"
+  },
+  "gating": {
+    "innovation_chi2": 18.4,
+    "reacquisition_gate_m": 0.3,
+    "basis": "While following, a detection is accepted when its innovation is inside the 99.99 % bound of the filter (chi-square, 2 degrees of freedom) or within the 0.3 m reacquisition gate; while coasting or braking only the 0.3 m gate applies (config/following-m12.json reacquisition.gate_m)"
+  },
+  "modes": {
+    "tag_id": 0,
+    "engage_detections": 5,
+    "engage_s": 0.15,
+    "engage_range_m": [0.5, 1.5],
+    "engage_robot_speed_max_m_s": 0.05,
+    "coast_after_frames": 2.25,
+    "coast_s": 0.45,
+    "stale_link_s": 0.45,
+    "hold_speed_m_s": 0.05,
+    "basis": "config/following-m12.json engage, loss and reacquisition rules (phase A sign-off) and the phase A ideal follower: engage after 5 consecutive detections over at least 0.15 s at 0.5-1.5 m with the robot at rest, and only after an explicit follow request (phase D decision 2); coast on the prediction from 2.25 frame periods without an accepted detection (the phase A 1.5 frame periods plus the 25 ms spread of the tracking latency, which spaces the arrivals of successive reports by up to 58 ms); brake after the coast; a link silent for the coast time is a loss; hold once the commands are zero and the robot is below 0.05 m/s. Coast and stale link (phase D sign-off, user decision 22 October 2026): a flat 0.45 s, lengthened from 0.3 s so that it outlasts the 0.26-0.34 s full-frame search after a miss (artifacts/m12/perception/timing.json; phase D lost the target in 90 degree corners and 1 m curves for longer than the 0.3 s coast while the tracker searched, and the search sends no report). The user accepted the longer stop: from 1.0 m/s, 0.45 m coasting plus 0.5 m braking (config/following-m12.json loss.stopping_distance_max_m)"
+  },
+  "law": {
+    "nominal_range_m": 1.0,
+    "range_gain_1_s": 1.0,
+    "bearing_gain_1_s": 2.5,
+    "stop_range_m": 0.4,
+    "lateral_range_floor_m": 0.2,
+    "basis": "The phase A ideal follower (config/following-m12.json ideal_follower, range, close_range): speed from the target's speed along the line of sight plus the range error; yaw rate from the bearing plus the target's speed across the line of sight; no forward speed below the 0.4 m stop range"
+  },
+  "limits": {
+    "speed_m_s": 1.2,
+    "reverse_speed_m_s": 0.3,
+    "acceleration_m_s2": 1.1,
+    "yaw_rate_rad_s": 1.0,
+    "yaw_acceleration_rad_s2": 1.25,
+    "brake_deceleration_m_s2": 1.0,
+    "basis": "The signed-off drive envelope (config/robot.json m10.targets.drive_envelope, phases A and B); reverse and brake are follower limits. Acceleration 1.1 m/s^2 from M16 decision 5: both controllers pass the 60 nominal runs at 1.1 (classical 60/60, fine-tune 1 60/60), so one profile serves both"
+  },
+  "link_model": {
+    "frame_rate_hz": 30,
+    "tracking_latency_s": [0.124, 0.149],
+    "acquisition_latency_s": [0.262, 0.339],
+    "pipeline_s": 0.0582,
+    "p_miss_after_miss": 0.333,
+    "start_s": 1.0,
+    "follow_request_s": 0.5,
+    "layout": "waist_tag",
+    "basis": "Phase C, signed off 21 October 2026 (artifacts/m12/perception/timing.json and summary.json): region-of-interest tracking with frames over 2 cores at 30 Hz; after a miss the next frame is a full-frame search at quad_decimate 2 on 4 threads; the frames whose image is ready before the search ends are skipped (the search ends at its latency less the 58.2 ms of half exposure, readout, ISP and link in the phase C latency budget); the latency of each frame is drawn uniformly from the estimate's range; after a missed frame the next is missed with at least the replays' 1 in 3. Detection probability, bias and noise come from the measurement model at the true range and view angle, with the yaw-blur term at the true bearing rate. The target starts its track 1 s after the robot (as the phase B replays) and the follow request arrives at 0.5 s"
+  }
+}

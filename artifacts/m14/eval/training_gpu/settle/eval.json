@@ -1,0 +1,30 @@
+{
+  "checkpoint": "artifacts/m13/training/settle/model_10493.pt",
+  "checkpoint_sha256": "bfccb81281711676d361d18f049190ed2d39fecb7f6abc8235b2ba896d222f91",
+  "stages": {
+    "training": {
+      "exit": 0,
+      "minutes": 0.7,
+      "log": "training.log",
+      "finished": "2026-11-02T07:17:08+00:00",
+      "commit": "d46c288a06818e80309c21c6921d1846b841940e",
+      "dirty": false,
+      "environment": {
+        "python": "3.11.15",
+        "machine": "x86_64",
+        "cpus": 16,
+        "node": "laptop",
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "mujoco": "3.11.0",
+        "torch": "2.14.1",
+        "mjlab": "1.6.0",
+        "rsl-rl-lib": "5.4.2"
+      },
+      "device": "cuda:0",
+      "worlds": 1000,
+      "episodes": 1000,
+      "episode_s": 10.0
+    }
+  }
+}

@@ -1,0 +1,2092 @@
+{
+ "runs": {
+  "lateral_crossing": {
+   "scenario": "lateral_crossing",
+   "duration_s": 10.0,
+   "failure": null,
+   "phase_b_path_difference_m": 2.5050600724709455e-07
+  },
+  "corner_90": {
+   "scenario": "corner_90",
+   "duration_s": 16.34,
+   "failure": null,
+   "phase_b_path_difference_m": 5.686610522639485e-07
+  },
+  "start_stop": {
+   "scenario": "start_stop",
+   "duration_s": 17.02,
+   "failure": null,
+   "phase_b_path_difference_m": 7.606314925477923e-07
+  },
+  "curve_r1": {
+   "scenario": "curve_r1",
+   "duration_s": 17.26,
+   "failure": null,
+   "phase_b_path_difference_m": 4.3004513252639285e-07
+  },
+  "straight_1.0": {
+   "scenario": "straight_1.0",
+   "duration_s": 17.51,
+   "failure": null,
+   "phase_b_path_difference_m": 8.489519901646636e-07
+  },
+  "curve_r2": {
+   "scenario": "curve_r2",
+   "duration_s": 17.79,
+   "failure": null
+  },
+  "straight_0.6": {
+   "scenario": "straight_0.6",
+   "duration_s": 20.9,
+   "failure": null
+  },
+  "approach": {
+   "scenario": "approach",
+   "duration_s": 13.48,
+   "failure": null
+  },
+  "loss_fov": {
+   "scenario": "loss_fov",
+   "duration_s": 9.46,
+   "failure": null,
+   "phase_b_path_difference_m": 4.2871077794121296e-08
+  },
+  "straight_0.3": {
+   "scenario": "straight_0.3",
+   "duration_s": 30.45,
+   "failure": null
+  },
+  "occlusion_short": {
+   "scenario": "occlusion_short",
+   "duration_s": 16.9,
+   "failure": null
+  },
+  "occlusion_long": {
+   "scenario": "occlusion_long",
+   "duration_s": 22.15,
+   "failure": null
+  }
+ },
+ "dropouts": {
+  "waist_tag": {
+   "straight_0.3": {
+    "roi": {
+     "frames": 913,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 913,
+      "mean": 0.013343317579408544,
+      "std": 0.0007344829650240174,
+      "p95_abs": 0.014553839999999998,
+      "max_abs": 0.0163102
+     },
+     "bearing_error_deg": {
+      "n": 913,
+      "mean": -0.0735403699890471,
+      "std": 0.0023805501151182647,
+      "p95_abs": 0.07759794,
+      "max_abs": 0.085918
+     }
+    },
+    "dec2": {
+     "frames": 913,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 913,
+      "mean": 0.013413314622124863,
+      "std": 0.0007473193890802507,
+      "p95_abs": 0.014857179999999998,
+      "max_abs": 0.0166239
+     },
+     "bearing_error_deg": {
+      "n": 913,
+      "mean": -0.07380631303395398,
+      "std": 0.00261658002485795,
+      "p95_abs": 0.07768484,
+      "max_abs": 0.0851368
+     }
+    },
+    "dec1.5": {
+     "frames": 913,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 913,
+      "mean": 0.013391303833515882,
+      "std": 0.0007213230017606953,
+      "p95_abs": 0.01456066,
+      "max_abs": 0.0165239
+     },
+     "bearing_error_deg": {
+      "n": 913,
+      "mean": -0.07420863417305586,
+      "std": 0.002425847222131844,
+      "p95_abs": 0.07826353999999999,
+      "max_abs": 0.08383
+     }
+    },
+    "dec1": {
+     "frames": 913,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 913,
+      "mean": 0.013346931763417306,
+      "std": 0.0007259257673726654,
+      "p95_abs": 0.01445312,
+      "max_abs": 0.0166316
+     },
+     "bearing_error_deg": {
+      "n": 913,
+      "mean": -0.07360403943044908,
+      "std": 0.002351006450367928,
+      "p95_abs": 0.077541,
+      "max_abs": 0.0845052
+     }
+    },
+    "frames": 913,
+    "frames_expected": 913
+   },
+   "straight_0.6": {
+    "roi": {
+     "frames": 627,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 627,
+      "mean": 0.013512749218500798,
+      "std": 0.0015765036718432756,
+      "p95_abs": 0.016530259999999995,
+      "max_abs": 0.0198035
+     },
+     "bearing_error_deg": {
+      "n": 627,
+      "mean": -0.07351655933014355,
+      "std": 0.0028801921435707115,
+      "p95_abs": 0.0782678,
+      "max_abs": 0.0869129
+     }
+    },
+    "dec2": {
+     "frames": 627,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 627,
+      "mean": 0.013488735996810207,
+      "std": 0.0014906341169991194,
+      "p95_abs": 0.016198439999999998,
+      "max_abs": 0.0195461
+     },
+     "bearing_error_deg": {
+      "n": 627,
+      "mean": -0.07362593014354067,
+      "std": 0.003091464316944279,
+      "p95_abs": 0.07907497,
+      "max_abs": 0.0847733
+     }
+    },
+    "dec1.5": {
+     "frames": 627,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 627,
+      "mean": 0.013554557878787881,
+      "std": 0.0015539171768764958,
+      "p95_abs": 0.01670178999999999,
+      "max_abs": 0.0200202
+     },
+     "bearing_error_deg": {
+      "n": 627,
+      "mean": -0.07391332472089313,
+      "std": 0.0029240318347312994,
+      "p95_abs": 0.07872850999999999,
+      "max_abs": 0.0903697
+     }
+    },
+    "dec1": {
+     "frames": 627,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 627,
+      "mean": 0.01351546398724083,
+      "std": 0.0015666317556060243,
+      "p95_abs": 0.016550679999999998,
+      "max_abs": 0.0198036
+     },
+     "bearing_error_deg": {
+      "n": 627,
+      "mean": -0.073518531738437,
+      "std": 0.0028851543002126924,
+      "p95_abs": 0.07829447999999999,
+      "max_abs": 0.0870374
+     }
+    },
+    "frames": 627,
+    "frames_expected": 627
+   },
+   "straight_1.0": {
+    "roi": {
+     "frames": 525,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 525,
+      "mean": 0.013842642438095238,
+      "std": 0.0026638455967983262,
+      "p95_abs": 0.019871299999999974,
+      "max_abs": 0.0230477
+     },
+     "bearing_error_deg": {
+      "n": 525,
+      "mean": -0.07369275733333333,
+      "std": 0.00469835094743221,
+      "p95_abs": 0.08399499999999999,
+      "max_abs": 0.0934931
+     }
+    },
+    "dec2": {
+     "frames": 525,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 525,
+      "mean": 0.0138475704,
+      "std": 0.002681016771734093,
+      "p95_abs": 0.019495119999999998,
+      "max_abs": 0.0234538
+     },
+     "bearing_error_deg": {
+      "n": 525,
+      "mean": -0.07382509066666666,
+      "std": 0.00488032036292487,
+      "p95_abs": 0.08377358,
+      "max_abs": 0.0914174
+     }
+    },
+    "dec1.5": {
+     "frames": 525,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 525,
+      "mean": 0.013871022438095237,
+      "std": 0.002677488655579947,
+      "p95_abs": 0.019744259999999993,
+      "max_abs": 0.0228868
+     },
+     "bearing_error_deg": {
+      "n": 525,
+      "mean": -0.07410926514285715,
+      "std": 0.004386364609137951,
+      "p95_abs": 0.0827841,
+      "max_abs": 0.0921561
+     }
+    },
+    "dec1": {
+     "frames": 525,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 525,
+      "mean": 0.01384380660952381,
+      "std": 0.002663352247813198,
+      "p95_abs": 0.019865899999999978,
+      "max_abs": 0.0230576
+     },
+     "bearing_error_deg": {
+      "n": 525,
+      "mean": -0.0736848697142857,
+      "std": 0.004652379874656383,
+      "p95_abs": 0.08347429999999997,
+      "max_abs": 0.0936039
+     }
+    },
+    "frames": 525,
+    "frames_expected": 525
+   },
+   "start_stop": {
+    "roi": {
+     "frames": 510,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 510,
+      "mean": 0.013834364156862745,
+      "std": 0.003756838173180995,
+      "p95_abs": 0.02127302,
+      "max_abs": 0.0231133
+     },
+     "bearing_error_deg": {
+      "n": 510,
+      "mean": -0.07411720823529411,
+      "std": 0.005521308587841448,
+      "p95_abs": 0.085239055,
+      "max_abs": 0.0963588
+     }
+    },
+    "dec2": {
+     "frames": 510,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 510,
+      "mean": 0.013859806431372548,
+      "std": 0.0037378549536510645,
+      "p95_abs": 0.021275554999999998,
+      "max_abs": 0.0238818
+     },
+     "bearing_error_deg": {
+      "n": 510,
+      "mean": -0.07407732725490196,
+      "std": 0.0062082439577707295,
+      "p95_abs": 0.086274805,
+      "max_abs": 0.0913389
+     }
+    },
+    "dec1.5": {
+     "frames": 510,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 510,
+      "mean": 0.013870322176470589,
+      "std": 0.0037961399284886462,
+      "p95_abs": 0.021029019999999995,
+      "max_abs": 0.0250408
+     },
+     "bearing_error_deg": {
+      "n": 510,
+      "mean": -0.07441874078431372,
+      "std": 0.005599819827443245,
+      "p95_abs": 0.086345295,
+      "max_abs": 0.0934487
+     }
+    },
+    "dec1": {
+     "frames": 510,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 510,
+      "mean": 0.013837791176470587,
+      "std": 0.003745624296547981,
+      "p95_abs": 0.021271705,
+      "max_abs": 0.0231144
+     },
+     "bearing_error_deg": {
+      "n": 510,
+      "mean": -0.07406314960784313,
+      "std": 0.005557498646319286,
+      "p95_abs": 0.085313625,
+      "max_abs": 0.0963603
+     }
+    },
+    "frames": 510,
+    "frames_expected": 510
+   },
+   "curve_r1": {
+    "roi": {
+     "frames": 515,
+     "detection_rate": 0.9980582524271845,
+     "miss_runs": 1,
+     "longest_miss_frames": 1,
+     "range_error_m": {
+      "n": 514,
+      "mean": 0.015175022762645915,
+      "std": 0.0035959621632866545,
+      "p95_abs": 0.020272955,
+      "max_abs": 0.0304579
+     },
+     "bearing_error_deg": {
+      "n": 514,
+      "mean": -0.07187541264591439,
+      "std": 0.007430830063654263,
+      "p95_abs": 0.07705468,
+      "max_abs": 0.142045
+     }
+    },
+    "dec2": {
+     "frames": 515,
+     "detection_rate": 0.9980582524271845,
+     "miss_runs": 1,
+     "longest_miss_frames": 1,
+     "range_error_m": {
+      "n": 514,
+      "mean": 0.01486816653696498,
+      "std": 0.003541662180439412,
+      "p95_abs": 0.020254004999999995,
+      "max_abs": 0.0279444
+     },
+     "bearing_error_deg": {
+      "n": 514,
+      "mean": -0.07378494221789883,
+      "std": 0.01175101479847856,
+      "p95_abs": 0.09173502499999994,
+      "max_abs": 0.148279
+     }
+    },
+    "dec1.5": {
+     "frames": 515,
+     "detection_rate": 0.996116504854369,
+     "miss_runs": 2,
+     "longest_miss_frames": 1,
+     "range_error_m": {
+      "n": 513,
+      "mean": 0.015106680994152048,
+      "std": 0.0029878126595683572,
+      "p95_abs": 0.020030939999999994,
+      "max_abs": 0.0289918
+     },
+     "bearing_error_deg": {
+      "n": 513,
+      "mean": -0.07275300292397661,
+      "std": 0.009153227229224438,
+      "p95_abs": 0.08281382,
+      "max_abs": 0.135707
+     }
+    },
+    "dec1": {
+     "frames": 515,
+     "detection_rate": 0.9980582524271845,
+     "miss_runs": 1,
+     "longest_miss_frames": 1,
+     "range_error_m": {
+      "n": 514,
+      "mean": 0.014956112782101167,
+      "std": 0.004848931766376235,
+      "p95_abs": 0.02029113,
+      "max_abs": 0.0561953
+     },
+     "bearing_error_deg": {
+      "n": 514,
+      "mean": -0.07200344688715954,
+      "std": 0.00830622821209856,
+      "p95_abs": 0.07768667499999997,
+      "max_abs": 0.178115
+     }
+    },
+    "frames": 517,
+    "frames_expected": 515
+   },
+   "curve_r2": {
+    "roi": {
+     "frames": 533,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 533,
+      "mean": 0.01554397277673546,
+      "std": 0.002333896293405348,
+      "p95_abs": 0.019771439999999998,
+      "max_abs": 0.0233257
+     },
+     "bearing_error_deg": {
+      "n": 533,
+      "mean": -0.07299509099437147,
+      "std": 0.003829011110394924,
+      "p95_abs": 0.0799083,
+      "max_abs": 0.0875245
+     }
+    },
+    "dec2": {
+     "frames": 533,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 533,
+      "mean": 0.01560653125703565,
+      "std": 0.0023371670696966753,
+      "p95_abs": 0.01947208,
+      "max_abs": 0.0238407
+     },
+     "bearing_error_deg": {
+      "n": 533,
+      "mean": -0.07322375534709194,
+      "std": 0.004149116050097334,
+      "p95_abs": 0.07975052,
+      "max_abs": 0.0892911
+     }
+    },
+    "dec1.5": {
+     "frames": 533,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 533,
+      "mean": 0.015588605328330205,
+      "std": 0.002343394662120695,
+      "p95_abs": 0.019707219999999994,
+      "max_abs": 0.0231106
+     },
+     "bearing_error_deg": {
+      "n": 533,
+      "mean": -0.07331477823639775,
+      "std": 0.003767935320172927,
+      "p95_abs": 0.08057624,
+      "max_abs": 0.0884391
+     }
+    },
+    "dec1": {
+     "frames": 533,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 533,
+      "mean": 0.015550036135084428,
+      "std": 0.0023134624566506427,
+      "p95_abs": 0.01959082,
+      "max_abs": 0.022972
+     },
+     "bearing_error_deg": {
+      "n": 533,
+      "mean": -0.07294374896810506,
+      "std": 0.0038518376645742683,
+      "p95_abs": 0.08028026,
+      "max_abs": 0.0875246
+     }
+    },
+    "frames": 533,
+    "frames_expected": 533
+   },
+   "corner_90": {
+    "roi": {
+     "frames": 475,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 475,
+      "mean": 0.01487639452631579,
+      "std": 0.004783997122041131,
+      "p95_abs": 0.023288549999999963,
+      "max_abs": 0.0346365
+     },
+     "bearing_error_deg": {
+      "n": 475,
+      "mean": -0.0720784372631579,
+      "std": 0.006529665307863984,
+      "p95_abs": 0.08119267,
+      "max_abs": 0.12258
+     }
+    },
+    "dec2": {
+     "frames": 475,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 475,
+      "mean": 0.014761518042105263,
+      "std": 0.004600841228494516,
+      "p95_abs": 0.023620429999999998,
+      "max_abs": 0.0330727
+     },
+     "bearing_error_deg": {
+      "n": 475,
+      "mean": -0.07238928715789472,
+      "std": 0.007807713436485059,
+      "p95_abs": 0.08057012999999999,
+      "max_abs": 0.136854
+     }
+    },
+    "dec1.5": {
+     "frames": 475,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 475,
+      "mean": 0.014807539936842105,
+      "std": 0.0045944237398450405,
+      "p95_abs": 0.023280259999999994,
+      "max_abs": 0.0329642
+     },
+     "bearing_error_deg": {
+      "n": 475,
+      "mean": -0.07251421536842105,
+      "std": 0.007240179055531412,
+      "p95_abs": 0.08086078999999999,
+      "max_abs": 0.124902
+     }
+    },
+    "dec1": {
+     "frames": 475,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 475,
+      "mean": 0.014880099431578947,
+      "std": 0.004825935085565477,
+      "p95_abs": 0.02338607999999997,
+      "max_abs": 0.0346367
+     },
+     "bearing_error_deg": {
+      "n": 475,
+      "mean": -0.07202501221052632,
+      "std": 0.006430384882055629,
+      "p95_abs": 0.08119316,
+      "max_abs": 0.120916
+     }
+    },
+    "frames": 490,
+    "frames_expected": 475
+   },
+   "lateral_crossing": {
+    "roi": {
+     "frames": 300,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 300,
+      "mean": 0.013328172566666666,
+      "std": 0.0027510124294709074,
+      "p95_abs": 0.019236125,
+      "max_abs": 0.0226707
+     },
+     "bearing_error_deg": {
+      "n": 300,
+      "mean": -0.07368444633333332,
+      "std": 0.0030617724646197285,
+      "p95_abs": 0.07853533500000001,
+      "max_abs": 0.0837341
+     }
+    },
+    "dec2": {
+     "frames": 300,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 300,
+      "mean": 0.0132865911,
+      "std": 0.0029380597704902183,
+      "p95_abs": 0.019222605,
+      "max_abs": 0.0232288
+     },
+     "bearing_error_deg": {
+      "n": 300,
+      "mean": -0.07331805300000001,
+      "std": 0.0045786627540884235,
+      "p95_abs": 0.07956637,
+      "max_abs": 0.0838206
+     }
+    },
+    "dec1.5": {
+     "frames": 300,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 300,
+      "mean": 0.013362875333333335,
+      "std": 0.002812650793925448,
+      "p95_abs": 0.01934137,
+      "max_abs": 0.0227268
+     },
+     "bearing_error_deg": {
+      "n": 300,
+      "mean": -0.073847958,
+      "std": 0.0037687756712452255,
+      "p95_abs": 0.079178995,
+      "max_abs": 0.0828723
+     }
+    },
+    "dec1": {
+     "frames": 300,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 300,
+      "mean": 0.0133257568,
+      "std": 0.0027497333704613112,
+      "p95_abs": 0.019224565000000002,
+      "max_abs": 0.0231162
+     },
+     "bearing_error_deg": {
+      "n": 300,
+      "mean": -0.073677575,
+      "std": 0.003089939948363069,
+      "p95_abs": 0.07871047,
+      "max_abs": 0.0837352
+     }
+    },
+    "frames": 300,
+    "frames_expected": 300
+   },
+   "approach": {
+    "roi": {
+     "frames": 404,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 404,
+      "mean": 0.012139139084158417,
+      "std": 0.0030976241615865967,
+      "p95_abs": 0.017917199999999994,
+      "max_abs": 0.0201847
+     },
+     "bearing_error_deg": {
+      "n": 404,
+      "mean": -0.07740624108910892,
+      "std": 0.008016061547988281,
+      "p95_abs": 0.09805167499999999,
+      "max_abs": 0.106641
+     }
+    },
+    "dec2": {
+     "frames": 404,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 404,
+      "mean": 0.01219801957920792,
+      "std": 0.003052291004872712,
+      "p95_abs": 0.017801235,
+      "max_abs": 0.0195541
+     },
+     "bearing_error_deg": {
+      "n": 404,
+      "mean": -0.07777489925742573,
+      "std": 0.008182382033828416,
+      "p95_abs": 0.09826158499999997,
+      "max_abs": 0.107592
+     }
+    },
+    "dec1.5": {
+     "frames": 404,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 404,
+      "mean": 0.012151989504950495,
+      "std": 0.0030801501843712325,
+      "p95_abs": 0.017829005,
+      "max_abs": 0.0192789
+     },
+     "bearing_error_deg": {
+      "n": 404,
+      "mean": -0.07791846633663367,
+      "std": 0.008413852601543582,
+      "p95_abs": 0.09857903499999998,
+      "max_abs": 0.108798
+     }
+    },
+    "dec1": {
+     "frames": 404,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 404,
+      "mean": 0.012140701163366338,
+      "std": 0.0030881443676587747,
+      "p95_abs": 0.01779245,
+      "max_abs": 0.0201837
+     },
+     "bearing_error_deg": {
+      "n": 404,
+      "mean": -0.07745875742574257,
+      "std": 0.008149871407965375,
+      "p95_abs": 0.09843514499999999,
+      "max_abs": 0.10664
+     }
+    },
+    "frames": 404,
+    "frames_expected": 404
+   },
+   "loss_fov": {
+    "roi": {
+     "frames": 86,
+     "detection_rate": 0.9883720930232558,
+     "miss_runs": 1,
+     "longest_miss_frames": 1,
+     "range_error_m": {
+      "n": 85,
+      "mean": 0.018182797647058827,
+      "std": 0.010385557784972091,
+      "p95_abs": 0.043822019999999996,
+      "max_abs": 0.0548451
+     },
+     "bearing_error_deg": {
+      "n": 85,
+      "mean": -0.08262826352941177,
+      "std": 0.020391186294858626,
+      "p95_abs": 0.1384974,
+      "max_abs": 0.144522
+     }
+    },
+    "dec2": {
+     "frames": 86,
+     "detection_rate": 0.9883720930232558,
+     "miss_runs": 1,
+     "longest_miss_frames": 1,
+     "range_error_m": {
+      "n": 85,
+      "mean": 0.017851471764705886,
+      "std": 0.00959707693626668,
+      "p95_abs": 0.042829839999999994,
+      "max_abs": 0.0505096
+     },
+     "bearing_error_deg": {
+      "n": 85,
+      "mean": -0.08208085764705882,
+      "std": 0.019509695682216794,
+      "p95_abs": 0.1340118,
+      "max_abs": 0.14889
+     }
+    },
+    "dec1.5": {
+     "frames": 86,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 86,
+      "mean": 0.018427073255813955,
+      "std": 0.010556747480371744,
+      "p95_abs": 0.04502735,
+      "max_abs": 0.0571631
+     },
+     "bearing_error_deg": {
+      "n": 86,
+      "mean": -0.08220927790697674,
+      "std": 0.019301211204502174,
+      "p95_abs": 0.13385325,
+      "max_abs": 0.148814
+     }
+    },
+    "dec1": {
+     "frames": 86,
+     "detection_rate": 0.9883720930232558,
+     "miss_runs": 1,
+     "longest_miss_frames": 1,
+     "range_error_m": {
+      "n": 85,
+      "mean": 0.01819329529411765,
+      "std": 0.01041771860467387,
+      "p95_abs": 0.044403179999999993,
+      "max_abs": 0.0549664
+     },
+     "bearing_error_deg": {
+      "n": 85,
+      "mean": -0.08250240588235291,
+      "std": 0.02010792817927056,
+      "p95_abs": 0.13804639999999999,
+      "max_abs": 0.143542
+     }
+    },
+    "frames": 283,
+    "frames_expected": 86
+   },
+   "occlusion_short": {
+    "roi": {
+     "frames": 497,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 497,
+      "mean": 0.013496208128772638,
+      "std": 0.001750685230484398,
+      "p95_abs": 0.01731138,
+      "max_abs": 0.0196724
+     },
+     "bearing_error_deg": {
+      "n": 497,
+      "mean": -0.07363667786720322,
+      "std": 0.003062553979825965,
+      "p95_abs": 0.07867539999999999,
+      "max_abs": 0.0919101
+     }
+    },
+    "dec2": {
+     "frames": 497,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 497,
+      "mean": 0.013512158551307846,
+      "std": 0.0015992428095103252,
+      "p95_abs": 0.01670036,
+      "max_abs": 0.0190192
+     },
+     "bearing_error_deg": {
+      "n": 497,
+      "mean": -0.07374408410462777,
+      "std": 0.003163254695728633,
+      "p95_abs": 0.07886939999999999,
+      "max_abs": 0.0830494
+     }
+    },
+    "dec1.5": {
+     "frames": 497,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 497,
+      "mean": 0.013473441589537224,
+      "std": 0.0017465335769537046,
+      "p95_abs": 0.01696932,
+      "max_abs": 0.0198609
+     },
+     "bearing_error_deg": {
+      "n": 497,
+      "mean": -0.0740364921529175,
+      "std": 0.003005183845705736,
+      "p95_abs": 0.07894708,
+      "max_abs": 0.0840053
+     }
+    },
+    "dec1": {
+     "frames": 497,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 497,
+      "mean": 0.013497628008048289,
+      "std": 0.001761703817719653,
+      "p95_abs": 0.01750476,
+      "max_abs": 0.0196602
+     },
+     "bearing_error_deg": {
+      "n": 497,
+      "mean": -0.07360429315895373,
+      "std": 0.003062537289001668,
+      "p95_abs": 0.07860996,
+      "max_abs": 0.0919081
+     }
+    },
+    "frames": 506,
+    "frames_expected": 497
+   },
+   "occlusion_long": {
+    "roi": {
+     "frames": 560,
+     "detection_rate": 0.9964285714285714,
+     "miss_runs": 1,
+     "longest_miss_frames": 2,
+     "range_error_m": {
+      "n": 558,
+      "mean": 0.013960909480286736,
+      "std": 0.0024863614192181653,
+      "p95_abs": 0.01889112,
+      "max_abs": 0.0219788
+     },
+     "bearing_error_deg": {
+      "n": 558,
+      "mean": -0.0732047987455197,
+      "std": 0.0036994757449709792,
+      "p95_abs": 0.079817915,
+      "max_abs": 0.0871254
+     }
+    },
+    "dec2": {
+     "frames": 560,
+     "detection_rate": 0.9964285714285714,
+     "miss_runs": 1,
+     "longest_miss_frames": 2,
+     "range_error_m": {
+      "n": 558,
+      "mean": 0.013993554713261648,
+      "std": 0.002425375645689097,
+      "p95_abs": 0.018879979999999998,
+      "max_abs": 0.0218843
+     },
+     "bearing_error_deg": {
+      "n": 558,
+      "mean": -0.07334146397849463,
+      "std": 0.0044777435149307545,
+      "p95_abs": 0.080707515,
+      "max_abs": 0.0914276
+     }
+    },
+    "dec1.5": {
+     "frames": 560,
+     "detection_rate": 0.9964285714285714,
+     "miss_runs": 1,
+     "longest_miss_frames": 2,
+     "range_error_m": {
+      "n": 558,
+      "mean": 0.013951487347670252,
+      "std": 0.002414260416493385,
+      "p95_abs": 0.01875451,
+      "max_abs": 0.021292
+     },
+     "bearing_error_deg": {
+      "n": 558,
+      "mean": -0.07376522562724015,
+      "std": 0.0037067153460048634,
+      "p95_abs": 0.08042416,
+      "max_abs": 0.0900478
+     }
+    },
+    "dec1": {
+     "frames": 560,
+     "detection_rate": 0.9964285714285714,
+     "miss_runs": 1,
+     "longest_miss_frames": 2,
+     "range_error_m": {
+      "n": 558,
+      "mean": 0.013967272365591397,
+      "std": 0.0024876895673660382,
+      "p95_abs": 0.018880755,
+      "max_abs": 0.0218821
+     },
+     "bearing_error_deg": {
+      "n": 558,
+      "mean": -0.07322651146953406,
+      "std": 0.0036938485054815264,
+      "p95_abs": 0.07983466999999998,
+      "max_abs": 0.0872815
+     }
+    },
+    "frames": 664,
+    "frames_expected": 560
+   }
+  },
+  "low_tag": {
+   "straight_0.3": {
+    "roi": {
+     "frames": 913,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 913,
+      "mean": 0.010549786473165389,
+      "std": 0.000694274567847718,
+      "p95_abs": 0.01174658,
+      "max_abs": 0.0145551
+     },
+     "bearing_error_deg": {
+      "n": 913,
+      "mean": -0.06018923242059146,
+      "std": 0.0031203188535058792,
+      "p95_abs": 0.06512624,
+      "max_abs": 0.069441
+     }
+    },
+    "dec2": {
+     "frames": 913,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 913,
+      "mean": 0.010597879857612267,
+      "std": 0.0009777050967967192,
+      "p95_abs": 0.012297579999999999,
+      "max_abs": 0.0150803
+     },
+     "bearing_error_deg": {
+      "n": 913,
+      "mean": -0.058951083242059145,
+      "std": 0.00441692514197079,
+      "p95_abs": 0.06537342,
+      "max_abs": 0.069651
+     }
+    },
+    "dec1.5": {
+     "frames": 913,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 913,
+      "mean": 0.01063943286966046,
+      "std": 0.0007985950856099708,
+      "p95_abs": 0.01213248,
+      "max_abs": 0.0137326
+     },
+     "bearing_error_deg": {
+      "n": 913,
+      "mean": -0.05973184359255203,
+      "std": 0.0037162385916355853,
+      "p95_abs": 0.06528114,
+      "max_abs": 0.0706295
+     }
+    },
+    "dec1": {
+     "frames": 913,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 913,
+      "mean": 0.01051995657174151,
+      "std": 0.0006943255633207439,
+      "p95_abs": 0.01169022,
+      "max_abs": 0.0145553
+     },
+     "bearing_error_deg": {
+      "n": 913,
+      "mean": -0.05982465454545455,
+      "std": 0.003056468043896296,
+      "p95_abs": 0.06502419999999999,
+      "max_abs": 0.0690755
+     }
+    },
+    "frames": 913,
+    "frames_expected": 913
+   },
+   "straight_0.6": {
+    "roi": {
+     "frames": 627,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 627,
+      "mean": 0.010729146666666665,
+      "std": 0.0014952250508047966,
+      "p95_abs": 0.013699519999999998,
+      "max_abs": 0.0186391
+     },
+     "bearing_error_deg": {
+      "n": 627,
+      "mean": -0.0600119692185008,
+      "std": 0.00303708974704254,
+      "p95_abs": 0.06460882999999999,
+      "max_abs": 0.0684698
+     }
+    },
+    "dec2": {
+     "frames": 627,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 627,
+      "mean": 0.010901215071770337,
+      "std": 0.0017724918474962559,
+      "p95_abs": 0.013825279999999978,
+      "max_abs": 0.0194372
+     },
+     "bearing_error_deg": {
+      "n": 627,
+      "mean": -0.058163150717703345,
+      "std": 0.005101276939298357,
+      "p95_abs": 0.06447083,
+      "max_abs": 0.0684592
+     }
+    },
+    "dec1.5": {
+     "frames": 627,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 627,
+      "mean": 0.010759619728867624,
+      "std": 0.0015626760696838952,
+      "p95_abs": 0.01379713,
+      "max_abs": 0.0180661
+     },
+     "bearing_error_deg": {
+      "n": 627,
+      "mean": -0.05970537272727273,
+      "std": 0.003458093228445298,
+      "p95_abs": 0.06529381,
+      "max_abs": 0.0680588
+     }
+    },
+    "dec1": {
+     "frames": 627,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 627,
+      "mean": 0.010712481499202552,
+      "std": 0.0014980297723856024,
+      "p95_abs": 0.013646059999999991,
+      "max_abs": 0.0186844
+     },
+     "bearing_error_deg": {
+      "n": 627,
+      "mean": -0.059684060925039875,
+      "std": 0.002966642266028872,
+      "p95_abs": 0.06451276,
+      "max_abs": 0.0684706
+     }
+    },
+    "frames": 627,
+    "frames_expected": 627
+   },
+   "straight_1.0": {
+    "roi": {
+     "frames": 525,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 525,
+      "mean": 0.011044075657142858,
+      "std": 0.0026648910448969472,
+      "p95_abs": 0.01659894,
+      "max_abs": 0.0223716
+     },
+     "bearing_error_deg": {
+      "n": 525,
+      "mean": -0.05949460457142857,
+      "std": 0.0032091082963716976,
+      "p95_abs": 0.06456844,
+      "max_abs": 0.068353
+     }
+    },
+    "dec2": {
+     "frames": 525,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 525,
+      "mean": 0.01102376062857143,
+      "std": 0.0026326267605064203,
+      "p95_abs": 0.016344199999999972,
+      "max_abs": 0.0205295
+     },
+     "bearing_error_deg": {
+      "n": 525,
+      "mean": -0.05835669371428571,
+      "std": 0.004828634655438812,
+      "p95_abs": 0.06477678,
+      "max_abs": 0.0692859
+     }
+    },
+    "dec1.5": {
+     "frames": 525,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 525,
+      "mean": 0.011075224057142858,
+      "std": 0.0026406472136226546,
+      "p95_abs": 0.016809579999999998,
+      "max_abs": 0.0200996
+     },
+     "bearing_error_deg": {
+      "n": 525,
+      "mean": -0.05964198342857143,
+      "std": 0.003955880908566285,
+      "p95_abs": 0.0651128,
+      "max_abs": 0.0694233
+     }
+    },
+    "dec1": {
+     "frames": 525,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 525,
+      "mean": 0.011031934723809523,
+      "std": 0.0026808061165393125,
+      "p95_abs": 0.016585899999999997,
+      "max_abs": 0.0220201
+     },
+     "bearing_error_deg": {
+      "n": 525,
+      "mean": -0.059279635809523806,
+      "std": 0.0032545131113750608,
+      "p95_abs": 0.0647751,
+      "max_abs": 0.0668464
+     }
+    },
+    "frames": 525,
+    "frames_expected": 525
+   },
+   "start_stop": {
+    "roi": {
+     "frames": 510,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 510,
+      "mean": 0.011016896450980392,
+      "std": 0.003652957717044543,
+      "p95_abs": 0.018493844999999995,
+      "max_abs": 0.0215635
+     },
+     "bearing_error_deg": {
+      "n": 510,
+      "mean": -0.05940686098039215,
+      "std": 0.003528969834948917,
+      "p95_abs": 0.064457605,
+      "max_abs": 0.0672973
+     }
+    },
+    "dec2": {
+     "frames": 510,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 510,
+      "mean": 0.01103692768627451,
+      "std": 0.0036210757854088613,
+      "p95_abs": 0.01793445,
+      "max_abs": 0.0223783
+     },
+     "bearing_error_deg": {
+      "n": 510,
+      "mean": -0.05808037882352941,
+      "std": 0.005537749632676334,
+      "p95_abs": 0.06526831,
+      "max_abs": 0.0688851
+     }
+    },
+    "dec1.5": {
+     "frames": 510,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 510,
+      "mean": 0.011024412784313724,
+      "std": 0.0036477190349384573,
+      "p95_abs": 0.017777679999999997,
+      "max_abs": 0.0237565
+     },
+     "bearing_error_deg": {
+      "n": 510,
+      "mean": -0.05879348431372548,
+      "std": 0.004349701252387189,
+      "p95_abs": 0.06496430499999999,
+      "max_abs": 0.0693088
+     }
+    },
+    "dec1": {
+     "frames": 510,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 510,
+      "mean": 0.011012054568627453,
+      "std": 0.0036585304901531794,
+      "p95_abs": 0.01868301,
+      "max_abs": 0.0215558
+     },
+     "bearing_error_deg": {
+      "n": 510,
+      "mean": -0.05921760705882352,
+      "std": 0.003628392839074286,
+      "p95_abs": 0.06459938,
+      "max_abs": 0.0672952
+     }
+    },
+    "frames": 510,
+    "frames_expected": 510
+   },
+   "curve_r1": {
+    "roi": {
+     "frames": 515,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 515,
+      "mean": 0.01266850085436893,
+      "std": 0.006532923574931411,
+      "p95_abs": 0.017049019999999995,
+      "max_abs": 0.0718966
+     },
+     "bearing_error_deg": {
+      "n": 515,
+      "mean": -0.05631822854368932,
+      "std": 0.004375589587454616,
+      "p95_abs": 0.06299828,
+      "max_abs": 0.0673608
+     }
+    },
+    "dec2": {
+     "frames": 515,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 515,
+      "mean": 0.012456409145631066,
+      "std": 0.005874813550905192,
+      "p95_abs": 0.016956689999999996,
+      "max_abs": 0.0658828
+     },
+     "bearing_error_deg": {
+      "n": 515,
+      "mean": -0.05549623475728155,
+      "std": 0.004601983739773932,
+      "p95_abs": 0.06245678,
+      "max_abs": 0.0707492
+     }
+    },
+    "dec1.5": {
+     "frames": 515,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 515,
+      "mean": 0.012551743009708736,
+      "std": 0.006204876307645074,
+      "p95_abs": 0.01707903,
+      "max_abs": 0.0684865
+     },
+     "bearing_error_deg": {
+      "n": 515,
+      "mean": -0.055927789514563106,
+      "std": 0.0044680552062607,
+      "p95_abs": 0.06168385,
+      "max_abs": 0.0688938
+     }
+    },
+    "dec1": {
+     "frames": 515,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 515,
+      "mean": 0.01264956518446602,
+      "std": 0.006514724850933174,
+      "p95_abs": 0.017107419999999998,
+      "max_abs": 0.0715342
+     },
+     "bearing_error_deg": {
+      "n": 515,
+      "mean": -0.05621015067961166,
+      "std": 0.004335076882565904,
+      "p95_abs": 0.06304681,
+      "max_abs": 0.0662067
+     }
+    },
+    "frames": 517,
+    "frames_expected": 515
+   },
+   "curve_r2": {
+    "roi": {
+     "frames": 533,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 533,
+      "mean": 0.012622647636022515,
+      "std": 0.0023198880870648276,
+      "p95_abs": 0.01639708,
+      "max_abs": 0.0215942
+     },
+     "bearing_error_deg": {
+      "n": 533,
+      "mean": -0.058259342401500935,
+      "std": 0.0032414640307308735,
+      "p95_abs": 0.0636196,
+      "max_abs": 0.0676901
+     }
+    },
+    "dec2": {
+     "frames": 533,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 533,
+      "mean": 0.012659877054409005,
+      "std": 0.0023894685808313566,
+      "p95_abs": 0.01704166,
+      "max_abs": 0.0202545
+     },
+     "bearing_error_deg": {
+      "n": 533,
+      "mean": -0.057235305253283304,
+      "std": 0.00428450617315367,
+      "p95_abs": 0.06436254,
+      "max_abs": 0.0727728
+     }
+    },
+    "dec1.5": {
+     "frames": 533,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 533,
+      "mean": 0.012576199061913696,
+      "std": 0.0023013832697743415,
+      "p95_abs": 0.01676194,
+      "max_abs": 0.0203336
+     },
+     "bearing_error_deg": {
+      "n": 533,
+      "mean": -0.057701228330206376,
+      "std": 0.0037305930915980836,
+      "p95_abs": 0.06324207999999999,
+      "max_abs": 0.0674901
+     }
+    },
+    "dec1": {
+     "frames": 533,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 533,
+      "mean": 0.012617316435272046,
+      "std": 0.002323880309039798,
+      "p95_abs": 0.01638924,
+      "max_abs": 0.0216988
+     },
+     "bearing_error_deg": {
+      "n": 533,
+      "mean": -0.058190624577861165,
+      "std": 0.003243749097169976,
+      "p95_abs": 0.06347708,
+      "max_abs": 0.0676898
+     }
+    },
+    "frames": 533,
+    "frames_expected": 533
+   },
+   "corner_90": {
+    "roi": {
+     "frames": 475,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 475,
+      "mean": 0.011921310336842104,
+      "std": 0.005309458837557476,
+      "p95_abs": 0.01970871999999999,
+      "max_abs": 0.054419
+     },
+     "bearing_error_deg": {
+      "n": 475,
+      "mean": -0.05706345831578947,
+      "std": 0.004970493258497946,
+      "p95_abs": 0.06361844,
+      "max_abs": 0.0667878
+     }
+    },
+    "dec2": {
+     "frames": 475,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 475,
+      "mean": 0.011644137642105262,
+      "std": 0.00506059331445867,
+      "p95_abs": 0.01920372,
+      "max_abs": 0.0510517
+     },
+     "bearing_error_deg": {
+      "n": 475,
+      "mean": -0.05536327263157895,
+      "std": 0.005998057161359599,
+      "p95_abs": 0.06322114,
+      "max_abs": 0.0691611
+     }
+    },
+    "dec1.5": {
+     "frames": 475,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 475,
+      "mean": 0.011823729221052633,
+      "std": 0.005181617580740197,
+      "p95_abs": 0.019468139999999995,
+      "max_abs": 0.0530369
+     },
+     "bearing_error_deg": {
+      "n": 475,
+      "mean": -0.05648416084210526,
+      "std": 0.005345031212689385,
+      "p95_abs": 0.06283032,
+      "max_abs": 0.0683127
+     }
+    },
+    "dec1": {
+     "frames": 475,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 475,
+      "mean": 0.011915844252631579,
+      "std": 0.005314193490119642,
+      "p95_abs": 0.01972852999999999,
+      "max_abs": 0.0545035
+     },
+     "bearing_error_deg": {
+      "n": 475,
+      "mean": -0.05691128126315789,
+      "std": 0.004964482743559885,
+      "p95_abs": 0.06329604999999999,
+      "max_abs": 0.0667888
+     }
+    },
+    "frames": 490,
+    "frames_expected": 475
+   },
+   "lateral_crossing": {
+    "roi": {
+     "frames": 300,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 300,
+      "mean": 0.010633650433333334,
+      "std": 0.002830995350544781,
+      "p95_abs": 0.01719301,
+      "max_abs": 0.0191615
+     },
+     "bearing_error_deg": {
+      "n": 300,
+      "mean": -0.059345749,
+      "std": 0.00299915866532014,
+      "p95_abs": 0.06432763500000001,
+      "max_abs": 0.0685039
+     }
+    },
+    "dec2": {
+     "frames": 300,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 300,
+      "mean": 0.010434057433333335,
+      "std": 0.0027233026577234533,
+      "p95_abs": 0.016548470000000003,
+      "max_abs": 0.0188345
+     },
+     "bearing_error_deg": {
+      "n": 300,
+      "mean": -0.05829435066666666,
+      "std": 0.0043601909729239436,
+      "p95_abs": 0.06446890000000001,
+      "max_abs": 0.0681361
+     }
+    },
+    "dec1.5": {
+     "frames": 300,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 300,
+      "mean": 0.010434615666666666,
+      "std": 0.0026637297565922625,
+      "p95_abs": 0.016034055000000002,
+      "max_abs": 0.0189896
+     },
+     "bearing_error_deg": {
+      "n": 300,
+      "mean": -0.059190946333333334,
+      "std": 0.003753920389466822,
+      "p95_abs": 0.06468457,
+      "max_abs": 0.0702347
+     }
+    },
+    "dec1": {
+     "frames": 300,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 300,
+      "mean": 0.0106432008,
+      "std": 0.0028683589420076673,
+      "p95_abs": 0.017173665,
+      "max_abs": 0.0193044
+     },
+     "bearing_error_deg": {
+      "n": 300,
+      "mean": -0.05919591333333334,
+      "std": 0.0030880623632335573,
+      "p95_abs": 0.06432506,
+      "max_abs": 0.0680452
+     }
+    },
+    "frames": 300,
+    "frames_expected": 300
+   },
+   "approach": {
+    "roi": {
+     "frames": 404,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 404,
+      "mean": 0.00925941905940594,
+      "std": 0.0028521848316746313,
+      "p95_abs": 0.014261614999999997,
+      "max_abs": 0.0170836
+     },
+     "bearing_error_deg": {
+      "n": 404,
+      "mean": -0.05965603242574257,
+      "std": 0.003493257324517952,
+      "p95_abs": 0.065542535,
+      "max_abs": 0.0704658
+     }
+    },
+    "dec2": {
+     "frames": 404,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 404,
+      "mean": 0.009188317351485148,
+      "std": 0.002846197971816154,
+      "p95_abs": 0.014365854999999995,
+      "max_abs": 0.0168768
+     },
+     "bearing_error_deg": {
+      "n": 404,
+      "mean": -0.059617826980198026,
+      "std": 0.0044867282090876775,
+      "p95_abs": 0.065292075,
+      "max_abs": 0.0703229
+     }
+    },
+    "dec1.5": {
+     "frames": 404,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 404,
+      "mean": 0.009247991014851485,
+      "std": 0.0029208614483427825,
+      "p95_abs": 0.014732544999999993,
+      "max_abs": 0.0184881
+     },
+     "bearing_error_deg": {
+      "n": 404,
+      "mean": -0.05991373440594059,
+      "std": 0.0034375459099417445,
+      "p95_abs": 0.06506778999999999,
+      "max_abs": 0.0709606
+     }
+    },
+    "dec1": {
+     "frames": 404,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 404,
+      "mean": 0.009252636658415843,
+      "std": 0.002857544198067139,
+      "p95_abs": 0.014238659999999998,
+      "max_abs": 0.0170836
+     },
+     "bearing_error_deg": {
+      "n": 404,
+      "mean": -0.059584898514851485,
+      "std": 0.0035176058828688896,
+      "p95_abs": 0.06562184499999998,
+      "max_abs": 0.0704645
+     }
+    },
+    "frames": 404,
+    "frames_expected": 404
+   },
+   "loss_fov": {
+    "roi": {
+     "frames": 83,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 83,
+      "mean": 0.01445459530120482,
+      "std": 0.008861222691039925,
+      "p95_abs": 0.03770582999999998,
+      "max_abs": 0.0433745
+     },
+     "bearing_error_deg": {
+      "n": 83,
+      "mean": -0.061944603614457826,
+      "std": 0.017942977178234534,
+      "p95_abs": 0.08888894999999995,
+      "max_abs": 0.0982401
+     }
+    },
+    "dec2": {
+     "frames": 83,
+     "detection_rate": 0.9879518072289156,
+     "miss_runs": 1,
+     "longest_miss_frames": 1,
+     "range_error_m": {
+      "n": 82,
+      "mean": 0.013734348780487805,
+      "std": 0.007701996215844784,
+      "p95_abs": 0.033507510000000004,
+      "max_abs": 0.0411286
+     },
+     "bearing_error_deg": {
+      "n": 82,
+      "mean": -0.06370323170731708,
+      "std": 0.00877985043194799,
+      "p95_abs": 0.08702902500000002,
+      "max_abs": 0.0925183
+     }
+    },
+    "dec1.5": {
+     "frames": 83,
+     "detection_rate": 0.9879518072289156,
+     "miss_runs": 1,
+     "longest_miss_frames": 1,
+     "range_error_m": {
+      "n": 82,
+      "mean": 0.013877459390243903,
+      "std": 0.00797450270616005,
+      "p95_abs": 0.033846520000000005,
+      "max_abs": 0.0420666
+     },
+     "bearing_error_deg": {
+      "n": 82,
+      "mean": -0.06334100243902438,
+      "std": 0.009046172717498201,
+      "p95_abs": 0.08625983,
+      "max_abs": 0.0929756
+     }
+    },
+    "dec1": {
+     "frames": 83,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 83,
+      "mean": 0.014470538192771082,
+      "std": 0.008948713515492679,
+      "p95_abs": 0.037605449999999985,
+      "max_abs": 0.0435246
+     },
+     "bearing_error_deg": {
+      "n": 83,
+      "mean": -0.061945591566265064,
+      "std": 0.01572403292622246,
+      "p95_abs": 0.08834227999999998,
+      "max_abs": 0.0961438
+     }
+    },
+    "frames": 283,
+    "frames_expected": 83
+   },
+   "occlusion_short": {
+    "roi": {
+     "frames": 497,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 497,
+      "mean": 0.010721391951710263,
+      "std": 0.001696682405263715,
+      "p95_abs": 0.01432926,
+      "max_abs": 0.0179579
+     },
+     "bearing_error_deg": {
+      "n": 497,
+      "mean": -0.059870126760563386,
+      "std": 0.002952809121288111,
+      "p95_abs": 0.06465599999999999,
+      "max_abs": 0.0676343
+     }
+    },
+    "dec2": {
+     "frames": 497,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 497,
+      "mean": 0.010874916177062374,
+      "std": 0.0018862142130160462,
+      "p95_abs": 0.014368659999999998,
+      "max_abs": 0.0192059
+     },
+     "bearing_error_deg": {
+      "n": 497,
+      "mean": -0.058038225553319917,
+      "std": 0.005370921649592314,
+      "p95_abs": 0.06428128,
+      "max_abs": 0.068526
+     }
+    },
+    "dec1.5": {
+     "frames": 497,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 497,
+      "mean": 0.010749833802816902,
+      "std": 0.0017952160898285362,
+      "p95_abs": 0.014493979999999998,
+      "max_abs": 0.0176295
+     },
+     "bearing_error_deg": {
+      "n": 497,
+      "mean": -0.059651384104627767,
+      "std": 0.003292602873746312,
+      "p95_abs": 0.06451252,
+      "max_abs": 0.0675248
+     }
+    },
+    "dec1": {
+     "frames": 497,
+     "detection_rate": 1.0,
+     "miss_runs": 0,
+     "longest_miss_frames": 0,
+     "range_error_m": {
+      "n": 497,
+      "mean": 0.010716935432595574,
+      "std": 0.0017134439694283636,
+      "p95_abs": 0.01432738,
+      "max_abs": 0.0180039
+     },
+     "bearing_error_deg": {
+      "n": 497,
+      "mean": -0.05955010985915493,
+      "std": 0.0029645812166313483,
+      "p95_abs": 0.06453474,
+      "max_abs": 0.0680503
+     }
+    },
+    "frames": 506,
+    "frames_expected": 497
+   },
+   "occlusion_long": {
+    "roi": {
+     "frames": 560,
+     "detection_rate": 0.9982142857142857,
+     "miss_runs": 1,
+     "longest_miss_frames": 1,
+     "range_error_m": {
+      "n": 559,
+      "mean": 0.011181610626118067,
+      "std": 0.002437672431124253,
+      "p95_abs": 0.01601035,
+      "max_abs": 0.0210674
+     },
+     "bearing_error_deg": {
+      "n": 559,
+      "mean": -0.05970811323792486,
+      "std": 0.003213396350401033,
+      "p95_abs": 0.06490961,
+      "max_abs": 0.070454
+     }
+    },
+    "dec2": {
+     "frames": 560,
+     "detection_rate": 0.9982142857142857,
+     "miss_runs": 1,
+     "longest_miss_frames": 1,
+     "range_error_m": {
+      "n": 559,
+      "mean": 0.01120784205724508,
+      "std": 0.0025810428469550447,
+      "p95_abs": 0.016573800000000007,
+      "max_abs": 0.0211071
+     },
+     "bearing_error_deg": {
+      "n": 559,
+      "mean": -0.058199761538461535,
+      "std": 0.005426453236209867,
+      "p95_abs": 0.06511194,
+      "max_abs": 0.0681425
+     }
+    },
+    "dec1.5": {
+     "frames": 560,
+     "detection_rate": 0.9982142857142857,
+     "miss_runs": 1,
+     "longest_miss_frames": 1,
+     "range_error_m": {
+      "n": 559,
+      "mean": 0.011193368533094812,
+      "std": 0.0024686481490467107,
+      "p95_abs": 0.01597968,
+      "max_abs": 0.0193569
+     },
+     "bearing_error_deg": {
+      "n": 559,
+      "mean": -0.05947893076923076,
+      "std": 0.003884924642334042,
+      "p95_abs": 0.06501362999999999,
+      "max_abs": 0.0677976
+     }
+    },
+    "dec1": {
+     "frames": 560,
+     "detection_rate": 0.9982142857142857,
+     "miss_runs": 1,
+     "longest_miss_frames": 1,
+     "range_error_m": {
+      "n": 559,
+      "mean": 0.011180081127012522,
+      "std": 0.0024806935931126956,
+      "p95_abs": 0.01599961,
+      "max_abs": 0.0209398
+     },
+     "bearing_error_deg": {
+      "n": 559,
+      "mean": -0.05944884776386405,
+      "std": 0.0032872999934511473,
+      "p95_abs": 0.06485832,
+      "max_abs": 0.0680481
+     }
+    },
+    "frames": 664,
+    "frames_expected": 560
+   }
+  }
+ }
+}

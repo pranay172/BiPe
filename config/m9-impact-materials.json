@@ -1,0 +1,160 @@
+{
+  "status": "Conditional digital impact engineering inputs; stated knockdowns and rate/contact assumptions, not certified hardware allowables",
+  "units": "SI",
+  "temperature_domain_C": [15, 50],
+  "required_factor": 2.0,
+  "materials": {
+    "aluminium": {
+      "product": "Kaiser 6061-T6/T651 machined plate and rod; no welding",
+      "source": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1015/Kaiser_Aluminum_6061_Sheet_Coil_and_Plate.pdf",
+      "supplier_basis": "Typical room-temperature yield276MPa and modulus68.3GPa, not a guaranteed minimum",
+      "yield_supplier_Pa": 276000000,
+      "strength_knockdown": 0.8,
+      "modulus_Pa": 68300000000,
+      "density_kg_m3": 2700
+    },
+    "al7075": {
+      "product": "Kaiser 7075-T6/T651 machined rod; no welding, steel sleeves receive no bending credit",
+      "source": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1028/Kaiser_Aluminum_7075_Rod_and_Bar.pdf",
+      "supplier_basis": "Typical room-temperature yield503MPa and modulus71GPa, not a guaranteed minimum",
+      "yield_supplier_Pa": 503000000,
+      "strength_knockdown": 0.8,
+      "modulus_Pa": 71000000000,
+      "density_kg_m3": 2810
+    },
+    "steel174_h900": {
+      "product": "Carpenter Custom630,17-4PH H900 hollow axle",
+      "source": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20630%20%2817-4%20PH%29.pdf",
+      "supplier_basis": "Typical H900 yield1262MPa, modulus197GPa; H900 heat treatment required",
+      "yield_supplier_Pa": 1262000000,
+      "strength_knockdown": 0.79,
+      "modulus_Pa": 197000000000,
+      "density_kg_m3": 7800
+    },
+    "pa12": {
+      "product": "EOS PA2200,laser-sintered Balance120micrometre; named material preserves existing930kg/m3 CAD density",
+      "source": "https://www.eos.info/polymer-solutions/polymer-materials/data-sheets/mds-pa-2200",
+      "supplier_basis": "Dry Z tensile42MPa,modulus1650MPa; actual part properties depend on process. Use weakest orientation and60percent strength for conditioning/printing variability",
+      "yield_supplier_Pa": 42000000,
+      "strength_knockdown": 0.6,
+      "modulus_Pa": 1650000000,
+      "density_kg_m3": 930,
+      "notched_impact_supplier_J_m2": 4800
+    },
+    "tpu": {
+      "product": "BASF Ultrasint TPU88A,laser-sintered",
+      "source": "https://forward-am.com/wp-content/uploads/2021/04/BASF_3DPS_TDS_Ultrasint-TPU-88A.pdf",
+      "supplier_basis": "Conditioned Z tensile7MPa,modulus75MPa,flexural modulus70MPa,rebound63percent; tensile modulus is a compliance proxy, not a compression curve",
+      "yield_supplier_Pa": 7000000,
+      "strength_knockdown": 0.6,
+      "modulus_Pa": 75000000,
+      "flexural_modulus_Pa": 70000000,
+      "density_kg_m3": 1100,
+      "restitution_assumption_range": [0.2, 0.65]
+    },
+    "iglidur_g": {
+      "product": "Igus iglidurG,dry against hardened steel",
+      "source": "https://www.igus.com/ContentData/Products/Downloads/iglide_G300_FM_USen.pdf",
+      "supplier_basis": "80MPa recommended pressure at20C,35MPa at130C; use35MPa. Dynamic friction0.08..0.15; release setting remains a stated coupling assumption",
+      "pressure_allowable_Pa": 35000000,
+      "friction_range": [0.08, 0.15]
+    },
+    "ld70_upper": {
+      "product": "Zotefoams PlastazoteLD70,closed-cell PE foam",
+      "source": "https://www.zotefoams.com/wp-content/uploads/2025/03/LD70-December-2017.pdf",
+      "specification_source": "https://www.zotefoams.com/wp-content/uploads/2025/03/TIS-01-Product-Specification.pdf",
+      "supplier_basis": "Typical25mm sample compression163kPa at25percent and251kPa at50percent. Density60..76kg/m3 is specified; mechanical properties are typical",
+      "compression_strain": [0, 0.25, 0.5],
+      "compression_stress_Pa": [0, 163000, 251000],
+      "rate_geometry_stiffness_scale_assumption": [0.5, 4.0],
+      "densification_start_assumption": 0.5,
+      "densification_modulus_Pa_assumption": 10000000,
+      "maximum_strain_assumption": 0.9
+    },
+    "ld45_upper": {
+      "product": "Zotefoams Plastazote LD45, closed-cell crosslinked PE",
+      "source": "https://www.zotefoams.com/wp-content/uploads/2025/03/LD45-December-2017.pdf",
+      "specification_source": "https://www.zotefoams.com/wp-content/uploads/2025/03/TIS-01-Product-Specification.pdf",
+      "supplier_basis": "Typical compression90/163kPa at25/50percent on25mm sheet. Density47kg/m3 upper specification. Bound rate/patch/geometry stiffness0.5..4, no maximum force clip. Bonded foam on positive structural backing is an unadopted candidate.",
+      "density_kg_m3": 47,
+      "compression_strain": [
+        0,
+        0.25,
+        0.5
+      ],
+      "compression_stress_Pa": [
+        0,
+        90000,
+        163000
+      ],
+      "rate_geometry_stiffness_scale_assumption": [
+        0.5,
+        4
+      ],
+      "densification_modulus_Pa_assumption": 10000000.0
+    }
+  },
+  "fasteners": {
+    "supplier": "Bossard ISO4762 propertyclass8.8 screws; 8.8 nuts,steel plain washers",
+    "source": "https://assets.eu.ctfassets.net/0vp0u5uh75zd/1VPwGxSRcAQdDRArMtTqeY/8fe01cf6ef692e134b45f895fb69fe97/012_016_Screws_property_class46_Fastening_EN_01_2025.pdf",
+    "proof_stress_Pa": 580000000,
+    "yield_stress_Pa": 640000000,
+    "density_kg_m3": 7850,
+    "thread_profiles": {
+      "M2": {"diameter_m": 0.002,"stress_area_m2": 0.00000207,"root_diameter_m": 0.001509,"head_diameter_m": 0.0038,"head_height_m": 0.002,"washer_od_m": 0.005,"washer_id_m": 0.0022,"washer_thickness_m": 0.0003},
+      "M3": {"diameter_m": 0.003,"stress_area_m2": 0.00000503,"root_diameter_m": 0.002387,"head_diameter_m": 0.0055,"head_height_m": 0.003,"washer_od_m": 0.007,"washer_id_m": 0.0032,"washer_thickness_m": 0.0005}
+    },
+    "retention_schedule_status": "Engineering schedule inside existing55g allowance. Proposed drilled features/head access require CAD clearance verification before adoption; native CAD did not model these fasteners",
+    "schedule": [
+      {"name": "hip_cassette_to_spine","count": 8,"thread": "M2","length_m": 0.008,"washers_per_screw": 1,"parent_material": "aluminium","thread_engagement_m": 0.003,"edge_center_distance_m": 0.003,"member_thickness_m": 0.003,"per_interface": 2,"bolt_spacing_m": 0.008,"fit": "Two per hip,axisZ,hip-local Xplusminus4mm,Ysigned19.5mm; bottom web/spine overlap. Machine clearance holes and captive nuts or tapped engagement; verify native solid occupancy"},
+      {"name": "wheel_fork_and_bearing_cap_to_rod","count": 8,"thread": "M2","length_m": 0.008,"washers_per_screw": 1,"parent_material": "aluminium","thread_engagement_m": 0.004,"edge_center_distance_m": 0.0015,"member_thickness_m": 0.003,"per_interface": 2,"bolt_spacing_m": 0.009,"fit": "Two for innercap at rod-local X76mm,Zplusminus4.5mm,axisY; two for mainfork/root at X25mm,Zplusminus4.5mm. Existing3mm fork+4mm rod; head recesses/cover clearance pending"},
+      {"name": "wheel_motor_saddle_retention","count": 4,"thread": "M2","length_m": 0.006,"washers_per_screw": 1,"parent_material": "aluminium","thread_engagement_m": 0.003,"edge_center_distance_m": 0.002,"member_thickness_m": 0.002,"per_interface": 2,"bolt_spacing_m": 0.008,"fit": "Two per saddle,rod-localXplusminus4mm around25mm,Y90mm,axisZ; separate foot contacts fork; actual solid occupancy/housing window access must be checked"},
+      {"name": "hip_motor_housings_and_encoders","count": 16,"thread": "M2","length_m": 0.006,"washers_per_screw": 0,"parent_material": "aluminium","thread_engagement_m": 0.003,"edge_center_distance_m": 0.003,"member_thickness_m": 0.003,"per_interface": 4,"bolt_spacing_m": 0.023,"fit": "Four per housing/cassette rib interface,matching motor mount rails; rotor bearing retention by positive cap shoulders"},
+      {"name": "shell_face_and_tray","count": 12,"thread": "M2","length_m": 0.006,"washers_per_screw": 1,"parent_material": "pa12","thread_engagement_m": 0.004,"edge_center_distance_m": 0.004,"member_thickness_m": 0.002,"per_interface": 4,"bolt_spacing_m": 0.04,"fit": "Eight seam/frame screws plusfour tray screws into SPIROL19longM2 inserts; bosses and backing/frame connections need explicit CAD adoption"},
+      {"name": "boards_guards_readheads_and_covers","count": 24,"thread": "M2","length_m": 0.004,"washers_per_screw": 0,"parent_material": "pa12","thread_engagement_m": 0.003,"edge_center_distance_m": 0.002,"member_thickness_m": 0.002,"per_interface": 2,"bolt_spacing_m": 0.008,"fit": "Two per board/mount/guard group; covers may be clipped exceptatloadedpads. Sensor readhead usesexisting2.1mm holes"}
+    ],
+    "insert": {
+      "product": "SPIROL INS19longM2 brass heat/ultrasonic insert",
+      "source": "https://www.spirol.com/assets/files/SPIROL-Inserts-for-Plastics-us.pdf",
+      "count": 12,
+      "od_m": 0.0036,
+      "id_m": 0.002,
+      "length_m": 0.004,
+      "density_kg_m3": 8500,
+      "nylon66_test_pullout_N": 665,
+      "comparison_knockdown": 0.25,
+      "basis": "Nylon66 catalog test is comparative only,not transferable PA12 guarantee. Capacity is min25percent comparative test and plastic shear-cylinder/head pullthrough model; installation condition explicit"
+    },
+    "retaining_rings_shims_nuts_and_clips_mass_kg_assumption": 0.008,
+    "existing_allocation_kg": 0.055
+  },
+  "contacts": {
+    "impedance": 0.0001,
+    "friction_impratio": 1000000.0,
+    "friction_row_damping_s_inv": 1000.0,
+    "friction_row_basis": "Step 1b: Coulomb stick/slip. The shared 1e-4 impedance made friction rows viscous (2.3 mm/s box creep at 10 deg; 13.4 mm/s tire creep on the 10 deg hold). impratio 1e6 removes friction regularization, and 1000/s direct row damping (4 physics steps at 0.25 ms) keeps the stick stable. Verified with a box: 0.004 mm/s creep below mu and exact (g sin - mu g cos) sliding at 45 and 60 deg. Foam tread shear compliance (~0.04 mm at hold loads) is neglected.",
+    "restitution_assumption": 0.3,
+    "shell_beam_span_m_assumption": 0.078,
+    "shell_effective_strip_width_m_assumption": 0.05,
+    "shell_notch_factor_assumption": 1.5,
+    "shell_maximum_travel_m_assumption": 0.004,
+    "cover_beam_span_m": 0.014,
+    "cover_effective_width_m": 0.028,
+    "metal_contact_stiffness_N_m_assumption": 1000000,
+    "constitutive_scope": "Nonzero unilateral material/contact springs; no base constraints or state clamps. Rate/print/patch/damping brackets are stated digital assumptions and tested sensitivities. Exceeding modeled travel or allowable is a failure, not force clipping"
+  },
+  "belt": {
+    "source": "https://www.gates.com/content/dam/documents-library/catalogs/light-power-and-precision-manual.pdf",
+    "basis": "Gates2MGT/3MGT6mm20T small-pulley torque tables; correcthip202mm length by0.95,wheel339mm by1.00. Do not equate materialcordstrength with toothjump capacity. RequireSF2 rating AND Formula1 installationtension,>=6 teeth engaged,positive slack tension andnoalignloss. Hip 800-2000 rpm values corrected to the manual's 20-groove 6 mm column (printed p. 18) on 14 October 2026; they had been 0.02-0.15 lb-in high",
+    "rpm": [10,20,40,60,100,200,300,400,500,600,800,1000,1200,1400,1600,1800,2000],
+    "hip_input_rating_lb_in": [13.3,12.3,11.2,10.6,9.87,8.84,8.23,7.8,7.46,7.19,6.76,6.43,6.15,5.92,5.72,5.55,5.39],
+    "wheel_input_rating_lb_in": [24.1,22.5,20.8,19.8,18.6,16.9,16.0,15.3,14.8,14.3,13.6,13.1,12.7,12.3,12.0,11.7,11.4],
+    "hip_length_factor": 0.95,
+    "wheel_length_factor": 1.0,
+    "pound_inch_Nm": 0.112984829,
+    "minimum_teeth_engaged": 6,
+    "lateral_clearance_m": 0.000625,
+    "manufacturer_tensile_proxy_N": {"hip": 556.0277019075,"wheel": 1023.0909715098},
+    "manufacturer_tensile_proxy_scope": "GatesTable6 longlengthcord minimum125/230lb,not endlessbelt breaking certification; informational only,not gate capacity"
+  }
+}

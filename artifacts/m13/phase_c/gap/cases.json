@@ -1,0 +1,5562 @@
+{
+  "m10/backlash_crouch_0": {
+    "suite": "m10",
+    "family": "backlash",
+    "reference": "backlash_crouch_0",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 3.657043629093325,
+      "late_pitch_pp_deg": 3.121877657067501,
+      "rollback_m": 0.3252595862008041,
+      "max_travel_m": 0.3322877105108151,
+      "peak_wheel_Nm": 0.23041283735108783,
+      "peak_motor_Nm": 0.7446948761503538
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 3.743745068069632,
+      "late_pitch_pp_deg": 5.4190097642325465,
+      "rollback_m": 0.2605070576154764,
+      "max_travel_m": 0.27414712156616355,
+      "peak_wheel_Nm": 0.11611235340543889,
+      "peak_motor_Nm": 0.7329044104903207
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.04638513626187993,
+      "velocity": 0.03490695047318178,
+      "pitch_error_deg": 1.5514956458258784,
+      "left_applied_Nm": 0.01034960441495872
+    },
+    "failure": null
+  },
+  "m10/backlash_drive_0": {
+    "suite": "m10",
+    "family": "backlash",
+    "reference": "backlash_drive_0",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 16.845892902819102,
+      "late_pitch_pp_deg": 5.516260975661341,
+      "rollback_m": 0.0020823305823172537,
+      "max_travel_m": 1.5181823172390376,
+      "peak_wheel_Nm": 0.2670405511944376,
+      "peak_motor_Nm": 0.8024264858764064
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 15.819292289202368,
+      "late_pitch_pp_deg": 7.291593748197851,
+      "rollback_m": 0.005448398118926355,
+      "max_travel_m": 1.5297877695961313,
+      "peak_wheel_Nm": 0.24554763454763118,
+      "peak_motor_Nm": 0.8014272596882985
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.021502670401660685,
+      "velocity": 0.05068864096396391,
+      "pitch_error_deg": 2.2057665801505006,
+      "left_applied_Nm": 0.00923246660036114
+    },
+    "failure": null
+  },
+  "m10/backlash_hold_0": {
+    "suite": "m10",
+    "family": "backlash",
+    "reference": "backlash_hold_0",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 1.7934883112373181,
+      "late_pitch_pp_deg": 1.1157432051093754,
+      "rollback_m": 0.0020823305823172537,
+      "max_travel_m": 0.04495188252831379,
+      "peak_wheel_Nm": 0.23041283735108783,
+      "peak_motor_Nm": 0.6441416415535588
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 3.6542824216017675,
+      "late_pitch_pp_deg": 6.935389978840073,
+      "rollback_m": 0.0008243747195172539,
+      "max_travel_m": 0.0707474001525378,
+      "peak_wheel_Nm": 0.12027016655507006,
+      "peak_motor_Nm": 0.6057208976720662
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": false,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.009745825556720666,
+      "velocity": 0.04823825943218523,
+      "pitch_error_deg": 2.1286669395577613,
+      "left_applied_Nm": 0.015558955959166778
+    },
+    "failure": null
+  },
+  "m10/backlash_turn_0": {
+    "suite": "m10",
+    "family": "backlash",
+    "reference": "backlash_turn_0",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 1.7934883112373181,
+      "late_pitch_pp_deg": 1.1935220218563871,
+      "rollback_m": 0.0020823305823172537,
+      "max_travel_m": 0.057895503761960336,
+      "peak_wheel_Nm": 0.23041283735108783,
+      "peak_motor_Nm": 0.6441416415535588
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 4.18277130372449,
+      "late_pitch_pp_deg": 7.165775161241449,
+      "rollback_m": 0.0008243747195172539,
+      "max_travel_m": 0.07863939545841499,
+      "peak_wheel_Nm": 0.1425510590994918,
+      "peak_motor_Nm": 0.6132481501237538
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": false,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.007032700916450497,
+      "velocity": 0.05068492381159899,
+      "pitch_error_deg": 2.203668985417421,
+      "left_applied_Nm": 0.014644411687217716
+    },
+    "failure": null
+  },
+  "m10/combined_half_timestep": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "combined_half_timestep",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 12.51275189968468,
+      "late_pitch_pp_deg": 4.597828649860892,
+      "rollback_m": 0.1686325880159137,
+      "max_travel_m": 1.5513839668071938,
+      "peak_wheel_Nm": 0.2020437634964499,
+      "peak_motor_Nm": 0.9480962182495146,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 13.538170643685977,
+      "late_pitch_pp_deg": 7.051906404830811,
+      "rollback_m": 0.14304694824727154,
+      "max_travel_m": 1.602600323445442,
+      "peak_wheel_Nm": 0.23291839636609024,
+      "peak_motor_Nm": 0.9370665482418403,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.034684273566506746,
+      "velocity": 0.05027646699909222,
+      "pitch_error_deg": 2.43031507592544,
+      "left_applied_Nm": 0.009736405336340818
+    },
+    "failure": null
+  },
+  "m10/combined_seed_20260931": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "combined_seed_20260931",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 14.586458422053472,
+      "late_pitch_pp_deg": 1.752579583516574,
+      "rollback_m": 0.19904557315008575,
+      "max_travel_m": 1.5367612100520351,
+      "peak_wheel_Nm": 0.21415769575669621,
+      "peak_motor_Nm": 0.9520919628219026,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 11.767537568108036,
+      "late_pitch_pp_deg": 6.058612583194423,
+      "rollback_m": 0.15023771829963606,
+      "max_travel_m": 1.5754517275924929,
+      "peak_wheel_Nm": 0.21688220506512804,
+      "peak_motor_Nm": 0.9325951858068718,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.034965219420938255,
+      "velocity": 0.04314366186583829,
+      "pitch_error_deg": 1.9127753149831548,
+      "left_applied_Nm": 0.010136972855745316
+    },
+    "failure": null
+  },
+  "m10/combined_seed_20260932": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "combined_seed_20260932",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 14.46678332964753,
+      "late_pitch_pp_deg": 2.247546926479145,
+      "rollback_m": 0.1916425609327445,
+      "max_travel_m": 1.5361060716153359,
+      "peak_wheel_Nm": 0.22517104506371766,
+      "peak_motor_Nm": 0.9558137032839202,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 12.058593221834586,
+      "late_pitch_pp_deg": 6.338273125182941,
+      "rollback_m": 0.16334381809295623,
+      "max_travel_m": 1.5868518756746859,
+      "peak_wheel_Nm": 0.22723088119782775,
+      "peak_motor_Nm": 0.9332561501119045,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.027380053023920773,
+      "velocity": 0.04475466684765608,
+      "pitch_error_deg": 2.078993402961078,
+      "left_applied_Nm": 0.009894260764680597
+    },
+    "failure": null
+  },
+  "m10/delay_15ms_noise_x2_combined": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "delay_15ms_noise_x2_combined",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 10.318540784157562,
+      "late_pitch_pp_deg": 4.337514466137868,
+      "rollback_m": 0.17352289926518047,
+      "max_travel_m": 1.5835582213781478,
+      "peak_wheel_Nm": 0.24355917452104164,
+      "peak_motor_Nm": 0.8928898213181578,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 10.576292986199881,
+      "late_pitch_pp_deg": 2.2295207718815178,
+      "rollback_m": 0.1606008807849472,
+      "max_travel_m": 1.5849100468495123,
+      "peak_wheel_Nm": 0.17456543633442814,
+      "peak_motor_Nm": 0.8793039218030573,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.029698186183693357,
+      "velocity": 0.029903428738886483,
+      "pitch_error_deg": 1.1825311435315036,
+      "left_applied_Nm": 0.007281245893009805
+    },
+    "failure": null
+  },
+  "m10/delay_15ms_noise_x2_drive": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "delay_15ms_noise_x2_drive",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 14.906602610753392,
+      "late_pitch_pp_deg": 6.564430468830018,
+      "rollback_m": 0.0018069707170520616,
+      "max_travel_m": 1.5293130079077586,
+      "peak_wheel_Nm": 0.24355917452104164,
+      "peak_motor_Nm": 0.7869778403874259,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 14.959309029981792,
+      "late_pitch_pp_deg": 5.746618996573226,
+      "rollback_m": 0.001005754296581108,
+      "max_travel_m": 1.5304107185638962,
+      "peak_wheel_Nm": 0.19505911138641502,
+      "peak_motor_Nm": 0.7408362318904482,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.01058868065706504,
+      "velocity": 0.042640691406678186,
+      "pitch_error_deg": 1.7401189338965857,
+      "left_applied_Nm": 0.00810902221715673
+    },
+    "failure": null
+  },
+  "m10/friction_0p5_combined": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "friction_0p5_combined",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 14.615177526964256,
+      "late_pitch_pp_deg": 2.7412357374512215,
+      "rollback_m": 0.198190068824091,
+      "max_travel_m": 1.5361699760215686,
+      "peak_wheel_Nm": 0.21049351141468317,
+      "peak_motor_Nm": 0.9375592478672884,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 12.336629281637007,
+      "late_pitch_pp_deg": 3.7344188520430412,
+      "rollback_m": 0.13755017628154892,
+      "max_travel_m": 1.581634588430355,
+      "peak_wheel_Nm": 0.20802502171883203,
+      "peak_motor_Nm": 0.922837228919834,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": false,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.04510519447263425,
+      "velocity": 0.04435213125222399,
+      "pitch_error_deg": 2.0847406073788335,
+      "left_applied_Nm": 0.008739962486343282
+    },
+    "failure": null
+  },
+  "m10/friction_0p5_drive": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "friction_0p5_drive",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 16.714210715831353,
+      "late_pitch_pp_deg": 5.557147245464725,
+      "rollback_m": 0.0027134856019997156,
+      "max_travel_m": 1.514123976242603,
+      "peak_wheel_Nm": 0.24849675568473195,
+      "peak_motor_Nm": 0.790733447052787,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 15.11459172520085,
+      "late_pitch_pp_deg": 6.582831719530094,
+      "rollback_m": 0.004929346418974304,
+      "max_travel_m": 1.5331292826087843,
+      "peak_wheel_Nm": 0.22987834784580236,
+      "peak_motor_Nm": 0.7882031951252542,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.035837088996239184,
+      "velocity": 0.05369332711915904,
+      "pitch_error_deg": 2.364643188203861,
+      "left_applied_Nm": 0.010525506472424725
+    },
+    "failure": null
+  },
+  "m10/hold_half_timestep": {
+    "suite": "m10",
+    "family": "numerical",
+    "reference": "backlash_hold_0",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 1.7934883112373181,
+      "late_pitch_pp_deg": 1.1157432051093754,
+      "rollback_m": 0.0020823305823172537,
+      "max_travel_m": 0.04495188252831379,
+      "peak_wheel_Nm": 0.23041283735108783,
+      "peak_motor_Nm": 0.6441416415535588
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 3.8985845023382244,
+      "late_pitch_pp_deg": 7.267456411734678,
+      "rollback_m": 0.0016690987480054435,
+      "max_travel_m": 0.06371452934258688,
+      "peak_wheel_Nm": 0.12410421266500268,
+      "peak_motor_Nm": 0.6144605775362739
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": false,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.007274115544875544,
+      "velocity": 0.051115874495201316,
+      "pitch_error_deg": 2.2810957590980148,
+      "left_applied_Nm": 0.01607210210520629
+    },
+    "failure": null
+  },
+  "m10/ideal_combined": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "ideal_combined",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 0.0,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 0.0,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.0,
+      "velocity": 0.0,
+      "pitch_error_deg": 0.0,
+      "left_applied_Nm": 0.0
+    },
+    "failure": "controller rejected at 0.000s: the policy observes the sensor model; ideal sensing has none"
+  },
+  "m10/ideal_crouch": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "ideal_crouch",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 0.0,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 0.0,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.0,
+      "velocity": 0.0,
+      "pitch_error_deg": 0.0,
+      "left_applied_Nm": 0.0
+    },
+    "failure": "controller rejected at 0.000s: the policy observes the sensor model; ideal sensing has none"
+  },
+  "m10/ideal_drive": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "ideal_drive",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 0.0,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 0.0,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.0,
+      "velocity": 0.0,
+      "pitch_error_deg": 0.0,
+      "left_applied_Nm": 0.0
+    },
+    "failure": "controller rejected at 0.000s: the policy observes the sensor model; ideal sensing has none"
+  },
+  "m10/ideal_hold": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "ideal_hold",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 0.0,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 0.0,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.0,
+      "velocity": 0.0,
+      "pitch_error_deg": 0.0,
+      "left_applied_Nm": 0.0
+    },
+    "failure": "controller rejected at 0.000s: the policy observes the sensor model; ideal sensing has none"
+  },
+  "m10/ideal_push": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "ideal_push",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 0.0,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 0.0,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.0,
+      "velocity": 0.0,
+      "pitch_error_deg": 0.0,
+      "left_applied_Nm": 0.0
+    },
+    "failure": "controller rejected at 0.000s: the policy observes the sensor model; ideal sensing has none"
+  },
+  "m10/ideal_tilt_negative": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "ideal_tilt_negative",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 5.000000000000001,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 5.000000000000001,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 1.3877787807814457e-17,
+      "velocity": 0.0,
+      "pitch_error_deg": 8.881784197001252e-16,
+      "left_applied_Nm": 0.0
+    },
+    "failure": "controller rejected at 0.000s: the policy observes the sensor model; ideal sensing has none"
+  },
+  "m10/ideal_tilt_positive": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "ideal_tilt_positive",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 5.000000000000001,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 5.000000000000001,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 1.3877787807814457e-17,
+      "velocity": 0.0,
+      "pitch_error_deg": 8.881784197001252e-16,
+      "left_applied_Nm": 0.0
+    },
+    "failure": "controller rejected at 0.000s: the policy observes the sensor model; ideal sensing has none"
+  },
+  "m10/ideal_turn": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "ideal_turn",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 0.0,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 0.0,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0,
+      "max_travel_m": 0.0,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.0,
+      "velocity": 0.0,
+      "pitch_error_deg": 0.0,
+      "left_applied_Nm": 0.0
+    },
+    "failure": "controller rejected at 0.000s: the policy observes the sensor model; ideal sensing has none"
+  },
+  "m10/mass_plus_15pct_combined": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "mass_plus_15pct_combined",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 14.071560397554286,
+      "late_pitch_pp_deg": 2.4337399920737868,
+      "rollback_m": 0.1896799090624232,
+      "max_travel_m": 1.5683198486946166,
+      "peak_wheel_Nm": 0.23595158323149976,
+      "peak_motor_Nm": 1.026096154002038,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 12.740977974297437,
+      "late_pitch_pp_deg": 5.5762077625951,
+      "rollback_m": 0.13357242159218552,
+      "max_travel_m": 1.6188984829380588,
+      "peak_wheel_Nm": 0.20658157313884812,
+      "peak_motor_Nm": 1.0061185573252025,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": false,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.04035752888811834,
+      "velocity": 0.03500642848541813,
+      "pitch_error_deg": 1.5893812816841286,
+      "left_applied_Nm": 0.009991593906117965
+    },
+    "failure": null
+  },
+  "m10/mass_plus_15pct_drive": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "mass_plus_15pct_drive",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 16.414564262496828,
+      "late_pitch_pp_deg": 3.6539030825942636,
+      "rollback_m": 0.002531490817579314,
+      "max_travel_m": 1.5104323198990715,
+      "peak_wheel_Nm": 0.27187434119217624,
+      "peak_motor_Nm": 0.8663192309972804,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 15.98012496004599,
+      "late_pitch_pp_deg": 6.794522610961708,
+      "rollback_m": 0.0009055250471389566,
+      "max_travel_m": 1.5314459762345707,
+      "peak_wheel_Nm": 0.2467365342549467,
+      "peak_motor_Nm": 0.8236085267966483,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.030295655209871212,
+      "velocity": 0.043381102706303784,
+      "pitch_error_deg": 1.8916446517813847,
+      "left_applied_Nm": 0.011453723561979693
+    },
+    "failure": null
+  },
+  "m10/mismatch_body_com_x_m_-0.005_combined": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_body_com_x_m_-0.005_combined",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 11.99848504468859,
+      "late_pitch_pp_deg": 2.0478391869457546,
+      "rollback_m": 0.3909184450597818,
+      "max_travel_m": 1.4661402276210838,
+      "peak_wheel_Nm": 0.21177913782362082,
+      "peak_motor_Nm": 0.952922938007599
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 11.791053539826926,
+      "late_pitch_pp_deg": 4.473595450817204,
+      "rollback_m": 0.3446626319088817,
+      "max_travel_m": 1.4979171198274719,
+      "peak_wheel_Nm": 0.19362766143313162,
+      "peak_motor_Nm": 0.898031287165576
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.025482277852178995,
+      "velocity": 0.03829282311124282,
+      "pitch_error_deg": 1.6942236531518797,
+      "left_applied_Nm": 0.009129042738039826
+    },
+    "failure": null
+  },
+  "m10/mismatch_body_com_x_m_-0.005_hold": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_body_com_x_m_-0.005_hold",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 1.4841680789177556,
+      "late_pitch_pp_deg": 1.029421642765671,
+      "rollback_m": 0.06922254225537314,
+      "max_travel_m": 0.06936163517930402,
+      "peak_wheel_Nm": 0.06288037048913758,
+      "peak_motor_Nm": 0.5851026100783733
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 2.7256086126140744,
+      "late_pitch_pp_deg": 4.173616365005005,
+      "rollback_m": 0.06945873601008676,
+      "max_travel_m": 0.07192325217333227,
+      "peak_wheel_Nm": 0.10296456857707256,
+      "peak_motor_Nm": 0.5825692436718741
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": false,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.0034768344042436154,
+      "velocity": 0.033701120464827046,
+      "pitch_error_deg": 1.4193947997375784,
+      "left_applied_Nm": 0.013157057545326045
+    },
+    "failure": null
+  },
+  "m10/mismatch_body_com_x_m_0.005_combined": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_body_com_x_m_0.005_combined",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 14.76385055126943,
+      "late_pitch_pp_deg": 3.221315939376142,
+      "rollback_m": 0.001142494367004195,
+      "max_travel_m": 1.675897155809593,
+      "peak_wheel_Nm": 0.21071105827171574,
+      "peak_motor_Nm": 0.9591808041247346
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 11.625252194472605,
+      "late_pitch_pp_deg": 4.8407052723668444,
+      "rollback_m": 0.00136373386085974,
+      "max_travel_m": 1.7252833913518373,
+      "peak_wheel_Nm": 0.2215373799210181,
+      "peak_motor_Nm": 0.9508433949344615
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.03308313760445698,
+      "velocity": 0.027861366834199573,
+      "pitch_error_deg": 1.2184480459867073,
+      "left_applied_Nm": 0.007679912930252166
+    },
+    "failure": null
+  },
+  "m10/mismatch_body_com_x_m_0.005_hold": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_body_com_x_m_0.005_hold",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 1.2212910127841803,
+      "late_pitch_pp_deg": 1.2041555827080552,
+      "rollback_m": 0.001142494367004195,
+      "max_travel_m": 0.12401435919990977,
+      "peak_wheel_Nm": 0.07658400341488984,
+      "peak_motor_Nm": 0.6081893415477515
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 1.3376057254742604,
+      "late_pitch_pp_deg": 0.4541061360885808,
+      "rollback_m": 0.00136373386085974,
+      "max_travel_m": 0.16505969791641112,
+      "peak_wheel_Nm": 0.07194615952914149,
+      "peak_motor_Nm": 0.6060699339381812
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.01805840107501046,
+      "velocity": 0.009291322493523008,
+      "pitch_error_deg": 0.4039076347507217,
+      "left_applied_Nm": 0.007057053679733601
+    },
+    "failure": null
+  },
+  "m10/mismatch_body_com_z_m_-0.003_combined": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_body_com_z_m_-0.003_combined",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 15.0347100152288,
+      "late_pitch_pp_deg": 2.516460641370311,
+      "rollback_m": 0.1994825814416315,
+      "max_travel_m": 1.5393530044003942,
+      "peak_wheel_Nm": 0.20867289840824638,
+      "peak_motor_Nm": 0.9458206426150411
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 12.385729456748265,
+      "late_pitch_pp_deg": 6.605443627252073,
+      "rollback_m": 0.16446934340575933,
+      "max_travel_m": 1.572834854566605,
+      "peak_wheel_Nm": 0.2075009877128323,
+      "peak_motor_Nm": 0.9283579503727385
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.027014374767831237,
+      "velocity": 0.04450116912449602,
+      "pitch_error_deg": 2.019602585760552,
+      "left_applied_Nm": 0.009982137363105612
+    },
+    "failure": null
+  },
+  "m10/mismatch_body_com_z_m_-0.003_hold": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_body_com_z_m_-0.003_hold",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 1.3430276715608978,
+      "late_pitch_pp_deg": 1.0622170412472927,
+      "rollback_m": 0.0007644458502462094,
+      "max_travel_m": 0.03661014078209507,
+      "peak_wheel_Nm": 0.06657113547179391,
+      "peak_motor_Nm": 0.5917853548568859
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 3.6313993512133034,
+      "late_pitch_pp_deg": 7.013045657355194,
+      "rollback_m": 0.001302054063869798,
+      "max_travel_m": 0.07012015063176316,
+      "peak_wheel_Nm": 0.12693418859309288,
+      "peak_motor_Nm": 0.6007372917030985
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": false,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.014150951399057525,
+      "velocity": 0.047871846786416636,
+      "pitch_error_deg": 2.158178364791615,
+      "left_applied_Nm": 0.015657772779993487
+    },
+    "failure": null
+  },
+  "m10/mismatch_body_com_z_m_0.003_combined": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_body_com_z_m_0.003_combined",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 14.218501323074442,
+      "late_pitch_pp_deg": 2.6215667086792775,
+      "rollback_m": 0.19463981123687482,
+      "max_travel_m": 1.5344793154633627,
+      "peak_wheel_Nm": 0.21055183536188463,
+      "peak_motor_Nm": 0.938422128681254
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 12.263858826955282,
+      "late_pitch_pp_deg": 5.338810814288035,
+      "rollback_m": 0.1533111063208077,
+      "max_travel_m": 1.5763078658611573,
+      "peak_wheel_Nm": 0.2124477736846105,
+      "peak_motor_Nm": 0.9459853060419249
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.031735821690600505,
+      "velocity": 0.0434432862173167,
+      "pitch_error_deg": 1.8346088255482882,
+      "left_applied_Nm": 0.009290776416030254
+    },
+    "failure": null
+  },
+  "m10/mismatch_body_com_z_m_0.003_hold": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_body_com_z_m_0.003_hold",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 1.1431308073083704,
+      "late_pitch_pp_deg": 1.0690093249257087,
+      "rollback_m": 0.0007015635445239177,
+      "max_travel_m": 0.03807297919989915,
+      "peak_wheel_Nm": 0.06611827551293084,
+      "peak_motor_Nm": 0.5917853548568859
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 3.222666502922896,
+      "late_pitch_pp_deg": 6.339794567431275,
+      "rollback_m": 0.0008462027098094414,
+      "max_travel_m": 0.0645732718087552,
+      "peak_wheel_Nm": 0.10365570957264482,
+      "peak_motor_Nm": 0.5960857754181907
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": false,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.011900136845615463,
+      "velocity": 0.04358484689806276,
+      "pitch_error_deg": 1.900725781590716,
+      "left_applied_Nm": 0.015000673062801605
+    },
+    "failure": null
+  },
+  "m10/mismatch_body_mass_scale_0.85_combined": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_body_mass_scale_0.85_combined",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 14.208330693294114,
+      "late_pitch_pp_deg": 4.476612712305462,
+      "rollback_m": 0.24084140512718027,
+      "max_travel_m": 1.4985055080159717,
+      "peak_wheel_Nm": 0.20928810300824852,
+      "peak_motor_Nm": 0.84578420070118
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 12.113021758835504,
+      "late_pitch_pp_deg": 6.060234448788345,
+      "rollback_m": 0.22935788900649515,
+      "max_travel_m": 1.5463964543887474,
+      "peak_wheel_Nm": 0.15712063081698327,
+      "peak_motor_Nm": 0.9076107553538973
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.017452094258775367,
+      "velocity": 0.05856684566357375,
+      "pitch_error_deg": 2.691580265721116,
+      "left_applied_Nm": 0.009869975562998496
+    },
+    "failure": null
+  },
+  "m10/mismatch_body_mass_scale_0.85_hold": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_body_mass_scale_0.85_hold",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 1.2154088040480315,
+      "late_pitch_pp_deg": 0.8745155317403541,
+      "rollback_m": 0.0005468294423757597,
+      "max_travel_m": 0.011814212335279442,
+      "peak_wheel_Nm": 0.06706247455753084,
+      "peak_motor_Nm": 0.5818493352203065
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 3.783459273150317,
+      "late_pitch_pp_deg": 7.237035741652314,
+      "rollback_m": 0.002249412186110661,
+      "max_travel_m": 0.03436045312825169,
+      "peak_wheel_Nm": 0.11260274720270425,
+      "peak_motor_Nm": 0.5828913037451636
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": false,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.009316860194257499,
+      "velocity": 0.0529220863926364,
+      "pitch_error_deg": 2.326961476525548,
+      "left_applied_Nm": 0.016777801919636477
+    },
+    "failure": null
+  },
+  "m10/mismatch_body_mass_scale_1.15_combined": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_body_mass_scale_1.15_combined",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 14.55690008858033,
+      "late_pitch_pp_deg": 2.340866497740559,
+      "rollback_m": 0.14272354767947476,
+      "max_travel_m": 1.5720395374569098,
+      "peak_wheel_Nm": 0.23251237995574003,
+      "peak_motor_Nm": 1.0240461646477024
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 13.7198797211766,
+      "late_pitch_pp_deg": 5.634334197002373,
+      "rollback_m": 0.09217561161437436,
+      "max_travel_m": 1.63819799021949,
+      "peak_wheel_Nm": 0.23375329098269512,
+      "peak_motor_Nm": 0.9994895631315961
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": false,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.043585589938444656,
+      "velocity": 0.042791820216289064,
+      "pitch_error_deg": 1.9352143796386407,
+      "left_applied_Nm": 0.010641156848954
+    },
+    "failure": null
+  },
+  "m10/mismatch_body_mass_scale_1.15_hold": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_body_mass_scale_1.15_hold",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 1.1260080676349893,
+      "late_pitch_pp_deg": 1.1821680264034735,
+      "rollback_m": 0.0009186118714674604,
+      "max_travel_m": 0.05559219239512222,
+      "peak_wheel_Nm": 0.06736638718528759,
+      "peak_motor_Nm": 0.6219950079060601
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 3.1737166337370337,
+      "late_pitch_pp_deg": 6.199978409276576,
+      "rollback_m": 0.0006656242313701109,
+      "max_travel_m": 0.09631177529944716,
+      "peak_wheel_Nm": 0.12532512857518874,
+      "peak_motor_Nm": 0.6561261999179112
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": false,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.020015410494870416,
+      "velocity": 0.04187093636570638,
+      "pitch_error_deg": 1.8328930988781138,
+      "left_applied_Nm": 0.014162324052198071
+    },
+    "failure": null
+  },
+  "m10/mismatch_friction_0.5_combined": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_friction_0.5_combined",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 14.615177526964256,
+      "late_pitch_pp_deg": 2.7412357374512215,
+      "rollback_m": 0.198190068824091,
+      "max_travel_m": 1.5361699760215686,
+      "peak_wheel_Nm": 0.21049351141468317,
+      "peak_motor_Nm": 0.9375592478672884
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 12.336629281637007,
+      "late_pitch_pp_deg": 3.7344188520430412,
+      "rollback_m": 0.13755017628154892,
+      "max_travel_m": 1.581634588430355,
+      "peak_wheel_Nm": 0.20802502171883203,
+      "peak_motor_Nm": 0.922837228919834
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": false,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.04510519447263425,
+      "velocity": 0.04435213125222399,
+      "pitch_error_deg": 2.0847406073788335,
+      "left_applied_Nm": 0.008739962486343282
+    },
+    "failure": null
+  },
+  "m10/mismatch_friction_0.5_hold": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_friction_0.5_hold",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 1.2293451850520412,
+      "late_pitch_pp_deg": 1.1510829533367928,
+      "rollback_m": 0.0006794910323821984,
+      "max_travel_m": 0.042981399302684596,
+      "peak_wheel_Nm": 0.06583706229901622,
+      "peak_motor_Nm": 0.5917853548568859
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 3.361620519479246,
+      "late_pitch_pp_deg": 6.260469676916978,
+      "rollback_m": 0.0007367315050542457,
+      "max_travel_m": 0.06230396117514446,
+      "peak_wheel_Nm": 0.12126592166317778,
+      "peak_motor_Nm": 0.6006246312618948
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": false,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.00815396385295126,
+      "velocity": 0.044132593183401986,
+      "pitch_error_deg": 1.9238820806466812,
+      "left_applied_Nm": 0.014123947235441055
+    },
+    "failure": null
+  },
+  "m10/mismatch_friction_1_combined": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_friction_1_combined",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 14.572521190917277,
+      "late_pitch_pp_deg": 2.4826180711644716,
+      "rollback_m": 0.1856736064521889,
+      "max_travel_m": 1.5389323552202985,
+      "peak_wheel_Nm": 0.2100458703122289,
+      "peak_motor_Nm": 0.9425247262030273
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 11.796974521476969,
+      "late_pitch_pp_deg": 6.1296136162441,
+      "rollback_m": 0.17148306508277683,
+      "max_travel_m": 1.5816691632326239,
+      "peak_wheel_Nm": 0.1859601626317647,
+      "peak_motor_Nm": 0.9344069255562115
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.015265012958693574,
+      "velocity": 0.04719515099219261,
+      "pitch_error_deg": 2.149673184418559,
+      "left_applied_Nm": 0.010468342973305804
+    },
+    "failure": null
+  },
+  "m10/mismatch_friction_1_hold": {
+    "suite": "m10",
+    "family": "mismatch",
+    "reference": "mismatch_friction_1_hold",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 1.243686714100435,
+      "late_pitch_pp_deg": 1.007029580382106,
+      "rollback_m": 0.0007395196612345267,
+      "max_travel_m": 0.034317066480825456,
+      "peak_wheel_Nm": 0.06414108474860693,
+      "peak_motor_Nm": 0.5917853548568859
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 3.611409561693659,
+      "late_pitch_pp_deg": 7.0008917872384435,
+      "rollback_m": 0.00119818554471456,
+      "max_travel_m": 0.0698069807495555,
+      "peak_wheel_Nm": 0.12111322392376456,
+      "peak_motor_Nm": 0.6017537840595613
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": false,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.014904374353446295,
+      "velocity": 0.049655201937870264,
+      "pitch_error_deg": 2.1857051635998763,
+      "left_applied_Nm": 0.015542147158700547
+    },
+    "failure": null
+  },
+  "m10/push_drive_+0.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_drive_+0.5",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 15.598507565570833,
+      "late_pitch_pp_deg": 4.934974861501435,
+      "rollback_m": 0.0030492506419581176,
+      "max_travel_m": 2.4261469804893534,
+      "peak_wheel_Nm": 0.28161584057553407,
+      "peak_motor_Nm": 0.9485903510641756
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 14.670509341398859,
+      "late_pitch_pp_deg": 7.1417543096939635,
+      "rollback_m": 0.005448398118926355,
+      "max_travel_m": 2.440307501704468,
+      "peak_wheel_Nm": 0.23074571227369126,
+      "peak_motor_Nm": 0.8752103358281995
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.015478931735231436,
+      "velocity": 0.04898926089283885,
+      "pitch_error_deg": 2.1856616945621234,
+      "left_applied_Nm": 0.00912254116459794
+    },
+    "failure": null
+  },
+  "m10/push_drive_+1": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_drive_+1",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 15.598507565570833,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0030492506419581176,
+      "max_travel_m": 0.7172857194418747,
+      "peak_wheel_Nm": 0.4113256134776332,
+      "peak_motor_Nm": 1.0196229844071147
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 14.670509341398859,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.005448398118926355,
+      "max_travel_m": 0.7140345606604669,
+      "peak_wheel_Nm": 0.3906601768816261,
+      "peak_motor_Nm": 1.0161082117582474
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.0044784914842871,
+      "velocity": 0.03747321121629818,
+      "pitch_error_deg": 1.554050196487765,
+      "left_applied_Nm": 0.006905631017781942
+    },
+    "failure": "physical limit at 4.204s: pitch=-13.25, roll=-5.92, contact=False, joint_limit=True"
+  },
+  "m10/push_drive_+1.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_drive_+1.5",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 15.598507565570833,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0030492506419581176,
+      "max_travel_m": 0.7747874795635774,
+      "peak_wheel_Nm": 0.4250394334998507,
+      "peak_motor_Nm": 1.0464458330820938
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 14.670509341398859,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.005448398118926355,
+      "max_travel_m": 0.7633841520491396,
+      "peak_wheel_Nm": 0.4133299451461178,
+      "peak_motor_Nm": 1.0251092669062105
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.004482457653340966,
+      "velocity": 0.03738145996313239,
+      "pitch_error_deg": 1.554127455317726,
+      "left_applied_Nm": 0.007340566329526442
+    },
+    "failure": "physical limit at 4.208s: pitch=-12.62, roll=-5.22, contact=False, joint_limit=True"
+  },
+  "m10/push_drive_+2": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_drive_+2",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 15.598507565570833,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0030492506419581176,
+      "max_travel_m": 0.9531699306150627,
+      "peak_wheel_Nm": 0.4246620268995414,
+      "peak_motor_Nm": 1.015542023092601
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 14.670509341398859,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.005448398118926355,
+      "max_travel_m": 0.9380318500886434,
+      "peak_wheel_Nm": 0.41277360580081696,
+      "peak_motor_Nm": 1.0117401958496273
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.004615089374780386,
+      "velocity": 0.037045735613457476,
+      "pitch_error_deg": 1.5343657646978686,
+      "left_applied_Nm": 0.009939317959854123
+    },
+    "failure": "physical limit at 4.305s: pitch=-14.09, roll=-5.55, contact=False, joint_limit=True"
+  },
+  "m10/push_drive_+2.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_drive_+2.5",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 17.691967164240456,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0030492506419581176,
+      "max_travel_m": 1.2990896414573565,
+      "peak_wheel_Nm": 0.4242374710074203,
+      "peak_motor_Nm": 0.9560602409156945
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 17.361399460943204,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.005448398118926355,
+      "max_travel_m": 1.2554418625418884,
+      "peak_wheel_Nm": 0.4125992098815871,
+      "peak_motor_Nm": 0.9408810142149405
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.004672857517646154,
+      "velocity": 0.036623084934618015,
+      "pitch_error_deg": 1.5227550562564542,
+      "left_applied_Nm": 0.007676624238989812
+    },
+    "failure": "physical limit at 4.476s: pitch=-17.36, roll=-4.99, contact=False, joint_limit=True"
+  },
+  "m10/push_drive_-0.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_drive_-0.5",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 17.268904260840355,
+      "late_pitch_pp_deg": 5.06845652629356,
+      "rollback_m": 0.0030492506419581176,
+      "max_travel_m": 2.3576289775969697,
+      "peak_wheel_Nm": 0.28262004973186655,
+      "peak_motor_Nm": 0.7943682203685465
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 15.601530878910502,
+      "late_pitch_pp_deg": 7.272763210694274,
+      "rollback_m": 0.005448398118926355,
+      "max_travel_m": 2.379280414464205,
+      "peak_wheel_Nm": 0.2910299668336316,
+      "peak_motor_Nm": 0.7689653677907698
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.019576351391706676,
+      "velocity": 0.048911780941393423,
+      "pitch_error_deg": 2.1297615938733996,
+      "left_applied_Nm": 0.010030636516479265
+    },
+    "failure": null
+  },
+  "m10/push_drive_-1": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_drive_-1",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.007393403718773,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0030492506419581176,
+      "max_travel_m": 0.5557870209704551,
+      "peak_wheel_Nm": 0.44401749710140215,
+      "peak_motor_Nm": 0.7478703594854642
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.0006762713665,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.005448398118926355,
+      "max_travel_m": 0.5642346122396008,
+      "peak_wheel_Nm": 0.4516090694789838,
+      "peak_motor_Nm": 0.7226955848312778
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.0048891574171076105,
+      "velocity": 0.03696429878774726,
+      "pitch_error_deg": 1.5391421982428048,
+      "left_applied_Nm": 0.007679357164974867
+    },
+    "failure": "physical limit at 4.253s: pitch=20.00, roll=-1.30, contact=False, joint_limit=False"
+  },
+  "m10/push_drive_-1.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_drive_-1.5",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 19.938437752523235,
+      "late_pitch_pp_deg": 5.138351363050479,
+      "rollback_m": 0.0030492506419581176,
+      "max_travel_m": 2.1065577050873863,
+      "peak_wheel_Nm": 0.4501465553112836,
+      "peak_motor_Nm": 0.7836576128860522
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.005299164351648,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.005448398118926355,
+      "max_travel_m": 0.5627803427917933,
+      "peak_wheel_Nm": 0.45223504373966666,
+      "peak_motor_Nm": 0.7384915684927863
+    },
+    "checks": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.0050368833133419945,
+      "velocity": 0.03713559467673226,
+      "pitch_error_deg": 1.5377831291513824,
+      "left_applied_Nm": 0.007263171177896453
+    },
+    "failure": "physical limit at 4.313s: pitch=20.01, roll=-1.93, contact=False, joint_limit=False"
+  },
+  "m10/push_drive_-2": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_drive_-2",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.003037818743643,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0030492506419581176,
+      "max_travel_m": 0.5538380889702516,
+      "peak_wheel_Nm": 0.47411747440783153,
+      "peak_motor_Nm": 0.7631756369732606
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.0032953301303,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.005448398118926355,
+      "max_travel_m": 0.5617914128251298,
+      "peak_wheel_Nm": 0.45492935936040685,
+      "peak_motor_Nm": 0.7524712455299958
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.007586296459892511,
+      "velocity": 0.037824686533061015,
+      "pitch_error_deg": 1.4875638679706784,
+      "left_applied_Nm": 0.008090840419723107
+    },
+    "failure": "physical limit at 4.544s: pitch=20.00, roll=-2.42, contact=False, joint_limit=False"
+  },
+  "m10/push_drive_-2.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_drive_-2.5",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.004889485615283,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.14045022976001373,
+      "max_travel_m": 0.5534127020598224,
+      "peak_wheel_Nm": 0.4768057000667508,
+      "peak_motor_Nm": 0.8032364149996785
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.013752453131257,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.08641078866613014,
+      "max_travel_m": 0.5613245884183344,
+      "peak_wheel_Nm": 0.4751683419450353,
+      "peak_motor_Nm": 0.8290931745490392
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": false,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.0111906631875154,
+      "velocity": 0.04297561966330404,
+      "pitch_error_deg": 1.494146813694649,
+      "left_applied_Nm": 0.00893052416793896
+    },
+    "failure": "physical limit at 4.721s: pitch=20.01, roll=-2.32, contact=False, joint_limit=False"
+  },
+  "m10/push_hold_+0.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_hold_+0.5",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 12.67180894864185,
+      "late_pitch_pp_deg": 0.9923178220228723,
+      "rollback_m": 0.0007506112994428711,
+      "max_travel_m": 0.07397644121394488,
+      "peak_wheel_Nm": 0.2910926719853141,
+      "peak_motor_Nm": 0.9374919987221046
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 12.243856412779438,
+      "late_pitch_pp_deg": 6.384382231768034,
+      "rollback_m": 0.0008243747195172539,
+      "max_travel_m": 0.09130103167985515,
+      "peak_wheel_Nm": 0.3085370993482951,
+      "peak_motor_Nm": 0.916317093070438
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.009776658879493857,
+      "velocity": 0.049542149986265986,
+      "pitch_error_deg": 2.1723264843062937,
+      "left_applied_Nm": 0.013248702056362895
+    },
+    "failure": null
+  },
+  "m10/push_hold_+1": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_hold_+1",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 14.192387858394243,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0007506112994428711,
+      "max_travel_m": 0.12837889020101906,
+      "peak_wheel_Nm": 0.43668038901626166,
+      "peak_motor_Nm": 1.024075027977599
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 14.821825649376239,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0008243747195172539,
+      "max_travel_m": 0.12666477606044477,
+      "peak_wheel_Nm": 0.45415657235276163,
+      "peak_motor_Nm": 1.0073651452589667
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.003919255926130072,
+      "velocity": 0.03492366264431178,
+      "pitch_error_deg": 1.481632541746868,
+      "left_applied_Nm": 0.011081705508318862
+    },
+    "failure": "physical limit at 4.253s: pitch=-14.82, roll=-6.48, contact=False, joint_limit=True"
+  },
+  "m10/push_hold_+1.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_hold_+1.5",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 13.66364456140441,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0007506112994428711,
+      "max_travel_m": 0.1920779381810301,
+      "peak_wheel_Nm": 0.4488151100929225,
+      "peak_motor_Nm": 1.0347783891814195
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 14.659424674608307,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0008243747195172539,
+      "max_travel_m": 0.1864780392075922,
+      "peak_wheel_Nm": 0.46261651323221864,
+      "peak_motor_Nm": 1.030344641815096
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.003913479164537651,
+      "velocity": 0.03568853031811114,
+      "pitch_error_deg": 1.4969969563412522,
+      "left_applied_Nm": 0.011376225733755898
+    },
+    "failure": "physical limit at 4.254s: pitch=-14.66, roll=-6.14, contact=False, joint_limit=True"
+  },
+  "m10/push_hold_+2": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_hold_+2",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 15.51596199039243,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0007506112994428711,
+      "max_travel_m": 0.3759091365158338,
+      "peak_wheel_Nm": 0.44862695110632234,
+      "peak_motor_Nm": 0.9888296946058085
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 15.642814691368304,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0008243747195172539,
+      "max_travel_m": 0.2968949500554106,
+      "peak_wheel_Nm": 0.46166083953287207,
+      "peak_motor_Nm": 1.027533272878341
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.004112788574694981,
+      "velocity": 0.036241094821476354,
+      "pitch_error_deg": 1.5309950950628655,
+      "left_applied_Nm": 0.012103653220746276
+    },
+    "failure": "physical limit at 4.307s: pitch=-15.64, roll=-5.60, contact=False, joint_limit=True"
+  },
+  "m10/push_hold_+2.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_hold_+2.5",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 18.48389393294237,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0007506112994428711,
+      "max_travel_m": 0.6782448089276408,
+      "peak_wheel_Nm": 0.44851334007260163,
+      "peak_motor_Nm": 0.9221061546211768
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 18.454041588904893,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.0008243747195172539,
+      "max_travel_m": 0.5481954428978089,
+      "peak_wheel_Nm": 0.46117671166297347,
+      "peak_motor_Nm": 1.04679299119788
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.004983535398848245,
+      "velocity": 0.03900260523007968,
+      "pitch_error_deg": 1.6146468826389455,
+      "left_applied_Nm": 0.01425993136907289
+    },
+    "failure": "physical limit at 4.467s: pitch=-18.45, roll=-5.35, contact=False, joint_limit=True"
+  },
+  "m10/push_hold_-0.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_hold_-0.5",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 17.08927312990333,
+      "late_pitch_pp_deg": 1.1073788353421377,
+      "rollback_m": 0.05050899981440479,
+      "max_travel_m": 0.05065429555875166,
+      "peak_wheel_Nm": 0.3062479233705881,
+      "peak_motor_Nm": 0.7409415339885368
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 16.156356488940826,
+      "late_pitch_pp_deg": 6.890087260119774,
+      "rollback_m": 0.051376041969470314,
+      "max_travel_m": 0.051579328663362144,
+      "peak_wheel_Nm": 0.20833637987868456,
+      "peak_motor_Nm": 0.7289394048009668
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.010375978275596852,
+      "velocity": 0.05250744657696685,
+      "pitch_error_deg": 2.2993729863154395,
+      "left_applied_Nm": 0.013137076287424493
+    },
+    "failure": null
+  },
+  "m10/push_hold_-1": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_hold_-1",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.00324426826658,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.10806835973729989,
+      "max_travel_m": 0.10832605961204038,
+      "peak_wheel_Nm": 0.4273780301016851,
+      "peak_motor_Nm": 0.77452540096696
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 19.7676574582439,
+      "late_pitch_pp_deg": 6.738279806500069,
+      "rollback_m": 0.12575805223398548,
+      "max_travel_m": 0.1262220372438733,
+      "peak_wheel_Nm": 0.38830426434897475,
+      "peak_motor_Nm": 0.7059971067189194
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.0038677739635967646,
+      "velocity": 0.035010638924176295,
+      "pitch_error_deg": 1.4990818910006911,
+      "left_applied_Nm": 0.011146403108457438
+    },
+    "failure": null
+  },
+  "m10/push_hold_-1.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_hold_-1.5",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.00110980018777,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.2226861169967152,
+      "max_travel_m": 0.22300216273215895,
+      "peak_wheel_Nm": 0.42564904202732295,
+      "peak_motor_Nm": 0.8313291685033443
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 19.741908892928095,
+      "late_pitch_pp_deg": 7.011784964675488,
+      "rollback_m": 0.2732737742724084,
+      "max_travel_m": 0.2738807829385992,
+      "peak_wheel_Nm": 0.4087859126064664,
+      "peak_motor_Nm": 0.7275170213004825
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.0038613305772177927,
+      "velocity": 0.03479881336811169,
+      "pitch_error_deg": 1.4686713033808882,
+      "left_applied_Nm": 0.012278992789782688
+    },
+    "failure": null
+  },
+  "m10/push_hold_-2": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_hold_-2",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.000928981344316,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.45859120716020085,
+      "max_travel_m": 0.45875468788919754,
+      "peak_wheel_Nm": 0.44501622005556923,
+      "peak_motor_Nm": 0.8004162610226095
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 19.79822751199345,
+      "late_pitch_pp_deg": 6.5853858758846275,
+      "rollback_m": 0.5630783275481503,
+      "max_travel_m": 0.5633557764424347,
+      "peak_wheel_Nm": 0.42188613018385884,
+      "peak_motor_Nm": 0.714831895693381
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.004777364785954692,
+      "velocity": 0.03799360427254325,
+      "pitch_error_deg": 1.4963744650690673,
+      "left_applied_Nm": 0.012365548613788324
+    },
+    "failure": null
+  },
+  "m10/push_hold_-2.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_hold_-2.5",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.00038457441095,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.879053318545803,
+      "max_travel_m": 0.880517385094503,
+      "peak_wheel_Nm": 0.44745284933846324,
+      "peak_motor_Nm": 0.8356780170798619
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.005151344089644,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.9605673366537555,
+      "max_travel_m": 0.961239308483419,
+      "peak_wheel_Nm": 0.4412885357794684,
+      "peak_motor_Nm": 0.7388974561879013
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.006974715796440286,
+      "velocity": 0.04000102515077738,
+      "pitch_error_deg": 1.4867912145611375,
+      "left_applied_Nm": 0.01186981885818303
+    },
+    "failure": "physical limit at 4.802s: pitch=20.01, roll=-2.06, contact=False, joint_limit=False"
+  },
+  "m10/push_low_+0.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_low_+0.5",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 13.781368098967139,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.11182127415443183,
+      "max_travel_m": 0.11184848984987619,
+      "peak_wheel_Nm": 0.4575713440576727,
+      "peak_motor_Nm": 1.6499999999829857
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 12.64442270481627,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.13989651856710983,
+      "max_travel_m": 0.13989661838401687,
+      "peak_wheel_Nm": 0.33162612202553393,
+      "peak_motor_Nm": 1.649999999998622
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": false,
+      "max_travel_m": false,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.023595852335593512,
+      "velocity": 0.0771505784986929,
+      "pitch_error_deg": 4.115634778210566,
+      "left_applied_Nm": 0.012623553757654784
+    },
+    "failure": "physical limit at 4.254s: pitch=-12.64, roll=-10.01, contact=False, joint_limit=False"
+  },
+  "m10/push_low_+1": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_low_+1",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 10.728130269215164,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.11150224271080353,
+      "max_travel_m": 0.11152929725955157,
+      "peak_wheel_Nm": 0.4575713440576727,
+      "peak_motor_Nm": 1.6499999999829857
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 10.935406056735381,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.13957176351527503,
+      "max_travel_m": 0.13957185471359768,
+      "peak_wheel_Nm": 0.4400630548543394,
+      "peak_motor_Nm": 1.649999999998622
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": false,
+      "max_travel_m": false,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.023555876928637743,
+      "velocity": 0.07639113298094906,
+      "pitch_error_deg": 4.066317938013796,
+      "left_applied_Nm": 0.012229150424260631
+    },
+    "failure": "physical limit at 4.205s: pitch=-10.94, roll=-10.02, contact=False, joint_limit=False"
+  },
+  "m10/push_low_+1.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_low_+1.5",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 10.31907883477508,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.11126784513453691,
+      "max_travel_m": 0.11129513598532868,
+      "peak_wheel_Nm": 0.4575713440576727,
+      "peak_motor_Nm": 1.6499999999829857
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 11.20365047821671,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.13947868027370985,
+      "max_travel_m": 0.1394787493283888,
+      "peak_wheel_Nm": 0.4536934353119315,
+      "peak_motor_Nm": 1.649999999998622
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": false,
+      "max_travel_m": false,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.023561488070412057,
+      "velocity": 0.0762146601870272,
+      "pitch_error_deg": 4.066295570901415,
+      "left_applied_Nm": 0.012126357332490092
+    },
+    "failure": "physical limit at 4.213s: pitch=-11.20, roll=-10.00, contact=False, joint_limit=False"
+  },
+  "m10/push_low_+2": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_low_+2",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 10.18450851140912,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.11118550133752,
+      "max_travel_m": 0.11760336080333232,
+      "peak_wheel_Nm": 0.4575713440576727,
+      "peak_motor_Nm": 1.6499999999829857
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 11.47106874611258,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.1393894418258062,
+      "max_travel_m": 0.13938951040810132,
+      "peak_wheel_Nm": 0.4522915469436406,
+      "peak_motor_Nm": 1.649999999998622
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": false,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.023594216872555578,
+      "velocity": 0.07703983046449389,
+      "pitch_error_deg": 4.115573178727665,
+      "left_applied_Nm": 0.01603450304192854
+    },
+    "failure": "physical limit at 4.253s: pitch=-11.47, roll=-10.02, contact=False, joint_limit=False"
+  },
+  "m10/push_low_+2.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_low_+2.5",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 10.528290603158412,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.11110042920193267,
+      "max_travel_m": 0.39386450566513304,
+      "peak_wheel_Nm": 0.4575713440576727,
+      "peak_motor_Nm": 1.6499999999829857
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 9.863276629357566,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.13930211743941254,
+      "max_travel_m": 0.20807710327864426,
+      "peak_wheel_Nm": 0.45128470075114535,
+      "peak_motor_Nm": 1.649999999998622
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": false,
+      "max_travel_m": false,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.023546685930009227,
+      "velocity": 0.07595196264875233,
+      "pitch_error_deg": 4.084852139985429,
+      "left_applied_Nm": 0.012394752671027763
+    },
+    "failure": "physical limit at 4.306s: pitch=-9.86, roll=-10.01, contact=False, joint_limit=False"
+  },
+  "m10/push_low_-0.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_low_-0.5",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 17.761782853557314,
+      "late_pitch_pp_deg": 3.7197971500261673,
+      "rollback_m": 0.6088573280395684,
+      "max_travel_m": 0.6111718949571924,
+      "peak_wheel_Nm": 0.4575713440576727,
+      "peak_motor_Nm": 1.6499999999829857
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 16.925140090851453,
+      "late_pitch_pp_deg": 4.880042480932756,
+      "rollback_m": 0.6035917581728356,
+      "max_travel_m": 0.6068065175900464,
+      "peak_wheel_Nm": 0.33162612202553393,
+      "peak_motor_Nm": 1.649999999998622
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.013076330073049404,
+      "velocity": 0.041729557010933914,
+      "pitch_error_deg": 2.2419624447492854,
+      "left_applied_Nm": 0.009054777367325035
+    },
+    "failure": null
+  },
+  "m10/push_low_-1": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_low_-1",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 18.54641712165031,
+      "late_pitch_pp_deg": 3.7686158971183787,
+      "rollback_m": 0.7125994914397499,
+      "max_travel_m": 0.7149754852153214,
+      "peak_wheel_Nm": 0.4575713440576727,
+      "peak_motor_Nm": 1.6499999999829857
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 18.788529078264947,
+      "late_pitch_pp_deg": 5.15848209824072,
+      "rollback_m": 0.7009395480596796,
+      "max_travel_m": 0.7042828554343901,
+      "peak_wheel_Nm": 0.34856866480405435,
+      "peak_motor_Nm": 1.649999999998622
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.013933263947438476,
+      "velocity": 0.04411668309781178,
+      "pitch_error_deg": 2.391252621431513,
+      "left_applied_Nm": 0.009071129757605075
+    },
+    "failure": null
+  },
+  "m10/push_low_-1.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_low_-1.5",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 19.116831755830304,
+      "late_pitch_pp_deg": 3.544068278577161,
+      "rollback_m": 0.9224775674479933,
+      "max_travel_m": 0.9272782225224189,
+      "peak_wheel_Nm": 0.4575713440576727,
+      "peak_motor_Nm": 1.6499999999829857
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 18.53850140105569,
+      "late_pitch_pp_deg": 4.998377575305893,
+      "rollback_m": 0.8889077865913034,
+      "max_travel_m": 0.8937990937593691,
+      "peak_wheel_Nm": 0.41145571110793683,
+      "peak_motor_Nm": 1.649999999998622
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.024078899761679526,
+      "velocity": 0.043376954044550546,
+      "pitch_error_deg": 2.2651974586009533,
+      "left_applied_Nm": 0.008986577170758604
+    },
+    "failure": null
+  },
+  "m10/push_low_-2": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_low_-2",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.00441630422244,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.9295753644461315,
+      "max_travel_m": 0.9330604663475862,
+      "peak_wheel_Nm": 0.4575713440576727,
+      "peak_motor_Nm": 1.6499999999829857
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.011936567682014,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.8888421984041402,
+      "max_travel_m": 0.8909717398412349,
+      "peak_wheel_Nm": 0.41457101132497687,
+      "peak_motor_Nm": 1.649999999998622
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.02272153889618711,
+      "velocity": 0.07907017924586301,
+      "pitch_error_deg": 3.878511608588893,
+      "left_applied_Nm": 0.01176174725528575
+    },
+    "failure": "physical limit at 4.828s: pitch=20.01, roll=-1.80, contact=False, joint_limit=False"
+  },
+  "m10/push_low_-2.5": {
+    "suite": "m10",
+    "family": "push",
+    "reference": "push_low_-2.5",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.001405033503747,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 2.608137147273265,
+      "max_travel_m": 2.6104552905775362,
+      "peak_wheel_Nm": 0.4575713440576727,
+      "peak_motor_Nm": 1.6499999999829857
+    },
+    "training": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 20.00388752364226,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 2.371059226823887,
+      "max_travel_m": 2.377748946039392,
+      "peak_wheel_Nm": 0.4444815954894307,
+      "peak_motor_Nm": 1.649999999998622
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.03749223818596542,
+      "velocity": 0.0903623920263761,
+      "pitch_error_deg": 3.6748651654763917,
+      "left_applied_Nm": 0.01134427073140567
+    },
+    "failure": "physical limit at 5.645s: pitch=20.00, roll=-1.24, contact=False, joint_limit=False"
+  },
+  "m10/sensors_combined": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "sensors_combined",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 14.625763755872224,
+      "late_pitch_pp_deg": 2.353925340366887,
+      "rollback_m": 0.19088292956446257,
+      "max_travel_m": 1.5380530123432865,
+      "peak_wheel_Nm": 0.21433859525357854,
+      "peak_motor_Nm": 0.940197142759359,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 12.040753718949386,
+      "late_pitch_pp_deg": 5.635050292230998,
+      "rollback_m": 0.15798068246143404,
+      "max_travel_m": 1.57976138593149,
+      "peak_wheel_Nm": 0.17508809275324894,
+      "peak_motor_Nm": 0.926174952751915,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.02550623859743543,
+      "velocity": 0.045397493693026425,
+      "pitch_error_deg": 2.0412865302453076,
+      "left_applied_Nm": 0.010061033232239617
+    },
+    "failure": null
+  },
+  "m10/sensors_crouch": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "sensors_crouch",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 3.4423290682426306,
+      "late_pitch_pp_deg": 3.5771671180690663,
+      "rollback_m": 0.32778446281078655,
+      "max_travel_m": 0.33510158122895195,
+      "peak_wheel_Nm": 0.11430592393475544,
+      "peak_motor_Nm": 0.7399734734572281,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 3.743745068069632,
+      "late_pitch_pp_deg": 5.4190097642325465,
+      "rollback_m": 0.2605070576154764,
+      "max_travel_m": 0.27414712156616355,
+      "peak_wheel_Nm": 0.11611235340543889,
+      "peak_motor_Nm": 0.7329044104903207,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.047881128344161715,
+      "velocity": 0.033130774443330416,
+      "pitch_error_deg": 1.4885345989926837,
+      "left_applied_Nm": 0.010286546392890051
+    },
+    "failure": null
+  },
+  "m10/sensors_drive": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "sensors_drive",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 16.69624492109272,
+      "late_pitch_pp_deg": 5.515045229477375,
+      "rollback_m": 0.0030492506419581176,
+      "max_travel_m": 1.5118863938985407,
+      "peak_wheel_Nm": 0.24449637904232288,
+      "peak_motor_Nm": 0.8007024666210468,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 15.819292289202368,
+      "late_pitch_pp_deg": 7.291593748197851,
+      "rollback_m": 0.005448398118926355,
+      "max_travel_m": 1.5297877695961313,
+      "peak_wheel_Nm": 0.24554763454763118,
+      "peak_motor_Nm": 0.8014272596882985,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.02940659359044713,
+      "velocity": 0.052513823094627786,
+      "pitch_error_deg": 2.290984116457914,
+      "left_applied_Nm": 0.009374165645004491
+    },
+    "failure": null
+  },
+  "m10/sensors_hold": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "sensors_hold",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 1.213223426600642,
+      "late_pitch_pp_deg": 0.9891582331217966,
+      "rollback_m": 0.0007506112994428711,
+      "max_travel_m": 0.09044935687804899,
+      "peak_wheel_Nm": 0.06634426754512643,
+      "peak_motor_Nm": 0.5917853548568859,
+      "passed": true
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 3.6542824216017675,
+      "late_pitch_pp_deg": 6.86050823900898,
+      "rollback_m": 0.0008243747195172539,
+      "max_travel_m": 0.18483985096342867,
+      "peak_wheel_Nm": 0.12639837584202224,
+      "peak_motor_Nm": 0.6057208976720662,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "passed": false,
+      "peak_pitch_deg": false,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.04099528492893595,
+      "velocity": 0.04859549758719716,
+      "pitch_error_deg": 2.1572448402796525,
+      "left_applied_Nm": 0.016104966163908708
+    },
+    "failure": null
+  },
+  "m10/sensors_push": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "sensors_push",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 4.712691996004504,
+      "late_pitch_pp_deg": 3.6074349379510844,
+      "rollback_m": 0.0007506112994428711,
+      "max_travel_m": 0.02846505363229494,
+      "peak_wheel_Nm": 0.10826185043229099,
+      "peak_motor_Nm": 0.6550496357716603,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 7.208733920277685,
+      "late_pitch_pp_deg": 7.453450738835345,
+      "rollback_m": 0.0008243747195172539,
+      "max_travel_m": 0.05938786413565249,
+      "peak_wheel_Nm": 0.14134639877322555,
+      "peak_motor_Nm": 0.6537419718545368,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "passed": true,
+      "peak_pitch_deg": false,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.01424425303873682,
+      "velocity": 0.05602166223987898,
+      "pitch_error_deg": 2.488524567899351,
+      "left_applied_Nm": 0.012537254971845806
+    },
+    "failure": null
+  },
+  "m10/sensors_tilt_negative": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "sensors_tilt_negative",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 5.47013777802098,
+      "late_pitch_pp_deg": 1.0464413817996512,
+      "rollback_m": 0.02770447831402573,
+      "max_travel_m": 0.0747936933624317,
+      "peak_wheel_Nm": 0.12319431677442746,
+      "peak_motor_Nm": 0.6483481613867668,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 5.494882886584201,
+      "late_pitch_pp_deg": 6.645543038848462,
+      "rollback_m": 0.03020566914986915,
+      "max_travel_m": 0.15812267953732953,
+      "peak_wheel_Nm": 0.13350697558965852,
+      "peak_motor_Nm": 0.6215667719541184,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.03412308105380441,
+      "velocity": 0.04982544275619718,
+      "pitch_error_deg": 2.2027185223504957,
+      "left_applied_Nm": 0.015906783166327456
+    },
+    "failure": null
+  },
+  "m10/sensors_tilt_positive": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "sensors_tilt_positive",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 5.239533681945272,
+      "late_pitch_pp_deg": 1.170911290786005,
+      "rollback_m": 3.908138591901887e-05,
+      "max_travel_m": 0.11058066764097264,
+      "peak_wheel_Nm": 0.09231829044245005,
+      "peak_motor_Nm": 0.6950923077761743,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 5.374681892697382,
+      "late_pitch_pp_deg": 6.40250810792205,
+      "rollback_m": 2.0276503761181702e-05,
+      "max_travel_m": 0.20216572597427468,
+      "peak_wheel_Nm": 0.12793850105015853,
+      "peak_motor_Nm": 0.6646834105029427,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.043738995963746946,
+      "velocity": 0.04749997824160715,
+      "pitch_error_deg": 2.1070480442606536,
+      "left_applied_Nm": 0.015615643546173282
+    },
+    "failure": null
+  },
+  "m10/sensors_turn": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "sensors_turn",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 1.23674884833478,
+      "late_pitch_pp_deg": 0.9930699477520455,
+      "rollback_m": 0.0007506112994428711,
+      "max_travel_m": 0.04842891647019184,
+      "peak_wheel_Nm": 0.06634426754512643,
+      "peak_motor_Nm": 0.5917853548568859,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 4.18277130372449,
+      "late_pitch_pp_deg": 7.1398270772492225,
+      "rollback_m": 0.0008243747195172539,
+      "max_travel_m": 0.0636940070417331,
+      "peak_wheel_Nm": 0.1425510590994918,
+      "peak_motor_Nm": 0.6129926691029004,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "passed": true,
+      "peak_pitch_deg": false,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.006209633319405528,
+      "velocity": 0.049377398163797874,
+      "pitch_error_deg": 2.131877901345428,
+      "left_applied_Nm": 0.013901500439155157
+    },
+    "failure": null
+  },
+  "m10/slope_down_0": {
+    "suite": "m10",
+    "family": "slope",
+    "reference": "slope_down_0",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 16.518519787788865,
+      "late_pitch_pp_deg": 2.018319962964335,
+      "rollback_m": 2.9286952649774554,
+      "max_travel_m": 2.929924899176108,
+      "peak_wheel_Nm": 0.24568575414929872,
+      "peak_motor_Nm": 0.7775626513908096
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 16.898799784235894,
+      "late_pitch_pp_deg": 6.3273883687988075,
+      "rollback_m": 2.8936863322954873,
+      "max_travel_m": 2.8945694151665577,
+      "peak_wheel_Nm": 0.22871146550006594,
+      "peak_motor_Nm": 0.7693627953858173
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.0330954651181367,
+      "velocity": 0.0510339516577962,
+      "pitch_error_deg": 2.232421040797671,
+      "left_applied_Nm": 0.010854614706393387
+    },
+    "failure": null
+  },
+  "m10/slope_down_10": {
+    "suite": "m10",
+    "family": "slope",
+    "reference": "slope_down_10",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 19.49422872505636,
+      "late_pitch_pp_deg": 1.1539167728468591,
+      "rollback_m": 2.8896446454215416,
+      "max_travel_m": 2.988799150761537,
+      "peak_wheel_Nm": 0.28109665558955427,
+      "peak_motor_Nm": 0.8248955102783313
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 17.778944160454618,
+      "late_pitch_pp_deg": 5.4296389395824844,
+      "rollback_m": 2.812497114356337,
+      "max_travel_m": 2.987991516629049,
+      "peak_wheel_Nm": 0.27369785881779474,
+      "peak_motor_Nm": 0.7709316470671799
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.05479534344129743,
+      "velocity": 0.048917570736650255,
+      "pitch_error_deg": 2.012538083853281,
+      "left_applied_Nm": 0.01338898963652292
+    },
+    "failure": null
+  },
+  "m10/slope_down_4": {
+    "suite": "m10",
+    "family": "slope",
+    "reference": "slope_down_4",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 16.60036458782156,
+      "late_pitch_pp_deg": 1.010276256008872,
+      "rollback_m": 2.9547097658313604,
+      "max_travel_m": 2.9678869309492786,
+      "peak_wheel_Nm": 0.2374208195014968,
+      "peak_motor_Nm": 0.7729090590471165
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 17.611586424456338,
+      "late_pitch_pp_deg": 5.841998973150169,
+      "rollback_m": 2.923022802518515,
+      "max_travel_m": 2.9635417258125227,
+      "peak_wheel_Nm": 0.23875892124493084,
+      "peak_motor_Nm": 0.7483000939487107
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.021972285742255203,
+      "velocity": 0.04673280529854922,
+      "pitch_error_deg": 1.965654259015958,
+      "left_applied_Nm": 0.009529523149744513
+    },
+    "failure": null
+  },
+  "m10/slope_down_8": {
+    "suite": "m10",
+    "family": "slope",
+    "reference": "slope_down_8",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 18.80151818777253,
+      "late_pitch_pp_deg": 1.1314198679067573,
+      "rollback_m": 2.9105859870697106,
+      "max_travel_m": 2.9870193192118664,
+      "peak_wheel_Nm": 0.27647714574269067,
+      "peak_motor_Nm": 0.8132496270926817
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 18.92515212205638,
+      "late_pitch_pp_deg": 5.074390315212693,
+      "rollback_m": 2.8610412285972817,
+      "max_travel_m": 2.996513722874261,
+      "peak_wheel_Nm": 0.270656309363759,
+      "peak_motor_Nm": 0.7534008504055741
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.03451442392319215,
+      "velocity": 0.04671091735014051,
+      "pitch_error_deg": 1.9272808865068474,
+      "left_applied_Nm": 0.010036314277993735
+    },
+    "failure": null
+  },
+  "m10/slope_hold_0": {
+    "suite": "m10",
+    "family": "slope",
+    "reference": "slope_hold_0",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 1.213223426600642,
+      "late_pitch_pp_deg": 1.0873383594023784,
+      "rollback_m": 0.0007506112994428711,
+      "max_travel_m": 0.03716376225497705,
+      "peak_wheel_Nm": 0.06634426754512643,
+      "peak_motor_Nm": 0.5917853548568859
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 3.6542824216017675,
+      "late_pitch_pp_deg": 6.935389978840073,
+      "rollback_m": 0.0008243747195172539,
+      "max_travel_m": 0.0707474001525378,
+      "peak_wheel_Nm": 0.12027016655507006,
+      "peak_motor_Nm": 0.6057208976720662
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": false,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.014060078644602137,
+      "velocity": 0.04733435007143234,
+      "pitch_error_deg": 2.090909678530114,
+      "left_applied_Nm": 0.0158051407769239
+    },
+    "failure": null
+  },
+  "m10/slope_hold_10": {
+    "suite": "m10",
+    "family": "slope",
+    "reference": "slope_hold_10",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 9.653964270571201,
+      "late_pitch_pp_deg": 1.0571248883183495,
+      "rollback_m": 0.19943876124335247,
+      "max_travel_m": 0.19965559915386175,
+      "peak_wheel_Nm": 0.12360440957615051,
+      "peak_motor_Nm": 0.6581919089255531
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 9.889315442629508,
+      "late_pitch_pp_deg": 0.7848491546133411,
+      "rollback_m": 0.17051399528552513,
+      "max_travel_m": 0.17166649397519995,
+      "peak_wheel_Nm": 0.13514897818945013,
+      "peak_motor_Nm": 0.6438174608809438
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.013230887654885354,
+      "velocity": 0.009273386126130195,
+      "pitch_error_deg": 0.4009008159150151,
+      "left_applied_Nm": 0.009279275306714815
+    },
+    "failure": null
+  },
+  "m10/slope_hold_4": {
+    "suite": "m10",
+    "family": "slope",
+    "reference": "slope_hold_4",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 4.534083176414665,
+      "late_pitch_pp_deg": 1.037278372232894,
+      "rollback_m": 0.04410672497811368,
+      "max_travel_m": 0.04412111547843112,
+      "peak_wheel_Nm": 0.0812263948556796,
+      "peak_motor_Nm": 0.6067419805519254
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 4.974943995171627,
+      "late_pitch_pp_deg": 4.365437219886329,
+      "rollback_m": 0.04435095741421249,
+      "max_travel_m": 0.04493046012968954,
+      "peak_wheel_Nm": 0.1071991186753551,
+      "peak_motor_Nm": 0.5961012262714798
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": false,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.003808210384324587,
+      "velocity": 0.0346985175849631,
+      "pitch_error_deg": 1.4825395957635092,
+      "left_applied_Nm": 0.011740880940208673
+    },
+    "failure": null
+  },
+  "m10/slope_hold_8": {
+    "suite": "m10",
+    "family": "slope",
+    "reference": "slope_hold_8",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 8.05678541174609,
+      "late_pitch_pp_deg": 0.9991236335973674,
+      "rollback_m": 0.13095548022094683,
+      "max_travel_m": 0.13099435886788455,
+      "peak_wheel_Nm": 0.11847402878747776,
+      "peak_motor_Nm": 0.6431383559624129
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 8.38688074698384,
+      "late_pitch_pp_deg": 0.4263106740780511,
+      "rollback_m": 0.13140967451749813,
+      "max_travel_m": 0.13141206574093056,
+      "peak_wheel_Nm": 0.12112142503282705,
+      "peak_motor_Nm": 0.6255933266735214
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.004245589310450029,
+      "velocity": 0.013774434899311589,
+      "pitch_error_deg": 0.5601007671188704,
+      "left_applied_Nm": 0.006962965726583997
+    },
+    "failure": null
+  },
+  "m10/slope_up_0": {
+    "suite": "m10",
+    "family": "slope",
+    "reference": "slope_up_0",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 15.598507565570833,
+      "late_pitch_pp_deg": 1.7824292993516635,
+      "rollback_m": 0.0030492506419581176,
+      "max_travel_m": 2.949319793210158,
+      "peak_wheel_Nm": 0.24260582660005914,
+      "peak_motor_Nm": 0.7892381985454088
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 14.670509341398859,
+      "late_pitch_pp_deg": 6.749032717036402,
+      "rollback_m": 0.005448398118926355,
+      "max_travel_m": 2.963512627103512,
+      "peak_wheel_Nm": 0.23074571227369126,
+      "peak_motor_Nm": 0.7226955848312778
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.014869519186102494,
+      "velocity": 0.04351895144763877,
+      "pitch_error_deg": 1.8703559271370322,
+      "left_applied_Nm": 0.009470083196227786
+    },
+    "failure": null
+  },
+  "m10/slope_up_10": {
+    "suite": "m10",
+    "family": "slope",
+    "reference": "slope_up_10",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 18.937369261728346,
+      "late_pitch_pp_deg": 1.0819881397494795,
+      "rollback_m": 0.05190662347051478,
+      "max_travel_m": 2.6876155579197083,
+      "peak_wheel_Nm": 0.2605508007653505,
+      "peak_motor_Nm": 0.9088163853965557
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 18.858182002377113,
+      "late_pitch_pp_deg": 1.2158630215970705,
+      "rollback_m": 0.05652338746342602,
+      "max_travel_m": 2.6850174116888783,
+      "peak_wheel_Nm": 0.25306720862963467,
+      "peak_motor_Nm": 0.8281867830275671
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.009291299907655136,
+      "velocity": 0.014984834583265409,
+      "pitch_error_deg": 0.5823733802713394,
+      "left_applied_Nm": 0.00845527048457841
+    },
+    "failure": null
+  },
+  "m10/slope_up_4": {
+    "suite": "m10",
+    "family": "slope",
+    "reference": "slope_up_4",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 16.844844476777734,
+      "late_pitch_pp_deg": 1.0424126411683359,
+      "rollback_m": 0.01859939964602736,
+      "max_travel_m": 2.8906374454681734,
+      "peak_wheel_Nm": 0.25869775241876836,
+      "peak_motor_Nm": 0.8190307948600144
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 17.41458570790632,
+      "late_pitch_pp_deg": 4.729854749815288,
+      "rollback_m": 0.019417326038304823,
+      "max_travel_m": 2.877683279628943,
+      "peak_wheel_Nm": 0.2599636101775623,
+      "peak_motor_Nm": 0.760366860524881
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.014781645001827501,
+      "velocity": 0.034241546240486836,
+      "pitch_error_deg": 1.4099268454069118,
+      "left_applied_Nm": 0.009811556806944332
+    },
+    "failure": null
+  },
+  "m10/slope_up_8": {
+    "suite": "m10",
+    "family": "slope",
+    "reference": "slope_up_8",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 18.16082659602542,
+      "late_pitch_pp_deg": 1.0158890238269,
+      "rollback_m": 0.03985466658741153,
+      "max_travel_m": 2.754423547727179,
+      "peak_wheel_Nm": 0.2555340159296109,
+      "peak_motor_Nm": 0.8746265281919452
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 18.33408192232331,
+      "late_pitch_pp_deg": 1.892271959758018,
+      "rollback_m": 0.04284798928356498,
+      "max_travel_m": 2.7540011851521,
+      "peak_wheel_Nm": 0.26720298166726936,
+      "peak_motor_Nm": 0.7853280045484428
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.0036902789322830207,
+      "velocity": 0.019587532400582322,
+      "pitch_error_deg": 0.7637511747390336,
+      "left_applied_Nm": 0.006573612738116923
+    },
+    "failure": null
+  },
+  "m10/unpowered": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "unpowered",
+    "full": {
+      "physical_pass": false,
+      "recovered": false,
+      "peak_pitch_deg": 30.03017579499516,
+      "late_pitch_pp_deg": null,
+      "rollback_m": 0.005641846206627513,
+      "max_travel_m": 0.005646937937298573,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": true
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 23.236073458184922,
+      "late_pitch_pp_deg": 0.0003618047295788074,
+      "rollback_m": 0.0013968815313998434,
+      "max_travel_m": 0.008570984427606322,
+      "peak_wheel_Nm": 0.0,
+      "peak_motor_Nm": 0.0,
+      "passed": true
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.003159405278324981,
+      "velocity": 0.014842984945809934,
+      "pitch_error_deg": 5.179134983018262,
+      "left_applied_Nm": 0.0
+    },
+    "failure": null
+  },
+  "m10/wheel_lag_25ms_combined": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "wheel_lag_25ms_combined",
+    "full": {
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 12.72871422254469,
+      "late_pitch_pp_deg": 1.778832199828527,
+      "rollback_m": 0.19810546176167054,
+      "max_travel_m": 1.540548377403902,
+      "peak_wheel_Nm": 0.10915255008941711,
+      "peak_motor_Nm": 0.9429929912153491,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 11.726009949817662,
+      "late_pitch_pp_deg": 2.508306972448308,
+      "rollback_m": 0.1756650307864172,
+      "max_travel_m": 1.5808545812148065,
+      "peak_wheel_Nm": 0.10892634882196982,
+      "peak_motor_Nm": 0.9881017262942177,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": false,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.015063840979254606,
+      "velocity": 0.029327399473589824,
+      "pitch_error_deg": 1.39809620120825,
+      "left_applied_Nm": 0.014797072916011112
+    },
+    "failure": null
+  },
+  "m10/wheel_lag_25ms_drive": {
+    "suite": "m10",
+    "family": "acceptance",
+    "reference": "wheel_lag_25ms_drive",
+    "full": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 17.968267598397034,
+      "late_pitch_pp_deg": 4.804920042082097,
+      "rollback_m": 0.0025660622713835094,
+      "max_travel_m": 1.505237025640417,
+      "peak_wheel_Nm": 0.15166003973072814,
+      "peak_motor_Nm": 0.779352521767874,
+      "passed": false
+    },
+    "training": {
+      "physical_pass": true,
+      "recovered": false,
+      "peak_pitch_deg": 16.51649845387602,
+      "late_pitch_pp_deg": 5.955830294650522,
+      "rollback_m": 0.0009424993800210314,
+      "max_travel_m": 1.5175517722112597,
+      "peak_wheel_Nm": 0.1283515016520396,
+      "peak_motor_Nm": 0.8085422231306637,
+      "passed": false
+    },
+    "checks": {
+      "physical_pass": true,
+      "recovered": true,
+      "passed": true,
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": true,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.023498492580309446,
+      "velocity": 0.020957553066904566,
+      "pitch_error_deg": 0.7771825369134588,
+      "left_applied_Nm": 0.013691373476327496
+    },
+    "failure": null
+  },
+  "speed/arc_r1": {
+    "suite": "m12",
+    "family": "full",
+    "reference": "arc_r1",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.092869260430195,
+      "peak_speed_m_s": 0.9284278997068248,
+      "peak_wheel_Nm": 0.1277783008272057,
+      "plateau_speed_error_m_s": 0.05037565767568343,
+      "stop_travel_m": 0.04654908185325211
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.485214849151255,
+      "peak_speed_m_s": 0.9203341592962482,
+      "peak_wheel_Nm": 0.12381061933308202,
+      "plateau_speed_error_m_s": 0.05617746819257652,
+      "stop_travel_m": 0.04886532462000194
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.044999491545828794,
+      "velocity": 0.07250471655549226,
+      "pitch_error_deg": 3.130882111093876,
+      "left_applied_Nm": 0.013185976025603584
+    },
+    "failure": null
+  },
+  "speed/arc_r2": {
+    "suite": "m12",
+    "family": "full",
+    "reference": "arc_r2",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.092869259265015,
+      "peak_speed_m_s": 1.2265507247154184,
+      "peak_wheel_Nm": 0.1341758957328034,
+      "plateau_speed_error_m_s": 0.029341468156701644,
+      "stop_travel_m": 0.04247716750643729
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.48521485079317,
+      "peak_speed_m_s": 1.2143012468796424,
+      "peak_wheel_Nm": 0.11377914394247506,
+      "plateau_speed_error_m_s": 0.037383690967992336,
+      "stop_travel_m": 0.04458909106066431
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.12717896193744344,
+      "velocity": 0.04163705400152455,
+      "pitch_error_deg": 1.7605526573672343,
+      "left_applied_Nm": 0.012710561092566174
+    },
+    "failure": null
+  },
+  "speed/delay_15ms_noise_x2_drive_step": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "delay_15ms_noise_x2_drive_step",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.355847735417875,
+      "peak_speed_m_s": 1.4252066031849935,
+      "peak_wheel_Nm": 0.12154618837317711,
+      "plateau_speed_error_m_s": 0.013348516763115138,
+      "stop_travel_m": 0.7051048920369866
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.668129217080903,
+      "peak_speed_m_s": 1.4231177066310976,
+      "peak_wheel_Nm": 0.12174200262786057,
+      "plateau_speed_error_m_s": 0.01967447537865433,
+      "stop_travel_m": 0.6746533074730252
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.16261785165562412,
+      "velocity": 0.03230491666185277,
+      "pitch_error_deg": 1.2087974111540898,
+      "left_applied_Nm": 0.014271707017944951
+    },
+    "failure": null
+  },
+  "speed/delay_15ms_noise_x2_replay_corner_90": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "delay_15ms_noise_x2_replay_corner_90",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 18.07235602517059,
+      "peak_speed_m_s": 1.311538966081326,
+      "peak_wheel_Nm": 0.16706193802154312,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 18.38767904767476,
+      "peak_speed_m_s": 1.2972820206787687,
+      "peak_wheel_Nm": 0.1993682238267336,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.20390459204203903,
+      "velocity": 0.02353958596331755,
+      "pitch_error_deg": 0.9279715271027178,
+      "left_applied_Nm": 0.013652036946100848
+    },
+    "failure": null
+  },
+  "speed/delay_15ms_noise_x2_weave": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "delay_15ms_noise_x2_weave",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.355847678264134,
+      "peak_speed_m_s": 1.193138056348378,
+      "peak_wheel_Nm": 0.12023098596862669,
+      "plateau_speed_error_m_s": 0.03859931785669457,
+      "stop_travel_m": 0.062341387522628605
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.67337478601259,
+      "peak_speed_m_s": 1.2277501420591823,
+      "peak_wheel_Nm": 0.12018240389303897,
+      "plateau_speed_error_m_s": 0.03263035839901582,
+      "stop_travel_m": 0.0573113533893449
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.08397803167949074,
+      "velocity": 0.04010264674776621,
+      "pitch_error_deg": 1.6534278554642479,
+      "left_applied_Nm": 0.011569373920289654
+    },
+    "failure": null
+  },
+  "speed/drive_ramp": {
+    "suite": "m12",
+    "family": "full",
+    "reference": "drive_ramp",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.09286925991683,
+      "peak_speed_m_s": 1.4330868772324505,
+      "peak_wheel_Nm": 0.1148532940207944,
+      "plateau_speed_error_m_s": 0.01182333778072199,
+      "stop_travel_m": 0.043724033469961184
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.48521485079317,
+      "peak_speed_m_s": 1.4277775241786181,
+      "peak_wheel_Nm": 0.11377914394247506,
+      "plateau_speed_error_m_s": 0.017352919321572995,
+      "stop_travel_m": 0.04661382420373121
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.1596343086340258,
+      "velocity": 0.03317593698548036,
+      "pitch_error_deg": 1.3562770017681836,
+      "left_applied_Nm": 0.014490293474990167
+    },
+    "failure": null
+  },
+  "speed/drive_step": {
+    "suite": "m12",
+    "family": "full",
+    "reference": "drive_step",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.09286937979723,
+      "peak_speed_m_s": 1.4334064837535254,
+      "peak_wheel_Nm": 0.1155318210919498,
+      "plateau_speed_error_m_s": 0.01162622296231346,
+      "stop_travel_m": 0.6591381402918246
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.54374366166349,
+      "peak_speed_m_s": 1.4281402542591484,
+      "peak_wheel_Nm": 0.11305229449822937,
+      "plateau_speed_error_m_s": 0.017645514670190293,
+      "stop_travel_m": 0.6709858644023841
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.17867756036318605,
+      "velocity": 0.03787948335779175,
+      "pitch_error_deg": 1.5534763000389926,
+      "left_applied_Nm": 0.014680624376258224
+    },
+    "failure": null
+  },
+  "speed/drive_step_half_timestep": {
+    "suite": "m12",
+    "family": "convergence",
+    "reference": "drive_step_half_timestep",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.111098329564246,
+      "peak_speed_m_s": 1.4356313460624268,
+      "peak_wheel_Nm": 0.12775685620406216,
+      "plateau_speed_error_m_s": 0.012226097368418763,
+      "stop_travel_m": 0.68681861633741
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 17.464095084087607,
+      "peak_speed_m_s": 1.4178588926587579,
+      "peak_wheel_Nm": 0.12313909122893131,
+      "plateau_speed_error_m_s": 0.01841691654335649,
+      "stop_travel_m": 0.6863112116768002
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.13258326136529647,
+      "velocity": 0.052536701267762435,
+      "pitch_error_deg": 2.1756963649045953,
+      "left_applied_Nm": 0.014791006145631946
+    },
+    "failure": null
+  },
+  "speed/friction_0p5_drive_step": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "friction_0p5_drive_step",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.071077906913203,
+      "peak_speed_m_s": 1.4315876797221165,
+      "peak_wheel_Nm": 0.11294340625570991,
+      "plateau_speed_error_m_s": 0.012024537485087961,
+      "stop_travel_m": 0.6625826609801777
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.602788287530746,
+      "peak_speed_m_s": 1.4269464057291366,
+      "peak_wheel_Nm": 0.11196805439593248,
+      "plateau_speed_error_m_s": 0.016835387928090115,
+      "stop_travel_m": 0.6710219132494195
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.21079304793761583,
+      "velocity": 0.03422604398056097,
+      "pitch_error_deg": 1.38092631590491,
+      "left_applied_Nm": 0.014714797487708937
+    },
+    "failure": null
+  },
+  "speed/friction_0p5_replay_corner_90": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "friction_0p5_replay_corner_90",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 18.104987382268174,
+      "peak_speed_m_s": 1.2834587330372862,
+      "peak_wheel_Nm": 0.15431079282138233,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 17.07204992218538,
+      "peak_speed_m_s": 1.2940274695382317,
+      "peak_wheel_Nm": 0.15280665360722398,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.19550271797334712,
+      "velocity": 0.030495743144373505,
+      "pitch_error_deg": 1.2576095012271982,
+      "left_applied_Nm": 0.012425163740367274
+    },
+    "failure": null
+  },
+  "speed/friction_0p5_weave": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "friction_0p5_weave",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.071077787367347,
+      "peak_speed_m_s": 1.2252747499015142,
+      "peak_wheel_Nm": 0.1325667239859907,
+      "plateau_speed_error_m_s": 0.03327125699469832,
+      "stop_travel_m": 0.04544695775582573
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.646307767599886,
+      "peak_speed_m_s": 1.2023893190589396,
+      "peak_wheel_Nm": 0.1108594865959893,
+      "plateau_speed_error_m_s": 0.039356835006816165,
+      "stop_travel_m": 0.048589944848677825
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.0418307059963762,
+      "velocity": 0.03509120555093039,
+      "pitch_error_deg": 1.4765242346099352,
+      "left_applied_Nm": 0.012286228251462897
+    },
+    "failure": null
+  },
+  "speed/low_posture_drive_ramp": {
+    "suite": "m12",
+    "family": "information",
+    "reference": "low_posture_drive_ramp",
+    "full": {
+      "gate_passed": null,
+      "peak_pitch_deg": 20.0047321908356,
+      "peak_speed_m_s": 0.23711448073130756,
+      "peak_wheel_Nm": 0.343521857672838,
+      "plateau_speed_error_m_s": NaN,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": null,
+      "peak_pitch_deg": 19.793455638502095,
+      "peak_speed_m_s": 1.3803415813542286,
+      "peak_wheel_Nm": 0.16609564843486796,
+      "plateau_speed_error_m_s": 0.009341652012471745,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": false,
+      "peak_wheel_Nm": false,
+      "plateau_speed_error_m_s": false
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.023627468008841218,
+      "velocity": 0.1309750275336807,
+      "pitch_error_deg": 6.182964563347496,
+      "left_applied_Nm": 0.030786053162506283
+    },
+    "failure": "physical limit at 9.389s: pitch=-14.04, roll=-10.00, contact=False, joint_limit=False"
+  },
+  "speed/mass_plus_15pct_drive_step": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "mass_plus_15pct_drive_step",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 15.648048079401791,
+      "peak_speed_m_s": 1.416711656909221,
+      "peak_wheel_Nm": 0.11985665881890134,
+      "plateau_speed_error_m_s": 0.011426451094801726,
+      "stop_travel_m": 0.681836530184862
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.493275457265415,
+      "peak_speed_m_s": 1.4186339996288884,
+      "peak_wheel_Nm": 0.12874707860029008,
+      "plateau_speed_error_m_s": 0.014875819915335835,
+      "stop_travel_m": 0.6841207495861945
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.1759171358189631,
+      "velocity": 0.03007770402307807,
+      "pitch_error_deg": 1.230371644585907,
+      "left_applied_Nm": 0.016593536642248566
+    },
+    "failure": null
+  },
+  "speed/mass_plus_15pct_replay_corner_90": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "mass_plus_15pct_replay_corner_90",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 17.976012060755654,
+      "peak_speed_m_s": 1.276963927344455,
+      "peak_wheel_Nm": 0.2018997927302075,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 18.09890745903562,
+      "peak_speed_m_s": 1.2903085478130891,
+      "peak_wheel_Nm": 0.20643473374480972,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.23604875241517173,
+      "velocity": 0.030717471554756164,
+      "pitch_error_deg": 1.2516245189488862,
+      "left_applied_Nm": 0.013444228040346295
+    },
+    "failure": null
+  },
+  "speed/mass_plus_15pct_weave": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "mass_plus_15pct_weave",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 15.648048015770005,
+      "peak_speed_m_s": 1.2240018738354475,
+      "peak_wheel_Nm": 0.1324954753294634,
+      "plateau_speed_error_m_s": 0.0351333776081326,
+      "stop_travel_m": 0.04354867671879115
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.6509657717268,
+      "peak_speed_m_s": 1.1840259261494113,
+      "peak_wheel_Nm": 0.14376062477869953,
+      "plateau_speed_error_m_s": 0.03751041203666865,
+      "stop_travel_m": 0.048001211521829734
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.028019558326681158,
+      "velocity": 0.028166337844084004,
+      "pitch_error_deg": 1.1706393286310026,
+      "left_applied_Nm": 0.012911636075580617
+    },
+    "failure": null
+  },
+  "speed/push_fast_+2": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "push_fast_+2",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.09286925991683,
+      "peak_speed_m_s": 2.429352837122265,
+      "peak_wheel_Nm": 0.19810743558889382,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.48521485079317,
+      "peak_speed_m_s": 2.4134569548360885,
+      "peak_wheel_Nm": 0.1993113021454396,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.004623248272691061,
+      "velocity": 0.02500430032968752,
+      "pitch_error_deg": 0.8950422768732502,
+      "left_applied_Nm": 0.014801492117679716
+    },
+    "failure": "physical limit at 4.294s: pitch=-11.57, roll=-3.06, contact=False, joint_limit=True"
+  },
+  "speed/push_fast_-2": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "push_fast_-2",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 19.47430462825274,
+      "peak_speed_m_s": 1.4330868772324505,
+      "peak_wheel_Nm": 0.1792456889376102,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 19.097711634937024,
+      "peak_speed_m_s": 1.4277775241786181,
+      "peak_wheel_Nm": 0.19295278149281037,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.05257198056383721,
+      "velocity": 0.03142366552019009,
+      "pitch_error_deg": 1.3252548734906588,
+      "left_applied_Nm": 0.014152516619217346
+    },
+    "failure": null
+  },
+  "speed/replay_corner_90": {
+    "suite": "m12",
+    "family": "full",
+    "reference": "replay_corner_90",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 18.126387379436935,
+      "peak_speed_m_s": 1.2872491062197602,
+      "peak_wheel_Nm": 0.18044928262749324,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.793940572457256,
+      "peak_speed_m_s": 1.2959650617667091,
+      "peak_wheel_Nm": 0.15664627151965183,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.1564580389554662,
+      "velocity": 0.03084949669781943,
+      "pitch_error_deg": 1.2803796684982214,
+      "left_applied_Nm": 0.012580911514161616
+    },
+    "failure": null
+  },
+  "speed/replay_curve_r1": {
+    "suite": "m12",
+    "family": "full",
+    "reference": "replay_curve_r1",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 17.566145116737673,
+      "peak_speed_m_s": 0.8961522880779806,
+      "peak_wheel_Nm": 0.17646554500146366,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.829744241514906,
+      "peak_speed_m_s": 0.9220273170129231,
+      "peak_wheel_Nm": 0.15648413890458823,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.005343688376934146,
+      "velocity": 0.04045172190807619,
+      "pitch_error_deg": 1.713324386399993,
+      "left_applied_Nm": 0.011680992966410217
+    },
+    "failure": null
+  },
+  "speed/replay_lateral_crossing": {
+    "suite": "m12",
+    "family": "full",
+    "reference": "replay_lateral_crossing",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 11.34155412519658,
+      "peak_speed_m_s": 0.9876824461037023,
+      "peak_wheel_Nm": 0.0882675754243288,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 12.038935302475727,
+      "peak_speed_m_s": 0.9984486097119122,
+      "peak_wheel_Nm": 0.10279377614768206,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.048786928618364325,
+      "velocity": 0.03498445266317119,
+      "pitch_error_deg": 1.5183755221080242,
+      "left_applied_Nm": 0.013194323268213605
+    },
+    "failure": null
+  },
+  "speed/replay_loss_fov": {
+    "suite": "m12",
+    "family": "full",
+    "reference": "replay_loss_fov",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 13.620656417217443,
+      "peak_speed_m_s": 0.390435116958774,
+      "peak_wheel_Nm": 0.13287643477494704,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 12.94422883492028,
+      "peak_speed_m_s": 0.37128560609469485,
+      "peak_wheel_Nm": 0.13162683466244676,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.016942539457156697,
+      "velocity": 0.04673014033142278,
+      "pitch_error_deg": 2.0460288723391074,
+      "left_applied_Nm": 0.012891263868969228
+    },
+    "failure": null
+  },
+  "speed/replay_start_stop": {
+    "suite": "m12",
+    "family": "full",
+    "reference": "replay_start_stop",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 13.639010796815386,
+      "peak_speed_m_s": 1.2872491062197602,
+      "peak_wheel_Nm": 0.10980752666342242,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 14.15401673044147,
+      "peak_speed_m_s": 1.2959650617667091,
+      "peak_wheel_Nm": 0.10467431587044433,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.03845464053198729,
+      "velocity": 0.025297169577340132,
+      "pitch_error_deg": 1.0326185045220504,
+      "left_applied_Nm": 0.012085703846816346
+    },
+    "failure": null
+  },
+  "speed/replay_straight_1.0": {
+    "suite": "m12",
+    "family": "full",
+    "reference": "replay_straight_1.0",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 13.48191237623333,
+      "peak_speed_m_s": 1.2872491062197602,
+      "peak_wheel_Nm": 0.10980752666342242,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 12.825927192808203,
+      "peak_speed_m_s": 1.2959650617667091,
+      "peak_wheel_Nm": 0.1058649597537324,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.25930344177903614,
+      "velocity": 0.03043175933777586,
+      "pitch_error_deg": 1.222044290496958,
+      "left_applied_Nm": 0.01502382632850427
+    },
+    "failure": null
+  },
+  "speed/reverse": {
+    "suite": "m12",
+    "family": "full",
+    "reference": "reverse",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.900668608667168,
+      "peak_speed_m_s": 0.4698901251710825,
+      "peak_wheel_Nm": 0.12196962260885094,
+      "plateau_speed_error_m_s": 0.05009008506758751,
+      "stop_travel_m": 0.08979821813207446
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.51748526975946,
+      "peak_speed_m_s": 0.4570992715492185,
+      "peak_wheel_Nm": 0.11600762389386206,
+      "plateau_speed_error_m_s": 0.051493037028683755,
+      "stop_travel_m": 0.09303872587529037
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.01631828659491234,
+      "velocity": 0.04185378538324209,
+      "pitch_error_deg": 1.8016748882724372,
+      "left_applied_Nm": 0.009631969985863473
+    },
+    "failure": null
+  },
+  "speed/seed_plus_1_drive_step": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "seed_plus_1_drive_step",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.07595252735688,
+      "peak_speed_m_s": 1.4323482140270187,
+      "peak_wheel_Nm": 0.11540569504452643,
+      "plateau_speed_error_m_s": 0.012376605957552746,
+      "stop_travel_m": 0.6598690568676514
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.44132986298783,
+      "peak_speed_m_s": 1.4259658572028537,
+      "peak_wheel_Nm": 0.11139292551632235,
+      "plateau_speed_error_m_s": 0.01717567470047003,
+      "stop_travel_m": 0.6759458457120576
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.18641849834646992,
+      "velocity": 0.038562440996275114,
+      "pitch_error_deg": 1.5909173087406812,
+      "left_applied_Nm": 0.01484518970435621
+    },
+    "failure": null
+  },
+  "speed/seed_plus_1_replay_corner_90": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "seed_plus_1_replay_corner_90",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 18.064131754460636,
+      "peak_speed_m_s": 1.2899889026436584,
+      "peak_wheel_Nm": 0.17958464276895958,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 17.436197024593245,
+      "peak_speed_m_s": 1.2988641669997274,
+      "peak_wheel_Nm": 0.16156952206764522,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.17371548207869558,
+      "velocity": 0.031381055460371204,
+      "pitch_error_deg": 1.3010062935500935,
+      "left_applied_Nm": 0.012677186187277862
+    },
+    "failure": null
+  },
+  "speed/seed_plus_1_weave": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "seed_plus_1_weave",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.075952425476775,
+      "peak_speed_m_s": 1.2283086656739586,
+      "peak_wheel_Nm": 0.13688735539667335,
+      "plateau_speed_error_m_s": 0.046061507973330765,
+      "stop_travel_m": 0.04539180708739517
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.75046062572726,
+      "peak_speed_m_s": 1.202413480138253,
+      "peak_wheel_Nm": 0.11455529945361524,
+      "plateau_speed_error_m_s": 0.046343127424437566,
+      "stop_travel_m": 0.04933656089175756
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.015361602200079337,
+      "velocity": 0.03531535514085897,
+      "pitch_error_deg": 1.4705968052152825,
+      "left_applied_Nm": 0.01157997169237633
+    },
+    "failure": null
+  },
+  "speed/seed_plus_2_drive_step": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "seed_plus_2_drive_step",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.016332809805114,
+      "peak_speed_m_s": 1.4341074221192076,
+      "peak_wheel_Nm": 0.11591357456269652,
+      "plateau_speed_error_m_s": 0.012412564075626707,
+      "stop_travel_m": 0.6568656271420452
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.340463243872854,
+      "peak_speed_m_s": 1.4276231709751654,
+      "peak_wheel_Nm": 0.10984294615272355,
+      "plateau_speed_error_m_s": 0.01737190760363352,
+      "stop_travel_m": 0.6716386562035186
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.19011532000912085,
+      "velocity": 0.037954881764668214,
+      "pitch_error_deg": 1.5576928370999448,
+      "left_applied_Nm": 0.014839489375670221
+    },
+    "failure": null
+  },
+  "speed/seed_plus_2_replay_corner_90": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "seed_plus_2_replay_corner_90",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 18.055049306249643,
+      "peak_speed_m_s": 1.2906560659287694,
+      "peak_wheel_Nm": 0.17966385790753145,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 17.01407568294202,
+      "peak_speed_m_s": 1.2961839123240277,
+      "peak_wheel_Nm": 0.1659408897663739,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.1496176488104166,
+      "velocity": 0.029747513449668934,
+      "pitch_error_deg": 1.2243287185611702,
+      "left_applied_Nm": 0.012564373097916722
+    },
+    "failure": null
+  },
+  "speed/seed_plus_2_weave": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "seed_plus_2_weave",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.016332738250313,
+      "peak_speed_m_s": 1.2219701912301526,
+      "peak_wheel_Nm": 0.13037401118424083,
+      "plateau_speed_error_m_s": 0.043453518138634295,
+      "stop_travel_m": 0.04561553791564089
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.618703686117634,
+      "peak_speed_m_s": 1.207670623759539,
+      "peak_wheel_Nm": 0.12128534609718622,
+      "plateau_speed_error_m_s": 0.04892658134242599,
+      "stop_travel_m": 0.0495996498375855
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.007490475975017506,
+      "velocity": 0.037497464243499326,
+      "pitch_error_deg": 1.5757449379582116,
+      "left_applied_Nm": 0.011992044586189701
+    },
+    "failure": null
+  },
+  "speed/slope_down_10": {
+    "suite": "m12",
+    "family": "slope",
+    "reference": "slope_down_10",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 13.975214901069606,
+      "peak_speed_m_s": 1.2304188392781124,
+      "peak_wheel_Nm": 0.14302969911106392,
+      "plateau_speed_error_m_s": 0.03061833454610572,
+      "stop_travel_m": 0.06988946378775221
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 15.612224520578604,
+      "peak_speed_m_s": 1.2132506089546005,
+      "peak_wheel_Nm": 0.15396697030745382,
+      "plateau_speed_error_m_s": 0.017419056890269558,
+      "stop_travel_m": 0.09061958042829166
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": false
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.04745036207473765,
+      "velocity": 0.026569678700808577,
+      "pitch_error_deg": 1.1517897135772293,
+      "left_applied_Nm": 0.014262083946448022
+    },
+    "failure": null
+  },
+  "speed/slope_down_4": {
+    "suite": "m12",
+    "family": "slope",
+    "reference": "slope_down_4",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 15.112749209055455,
+      "peak_speed_m_s": 1.2304324868841756,
+      "peak_wheel_Nm": 0.11591283985543385,
+      "plateau_speed_error_m_s": 0.031118345880624246,
+      "stop_travel_m": 0.03868843386171058
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 15.323387168029996,
+      "peak_speed_m_s": 1.2158839816390612,
+      "peak_wheel_Nm": 0.12264335341745716,
+      "plateau_speed_error_m_s": 0.017873117912950064,
+      "stop_travel_m": 0.04014153144210254
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.06982522117234846,
+      "velocity": 0.03272676248177732,
+      "pitch_error_deg": 1.4109461525592053,
+      "left_applied_Nm": 0.013675847488528589
+    },
+    "failure": null
+  },
+  "speed/slope_down_8": {
+    "suite": "m12",
+    "family": "slope",
+    "reference": "slope_down_8",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 13.636058683400348,
+      "peak_speed_m_s": 1.2198866067407772,
+      "peak_wheel_Nm": 0.1297551409170312,
+      "plateau_speed_error_m_s": 0.031155467146026523,
+      "stop_travel_m": 0.04709378267333397
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 15.028808526527222,
+      "peak_speed_m_s": 1.2107886446250753,
+      "peak_wheel_Nm": 0.1488781603123558,
+      "plateau_speed_error_m_s": 0.016437951100700832,
+      "stop_travel_m": 0.06086723176487326
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.0619348100849586,
+      "velocity": 0.0246173115648879,
+      "pitch_error_deg": 1.084773463511811,
+      "left_applied_Nm": 0.013850462681646837
+    },
+    "failure": null
+  },
+  "speed/slope_up_10": {
+    "suite": "m12",
+    "family": "slope",
+    "reference": "slope_up_10",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 18.90792215617535,
+      "peak_speed_m_s": 1.0605353516547287,
+      "peak_wheel_Nm": 0.13951374690883053,
+      "plateau_speed_error_m_s": 0.052570551504164856,
+      "stop_travel_m": 0.1575247109167681
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 19.973089551985456,
+      "peak_speed_m_s": 1.0490488882659554,
+      "peak_wheel_Nm": 0.1777698007514597,
+      "plateau_speed_error_m_s": 0.04888786724467857,
+      "stop_travel_m": 0.12237395944363143
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": false,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.04469350073528018,
+      "velocity": 0.019978600029130995,
+      "pitch_error_deg": 0.7800617156275762,
+      "left_applied_Nm": 0.012442856806851268
+    },
+    "failure": null
+  },
+  "speed/slope_up_4": {
+    "suite": "m12",
+    "family": "slope",
+    "reference": "slope_up_4",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.96558229585185,
+      "peak_speed_m_s": 1.1922160005618971,
+      "peak_wheel_Nm": 0.14581074559656015,
+      "plateau_speed_error_m_s": 0.021045555917779415,
+      "stop_travel_m": 0.05487659650243589
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.49004209054501,
+      "peak_speed_m_s": 1.1725324081847763,
+      "peak_wheel_Nm": 0.12477202857981938,
+      "plateau_speed_error_m_s": 0.019478683149279367,
+      "stop_travel_m": 0.05307888406713335
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.10623908028752324,
+      "velocity": 0.021654891035650194,
+      "pitch_error_deg": 0.8855876898854852,
+      "left_applied_Nm": 0.014352334324203865
+    },
+    "failure": null
+  },
+  "speed/slope_up_8": {
+    "suite": "m12",
+    "family": "slope",
+    "reference": "slope_up_8",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 18.08273131145893,
+      "peak_speed_m_s": 1.1295104496712978,
+      "peak_wheel_Nm": 0.13304910417209215,
+      "plateau_speed_error_m_s": 0.037904979633700916,
+      "stop_travel_m": 0.1240624231057852
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 19.21015354686839,
+      "peak_speed_m_s": 1.1003639574312594,
+      "peak_wheel_Nm": 0.1658841332871806,
+      "plateau_speed_error_m_s": 0.034824515745495395,
+      "stop_travel_m": 0.09712291467389525
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.058816392371424886,
+      "velocity": 0.01773481636202618,
+      "pitch_error_deg": 0.6706750718985036,
+      "left_applied_Nm": 0.0122955722906061
+    },
+    "failure": null
+  },
+  "speed/spin": {
+    "suite": "m12",
+    "family": "full",
+    "reference": "spin",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 2.556694573074448,
+      "peak_speed_m_s": 0.06446824098445296,
+      "peak_wheel_Nm": 0.07000827418219638,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 4.300726530935727,
+      "peak_speed_m_s": 0.10998434084737554,
+      "peak_wheel_Nm": 0.09295911007506753,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": false,
+      "peak_speed_m_s": false,
+      "peak_wheel_Nm": false
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.007259340860817299,
+      "velocity": 0.04929135199858108,
+      "pitch_error_deg": 2.2168817958799405,
+      "left_applied_Nm": 0.014006838977835723
+    },
+    "failure": null
+  },
+  "speed/weave": {
+    "suite": "m12",
+    "family": "full",
+    "reference": "weave",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.092869259265015,
+      "peak_speed_m_s": 1.2265507247154184,
+      "peak_wheel_Nm": 0.1341758957328034,
+      "plateau_speed_error_m_s": 0.04335544470763837,
+      "stop_travel_m": 0.04514806237161517
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.48521485079317,
+      "peak_speed_m_s": 1.2143012468796424,
+      "peak_wheel_Nm": 0.11964377447109237,
+      "plateau_speed_error_m_s": 0.04073031829093061,
+      "stop_travel_m": 0.049439389388559
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.01982451305077365,
+      "velocity": 0.03214905664426806,
+      "pitch_error_deg": 1.3242101100472525,
+      "left_applied_Nm": 0.011222317640035494
+    },
+    "failure": null
+  },
+  "speed/wheel_lag_10ms_drive_step": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "wheel_lag_10ms_drive_step",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.14136233509361,
+      "peak_speed_m_s": 1.450017372090738,
+      "peak_wheel_Nm": 0.11475260883329161,
+      "plateau_speed_error_m_s": 0.011827817707980276,
+      "stop_travel_m": 0.6789648501468881
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.47208870524871,
+      "peak_speed_m_s": 1.4494096572055475,
+      "peak_wheel_Nm": 0.12410636440017,
+      "plateau_speed_error_m_s": 0.014211695866816275,
+      "stop_travel_m": 0.6868072274833992
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.16454364567552407,
+      "velocity": 0.01759782172545101,
+      "pitch_error_deg": 0.6513213106224464,
+      "left_applied_Nm": 0.013975778333179555
+    },
+    "failure": null
+  },
+  "speed/wheel_lag_10ms_replay_corner_90": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "wheel_lag_10ms_replay_corner_90",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 18.333952868153766,
+      "peak_speed_m_s": 1.3141384355244936,
+      "peak_wheel_Nm": 0.21623791749346202,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 17.012360269698465,
+      "peak_speed_m_s": 1.3084962185487858,
+      "peak_wheel_Nm": 0.17560920698172,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.16865278875165368,
+      "velocity": 0.015129804651785457,
+      "pitch_error_deg": 0.5628911593581151,
+      "left_applied_Nm": 0.01253833097477579
+    },
+    "failure": null
+  },
+  "speed/wheel_lag_10ms_weave": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "wheel_lag_10ms_weave",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.141362090001618,
+      "peak_speed_m_s": 1.230392656660068,
+      "peak_wheel_Nm": 0.11537360419670156,
+      "plateau_speed_error_m_s": 0.03728392402043564,
+      "stop_travel_m": 0.05547890855956782
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.650172455594387,
+      "peak_speed_m_s": 1.2507015403556314,
+      "peak_wheel_Nm": 0.12326359645724093,
+      "plateau_speed_error_m_s": 0.03605959796070684,
+      "stop_travel_m": 0.05888211372213653
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.1284278124476343,
+      "velocity": 0.025714379239820912,
+      "pitch_error_deg": 1.057290673114597,
+      "left_applied_Nm": 0.011887400417727482
+    },
+    "failure": null
+  },
+  "speed/wheel_lag_25ms_drive_step": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "wheel_lag_25ms_drive_step",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 15.993874338622831,
+      "peak_speed_m_s": 1.4531440778391524,
+      "peak_wheel_Nm": 0.1320812056155435,
+      "plateau_speed_error_m_s": 0.04053612190033787,
+      "stop_travel_m": 0.6600490155452238
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.4991536412403,
+      "peak_speed_m_s": 1.4545280515011423,
+      "peak_wheel_Nm": 0.12498654575044389,
+      "plateau_speed_error_m_s": 0.043308428072288144,
+      "stop_travel_m": 0.6749071197018658
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.14548271045856845,
+      "velocity": 0.04638002485603982,
+      "pitch_error_deg": 0.9560713301206548,
+      "left_applied_Nm": 0.04992486202185583
+    },
+    "failure": null
+  },
+  "speed/wheel_lag_25ms_replay_corner_90": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "wheel_lag_25ms_replay_corner_90",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 18.405751533800068,
+      "peak_speed_m_s": 1.3151902315678556,
+      "peak_wheel_Nm": 0.21795839660112423,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.775280080847395,
+      "peak_speed_m_s": 1.327631736577663,
+      "peak_wheel_Nm": 0.15871972981477003,
+      "plateau_speed_error_m_s": null,
+      "stop_travel_m": null
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": false
+    },
+    "passed": false,
+    "trace_rms": {
+      "x": 0.14002305440398402,
+      "velocity": 0.028002825908622016,
+      "pitch_error_deg": 0.6461020377453033,
+      "left_applied_Nm": 0.030875698731101874
+    },
+    "failure": null
+  },
+  "speed/wheel_lag_25ms_weave": {
+    "suite": "m12",
+    "family": "survive",
+    "reference": "wheel_lag_25ms_weave",
+    "full": {
+      "gate_passed": false,
+      "peak_pitch_deg": 15.993874193710326,
+      "peak_speed_m_s": 1.2216309299235184,
+      "peak_wheel_Nm": 0.112380006561756,
+      "plateau_speed_error_m_s": 0.03000119536584498,
+      "stop_travel_m": 0.05308970873619769
+    },
+    "training": {
+      "gate_passed": false,
+      "peak_pitch_deg": 16.610349317254386,
+      "peak_speed_m_s": 1.2321792933318,
+      "peak_wheel_Nm": 0.12841855528536178,
+      "plateau_speed_error_m_s": 0.028879530571380516,
+      "stop_travel_m": 0.060078201475233836
+    },
+    "checks": {
+      "gate": true,
+      "peak_pitch_deg": true,
+      "peak_speed_m_s": true,
+      "peak_wheel_Nm": true,
+      "plateau_speed_error_m_s": true,
+      "stop_travel_m": true
+    },
+    "passed": true,
+    "trace_rms": {
+      "x": 0.19180091309422587,
+      "velocity": 0.028518383901849888,
+      "pitch_error_deg": 0.839149868622709,
+      "left_applied_Nm": 0.027143708325472776
+    },
+    "failure": null
+  }
+}

@@ -1,0 +1,776 @@
+{
+  "scope": "Prototype tuning on the Python controller (C parity checked separately), sensor model unless _sensing says ideal, M10 plant, drive gate lifted to 1.5 m/s in the probe copy",
+  "script": "tune.py (run as: PYTHONPATH=. .venv/bin/python tune.py <out> '<variants json>' step,drive)",
+  "base_gains": "config/controller_m10.json before phase B",
+  "defaults_in_variants": "Sweeps r2-r5: max_command_acceleration 1.25 and acceleration_feedforward 1.0 unless the variant overrides them; r1 lists every key",
+  "cases": {
+    "step": "1.2 m/s from 2 s to 8 s, then 0; 12 s; plateau error over 5-8 s; stop travel after 8 s; final_back is how far the robot returned toward the stop point",
+    "drive": "the 0.3 m/s acceptance drive scenario (20 s) and its metrics"
+  },
+  "variants": {
+    "r1": {
+      "base": {},
+      "j5f1": {
+        "command_jerk_m_s3": 5,
+        "acceleration_feedforward": 1.0,
+        "max_command_acceleration": 1.25
+      },
+      "j10f1": {
+        "command_jerk_m_s3": 10,
+        "acceleration_feedforward": 1.0,
+        "max_command_acceleration": 1.25
+      },
+      "j5f0": {
+        "command_jerk_m_s3": 5,
+        "acceleration_feedforward": 0.0,
+        "max_command_acceleration": 1.25
+      }
+    },
+    "r2": {
+      "j5_ideal": {
+        "command_jerk_m_s3": 5,
+        "_sensing": "ideal"
+      },
+      "j5_noslope": {
+        "command_jerk_m_s3": 5,
+        "slope_observer_tau_s": 0
+      },
+      "j2.5": {
+        "command_jerk_m_s3": 2.5
+      },
+      "j1.5": {
+        "command_jerk_m_s3": 1.5
+      },
+      "j2.5_f1.3": {
+        "command_jerk_m_s3": 2.5,
+        "acceleration_feedforward": 1.3
+      },
+      "j2.5_ideal_noslope": {
+        "command_jerk_m_s3": 2.5,
+        "_sensing": "ideal",
+        "slope_observer_tau_s": 0
+      },
+      "j2.5_ki0.4": {
+        "command_jerk_m_s3": 2.5,
+        "speed_ki": 0.4
+      },
+      "j2.5_kp0.5": {
+        "command_jerk_m_s3": 2.5,
+        "speed_kp": 0.5
+      }
+    },
+    "r3": {
+      "base": {},
+      "j5f1": {
+        "command_jerk_m_s3": 5
+      },
+      "j2.5f1": {
+        "command_jerk_m_s3": 2.5
+      },
+      "j5f1kp5": {
+        "command_jerk_m_s3": 5,
+        "speed_kp": 0.5
+      }
+    },
+    "r4": {
+      "j10f1": {
+        "command_jerk_m_s3": 10
+      },
+      "j20f1": {
+        "command_jerk_m_s3": 20
+      },
+      "j10f1kp5": {
+        "command_jerk_m_s3": 10,
+        "speed_kp": 0.5
+      },
+      "j10a1.5": {
+        "command_jerk_m_s3": 10,
+        "max_command_acceleration": 1.5
+      }
+    },
+    "r5": {
+      "j10f0.8": {
+        "command_jerk_m_s3": 10,
+        "acceleration_feedforward": 0.8
+      },
+      "j10f1.2": {
+        "command_jerk_m_s3": 10,
+        "acceleration_feedforward": 1.2
+      },
+      "j7.5f1": {
+        "command_jerk_m_s3": 7.5
+      },
+      "j10f1ki0.3": {
+        "command_jerk_m_s3": 10,
+        "speed_ki": 0.3
+      }
+    }
+  },
+  "rows": [
+    {
+      "sweep": "r1",
+      "estimator": "Python controller, sensor model, estimator before the acceleration compensation",
+      "variant": "base",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.582,
+        "peak_pitch": 16.709,
+        "plateau_mae": 0.062,
+        "stop_travel": 0.613,
+        "final_back": 0.112,
+        "final_v": -0.16,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.082,
+        "wall": 120
+      }
+    },
+    {
+      "sweep": "r1",
+      "estimator": "Python controller, sensor model, estimator before the acceleration compensation",
+      "variant": "base",
+      "case": "drive",
+      "metrics": {
+        "passed": true,
+        "plateau_speed_mae_m_s": 0.027,
+        "max_stopping_travel_m": 0.084,
+        "max_pitch_error_deg": 9.107,
+        "peak_speed_m_s": 0.43,
+        "final_hold_pitch_error_deg": 0.287
+      }
+    },
+    {
+      "sweep": "r1",
+      "estimator": "Python controller, sensor model, estimator before the acceleration compensation",
+      "variant": "j5f1",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.498,
+        "peak_pitch": 14.612,
+        "plateau_mae": 0.054,
+        "stop_travel": 0.751,
+        "final_back": 0.443,
+        "final_v": 0.059,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.073,
+        "wall": 120
+      }
+    },
+    {
+      "sweep": "r1",
+      "estimator": "Python controller, sensor model, estimator before the acceleration compensation",
+      "variant": "j5f1",
+      "case": "drive",
+      "metrics": {
+        "passed": true,
+        "plateau_speed_mae_m_s": 0.017,
+        "max_stopping_travel_m": 0.097,
+        "max_pitch_error_deg": 8.62,
+        "peak_speed_m_s": 0.377,
+        "final_hold_pitch_error_deg": 0.486
+      }
+    },
+    {
+      "sweep": "r1",
+      "estimator": "Python controller, sensor model, estimator before the acceleration compensation",
+      "variant": "j10f1",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.504,
+        "peak_pitch": 14.835,
+        "plateau_mae": 0.054,
+        "stop_travel": 0.683,
+        "final_back": 0.443,
+        "final_v": 0.072,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.082,
+        "wall": 121
+      }
+    },
+    {
+      "sweep": "r1",
+      "estimator": "Python controller, sensor model, estimator before the acceleration compensation",
+      "variant": "j10f1",
+      "case": "drive",
+      "metrics": {
+        "passed": true,
+        "plateau_speed_mae_m_s": 0.016,
+        "max_stopping_travel_m": 0.078,
+        "max_pitch_error_deg": 11.23,
+        "peak_speed_m_s": 0.39,
+        "final_hold_pitch_error_deg": 0.462
+      }
+    },
+    {
+      "sweep": "r1",
+      "estimator": "Python controller, sensor model, estimator before the acceleration compensation",
+      "variant": "j5f0",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.665,
+        "peak_pitch": 14.389,
+        "plateau_mae": 0.099,
+        "stop_travel": 1.008,
+        "final_back": 0.549,
+        "final_v": -0.001,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.1,
+        "wall": 121
+      }
+    },
+    {
+      "sweep": "r1",
+      "estimator": "Python controller, sensor model, estimator before the acceleration compensation",
+      "variant": "j5f0",
+      "case": "drive",
+      "metrics": {
+        "passed": false,
+        "plateau_speed_mae_m_s": 0.034,
+        "max_stopping_travel_m": 0.158,
+        "max_pitch_error_deg": 5.111,
+        "peak_speed_m_s": 0.437,
+        "final_hold_pitch_error_deg": 0.584
+      }
+    },
+    {
+      "sweep": "r2",
+      "estimator": "as r1; _sensing ideal removes the estimator",
+      "variant": "j5_ideal",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.286,
+        "peak_pitch": 12.753,
+        "plateau_mae": 0.017,
+        "stop_travel": 0.821,
+        "final_back": 0.046,
+        "final_v": -0.0,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.066,
+        "wall": 119
+      }
+    },
+    {
+      "sweep": "r2",
+      "estimator": "as r1; _sensing ideal removes the estimator",
+      "variant": "j5_noslope",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.444,
+        "peak_pitch": 14.074,
+        "plateau_mae": 0.049,
+        "stop_travel": 0.758,
+        "final_back": 0.393,
+        "final_v": 0.046,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.073,
+        "wall": 119
+      }
+    },
+    {
+      "sweep": "r2",
+      "estimator": "as r1; _sensing ideal removes the estimator",
+      "variant": "j2.5",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.467,
+        "peak_pitch": 13.352,
+        "plateau_mae": 0.052,
+        "stop_travel": 0.898,
+        "final_back": 0.397,
+        "final_v": 0.047,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.063,
+        "wall": 120
+      }
+    },
+    {
+      "sweep": "r2",
+      "estimator": "as r1; _sensing ideal removes the estimator",
+      "variant": "j1.5",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.439,
+        "peak_pitch": 11.206,
+        "plateau_mae": 0.055,
+        "stop_travel": 1.1,
+        "final_back": 0.363,
+        "final_v": 0.033,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.055,
+        "wall": 119
+      }
+    },
+    {
+      "sweep": "r2",
+      "estimator": "as r1; _sensing ideal removes the estimator",
+      "variant": "j2.5_f1.3",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.452,
+        "peak_pitch": 14.427,
+        "plateau_mae": 0.049,
+        "stop_travel": 0.832,
+        "final_back": 0.418,
+        "final_v": 0.049,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.069,
+        "wall": 120
+      }
+    },
+    {
+      "sweep": "r2",
+      "estimator": "as r1; _sensing ideal removes the estimator",
+      "variant": "j2.5_ideal_noslope",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.264,
+        "peak_pitch": 11.9,
+        "plateau_mae": 0.018,
+        "stop_travel": 1.004,
+        "final_back": 0.03,
+        "final_v": -0.0,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.058,
+        "wall": 119
+      }
+    },
+    {
+      "sweep": "r2",
+      "estimator": "as r1; _sensing ideal removes the estimator",
+      "variant": "j2.5_ki0.4",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.472,
+        "peak_pitch": 13.939,
+        "plateau_mae": 0.045,
+        "stop_travel": 0.906,
+        "final_back": 0.434,
+        "final_v": 0.046,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.066,
+        "wall": 120
+      }
+    },
+    {
+      "sweep": "r2",
+      "estimator": "as r1; _sensing ideal removes the estimator",
+      "variant": "j2.5_kp0.5",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.394,
+        "peak_pitch": 13.746,
+        "plateau_mae": 0.022,
+        "stop_travel": 0.877,
+        "final_back": 0.407,
+        "final_v": 0.04,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.068,
+        "wall": 120
+      }
+    },
+    {
+      "sweep": "r3",
+      "estimator": "estimator with the acceleration compensation (all later sweeps too)",
+      "variant": "base",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.369,
+        "peak_pitch": 16.048,
+        "plateau_mae": 0.023,
+        "stop_travel": 0.648,
+        "final_back": 0.396,
+        "final_v": -0.134,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.079,
+        "wall": 121
+      }
+    },
+    {
+      "sweep": "r3",
+      "estimator": "estimator with the acceleration compensation (all later sweeps too)",
+      "variant": "base",
+      "case": "drive",
+      "metrics": {
+        "passed": true,
+        "plateau_speed_mae_m_s": 0.019,
+        "max_stopping_travel_m": 0.091,
+        "max_pitch_error_deg": 9.236,
+        "peak_speed_m_s": 0.417,
+        "final_hold_pitch_error_deg": 0.475
+      }
+    },
+    {
+      "sweep": "r3",
+      "estimator": "estimator with the acceleration compensation (all later sweeps too)",
+      "variant": "j5f1",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.303,
+        "peak_pitch": 13.485,
+        "plateau_mae": 0.011,
+        "stop_travel": 0.802,
+        "final_back": 0.039,
+        "final_v": 0.019,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.068,
+        "wall": 121
+      }
+    },
+    {
+      "sweep": "r3",
+      "estimator": "estimator with the acceleration compensation (all later sweeps too)",
+      "variant": "j5f1",
+      "case": "drive",
+      "metrics": {
+        "passed": false,
+        "plateau_speed_mae_m_s": 0.005,
+        "max_stopping_travel_m": 0.116,
+        "max_pitch_error_deg": 8.573,
+        "peak_speed_m_s": 0.356,
+        "final_hold_pitch_error_deg": 0.356
+      }
+    },
+    {
+      "sweep": "r3",
+      "estimator": "estimator with the acceleration compensation (all later sweeps too)",
+      "variant": "j2.5f1",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.288,
+        "peak_pitch": 12.674,
+        "plateau_mae": 0.012,
+        "stop_travel": 0.966,
+        "final_back": 0.043,
+        "final_v": 0.015,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.061,
+        "wall": 121
+      }
+    },
+    {
+      "sweep": "r3",
+      "estimator": "estimator with the acceleration compensation (all later sweeps too)",
+      "variant": "j2.5f1",
+      "case": "drive",
+      "metrics": {
+        "passed": false,
+        "plateau_speed_mae_m_s": 0.005,
+        "max_stopping_travel_m": 0.144,
+        "max_pitch_error_deg": 6.185,
+        "peak_speed_m_s": 0.333,
+        "final_hold_pitch_error_deg": 0.42
+      }
+    },
+    {
+      "sweep": "r3",
+      "estimator": "estimator with the acceleration compensation (all later sweeps too)",
+      "variant": "j5f1kp5",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.29,
+        "peak_pitch": 13.379,
+        "plateau_mae": 0.014,
+        "stop_travel": 0.775,
+        "final_back": 0.032,
+        "final_v": 0.016,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.066,
+        "wall": 120
+      }
+    },
+    {
+      "sweep": "r3",
+      "estimator": "estimator with the acceleration compensation (all later sweeps too)",
+      "variant": "j5f1kp5",
+      "case": "drive",
+      "metrics": {
+        "passed": false,
+        "plateau_speed_mae_m_s": 0.004,
+        "max_stopping_travel_m": 0.11,
+        "max_pitch_error_deg": 9.589,
+        "peak_speed_m_s": 0.381,
+        "final_hold_pitch_error_deg": 0.232
+      }
+    },
+    {
+      "sweep": "r4",
+      "estimator": "compensated estimator",
+      "variant": "j10f1",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.306,
+        "peak_pitch": 13.537,
+        "plateau_mae": 0.01,
+        "stop_travel": 0.727,
+        "final_back": 0.036,
+        "final_v": 0.019,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.076,
+        "wall": 121
+      }
+    },
+    {
+      "sweep": "r4",
+      "estimator": "compensated estimator",
+      "variant": "j10f1",
+      "case": "drive",
+      "metrics": {
+        "passed": true,
+        "plateau_speed_mae_m_s": 0.005,
+        "max_stopping_travel_m": 0.093,
+        "max_pitch_error_deg": 11.192,
+        "peak_speed_m_s": 0.407,
+        "final_hold_pitch_error_deg": 0.319
+      }
+    },
+    {
+      "sweep": "r4",
+      "estimator": "compensated estimator",
+      "variant": "j20f1",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.37,
+        "peak_pitch": 13.637,
+        "plateau_mae": 0.01,
+        "stop_travel": 0.694,
+        "final_back": 0.035,
+        "final_v": 0.019,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.097,
+        "wall": 121
+      }
+    },
+    {
+      "sweep": "r4",
+      "estimator": "compensated estimator",
+      "variant": "j20f1",
+      "case": "drive",
+      "metrics": {
+        "passed": true,
+        "plateau_speed_mae_m_s": 0.005,
+        "max_stopping_travel_m": 0.084,
+        "max_pitch_error_deg": 11.535,
+        "peak_speed_m_s": 0.479,
+        "final_hold_pitch_error_deg": 0.154
+      }
+    },
+    {
+      "sweep": "r4",
+      "estimator": "compensated estimator",
+      "variant": "j10f1kp5",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.335,
+        "peak_pitch": 13.583,
+        "plateau_mae": 0.014,
+        "stop_travel": 0.701,
+        "final_back": 0.028,
+        "final_v": 0.016,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.106,
+        "wall": 121
+      }
+    },
+    {
+      "sweep": "r4",
+      "estimator": "compensated estimator",
+      "variant": "j10f1kp5",
+      "case": "drive",
+      "metrics": {
+        "passed": true,
+        "plateau_speed_mae_m_s": 0.004,
+        "max_stopping_travel_m": 0.084,
+        "max_pitch_error_deg": 13.352,
+        "peak_speed_m_s": 0.452,
+        "final_hold_pitch_error_deg": 0.498
+      }
+    },
+    {
+      "sweep": "r4",
+      "estimator": "compensated estimator",
+      "variant": "j10a1.5",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.306,
+        "peak_pitch": 16.126,
+        "plateau_mae": 0.009,
+        "stop_travel": 0.653,
+        "final_back": 0.034,
+        "final_v": 0.018,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.085,
+        "wall": 121
+      }
+    },
+    {
+      "sweep": "r4",
+      "estimator": "compensated estimator",
+      "variant": "j10a1.5",
+      "case": "drive",
+      "metrics": {
+        "passed": true,
+        "plateau_speed_mae_m_s": 0.005,
+        "max_stopping_travel_m": 0.093,
+        "max_pitch_error_deg": 11.558,
+        "peak_speed_m_s": 0.408,
+        "final_hold_pitch_error_deg": 0.285
+      }
+    },
+    {
+      "sweep": "r5",
+      "estimator": "compensated estimator",
+      "variant": "j10f0.8",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.324,
+        "peak_pitch": 13.37,
+        "plateau_mae": 0.017,
+        "stop_travel": 0.775,
+        "final_back": 0.048,
+        "final_v": 0.014,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.072,
+        "wall": 120
+      }
+    },
+    {
+      "sweep": "r5",
+      "estimator": "compensated estimator",
+      "variant": "j10f0.8",
+      "case": "drive",
+      "metrics": {
+        "passed": true,
+        "plateau_speed_mae_m_s": 0.008,
+        "max_stopping_travel_m": 0.097,
+        "max_pitch_error_deg": 9.655,
+        "peak_speed_m_s": 0.392,
+        "final_hold_pitch_error_deg": 0.459
+      }
+    },
+    {
+      "sweep": "r5",
+      "estimator": "compensated estimator",
+      "variant": "j10f1.2",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.366,
+        "peak_pitch": 13.875,
+        "plateau_mae": 0.004,
+        "stop_travel": 0.684,
+        "final_back": 0.026,
+        "final_v": 0.01,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.081,
+        "wall": 121
+      }
+    },
+    {
+      "sweep": "r5",
+      "estimator": "compensated estimator",
+      "variant": "j10f1.2",
+      "case": "drive",
+      "metrics": {
+        "passed": true,
+        "plateau_speed_mae_m_s": 0.003,
+        "max_stopping_travel_m": 0.086,
+        "max_pitch_error_deg": 12.694,
+        "peak_speed_m_s": 0.424,
+        "final_hold_pitch_error_deg": 0.112
+      }
+    },
+    {
+      "sweep": "r5",
+      "estimator": "compensated estimator",
+      "variant": "j7.5f1",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.307,
+        "peak_pitch": 13.521,
+        "plateau_mae": 0.01,
+        "stop_travel": 0.751,
+        "final_back": 0.036,
+        "final_v": 0.019,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.07,
+        "wall": 119
+      }
+    },
+    {
+      "sweep": "r5",
+      "estimator": "compensated estimator",
+      "variant": "j7.5f1",
+      "case": "drive",
+      "metrics": {
+        "passed": false,
+        "plateau_speed_mae_m_s": 0.005,
+        "max_stopping_travel_m": 0.101,
+        "max_pitch_error_deg": 10.23,
+        "peak_speed_m_s": 0.383,
+        "final_hold_pitch_error_deg": 0.291
+      }
+    },
+    {
+      "sweep": "r5",
+      "estimator": "compensated estimator",
+      "variant": "j10f1ki0.3",
+      "case": "step",
+      "metrics": {
+        "failure": null,
+        "peak_v": 1.337,
+        "peak_pitch": 13.826,
+        "plateau_mae": 0.005,
+        "stop_travel": 0.719,
+        "final_back": 0.027,
+        "final_v": 0.014,
+        "wheel_sat": 0.0,
+        "peak_wheel": 0.077,
+        "wall": 120
+      }
+    },
+    {
+      "sweep": "r5",
+      "estimator": "compensated estimator",
+      "variant": "j10f1ki0.3",
+      "case": "drive",
+      "metrics": {
+        "passed": true,
+        "plateau_speed_mae_m_s": 0.003,
+        "max_stopping_travel_m": 0.094,
+        "max_pitch_error_deg": 11.44,
+        "peak_speed_m_s": 0.407,
+        "final_hold_pitch_error_deg": 0.284
+      }
+    }
+  ],
+  "selected": {
+    "variant": "r4 j10f1",
+    "gains": {
+      "command_jerk_m_s3": 10,
+      "acceleration_feedforward": 1.0,
+      "max_command_acceleration": 1.25
+    },
+    "reason": "Step overshoot 8.8 % (within 10 %), 0.010 m/s plateau error, clean stop; the 0.3 m/s acceptance drive passes (plateau 0.005 m/s, stopping 0.093 m of 0.1). A feedforward of 1.2 stops shorter (0.086 m) but overshoots 14 % at 1.2 m/s; jerk 20 overshoots 14 %; jerk 7.5 or less fails the 0.1 m stop at 0.3 m/s."
+  }
+}

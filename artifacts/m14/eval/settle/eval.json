@@ -1,0 +1,49 @@
+{
+  "checkpoint": "artifacts/m13/training/settle/model_10493.pt",
+  "checkpoint_sha256": "bfccb81281711676d361d18f049190ed2d39fecb7f6abc8235b2ba896d222f91",
+  "note": "M14 baseline: settle rerun on this code for acceptance/ and speed/ (with the policy rule's metrics); stress, hardware and training point at committed records",
+  "sources": {
+    "stress": "artifacts/m14/stress_settle",
+    "hardware": [
+      "artifacts/m13/handover/hardware_acceptance",
+      "artifacts/m13/belt/hardware_acceptance"
+    ],
+    "training": "artifacts/m14/settle_stress_cpu64.json"
+  },
+  "stages": {
+    "acceptance": {
+      "exit": 0,
+      "minutes": 114.4,
+      "log": "acceptance.log",
+      "finished": "2026-11-01T12:49:58+00:00"
+    },
+    "speed": {
+      "exit": 0,
+      "minutes": 58.0,
+      "log": "speed.log",
+      "finished": "2026-11-01T16:38:03+00:00",
+      "commit": "a6b6cbaeeda1cd6e7844f0fe4b52cc0751d682bd",
+      "dirty": false,
+      "environment": {
+        "python": "3.12.3",
+        "machine": "x86_64",
+        "cpus": 4,
+        "node": "vm",
+        "numpy": "2.5.3",
+        "scipy": "1.18.1",
+        "mujoco": "3.14.0",
+        "torch": "2.15.0",
+        "mjlab": "1.6.0",
+        "rsl-rl-lib": "5.4.2"
+      },
+      "dirty_note": "eval.json itself only (code clean at a6b6cbae)"
+    }
+  },
+  "training_setting": {
+    "device": "cpu",
+    "worlds": 64,
+    "episodes": 64,
+    "episode_s": 10.0,
+    "basis": "M14 plan, phase B results: 64 episodes of 10 s on CPU"
+  }
+}

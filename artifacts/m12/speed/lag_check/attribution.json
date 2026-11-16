@@ -1,0 +1,123 @@
+{
+  "controller": {
+    "description": "M10 serial-leg cascade: the M9 sensor-only cascade with the pitch-rate gains lowered from 0.15 / 0.13 (hold / drive) to 0.07. With the 5 ms sensor transport delay, the M9 rate gains drive a ~19 Hz oscillation through the knee-belt compliance (wheel torque reacts on the shin, which the 1:1 knee belt holds): the tires hop, the airborne wheels spin up and corrupt the velocity estimate. Physical limits and acceptance thresholds are not changed by tuning. Phase C6: a whole-robot momentum observer (slope_observer_tau_s) compares the wheel torque before friction compensation with the CoM momentum (axle velocity plus the rate of the CoM's horizontal offset) and adds the static slope lean, bounded by slope_feedforward_limit_rad and slew limited by slope_lean_rate_limit_rad_s so a push cannot step it. The hold integral limit rises from 0.3 to 1.0 so the integral can trim the remaining slope error. M12 phase B (speed envelope to 1.2 m/s): the velocity reference is jerk limited (command_jerk_m_s3) at the 1.25 m/s^2 envelope acceleration (max_command_acceleration, was 3) and the lean reference adds atan(a/g) of the reference acceleration (acceleration_feedforward); a stop brakes the reference to rest and holds there. Tuning: artifacts/m12/speed/tuning/tuning.json.",
+    "pitch_kp": 1.3,
+    "pitch_kd": 0.07,
+    "speed_kp": 0.3,
+    "speed_ki": 0.2,
+    "hold_speed_kp": 0.4,
+    "hold_speed_ki": 0.1,
+    "speed_integral_limit": 1.0,
+    "hold_kp": 0.8,
+    "max_hold_speed": 0.1,
+    "max_pitch_offset": 0.22,
+    "max_command_acceleration": 1.25,
+    "heading_kp": 0.5,
+    "yaw_rate_kd": 0.035,
+    "joint_kp": 8.0,
+    "joint_kd": 0.05,
+    "posture_gain_schedule": true,
+    "wheel_friction_compensation": 0.005,
+    "friction_compensation_scale": 0.01,
+    "friction_velocity_threshold_rad_s": 1.0,
+    "drive_pitch_kd": 0.07,
+    "slope_observer_tau_s": 0.2,
+    "slope_feedforward_limit_rad": 0.2,
+    "slope_lean_rate_limit_rad_s": 0.1,
+    "command_jerk_m_s3": 10,
+    "acceleration_feedforward": 1.0,
+    "tuning_record": "artifacts/m10/tuning/summary.json"
+  },
+  "rows": [
+    {
+      "scenario": "drive",
+      "hub_lag_s": 0.025,
+      "shaping": true,
+      "compensation": true,
+      "passed": false,
+      "failure": "physical limit at 7.299s: pitch=-20.01, roll=-0.00, contact=False, joint_limit=False",
+      "max_pitch_error_deg": 20.010875483000948,
+      "peak_speed_m_s": 2.022651874611055
+    },
+    {
+      "scenario": "drive",
+      "hub_lag_s": 0.025,
+      "shaping": true,
+      "compensation": false,
+      "passed": false,
+      "failure": "physical limit at 7.205s: pitch=-20.01, roll=0.00, contact=False, joint_limit=False",
+      "max_pitch_error_deg": 20.014267539106047,
+      "peak_speed_m_s": 1.3197361618919075
+    },
+    {
+      "scenario": "drive",
+      "hub_lag_s": 0.025,
+      "shaping": false,
+      "compensation": false,
+      "passed": false,
+      "failure": "physical limit at 7.165s: pitch=-20.03, roll=-0.00, contact=False, joint_limit=False",
+      "max_pitch_error_deg": 20.034003228719307,
+      "peak_speed_m_s": 1.4025980628004155
+    },
+    {
+      "scenario": "combined",
+      "hub_lag_s": 0.025,
+      "shaping": true,
+      "compensation": true,
+      "passed": false,
+      "failure": "physical limit at 4.014s: pitch=20.04, roll=-0.00, contact=False, joint_limit=False",
+      "max_pitch_error_deg": 20.042089152842994,
+      "peak_speed_m_s": 0.679186812916127
+    },
+    {
+      "scenario": "combined",
+      "hub_lag_s": 0.025,
+      "shaping": true,
+      "compensation": false,
+      "passed": false,
+      "failure": "physical limit at 4.013s: pitch=20.02, roll=0.00, contact=False, joint_limit=False",
+      "max_pitch_error_deg": 20.02008769284571,
+      "peak_speed_m_s": 0.685477224444951
+    },
+    {
+      "scenario": "combined",
+      "hub_lag_s": 0.025,
+      "shaping": false,
+      "compensation": false,
+      "passed": false,
+      "failure": "physical limit at 15.879s: pitch=-20.00, roll=0.00, contact=False, joint_limit=False",
+      "max_pitch_error_deg": 20.001929563183158,
+      "peak_speed_m_s": 0.5984680959206372
+    },
+    {
+      "scenario": "push",
+      "hub_lag_s": 0.025,
+      "shaping": true,
+      "compensation": true,
+      "passed": false,
+      "failure": null,
+      "max_pitch_error_deg": 16.16957213561528,
+      "peak_speed_m_s": 2.3974304225957077
+    },
+    {
+      "scenario": "push",
+      "hub_lag_s": 0.025,
+      "shaping": true,
+      "compensation": false,
+      "passed": false,
+      "failure": null,
+      "max_pitch_error_deg": 19.90142843058166,
+      "peak_speed_m_s": 1.0479406436081546
+    },
+    {
+      "scenario": "push",
+      "hub_lag_s": 0.025,
+      "shaping": false,
+      "compensation": false,
+      "passed": true,
+      "failure": null,
+      "max_pitch_error_deg": 3.7118574947882332,
+      "peak_speed_m_s": 0.12235580218221932
+    }
+  ]
+}

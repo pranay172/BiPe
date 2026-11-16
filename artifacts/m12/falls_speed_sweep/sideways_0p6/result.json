@@ -1,0 +1,342 @@
+{
+  "direction": "sideways",
+  "speed_m_s": 0.6,
+  "release_angle_deg": 56.48362953302065,
+  "dt_s": 0.000125,
+  "friction_model": "explicit",
+  "initial_energy": {
+    "potential_J": 2.8877089739670403,
+    "kinetic_J": 0.3747397222222222,
+    "belt_elastic_J": 0.003155403484364349,
+    "stop_pad_elastic_J": 0.0,
+    "contact_elastic_J": 8.5272592564074e-18,
+    "total_J": 3.265604099673627
+  },
+  "energy_injection_events": [],
+  "energy_injection_total_J": 0.0,
+  "contact_resampling_events": [
+    {
+      "time_s": 0.46512499999996265,
+      "increase_J": 0.0013036836722419842,
+      "motion_J": -5.721349253830742e-05
+    },
+    {
+      "time_s": 0.6795000000000188,
+      "increase_J": 0.00202141924294863,
+      "motion_J": -2.2438781387927945e-05
+    },
+    {
+      "time_s": 0.7705000000000491,
+      "increase_J": 0.002062215639055509,
+      "motion_J": -1.1645977542983424e-05
+    },
+    {
+      "time_s": 0.7932500000000567,
+      "increase_J": 0.0024601582156202895,
+      "motion_J": -1.575364370646863e-05
+    },
+    {
+      "time_s": 0.9261250000001011,
+      "increase_J": 0.0020216175439455863,
+      "motion_J": -2.566766877764616e-05
+    },
+    {
+      "time_s": 1.1260000000000558,
+      "increase_J": 0.0016162066417961807,
+      "motion_J": -4.680523958787777e-06
+    },
+    {
+      "time_s": 1.284624999999968,
+      "increase_J": 0.0010844015503315152,
+      "motion_J": -0.0004770960542668963
+    },
+    {
+      "time_s": 1.2849999999999677,
+      "increase_J": 0.0012466004940132613,
+      "motion_J": -0.0004112475151219208
+    },
+    {
+      "time_s": 1.2859999999999672,
+      "increase_J": 0.0019173134171195372,
+      "motion_J": -0.0013461887370608099
+    },
+    {
+      "time_s": 1.4138749999998963,
+      "increase_J": 0.002086818675971047,
+      "motion_J": 1.21349622415369e-06
+    }
+  ],
+  "contact_resampling_total_J": 0.01782043509304354,
+  "first_non_tire_contact": {
+    "time_s": 0.000125,
+    "part": "right_WheelRing",
+    "potential_J": 2.8877089739670403,
+    "kinetic_J": 0.3747317910559011,
+    "belt_elastic_J": 0.0030960444821578562,
+    "stop_pad_elastic_J": 0.0,
+    "contact_elastic_J": 8.5272592564074e-18,
+    "total_J": 3.265536809505099
+  },
+  "contacts": {
+    "right_WheelRing": {
+      "peak_normal_N": 33.00086394813068,
+      "peak_depth_m": 0.003778797672325659
+    },
+    "right_tire": {
+      "peak_normal_N": 26.910035131225847,
+      "peak_depth_m": 0.00013133578215632907
+    },
+    "BodyTub": {
+      "peak_normal_N": 24.675100040393442,
+      "peak_depth_m": 0.002620390342671697,
+      "peak_depth_at_spot_m": 0.002620390342671697,
+      "peak_depth_off_spot_m": 0.002538846053216831
+    },
+    "BodyCover": {
+      "peak_normal_N": 42.751530219981184,
+      "peak_depth_m": 0.002538846239762929
+    },
+    "HeadFront": {
+      "peak_normal_N": 13.250216740392984,
+      "peak_depth_m": 0.0029422818802981275
+    },
+    "FrontCameraBezel_1": {
+      "peak_normal_N": 10.550741072503087,
+      "peak_depth_m": 0.00259953979993261
+    },
+    "FrontCameraBezel": {
+      "peak_normal_N": 14.022985232312038,
+      "peak_depth_m": 0.003123790821363221
+    },
+    "left_tire": {
+      "peak_normal_N": 596.4296474337344,
+      "peak_depth_m": 0.00033223244900774246
+    },
+    "left_WheelRing": {
+      "peak_normal_N": 0.06633181663560954,
+      "peak_depth_m": 0.0002619872630622855
+    }
+  },
+  "minimum_factors": {
+    "left_axle_tube": 1.6765060325515373,
+    "left_shin_section": 5.033521233741273,
+    "left_KneeInnerBearing": 1.704774514315212,
+    "left_KneeOuterBearing": 2.100903213454019,
+    "left_knee_shaft": 3.977796405039631,
+    "left_thigh_section": 3.0178452218705574,
+    "left_HipInnerBearing": 1.0419634197402075,
+    "left_HipPodBearing": 0.8999186418446159,
+    "left_hip_outer_shaft": 19.157065800752747,
+    "left_hip_housing_seat": 3.355093939238776,
+    "left_hip_bracket_arm": 5.082215576411028,
+    "left_BulkheadBearing": 4.836046189714246,
+    "left_InnerShaftEndBearing": 3.3137450212939026,
+    "left_hip_inner_shaft": 6.088203440146869,
+    "left_thigh_hip_belt_slack": 0.9514741657877356,
+    "left_thigh_hip_belt_rating": 0.9502531749943617,
+    "left_kneedrive_hip_belt_slack": 3.4274372371456483,
+    "left_kneedrive_hip_belt_rating": 4.264033927141938,
+    "left_knee_belt_slack": 2.8612515554266102,
+    "left_knee_belt_rating": 3.315120968593025,
+    "right_axle_tube": 11.361354792124455,
+    "right_shin_section": 10.522609028491699,
+    "right_KneeInnerBearing": 5.54917359234213,
+    "right_KneeOuterBearing": 1.819772046767017,
+    "right_knee_shaft": 5.9970731392359165,
+    "right_thigh_section": 7.078217521897669,
+    "right_HipInnerBearing": 2.7193028463058204,
+    "right_HipPodBearing": 2.2116422243356326,
+    "right_hip_outer_shaft": 47.22594667406924,
+    "right_hip_housing_seat": 8.245486955824461,
+    "right_hip_bracket_arm": 4.781796464314102,
+    "right_BulkheadBearing": 4.408306609931789,
+    "right_InnerShaftEndBearing": 3.3051399229032574,
+    "right_hip_inner_shaft": 6.087039102394882,
+    "right_thigh_hip_belt_slack": 1.6067344862553699,
+    "right_thigh_hip_belt_rating": 1.6328393561695544,
+    "right_kneedrive_hip_belt_slack": 3.982495045467216,
+    "right_kneedrive_hip_belt_rating": 3.993399068590662,
+    "right_knee_belt_slack": 3.347712097827691,
+    "right_knee_belt_rating": 4.316507302997464,
+    "neck_section": 35.082895825953834,
+    "Ear_retention_thread": 114269359946755.73,
+    "Ear_retention_shear": 151200000000000.03,
+    "Ear_1_retention_thread": 114269359946755.73,
+    "Ear_1_retention_shear": 151200000000000.03
+  },
+  "minimum_factor_time_s": {
+    "left_axle_tube": 0.3727499999999728,
+    "left_shin_section": 0.37249999999997285,
+    "left_KneeInnerBearing": 0.37249999999997285,
+    "left_KneeOuterBearing": 0.3727499999999728,
+    "left_knee_shaft": 0.37249999999997285,
+    "left_thigh_section": 0.3727499999999728,
+    "left_HipInnerBearing": 0.3727499999999728,
+    "left_HipPodBearing": 0.3727499999999728,
+    "left_hip_outer_shaft": 0.3727499999999728,
+    "left_hip_housing_seat": 0.3727499999999728,
+    "left_hip_bracket_arm": 0.30349999999998045,
+    "left_BulkheadBearing": 0.6708750000000159,
+    "left_InnerShaftEndBearing": 0.6708750000000159,
+    "left_hip_inner_shaft": 0.3763749999999724,
+    "left_thigh_hip_belt_slack": 0.3738749999999727,
+    "left_thigh_hip_belt_rating": 0.3739999999999727,
+    "left_kneedrive_hip_belt_slack": 0.3764999999999724,
+    "left_kneedrive_hip_belt_rating": 0.37712499999997234,
+    "left_knee_belt_slack": 0.3766249999999724,
+    "left_knee_belt_rating": 0.3764999999999724,
+    "right_axle_tube": 0.10712500000000008,
+    "right_shin_section": 0.10712500000000008,
+    "right_KneeInnerBearing": 0.30349999999998045,
+    "right_KneeOuterBearing": 0.10162500000000008,
+    "right_knee_shaft": 0.10712500000000008,
+    "right_thigh_section": 0.10712500000000008,
+    "right_HipInnerBearing": 0.10125000000000008,
+    "right_HipPodBearing": 0.10125000000000008,
+    "right_hip_outer_shaft": 0.10125000000000008,
+    "right_hip_housing_seat": 0.10125000000000008,
+    "right_hip_bracket_arm": 0.10125000000000008,
+    "right_BulkheadBearing": 0.18624999999999334,
+    "right_InnerShaftEndBearing": 0.18637499999999332,
+    "right_hip_inner_shaft": 0.10787500000000008,
+    "right_thigh_hip_belt_slack": 0.09887500000000007,
+    "right_thigh_hip_belt_rating": 0.09875000000000007,
+    "right_kneedrive_hip_belt_slack": 0.10787500000000008,
+    "right_kneedrive_hip_belt_rating": 0.10762500000000008,
+    "right_knee_belt_slack": 0.10800000000000008,
+    "right_knee_belt_rating": 0.10837500000000008,
+    "neck_section": 0.3029999999999805,
+    "Ear_retention_thread": 0.000125,
+    "Ear_retention_shear": 0.000125,
+    "Ear_1_retention_thread": 0.000125,
+    "Ear_1_retention_shear": 0.000125
+  },
+  "peak_demands": {
+    "left_axle_tube": 240022995.55556765,
+    "left_hub_bearing_required_C0_N": 1249.1557543693507,
+    "left_shin_section": 79944035.46022345,
+    "left_knee_stop_Nm": 0.4986513511562108,
+    "left_hip_stop_Nm": 1.7358670224638608,
+    "left_kneedrive_stop_Nm": 0.0,
+    "left_KneeInnerBearing": 542.5937519787253,
+    "left_KneeOuterBearing": 440.28682238970964,
+    "left_knee_shaft": 101161537.45078135,
+    "left_thigh_section": 8350328.843034644,
+    "left_HipInnerBearing": 700.6004108877553,
+    "left_HipPodBearing": 811.1844405219524,
+    "left_hip_outer_shaft": 21005304.475395616,
+    "left_hip_housing_seat": 7510967.04186993,
+    "left_hip_bracket_arm": 79178065.93402475,
+    "left_BulkheadBearing": 147.84805023589905,
+    "left_InnerShaftEndBearing": 215.76795903289423,
+    "left_hip_inner_shaft": 66095031.803058915,
+    "left_thigh_hip_belt_slack": 3.345439084205282,
+    "left_thigh_hip_belt_rating": 0.8363597710513205,
+    "left_kneedrive_hip_belt_slack": 0.9287110577373475,
+    "left_kneedrive_hip_belt_rating": 0.23217776443433688,
+    "left_knee_belt_slack": 1.0679854071442443,
+    "left_knee_belt_rating": 1.0679854071442443,
+    "right_axle_tube": 35418311.22807101,
+    "right_hub_bearing_required_C0_N": 287.1414063868842,
+    "right_shin_section": 38241466.43769009,
+    "right_knee_stop_Nm": 2.900583655989303,
+    "right_hip_stop_Nm": 3.144818261350585,
+    "right_kneedrive_stop_Nm": 0.32533649013667704,
+    "right_KneeInnerBearing": 166.69148740931476,
+    "right_KneeOuterBearing": 508.3054230024814,
+    "right_knee_shaft": 67099398.43276108,
+    "right_thigh_section": 3560218.363173994,
+    "right_HipInnerBearing": 268.45115871948826,
+    "right_HipPodBearing": 330.07146995454417,
+    "right_hip_outer_shaft": 8520739.72761565,
+    "right_hip_housing_seat": 3056217.314393928,
+    "right_hip_bracket_arm": 84152473.44864145,
+    "right_BulkheadBearing": 162.19379985709827,
+    "right_InnerShaftEndBearing": 216.32972179039825,
+    "right_hip_inner_shaft": 66107674.5575168,
+    "right_thigh_hip_belt_slack": 1.981098239359004,
+    "right_thigh_hip_belt_rating": 0.495274559839751,
+    "right_kneedrive_hip_belt_slack": 0.7992725227519961,
+    "right_kneedrive_hip_belt_rating": 0.19981813068799903,
+    "right_knee_belt_slack": 0.9127950128528866,
+    "right_knee_belt_rating": 0.9127950128528866,
+    "neck_section": 718298.7437815038,
+    "Ear_retention_thread": 0.0,
+    "Ear_retention_shear": 0.0,
+    "Ear_1_retention_thread": 0.0,
+    "Ear_1_retention_shear": 0.0
+  },
+  "belt_speed_above_rating_table": [
+    "left_knee_belt_above_rated_rpm",
+    "right_knee_belt_above_rated_rpm"
+  ],
+  "worst_path": "left_HipPodBearing",
+  "worst_factor": 0.8999186418446159,
+  "failures": [
+    "left_HipInnerBearing",
+    "left_HipPodBearing",
+    "left_KneeInnerBearing",
+    "left_axle_tube",
+    "left_thigh_hip_belt_rating",
+    "left_thigh_hip_belt_slack",
+    "right_KneeOuterBearing",
+    "right_thigh_hip_belt_rating",
+    "right_thigh_hip_belt_slack"
+  ],
+  "drive_metrics": {
+    "physics_substeps": 24000,
+    "belt_peak_transmitted_Nm": [
+      3.345439084205282,
+      0.9287110577373475,
+      1.981098239359004,
+      0.7992725227519961,
+      1.0679854071442443,
+      0.9127950128528866
+    ],
+    "phase_current_peak_A": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hub_voltage_limited": [
+      0.0,
+      0.0
+    ],
+    "last_belt_transmitted_Nm": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "state_projection_count": 0,
+    "rotor_inertia_basis": "RO40 rotor bodies carry the manufacturer core inertia; GL40 rotor inertia is in the wheel body"
+  },
+  "shell_travel_m": 0.004,
+  "shell_backing_travel_m": {
+    "BodyTub": 0.0076,
+    "left_Thigh": 0.0063,
+    "right_Thigh": 0.0063
+  },
+  "bumper_peak_strain": {
+    "SkidPad": 0.0,
+    "left_WheelRing": 0.03327070109742672,
+    "right_WheelRing": 0.47988178793851377
+  },
+  "ear_peak_root_strain": {
+    "Ear": 0.0,
+    "Ear_1": 0.0
+  },
+  "stop_pad_peak_strain": {
+    "right_hip": 0.07988867991911452,
+    "right_shin_joint": 0.09505917656154318,
+    "left_shin_joint": 0.013915951184004044,
+    "right_knee": 0.00942051718268059,
+    "left_hip": 0.04536739756157093
+  },
+  "passed": false
+}

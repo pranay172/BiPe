@@ -1,0 +1,553 @@
+{
+  "scope": "M13 training plant with the M10 C core and sensor model, against the full M10 plant's saved results; training-plant results, not acceptance",
+  "training_plant": {
+    "status": "M13 phase A training plant (bipe/m13/plant.py). Fitted values adopted 21 October 2026; fit records in artifacts/m13/fit/, closed-loop validation in artifacts/m13/validation/.",
+    "units": "SI",
+    "simulation": {
+      "physics_dt": 0.001,
+      "integrator": "implicitfast",
+      "cone": "elliptic",
+      "iterations": 20,
+      "impratio": 1.0,
+      "basis": "Starting point for the timestep study (1, 0.5, 0.25 ms). No noslip iterations: MuJoCo Warp does not run them."
+    },
+    "drives": {
+      "hip_belt": "spring",
+      "knee_belt": "spring",
+      "hip_belt_basis": "Rotors folded into the leg hinges as armature (ratio^2 x rotor inertia about its axis). The full plant's hip belt mode is about 210 Hz (350 N m/rad on 2e-4 kg m^2), too fast for a 1 ms step with an explicit spring.",
+      "knee_belt_basis": "The 1:1 knee belt is a fixed tendon spring between the knee-drive hinge and the actual shin angle (hip + shin), with the M10 stiffness and damping; its mode is about 90 Hz. Lash: the spring's rest length is offset by half the lash on the side the standing load takes up (knee_lash static); reversals are not modeled.",
+      "knee_lash": "deadband"
+    },
+    "friction": {
+      "hip_frictionloss_Nm": 0.00425,
+      "knee_drive_frictionloss_Nm": null,
+      "shin_frictionloss_Nm": null,
+      "wheel_frictionloss_Nm": null,
+      "basis": "null takes the full plant's load-free value: hip pretension bearing moment plus the RO40 rotor Coulomb term referred through the belt (ratio x coulomb_motor), the knee bearing Coulomb term, and the GL40 Coulomb term. The load-dependent bearing and belt-loss terms are left to the fit."
+    },
+    "contact": {
+      "tire_solref": [
+        0.002,
+        1.0
+      ],
+      "tire_solimp": [
+        0.95,
+        0.99,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "shell_solref": [
+        0.004,
+        1.0
+      ],
+      "shell_solimp": [
+        0.95,
+        0.99,
+        0.001,
+        0.5,
+        2.0
+      ],
+      "tire_condim": 4,
+      "basis": "Tire: direct stiffness and damping. Starting stiffness is the secant of the full plant's Winkler law near the static wheel load (about 10 N at 26 um: secant 3.8e5 N/m, tangent 5.8e5 N/m); damping from the 0.3 restitution on about 1 kg. Fitted in phase A. Shell: a stiff standard reference; only terminations and first contact use it. Friction rows use their own standard reference (time constant 2 ms, twice the 1 ms step): with the normal's direct damping they crept at 0.03 m/s on the flat hold, with the wheels still.",
+      "tire_solreffriction": [
+        0.00218,
+        1.0
+      ],
+      "fit": "Adopted 21 October 2026 from the closed-loop coordinate search (bipe.m13.fit fit, log in artifacts/m13/fit/search.log): start tire_solref [-2e6, -300] from a stiffness scan (1e6 and 2e6 removed the 3 Hz hold wobble that 5e5 showed; 4e6 rolled over at the 1 ms step), friction rows 2 ms, hip frictionloss load-free default. The search moved tire damping to -371.5, the friction-row time constant to 2.18 ms and the hip frictionloss to 4.25 mN m (score 1.130 -> 1.028); other parameters stayed. The knee lash offset was added after the search. Revised the same day: the fitted tire (-2e6, -371.5) chattered at 330-400 Hz (normal force 19.4 +/- 7.8 N, intermittent loss of contact), which made the 3-4 mm/s hold drift and cost the delay margin. A scan of stiffness and damping in a sensor-model hold (bipe.m13.fit-style traces, normal-force spread and contact slip) found chatter-free settings only at high damping: -5e5/-700, -5e5/-1000, -1e6/-1000 to -1200 at 1 ms (-1e6/-850 and -900 chatter; -2e6 chatters at every damping tried up to -1000 and falls at -2800). -1e6/-1100 is adopted, the middle of the clean band. The clean band is narrow; the Warp parity check must confirm it in float32. Revised again the same evening: with -1e6/-1100 the wheels hopped at about 20 Hz for 2 s after the 2 N s push in push_drive_+2 (288 ms unloaded between 4 and 6 s), while the full plant's tires stayed loaded (16.5-22.7 N). The full plant's material contact is about -2.9e5 x diagA at rest with damping ratio 0.36, so the direct reference was 3.5 times stiffer than the tire. Direct references near the physical stiffness chattered or hopped (-2.9e5/-270 to -5e5/-500); the mass-scaled reference [0.002, 1] (MuJoCo's default form, critical damping) kept the tires loaded after the push with a 0.24 N spread in drive, and lowered the closed-loop score to 0.50 (fit) and 0.53 (held out) from 0.69 and 0.98. Adopted.",
+      "condim_basis": "Condim 4 (sliding and torsional), no rolling row. Without noslip (MuJoCo Warp has none) the condim-6 rolling row is a soft torsion spring between wheel and ground: with it the 15 ms delay, doubled-noise drive step limit-cycled at 8.8 Hz from 12.5-13.1 ms of delay, where the full plant holds to 16.25 ms (falls at 17.5). noslip_iterations 5 or dropping the rolling row each restored it; impratio 10-30, stiffer or less damped friction rows and dt 0.25-0.5 ms did not. The rolling resistance (rolling_friction x standing load, about 1 mN m per wheel) is left out: as wheel frictionloss it also sticks at rest and nearly doubled the late pitch wobble after hold pushes (push_hold_+2 0.50 -> 0.90 deg peak to peak)."
+    },
+    "shell": {
+      "groups": {
+        "Shell": {
+          "body": "chassis",
+          "parts": [
+            "BodyCover",
+            "BodyTub",
+            "BatteryHatch",
+            "FrontCameraBezel",
+            "FrontCameraBezel_1"
+          ]
+        },
+        "Head": {
+          "body": "chassis",
+          "parts": [
+            "HeadFront",
+            "HeadRear"
+          ]
+        },
+        "Neck": {
+          "body": "chassis",
+          "parts": [
+            "Neck"
+          ]
+        },
+        "left_Ear": {
+          "body": "chassis",
+          "parts": [
+            "Ear"
+          ]
+        },
+        "right_Ear": {
+          "body": "chassis",
+          "parts": [
+            "Ear_1"
+          ]
+        },
+        "left_HipHousing": {
+          "body": "chassis",
+          "parts": [
+            "left_HipHousing"
+          ],
+          "shape": "cylinder"
+        },
+        "right_HipHousing": {
+          "body": "chassis",
+          "parts": [
+            "right_HipHousing"
+          ],
+          "shape": "cylinder"
+        },
+        "left_Thigh": {
+          "body": "left_thigh",
+          "parts": [
+            "left_Thigh",
+            "left_ThighLid",
+            "left_HipCap"
+          ]
+        },
+        "right_Thigh": {
+          "body": "right_thigh",
+          "parts": [
+            "right_Thigh",
+            "right_ThighLid",
+            "right_HipCap"
+          ]
+        },
+        "left_Shin": {
+          "body": "left_shin",
+          "parts": [
+            "left_Shin"
+          ]
+        },
+        "right_Shin": {
+          "body": "right_shin",
+          "parts": [
+            "right_Shin"
+          ]
+        }
+      },
+      "basis": "Each group of B3 exterior hulls is enclosed by one box (the smaller of the link-frame and principal-axis boxes) or a cylinder about the link y axis. The bumper skid and wheel rings keep their shaped faces (end bevels, dome) as convex meshes reduced to pad_hull_vertices hull vertices by farthest-point sampling (an inner approximation): a plain box skid touched the ground at its ends at the 17 deg pitch of the low-posture pushes. Robot geoms collide with the ground only.",
+      "pad_hull_vertices": 32
+    }
+  },
+  "training_plant_sha256": "b7da63b9048736f9e55bd5a023c603173de6b884920d5d604781c893502f2c6d",
+  "bands": {
+    "m10": {
+      "peak_pitch_deg": [
+        0.5,
+        0.25
+      ],
+      "late_pitch_pp_deg": [
+        0.5,
+        0.25
+      ],
+      "rollback_m": [
+        0.02,
+        0.25
+      ],
+      "max_travel_m": [
+        0.02,
+        0.25
+      ],
+      "peak_wheel_Nm": [
+        0.02,
+        0.25
+      ],
+      "peak_motor_Nm": [
+        0.05,
+        0.25
+      ]
+    },
+    "m12": {
+      "peak_pitch_deg": [
+        0.5,
+        0.25
+      ],
+      "peak_speed_m_s": [
+        0.02,
+        0.1
+      ],
+      "peak_wheel_Nm": [
+        0.02,
+        0.25
+      ],
+      "plateau_speed_error_m_s": [
+        0.02,
+        0.25
+      ],
+      "stop_travel_m": [
+        0.02,
+        0.25
+      ]
+    }
+  },
+  "skipped": "belt variants the training plant does not represent: none",
+  "cases": 151,
+  "failed": [
+    "m10/backlash_crouch_0",
+    "m10/backlash_crouch_0.3",
+    "m10/backlash_crouch_0.6",
+    "m10/backlash_drive_0",
+    "m10/backlash_drive_0.3",
+    "m10/backlash_drive_0.6",
+    "m10/backlash_hold_0",
+    "m10/backlash_hold_0.3",
+    "m10/backlash_hold_0.6",
+    "m10/backlash_turn_0",
+    "m10/backlash_turn_0.3",
+    "m10/backlash_turn_0.6",
+    "m10/belt_hold_h0.1125_n0.225_k0",
+    "m10/belt_hold_h0.1125_n0.225_k1",
+    "m10/belt_hold_h0.1125_n0.9_k0",
+    "m10/belt_hold_h0.1125_n0.9_k1",
+    "m10/belt_hold_h0.45_n0.225_k0",
+    "m10/belt_hold_h0.45_n0.225_k1",
+    "m10/belt_hold_h0.45_n0.9_k1",
+    "m10/combined_half_timestep",
+    "m10/combined_seed_20260931",
+    "m10/delay_15ms_noise_x2_combined",
+    "m10/friction_0p5_combined",
+    "m10/friction_0p5_drive",
+    "m10/hold_half_timestep",
+    "m10/mass_plus_15pct_combined",
+    "m10/mass_plus_15pct_drive",
+    "m10/mismatch_body_com_x_m_-0.005_hold",
+    "m10/mismatch_body_com_x_m_0.005_combined",
+    "m10/mismatch_body_com_x_m_0.005_hold",
+    "m10/mismatch_body_com_z_m_0.003_hold",
+    "m10/mismatch_body_mass_scale_0.85_combined",
+    "m10/mismatch_body_mass_scale_0.85_hold",
+    "m10/mismatch_body_mass_scale_1.15_combined",
+    "m10/mismatch_body_mass_scale_1.15_hold",
+    "m10/mismatch_friction_0.5_combined",
+    "m10/mismatch_friction_0.5_hold",
+    "m10/mismatch_friction_1_hold",
+    "m10/push_drive_+0.5",
+    "m10/push_drive_+1",
+    "m10/push_drive_+1.5",
+    "m10/push_drive_+2",
+    "m10/push_drive_+2.5",
+    "m10/push_drive_-1",
+    "m10/push_drive_-1.5",
+    "m10/push_drive_-2",
+    "m10/push_drive_-2.5",
+    "m10/push_hold_+0.5",
+    "m10/push_hold_+1",
+    "m10/push_hold_+2",
+    "m10/push_hold_+2.5",
+    "m10/push_hold_-0.5",
+    "m10/push_hold_-1.5",
+    "m10/push_hold_-2",
+    "m10/push_hold_-2.5",
+    "m10/sensors_crouch",
+    "m10/sensors_drive",
+    "m10/sensors_hold",
+    "m10/sensors_push",
+    "m10/sensors_tilt_negative",
+    "m10/sensors_tilt_positive",
+    "m10/slope_down_0",
+    "m10/slope_down_10",
+    "m10/slope_down_4",
+    "m10/slope_down_8",
+    "m10/slope_hold_0",
+    "m10/slope_hold_10",
+    "m10/slope_hold_4",
+    "m10/slope_hold_8",
+    "m10/slope_up_0",
+    "m10/slope_up_10",
+    "m10/slope_up_4",
+    "m10/slope_up_8",
+    "m10/wheel_lag_25ms_combined",
+    "m10/wheel_lag_25ms_drive",
+    "speed/replay_lateral_crossing",
+    "speed/replay_loss_fov",
+    "speed/spin"
+  ],
+  "failed_checks": {
+    "m10/backlash_crouch_0": [
+      "max_travel_m",
+      "rollback_m"
+    ],
+    "m10/backlash_crouch_0.3": [
+      "max_travel_m",
+      "rollback_m"
+    ],
+    "m10/backlash_crouch_0.6": [
+      "max_travel_m",
+      "rollback_m"
+    ],
+    "m10/backlash_drive_0": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/backlash_drive_0.3": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/backlash_drive_0.6": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/backlash_hold_0": [
+      "late_pitch_pp_deg",
+      "max_travel_m",
+      "rollback_m"
+    ],
+    "m10/backlash_hold_0.3": [
+      "late_pitch_pp_deg",
+      "max_travel_m",
+      "rollback_m"
+    ],
+    "m10/backlash_hold_0.6": [
+      "late_pitch_pp_deg",
+      "peak_pitch_deg"
+    ],
+    "m10/backlash_turn_0": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/backlash_turn_0.3": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/backlash_turn_0.6": [
+      "late_pitch_pp_deg",
+      "peak_pitch_deg"
+    ],
+    "m10/belt_hold_h0.1125_n0.225_k0": [
+      "late_pitch_pp_deg",
+      "max_travel_m"
+    ],
+    "m10/belt_hold_h0.1125_n0.225_k1": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/belt_hold_h0.1125_n0.9_k0": [
+      "max_travel_m"
+    ],
+    "m10/belt_hold_h0.1125_n0.9_k1": [
+      "late_pitch_pp_deg",
+      "max_travel_m",
+      "peak_pitch_deg",
+      "rollback_m"
+    ],
+    "m10/belt_hold_h0.45_n0.225_k0": [
+      "late_pitch_pp_deg",
+      "max_travel_m"
+    ],
+    "m10/belt_hold_h0.45_n0.225_k1": [
+      "late_pitch_pp_deg",
+      "max_travel_m",
+      "rollback_m"
+    ],
+    "m10/belt_hold_h0.45_n0.9_k1": [
+      "late_pitch_pp_deg",
+      "max_travel_m",
+      "peak_pitch_deg",
+      "rollback_m"
+    ],
+    "m10/combined_half_timestep": [
+      "late_pitch_pp_deg",
+      "peak_wheel_Nm"
+    ],
+    "m10/combined_seed_20260931": [
+      "peak_wheel_Nm"
+    ],
+    "m10/delay_15ms_noise_x2_combined": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/friction_0p5_combined": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/friction_0p5_drive": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/hold_half_timestep": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/mass_plus_15pct_combined": [
+      "peak_wheel_Nm",
+      "recovered",
+      "rollback_m"
+    ],
+    "m10/mass_plus_15pct_drive": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/mismatch_body_com_x_m_-0.005_hold": [
+      "late_pitch_pp_deg",
+      "peak_pitch_deg"
+    ],
+    "m10/mismatch_body_com_x_m_0.005_combined": [
+      "rollback_m"
+    ],
+    "m10/mismatch_body_com_x_m_0.005_hold": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/mismatch_body_com_z_m_0.003_hold": [
+      "late_pitch_pp_deg",
+      "max_travel_m",
+      "rollback_m"
+    ],
+    "m10/mismatch_body_mass_scale_0.85_combined": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/mismatch_body_mass_scale_0.85_hold": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/mismatch_body_mass_scale_1.15_combined": [
+      "rollback_m"
+    ],
+    "m10/mismatch_body_mass_scale_1.15_hold": [
+      "late_pitch_pp_deg",
+      "recovered"
+    ],
+    "m10/mismatch_friction_0.5_combined": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/mismatch_friction_0.5_hold": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/mismatch_friction_1_hold": [
+      "late_pitch_pp_deg",
+      "max_travel_m",
+      "rollback_m"
+    ],
+    "m10/push_drive_+0.5": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/push_drive_+1": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/push_drive_+1.5": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/push_drive_+2": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/push_drive_+2.5": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/push_drive_-1": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/push_drive_-1.5": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/push_drive_-2": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/push_drive_-2.5": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/push_hold_+0.5": [
+      "late_pitch_pp_deg",
+      "rollback_m"
+    ],
+    "m10/push_hold_+1": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/push_hold_+2": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/push_hold_+2.5": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/push_hold_-0.5": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/push_hold_-1.5": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/push_hold_-2": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/push_hold_-2.5": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/sensors_crouch": [
+      "late_pitch_pp_deg",
+      "max_travel_m",
+      "rollback_m"
+    ],
+    "m10/sensors_drive": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/sensors_hold": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/sensors_push": [
+      "late_pitch_pp_deg",
+      "max_travel_m",
+      "rollback_m"
+    ],
+    "m10/sensors_tilt_negative": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/sensors_tilt_positive": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/slope_down_0": [
+      "late_pitch_pp_deg",
+      "recovered"
+    ],
+    "m10/slope_down_10": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/slope_down_4": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/slope_down_8": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/slope_hold_0": [
+      "late_pitch_pp_deg",
+      "max_travel_m",
+      "rollback_m"
+    ],
+    "m10/slope_hold_10": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/slope_hold_4": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/slope_hold_8": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/slope_up_0": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/slope_up_10": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/slope_up_4": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/slope_up_8": [
+      "late_pitch_pp_deg"
+    ],
+    "m10/wheel_lag_25ms_combined": [
+      "late_pitch_pp_deg",
+      "rollback_m"
+    ],
+    "m10/wheel_lag_25ms_drive": [
+      "late_pitch_pp_deg",
+      "rollback_m"
+    ],
+    "speed/replay_lateral_crossing": [
+      "peak_wheel_Nm"
+    ],
+    "speed/replay_loss_fov": [
+      "peak_wheel_Nm"
+    ],
+    "speed/spin": [
+      "peak_pitch_deg",
+      "peak_speed_m_s"
+    ]
+  },
+  "passed": false
+}

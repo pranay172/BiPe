@@ -1,0 +1,161 @@
+{
+ "evidence": "Validated simulation under stated assumptions (as the phase D closed loop); a trial, not adopted.",
+ "decision": "22 October 2026: the user chose to record the delay_15ms_noise_x2 falls as an inherited balance-core limit; the filter was reverted and the tested phase D follower is unchanged.",
+ "filter": "Two first-order stages at 1.5 Hz on the follower's speed and yaw-rate commands, after the envelope clamp and before the rate limits (command_filter.patch, C and Python, parity exact, make test passed).",
+ "runs": "Seed 0, 0.15 s latency; metrics as closed_loop/runs.json.",
+ "results": [
+  {
+   "name": "curve_r1",
+   "variant": "delay_15ms_noise_x2",
+   "passed": false,
+   "fell": true,
+   "failure": "physical limit at 6.345s: pitch=20.03, roll=0.37, contact=False, joint_limit=False",
+   "pitch": 20.03,
+   "rmin": 0.9345135359475163,
+   "rmax": 1.3047125873412428,
+   "bearing": 8.17823567113054,
+   "exp": true,
+   "without_filter": {
+    "key": "curve_r1_seed0_lat0.15_delay_15ms_noise_x2",
+    "passed": false,
+    "fell": true,
+    "failure": "physical limit at 1.651s: pitch=20.02, roll=0.04, contact=False, joint_limit=False",
+    "peak_pitch_deg": 20.018489379078034,
+    "range_min_m": 0.9761599722309792,
+    "range_max_m": 0.9981698341991981
+   }
+  },
+  {
+   "name": "straight_1.0",
+   "variant": "delay_15ms_noise_x2",
+   "passed": false,
+   "fell": true,
+   "failure": "physical limit at 6.554s: pitch=20.04, roll=0.01, contact=False, joint_limit=False",
+   "pitch": 20.04,
+   "rmin": 0.9684919366841733,
+   "rmax": 1.4228911464722807,
+   "bearing": 0.3845577131705402,
+   "exp": true,
+   "without_filter": {
+    "key": "straight_1.0_seed0_lat0.15_delay_15ms_noise_x2",
+    "passed": false,
+    "fell": true,
+    "failure": "physical limit at 2.858s: pitch=20.04, roll=0.05, contact=False, joint_limit=False",
+    "peak_pitch_deg": 20.044409626734353,
+    "range_min_m": 0.8554718132047395,
+    "range_max_m": 0.9950443167942218
+   }
+  },
+  {
+   "name": "loss_fov",
+   "variant": "delay_15ms_noise_x2",
+   "passed": false,
+   "fell": true,
+   "failure": "physical limit at 5.778s: pitch=20.00, roll=0.02, contact=False, joint_limit=False",
+   "pitch": 20.0,
+   "rmin": 0.5818356616743405,
+   "rmax": 0.9950443167942218,
+   "bearing": 73.54675234158917,
+   "exp": true,
+   "without_filter": {
+    "key": "loss_fov_seed0_lat0.15_delay_15ms_noise_x2",
+    "passed": false,
+    "fell": true,
+    "failure": "physical limit at 2.165s: pitch=20.02, roll=0.06, contact=False, joint_limit=False",
+    "peak_pitch_deg": 20.0219328954471,
+    "range_min_m": 0.947072713650177,
+    "range_max_m": 0.9985205537652478
+   }
+  },
+  {
+   "name": "corner_90",
+   "variant": "delay_15ms_noise_x2",
+   "passed": false,
+   "fell": false,
+   "failure": null,
+   "pitch": 13.74,
+   "rmin": 0.5137590807362128,
+   "rmax": 1.6338271283639765,
+   "bearing": 19.656254850684025,
+   "exp": false,
+   "without_filter": {
+    "key": "corner_90_seed0_lat0.15_delay_15ms_noise_x2",
+    "passed": false,
+    "fell": true,
+    "failure": "physical limit at 2.653s: pitch=20.03, roll=0.06, contact=False, joint_limit=False",
+    "peak_pitch_deg": 20.027602868702694,
+    "range_min_m": 0.6695476045665882,
+    "range_max_m": 0.9959785561001679
+   }
+  },
+  {
+   "name": "lateral_crossing",
+   "variant": "delay_15ms_noise_x2",
+   "passed": false,
+   "fell": false,
+   "failure": null,
+   "pitch": 13.73,
+   "rmin": 0.585363637333332,
+   "rmax": 1.2062354307996104,
+   "bearing": 15.17156388190585,
+   "exp": false,
+   "without_filter": {
+    "key": "lateral_crossing_seed0_lat0.15_delay_15ms_noise_x2",
+    "passed": false,
+    "fell": true,
+    "failure": "physical limit at 2.648s: pitch=20.00, roll=0.00, contact=False, joint_limit=False",
+    "peak_pitch_deg": 20.00269806432825,
+    "range_min_m": 0.9834703506633069,
+    "range_max_m": 1.002682298358892
+   }
+  },
+  {
+   "name": "straight_1.0",
+   "variant": null,
+   "passed": false,
+   "fell": false,
+   "failure": null,
+   "pitch": 13.11,
+   "rmin": 0.5517223472685953,
+   "rmax": 1.430102008757348,
+   "bearing": 0.33328216568346986,
+   "exp": false,
+   "without_filter": {
+    "key": "straight_1.0_seed0_lat0.15",
+    "passed": false,
+    "fell": false,
+    "failure": null,
+    "peak_pitch_deg": 13.280686232639187,
+    "range_min_m": 0.6627017404778888,
+    "range_max_m": 1.2838494126042455
+   }
+  },
+  {
+   "name": "start_stop",
+   "variant": null,
+   "passed": false,
+   "fell": false,
+   "failure": null,
+   "pitch": 13.42,
+   "rmin": 0.546454780590863,
+   "rmax": 1.4475352412979456,
+   "bearing": 0.33838292676077936,
+   "exp": false,
+   "without_filter": {
+    "key": "start_stop_seed0_lat0.15",
+    "passed": false,
+    "fell": false,
+    "failure": null,
+    "peak_pitch_deg": 13.499626648876081,
+    "range_min_m": 0.6503550212383498,
+    "range_max_m": 1.324292072607888
+   }
+  }
+ ],
+ "straight_delay_trace": {
+  "file": "straight_1.0_seed0_lat0.15_delay_15ms_noise_x2_filter1.5hz.npz",
+  "finding": "The filter removes the standing falls. The fall now comes in the 1 m/s cruise: from about 4 s the balance core carries a self-oscillation near 10 Hz in speed and pitch (speed RMS about the moving mean 0.017 m/s at 4.0-5.6 s, 0.19 m/s at 5.6-6.4 s; pitch 0.23-0.28 deg then 2.4 deg) that grows to the fall at 6.55 s, while the speed command stays 0.986-1.018 m/s and the yaw-rate command near zero. The filter lag first lets the range open to 1.42 m and the catch-up reaches the 1.2 m/s cap at 13 deg pitch."
+ },
+ "conclusion": "Smoothing cannot stop the falls without breaking the range requirement: 3 of 5 delay-variant scenarios still fall, the other 2 fail the range band, and the nominal stop dip deepens from 0.65-0.66 m to 0.55 m.",
+ "scripts": "scripts/one_ov.py runs closed-loop cases (with the patch applied) and prints the metrics; scripts/trace1.py saves a full 200 Hz trace; scripts/lowcmd.py is the balance-core probe with small sine speed commands under a variant (checkpoint, shortfall 3). Run from the repository root with PYTHONPATH=."
+}

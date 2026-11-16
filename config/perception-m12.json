@@ -1,0 +1,742 @@
+{
+  "description": "M12 phase C perception: the head-camera model, the AprilTag detector settings, the rendered-frame test sets and the measurement model. bipe.m12.perception reads the inputs, writes artifacts/m12/perception/ and fills measurement_model. Evidence: measured on rendered frames only; there is no real footage, and the distortion, light and noise are assumptions.",
+  "status": "Phase C, signed off by the user as recommended on 21 October 2026 (docs/milestones/12-camera-following-plan.md, phase C sign-off): pupil-apriltags; 1152 x 648 with region-of-interest tracking and frames over 2 cores at 30 Hz; the Pi Zero 2 W kept and to be benchmarked on a real board before phase E; the 42 degree waist-tag camera pitch kept",
+  "camera": {
+    "lens": "wide",
+    "lens_basis": "User decision (20 October 2026), config/following-m12.json camera.lens_decision",
+    "output": {
+      "width_px": 1152,
+      "height_px": 648,
+      "native_pixels_per_output_pixel": 4,
+      "frame_rate_hz": 30,
+      "basis": "The 2304 x 1296 sensor mode (2 x 2 binned, full field, up to 56 fps) scaled to half by the ISP into a 1152 x 648 stream, so one output pixel spans 4 x 4 native 1.4 um pixels; 30 Hz is the phase A assumption under test"
+    },
+    "render": {
+      "supersample": 2,
+      "basis": "Render pixels per output pixel at the image centre; the remap filters the render to the output pitch, so edges and tag cells are resolved from a finer image than the output"
+    },
+    "blur": {
+      "pixel_aperture_sigma_px": 0.29,
+      "lens_sigma_px": 0.5,
+      "basis": "Pixel aperture: a one-pixel box has a standard deviation of 1/sqrt(12) = 0.29 px. Lens and ISP scaler: an assumed 0.5 px Gaussian (the f/2.2 diffraction spot, 1.22 lambda N = 1.5 um, is a quarter of the 5.6 um output pixel; the rest stands for lens aberration and the scaler's filter). Depth of field: with focus at 1 m the hyperfocal distance is about 1.2 m (f^2 / (N c), c = 2 native pixels), so 0.5-2 m stays within a few native pixels of blur, under one output pixel; defocus is not modelled"
+    },
+    "exposure": {
+      "exposure_s": 0.01,
+      "subframes": 5,
+      "comparison_exposures_s": [0.005, 0.01, 0.02],
+      "shutter": "global (sub-frame mean); rolling shutter is a later option",
+      "basis": "The exposure is capped at 10 ms through the libcamera exposure limits so that motion blur stays bounded at the following yaw rates; analogue gain makes up the brightness at indoor light. Five sub-frames over 10 ms sample the motion every 2 ms (at 1.4 rad/s, 0.16 degree, under one output pixel at the image centre). 5 and 20 ms are compared in the blur set"
+    },
+    "noise": {
+      "illuminance_lux": 200,
+      "low_light_lux": 50,
+      "photons_per_lux_s_m2": 4100000000000000.0,
+      "lens_transmission": 0.9,
+      "quantum_efficiency": 0.3,
+      "read_noise_e_native": 2.0,
+      "white_level": 0.85,
+      "basis": "Light: 200 lx on the tag, ordinary indoor room lighting (homes 100-300 lx, offices to 500 lx); 50 lx is the dim comparison. Photons: 1 lx at 555 nm is 1/683 W/m^2, or 4.1e15 photons/s/m^2 (the fewest photons per lux of any visible light, so conservative). Camera equation for a Lambertian scene: sensor illuminance = E R T / (4 N^2). QE 0.3: luminance-weighted quantum efficiency through the colour filters (IMX708 QE is not published; typical back-illuminated sensors peak near 0.7 before the colour filter). Read noise 2 e- per native pixel (typical of current 1.4 um back-illuminated sensors; not published for the IMX708), summed in quadrature over the 16 native pixels of an output pixel. White level: auto exposure puts a perfect white diffuser at 85 % of linear full scale before the sRGB tone curve; ISP denoising and sharpening are not modelled. All assumptions until real footage exists"
+    }
+  },
+  "tag": {
+    "family": "tag36h11",
+    "id": 0,
+    "basis": "Phase A sign-off: tag36h11, 0.16 m black square (0.20 m printed). The tag image is drawn from the library's tag36h11 family codes (bipe.m12.detector.tag_image) and built as matte geometry: a white board with black cells 0.2 mm proud"
+  },
+  "detector": {
+    "library": "pupil-apriltags 1.0.4.post11 (MIT-licensed Python bindings to the AprilRobotics apriltag C library 3.x, BSD-2-Clause)",
+    "decision": "pupil-apriltags, signed off by the user on 21 October 2026",
+    "quad_decimate": [1.0, 1.5, 2.0],
+    "threads": [1, 2, 4],
+    "refine_edges": true,
+    "decode_sharpening": 0.25,
+    "quad_sigma": 0.0,
+    "max_hamming": 0,
+    "roi": {
+      "scale": 2.0,
+      "margin_px": 24,
+      "basis": "Region of interest from the last detection: the tag's bounding box grown to twice its size plus a margin, searched at full resolution (quad_decimate 1); a miss falls back to the full frame at the setting's decimation"
+    },
+    "pose": "The four corners are undistorted through the lens model and the tag pose is fitted to them (homography start, Levenberg-Marquardt on the reprojection error). Range and bearing are taken in the levelled heading frame of the robot using the camera's attitude; the attitude is the simulator's (the balance estimator's attitude error is a phase D input)",
+    "basis": "Settings swept as in the phase C plan: decimation 1, 1.5 and 2, threads 1-4 (timing), edge refinement on, the library's default sharpening, no pre-blur, and only exact code matches (max_hamming 0) so a corrupted decode cannot pass as the tag"
+  },
+  "grid": {
+    "layouts": ["waist_tag", "low_tag"],
+    "ranges_m": [0.5, 0.7, 1.0, 1.25, 1.5, 1.75, 2.0],
+    "bearing_fractions": [0.0, 0.5, 1.0],
+    "view_angles_deg": [0, 15, 30, 45, 60, 70, 80],
+    "body_pitch_offsets_deg": [-8, 0, 8],
+    "samples": 4,
+    "held_out_samples": 2,
+    "jitter_m": 0.01,
+    "posture_deg": 40,
+    "basis": "Range 0.5-1.5 m (the engage window and the following band) plus 1.75 and 2.0 m to find the range limit; bearing from 0 to the horizontal allowance (field of view less the 10 % margin and half the tag), one side (the lens is symmetric); view angle 0-60 degrees plus 70 and 80 to find the detector's limit (phase A left it to phase C); body pitch at the balance pitch and the 8 degree allowance either way. Each point is rendered 4 times with up to 1 cm of random placement and fresh noise (sub-pixel phase), and twice more for the held-out check of the measurement model"
+  },
+  "blur_set": {
+    "layout": "waist_tag",
+    "ranges_m": [0.7, 1.0, 1.5],
+    "yaw_rates_rad_s": [0.0, 0.5, 1.0, 1.4],
+    "pitch_rates_rad_s": [0.0, 1.0],
+    "samples": 4,
+    "basis": "Static robot pose with a constant body yaw rate and pitch rate through the exposure. 1.0 rad/s is the signed-off yaw rate; 1.4 rad/s is about the phase B weave and push peaks (the build reports the peaks from artifacts/m12/speed/traces). Pitch rates to 1 rad/s cover the phase B fast cases"
+  },
+  "replays": {
+    "layout": "waist_tag",
+    "comparison_layout": "low_tag",
+    "scenarios": ["straight_0.3", "straight_0.6", "straight_1.0", "start_stop", "curve_r1", "curve_r2", "corner_90", "lateral_crossing", "approach", "loss_fov", "occlusion_short", "occlusion_long"],
+    "start_s": 1.0,
+    "settle_s": 2.0,
+    "basis": "The phase A scenarios with the phase B balance controller in the loop: the C core and sensor model replay the ideal follower's commands (as the phase B replay gates do), the plant's state at each sub-frame time is rendered with the target where its scripted path puts it, and each 30 Hz frame is detected. The robot does not react to its own detections here (closed-loop following is phase D and F)"
+  },
+  "timing": {
+    "repeats": 20,
+    "host_cpu": "AMD Ryzen 7 260 (Zen 4, up to 5.1 GHz)",
+    "host_geekbench6_single": 2451,
+    "pi_zero_2w_geekbench6_single": [61, 84],
+    "pi_zero_2w_cores": 4,
+    "basis": "Geekbench 6 single-core: Ryzen 7 260 2451 (CPU-Monkey listing). No Zero 2 W Geekbench 6 entry was found; its RP3A0 is the Pi 3's BCM2837 Cortex-A53 at 1.0 GHz, so the Pi 3 Model B results (73 and 87 at 1.2 GHz, Geekbench browser 447040 and 8846649) and the Pi 3 B+ (118 at 1.4 GHz, 1252369) are scaled by clock to 61-84. The host-to-Pi ratio is then 29-40. Geekbench mixes in floating-point and vector work where the A53 falls further behind, while the detector is integer and memory bound, so the ratio is taken as an upper-to-lower bracket, not a point. Cross-check: PhotonVision users report 13-15 fps at 640 x 480 on a Pi 3B+ (Chief Delphi, 2023)",
+    "latency_budget": {
+      "readout_s": 0.0179,
+      "isp_s": 0.0333,
+      "link_s": 0.002,
+      "basis": "Readout: the 2304 x 1296 mode runs at up to 56 fps, so a frame reads out in at most 1/56 s (rolling shutter; the frame's centre is half that after its first row). ISP and transfer to the ARM: one frame period at 30 Hz, an assumption (libcamera delivers a completed buffer after the ISP pass). Link: a 1 Mbaud UART message of about 40 bytes is 0.4 ms; 2 ms allows for scheduling, an assumption until phase E. Latency is counted from the middle of the exposure to the measurement arriving at the Teensy"
+    }
+  },
+  "model_check": {
+    "detection_probability_tolerance": 0.1,
+    "noise_ratio_bounds": [0.5, 2.0],
+    "bias_tolerance": {
+      "range_m": 0.02,
+      "bearing_deg": 0.5
+    },
+    "minimum_samples": 8,
+    "basis": "Held-out rendered runs (the grid's held-out samples and the scenario replays) agree with the model when, per bin with at least 8 samples, the detection rate is within 0.1 of the model's probability, the standard deviation of range and bearing error is within a factor of 2 of the model's, and the mean error is within the model's bias plus the stated tolerance"
+  },
+  "measurement_model": {
+    "layout": "waist_tag",
+    "evidence": "fitted on rendered frames (the static grid's training samples) under the stated camera, light and noise assumptions; not real footage",
+    "measurements": "range: horizontal distance from the camera to the tag centre; bearing: angle of the tag centre in the robot's levelled heading frame, positive left",
+    "detector": {
+      "tracking": "region of interest around the last detection, full resolution",
+      "acquisition": "full frame, quad_decimate 2"
+    },
+    "not_included": "lens calibration error (the pose uses the same lens model that rendered the frames), the attitude error of the levelling (the simulator's attitude is used), rolling shutter, ISP denoising and sharpening, real lighting, glare and print flatness; the spreads here are the rendered-frame floor, and phase D designs with margins above them",
+    "interpolation": "bilinear in range and view angle; outside the table the nearest entry; p_detect is 0 when the tag is outside the frame or occluded",
+    "range_m": [0.5, 0.7, 1.0, 1.25, 1.5, 1.75, 2.0],
+    "view_deg": [0.0, 15.0, 30.0, 45.0, 60.0, 70.0, 80.0],
+    "table": [
+      {
+        "range_m": 0.5,
+        "view_deg": 0.0,
+        "n": 32,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.004418473437500001,
+        "range_std_m": 0.0007112026758794745,
+        "bearing_bias_deg": -0.10860495312499999,
+        "bearing_std_deg": 0.007809585573077212
+      },
+      {
+        "range_m": 0.5,
+        "view_deg": 15.0,
+        "n": 32,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.004504885625,
+        "range_std_m": 0.0006851673841875689,
+        "bearing_bias_deg": -0.102790440625,
+        "bearing_std_deg": 0.0075794825465926655
+      },
+      {
+        "range_m": 0.5,
+        "view_deg": 30.0,
+        "n": 32,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.004940822500000001,
+        "range_std_m": 0.0007508682026011085,
+        "bearing_bias_deg": -0.09492272812500001,
+        "bearing_std_deg": 0.008308285479441178
+      },
+      {
+        "range_m": 0.5,
+        "view_deg": 45.0,
+        "n": 32,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.00565004875,
+        "range_std_m": 0.0008655683606656865,
+        "bearing_bias_deg": -0.09048003437499999,
+        "bearing_std_deg": 0.009092371906043686
+      },
+      {
+        "range_m": 0.5,
+        "view_deg": 60.0,
+        "n": 32,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 0.4375,
+        "range_bias_m": 0.006565385,
+        "range_std_m": 0.0010822657107079543,
+        "bearing_bias_deg": -0.09027024375,
+        "bearing_std_deg": 0.011028333435495856
+      },
+      {
+        "range_m": 0.5,
+        "view_deg": 70.0,
+        "n": 32,
+        "p_detect_tracking": 0.5,
+        "p_detect_acquisition": 0.0,
+        "range_bias_m": 0.006290501875,
+        "range_std_m": 0.0022031873103550647,
+        "bearing_bias_deg": -0.09375370624999999,
+        "bearing_std_deg": 0.015714042970772727
+      },
+      {
+        "range_m": 0.5,
+        "view_deg": 80.0,
+        "n": 32,
+        "p_detect_tracking": 0.0,
+        "p_detect_acquisition": 0.0,
+        "range_bias_m": null,
+        "range_std_m": null,
+        "bearing_bias_deg": null,
+        "bearing_std_deg": null
+      },
+      {
+        "range_m": 0.7,
+        "view_deg": 0.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.0065979524999999995,
+        "range_std_m": 0.0012551665048985677,
+        "bearing_bias_deg": -0.08948438333333335,
+        "bearing_std_deg": 0.006071021522916409
+      },
+      {
+        "range_m": 0.7,
+        "view_deg": 15.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.006794893888888889,
+        "range_std_m": 0.0014042806069672986,
+        "bearing_bias_deg": -0.08542547222222223,
+        "bearing_std_deg": 0.007237126106231123
+      },
+      {
+        "range_m": 0.7,
+        "view_deg": 30.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.007392025277777779,
+        "range_std_m": 0.001487255260460857,
+        "bearing_bias_deg": -0.08056456388888887,
+        "bearing_std_deg": 0.006189346213945968
+      },
+      {
+        "range_m": 0.7,
+        "view_deg": 45.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.008624639999999998,
+        "range_std_m": 0.001797142649404485,
+        "bearing_bias_deg": -0.07746422777777778,
+        "bearing_std_deg": 0.0060686255961348865
+      },
+      {
+        "range_m": 0.7,
+        "view_deg": 60.0,
+        "n": 36,
+        "p_detect_tracking": 0.8055555555555556,
+        "p_detect_acquisition": 0.8333333333333334,
+        "range_bias_m": 0.010201445862068967,
+        "range_std_m": 0.002211685077610536,
+        "bearing_bias_deg": -0.07779852413793105,
+        "bearing_std_deg": 0.007570060233939225
+      },
+      {
+        "range_m": 0.7,
+        "view_deg": 70.0,
+        "n": 36,
+        "p_detect_tracking": 0.4166666666666667,
+        "p_detect_acquisition": 0.0,
+        "range_bias_m": 0.007761448933333333,
+        "range_std_m": 0.0046069960669142635,
+        "bearing_bias_deg": -0.08185647333333333,
+        "bearing_std_deg": 0.012816317404357545
+      },
+      {
+        "range_m": 0.7,
+        "view_deg": 80.0,
+        "n": 36,
+        "p_detect_tracking": 0.0,
+        "p_detect_acquisition": 0.0,
+        "range_bias_m": null,
+        "range_std_m": null,
+        "bearing_bias_deg": null,
+        "bearing_std_deg": null
+      },
+      {
+        "range_m": 1.0,
+        "view_deg": 0.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.011128779722222221,
+        "range_std_m": 0.0022306049465425117,
+        "bearing_bias_deg": -0.07442541111111113,
+        "bearing_std_deg": 0.005712115321603861
+      },
+      {
+        "range_m": 1.0,
+        "view_deg": 15.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.01133083222222222,
+        "range_std_m": 0.0023780517230637247,
+        "bearing_bias_deg": -0.07235193055555557,
+        "bearing_std_deg": 0.005431095765461249
+      },
+      {
+        "range_m": 1.0,
+        "view_deg": 30.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.01265613472222222,
+        "range_std_m": 0.002477297868027623,
+        "bearing_bias_deg": -0.06877176111111111,
+        "bearing_std_deg": 0.005486526820768843
+      },
+      {
+        "range_m": 1.0,
+        "view_deg": 45.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.014148746666666668,
+        "range_std_m": 0.003170931491116496,
+        "bearing_bias_deg": -0.06727289722222224,
+        "bearing_std_deg": 0.006053005310067583
+      },
+      {
+        "range_m": 1.0,
+        "view_deg": 60.0,
+        "n": 36,
+        "p_detect_tracking": 0.7777777777777778,
+        "p_detect_acquisition": 0.7777777777777778,
+        "range_bias_m": 0.01607715714285714,
+        "range_std_m": 0.003764660493597104,
+        "bearing_bias_deg": -0.06829250357142858,
+        "bearing_std_deg": 0.004564355824208579
+      },
+      {
+        "range_m": 1.0,
+        "view_deg": 70.0,
+        "n": 36,
+        "p_detect_tracking": 0.5,
+        "p_detect_acquisition": 0.3055555555555556,
+        "range_bias_m": 0.0014641938888888895,
+        "range_std_m": 0.01452553013768198,
+        "bearing_bias_deg": -0.07358920555555554,
+        "bearing_std_deg": 0.00933887979013935
+      },
+      {
+        "range_m": 1.0,
+        "view_deg": 80.0,
+        "n": 36,
+        "p_detect_tracking": 0.0,
+        "p_detect_acquisition": 0.0,
+        "range_bias_m": null,
+        "range_std_m": null,
+        "bearing_bias_deg": null,
+        "bearing_std_deg": null
+      },
+      {
+        "range_m": 1.25,
+        "view_deg": 0.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.015526844444444446,
+        "range_std_m": 0.0032147282601395224,
+        "bearing_bias_deg": -0.06751214166666668,
+        "bearing_std_deg": 0.005189026226587633
+      },
+      {
+        "range_m": 1.25,
+        "view_deg": 15.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.016030311111111112,
+        "range_std_m": 0.003528796727722823,
+        "bearing_bias_deg": -0.06593793055555554,
+        "bearing_std_deg": 0.005189906341121303
+      },
+      {
+        "range_m": 1.25,
+        "view_deg": 30.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.01707003333333333,
+        "range_std_m": 0.00363794539329158,
+        "bearing_bias_deg": -0.06308264166666668,
+        "bearing_std_deg": 0.004305768221641755
+      },
+      {
+        "range_m": 1.25,
+        "view_deg": 45.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.018495283333333334,
+        "range_std_m": 0.004236789919772482,
+        "bearing_bias_deg": -0.06293496666666666,
+        "bearing_std_deg": 0.005432899892164931
+      },
+      {
+        "range_m": 1.25,
+        "view_deg": 60.0,
+        "n": 36,
+        "p_detect_tracking": 0.8611111111111112,
+        "p_detect_acquisition": 0.8333333333333334,
+        "range_bias_m": 0.019937845806451613,
+        "range_std_m": 0.004952014235410863,
+        "bearing_bias_deg": -0.06427124838709677,
+        "bearing_std_deg": 0.007965592467434378
+      },
+      {
+        "range_m": 1.25,
+        "view_deg": 70.0,
+        "n": 36,
+        "p_detect_tracking": 0.5555555555555556,
+        "p_detect_acquisition": 0.4166666666666667,
+        "range_bias_m": -0.0024902889999999997,
+        "range_std_m": 0.018007040256116467,
+        "bearing_bias_deg": -0.065431605,
+        "bearing_std_deg": 0.006761272730584244
+      },
+      {
+        "range_m": 1.25,
+        "view_deg": 80.0,
+        "n": 36,
+        "p_detect_tracking": 0.0,
+        "p_detect_acquisition": 0.0,
+        "range_bias_m": null,
+        "range_std_m": null,
+        "bearing_bias_deg": null,
+        "bearing_std_deg": null
+      },
+      {
+        "range_m": 1.5,
+        "view_deg": 0.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.02048326388888889,
+        "range_std_m": 0.004742066985075647,
+        "bearing_bias_deg": -0.06330693055555554,
+        "bearing_std_deg": 0.00503365414129562
+      },
+      {
+        "range_m": 1.5,
+        "view_deg": 15.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.02118025833333333,
+        "range_std_m": 0.004472319397128136,
+        "bearing_bias_deg": -0.06120900833333335,
+        "bearing_std_deg": 0.004822569326192063
+      },
+      {
+        "range_m": 1.5,
+        "view_deg": 30.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.022594025000000004,
+        "range_std_m": 0.005486109911735533,
+        "bearing_bias_deg": -0.06002944722222224,
+        "bearing_std_deg": 0.004953995432807522
+      },
+      {
+        "range_m": 1.5,
+        "view_deg": 45.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.02294285833333333,
+        "range_std_m": 0.005785632565854095,
+        "bearing_bias_deg": -0.059209477777777776,
+        "bearing_std_deg": 0.005100050382838591
+      },
+      {
+        "range_m": 1.5,
+        "view_deg": 60.0,
+        "n": 36,
+        "p_detect_tracking": 0.8611111111111112,
+        "p_detect_acquisition": 0.8888888888888888,
+        "range_bias_m": 0.02149497516129032,
+        "range_std_m": 0.00683624959184682,
+        "bearing_bias_deg": -0.06264032903225807,
+        "bearing_std_deg": 0.005827073041198503
+      },
+      {
+        "range_m": 1.5,
+        "view_deg": 70.0,
+        "n": 36,
+        "p_detect_tracking": 0.6388888888888888,
+        "p_detect_acquisition": 0.5833333333333334,
+        "range_bias_m": -0.005135085652173912,
+        "range_std_m": 0.02150958312702711,
+        "bearing_bias_deg": -0.06197646086956523,
+        "bearing_std_deg": 0.004282750245380682
+      },
+      {
+        "range_m": 1.5,
+        "view_deg": 80.0,
+        "n": 36,
+        "p_detect_tracking": 0.0,
+        "p_detect_acquisition": 0.0,
+        "range_bias_m": null,
+        "range_std_m": null,
+        "bearing_bias_deg": null,
+        "bearing_std_deg": null
+      },
+      {
+        "range_m": 1.75,
+        "view_deg": 0.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.026434758333333332,
+        "range_std_m": 0.006059837120742485,
+        "bearing_bias_deg": -0.05988674166666666,
+        "bearing_std_deg": 0.005100846583145362
+      },
+      {
+        "range_m": 1.75,
+        "view_deg": 15.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.027256716666666667,
+        "range_std_m": 0.006426296886988204,
+        "bearing_bias_deg": -0.05784174166666667,
+        "bearing_std_deg": 0.005083444549368076
+      },
+      {
+        "range_m": 1.75,
+        "view_deg": 30.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.027979858333333336,
+        "range_std_m": 0.0066151309802981225,
+        "bearing_bias_deg": -0.057129952777777784,
+        "bearing_std_deg": 0.005168595402593083
+      },
+      {
+        "range_m": 1.75,
+        "view_deg": 45.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.028259691666666666,
+        "range_std_m": 0.007320701780464766,
+        "bearing_bias_deg": -0.05701041944444445,
+        "bearing_std_deg": 0.0051403417472726445
+      },
+      {
+        "range_m": 1.75,
+        "view_deg": 60.0,
+        "n": 36,
+        "p_detect_tracking": 0.8888888888888888,
+        "p_detect_acquisition": 0.9166666666666666,
+        "range_bias_m": 0.023807954062499997,
+        "range_std_m": 0.00987963449677942,
+        "bearing_bias_deg": -0.061032193750000005,
+        "bearing_std_deg": 0.005445950271706046
+      },
+      {
+        "range_m": 1.75,
+        "view_deg": 70.0,
+        "n": 36,
+        "p_detect_tracking": 0.6388888888888888,
+        "p_detect_acquisition": 0.4722222222222222,
+        "range_bias_m": -0.0062601234782608695,
+        "range_std_m": 0.01919864810701539,
+        "bearing_bias_deg": -0.061327765217391306,
+        "bearing_std_deg": 0.006798230973610219
+      },
+      {
+        "range_m": 1.75,
+        "view_deg": 80.0,
+        "n": 36,
+        "p_detect_tracking": 0.0,
+        "p_detect_acquisition": 0.0,
+        "range_bias_m": null,
+        "range_std_m": null,
+        "bearing_bias_deg": null,
+        "bearing_std_deg": null
+      },
+      {
+        "range_m": 2.0,
+        "view_deg": 0.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.03260891111111111,
+        "range_std_m": 0.007481668199378218,
+        "bearing_bias_deg": -0.05716293611111112,
+        "bearing_std_deg": 0.0055646581340329185
+      },
+      {
+        "range_m": 2.0,
+        "view_deg": 15.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.032581733333333335,
+        "range_std_m": 0.007630183393564573,
+        "bearing_bias_deg": -0.056152013888888894,
+        "bearing_std_deg": 0.0052789016402036175
+      },
+      {
+        "range_m": 2.0,
+        "view_deg": 30.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.03380159722222222,
+        "range_std_m": 0.008057515479936769,
+        "bearing_bias_deg": -0.055163875,
+        "bearing_std_deg": 0.005880983297490067
+      },
+      {
+        "range_m": 2.0,
+        "view_deg": 45.0,
+        "n": 36,
+        "p_detect_tracking": 1.0,
+        "p_detect_acquisition": 1.0,
+        "range_bias_m": 0.03341196666666667,
+        "range_std_m": 0.00882089106742786,
+        "bearing_bias_deg": -0.05521845277777778,
+        "bearing_std_deg": 0.005514788791007379
+      },
+      {
+        "range_m": 2.0,
+        "view_deg": 60.0,
+        "n": 36,
+        "p_detect_tracking": 0.9166666666666666,
+        "p_detect_acquisition": 0.8611111111111112,
+        "range_bias_m": 0.025834619696969697,
+        "range_std_m": 0.016021850138623676,
+        "bearing_bias_deg": -0.05624679393939394,
+        "bearing_std_deg": 0.01242879363881355
+      },
+      {
+        "range_m": 2.0,
+        "view_deg": 70.0,
+        "n": 36,
+        "p_detect_tracking": 0.5833333333333334,
+        "p_detect_acquisition": 0.3333333333333333,
+        "range_bias_m": -0.0015598433333333327,
+        "range_std_m": 0.021563016033589164,
+        "bearing_bias_deg": -0.0591994619047619,
+        "bearing_std_deg": 0.00810221990786946
+      },
+      {
+        "range_m": 2.0,
+        "view_deg": 80.0,
+        "n": 36,
+        "p_detect_tracking": 0.0,
+        "p_detect_acquisition": 0.0,
+        "range_bias_m": null,
+        "range_std_m": null,
+        "bearing_bias_deg": null,
+        "bearing_std_deg": null
+      }
+    ],
+    "latency_s": [0.12397427159554644, 0.14877440678730985],
+    "latency_basis": "middle of the exposure to the measurement at the Teensy, the region-of-interest path (timing.json latency_budget_s); a range from the Pi estimate",
+    "rate_hz": 30,
+    "rate_basis": "30 Hz is held only with the region-of-interest search on the Zero 2 W (timing.json); a full-frame search after a loss takes several frames",
+    "dropouts": {
+      "pooled_roi": {
+        "frames": 5945,
+        "detection_rate": 0.99932716568545,
+        "miss_runs": 3,
+        "longest_miss_frames": 2,
+        "range_error_m": {
+          "n": 5941,
+          "mean": 0.013983344048140044,
+          "std": 0.0031661310031747478,
+          "p95_abs": 0.0191773,
+          "max_abs": 0.0548451
+        },
+        "bearing_error_deg": {
+          "n": 5941,
+          "mean": -0.07366771282612355,
+          "std": 0.005588261088746699,
+          "p95_abs": 0.0810906,
+          "max_abs": 0.144522
+        }
+      },
+      "pooled_dec2": {
+        "frames": 5945,
+        "detection_rate": 0.99932716568545,
+        "miss_runs": 3,
+        "longest_miss_frames": 2,
+        "range_error_m": {
+          "n": 5941,
+          "mean": 0.013965630021881838,
+          "std": 0.0030744256499399695,
+          "p95_abs": 0.0190894,
+          "max_abs": 0.0505096
+        },
+        "bearing_error_deg": {
+          "n": 5941,
+          "mean": -0.07395952863154351,
+          "std": 0.006461499710095347,
+          "p95_abs": 0.0817278,
+          "max_abs": 0.14889
+        }
+      },
+      "p_miss_after_miss_roi": 0.3333333333333333,
+      "basis": "Frames of the waist-tag replays where the tag is in frame, unoccluded, within the 60 degree view angle and 2 m"
+    },
+    "motion_range_bias": {
+      "coefficient_m": 0.0011840220040871708,
+      "formula": "extra range bias (m) = coefficient_m x (|bearing rate| x exposure x f_px)^2 x (range m)^2, added to range_bias_m; the bearing rate is the tag's angular rate in the levelled heading frame (equal to the yaw rate for a still target)",
+      "f_px": 491.07142857142856,
+      "fit": {
+        "n": 84,
+        "blur_px_max": 9.821428571428571,
+        "rms_m": 0.004130452060864233,
+        "max_abs_m": 0.013579059035129896
+      },
+      "basis": "blur set (blur/samples.csv): waist tag at 0.7, 1.0 and 1.5 m, yaw rates 0.5 to 1.4 rad/s, exposures 5 to 20 ms, detections only; the blur smears the black square into the white border and the sRGB tone curve then shrinks it, so the tag reads smaller",
+      "domain": "blur up to fit.blur_px_max; beyond it the detection is lost (blur/summary.json)"
+    },
+    "check": {
+      "grid_held_out": {
+        "checks": 209,
+        "passed": 208,
+        "all_passed": false
+      },
+      "replays_roi": {
+        "checks": 55,
+        "passed": 48,
+        "all_passed": false
+      }
+    }
+  }
+}

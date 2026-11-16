@@ -1,0 +1,92 @@
+{
+  "purpose": "How the hold reference is shaped (the velocity reference while no drive command is active, the output of the hold position loop): the slope holds of the M12 speed suite at 1.0 m/s against the M10 acceptance push at rest under a 25 ms hub torque lag. Each variant ran the M12 speed suite slope cases and the lag_check push on the C core, in a scratch copy of the working tree that differed only in the hold path of bipe/locomotion.py and firmware/src/balance.c.",
+  "variants": {
+    "shaped_with_feedforward": {
+      "hold": "jerk-limited at 1.25 m/s^2 with the atan(a/g) lean feedforward (the first phase B controller)",
+      "slopes": {
+        "slope_up_4": {
+          "late_speed_peak_m_s": 0.028726498199041064,
+          "rollback_m": 0.028963740214488498
+        },
+        "slope_up_8": {
+          "late_speed_peak_m_s": 0.02355827260509104,
+          "rollback_m": 0.03577861232980018
+        },
+        "slope_down_4": {
+          "late_speed_peak_m_s": 0.014320977585444756,
+          "rollback_m": 0.0
+        }
+      },
+      "push_25ms": {
+        "hub_lag_s": 0.025,
+        "passed": false,
+        "max_pitch_error_deg": 16.16957213561528,
+        "peak_speed_m_s": 2.3974304225957077
+      },
+      "push_25ms_source": "attribution.json (Python controller)"
+    },
+    "shaped_without_feedforward": {
+      "hold": "jerk-limited at 1.25 m/s^2, no feedforward",
+      "slopes": {
+        "slope_up_4": {
+          "late_speed_peak_m_s": 0.035736105939911555,
+          "rollback_m": 0.027391479941954015
+        },
+        "slope_up_8": {
+          "late_speed_peak_m_s": 0.024314915783461673,
+          "rollback_m": 0.04018161542311017
+        },
+        "slope_down_4": {
+          "late_speed_peak_m_s": 0.016363953368576423,
+          "rollback_m": 0.0
+        }
+      },
+      "push": [
+        {
+          "hub_lag_s": 0.025,
+          "passed": true,
+          "max_pitch_error_deg": 3.7363494343173973,
+          "peak_speed_m_s": 0.12639298228981546
+        },
+        {
+          "hub_lag_s": 0.01,
+          "passed": true,
+          "max_pitch_error_deg": 2.5534159605115523,
+          "peak_speed_m_s": 0.09597472400215702
+        }
+      ]
+    },
+    "rate_limited_adopted": {
+      "hold": "plain 3 m/s^2 rate limit, no feedforward, as before phase B (hold_command_acceleration)",
+      "slopes": {
+        "slope_up_4": {
+          "late_speed_peak_m_s": 0.03568739601062621,
+          "rollback_m": 0.027306587303191538
+        },
+        "slope_up_8": {
+          "late_speed_peak_m_s": 0.024123344476410787,
+          "rollback_m": 0.040144275282393616
+        },
+        "slope_down_4": {
+          "late_speed_peak_m_s": 0.016389723668749946,
+          "rollback_m": 0.0
+        }
+      },
+      "push": [
+        {
+          "hub_lag_s": 0.025,
+          "passed": true,
+          "max_pitch_error_deg": 3.7459311800970534,
+          "peak_speed_m_s": 0.12347871549334759
+        },
+        {
+          "hub_lag_s": 0.01,
+          "passed": true,
+          "max_pitch_error_deg": 2.5574527801287474,
+          "peak_speed_m_s": 0.09596346155172701
+        }
+      ]
+    }
+  },
+  "finding": "The lean feedforward on the hold reference costs the 25 ms push recovery; it is also what keeps slope_up_4's return to the hold point under 0.03 m/s (0.029 against 0.036). The adopted hold is the pre-phase-B one, so the 0.3 m/s acceptance hold behaviour is unchanged; slope_up_4 is a recorded shortfall against the proposed 0.03 m/s hold speed (it meets the M10 0.1 m rollback limit)."
+}

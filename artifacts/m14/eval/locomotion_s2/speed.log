@@ -1,0 +1,153 @@
+/home/claude/BiPe-eval/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+reverse None pitch 15.4 v 0.53/0.30 False
+spin None pitch 3.6 v 0.10/0.00 False
+drive_ramp None pitch 12.5 v 1.38/1.20 False
+drive_step None pitch 14.5 v 1.38/1.20 False
+arc_r2 None pitch 14.4 v 1.29/1.00 False
+arc_r1 None pitch 14.5 v 0.93/0.70 False
+weave None pitch 13.4 v 1.29/1.00 False
+push_fast_+2 None pitch 15.2 v 2.45/1.20 False
+push_fast_-2 None pitch 13.7 v 1.40/1.20 False
+slope_up_4 None pitch 13.1 v 1.22/1.00 False
+slope_up_8 None pitch 13.4 v 1.06/1.00 False
+slope_down_4 None pitch 14.9 v 1.26/1.00 False
+slope_down_8 None pitch 15.7 v 1.21/1.00 False
+slope_up_10 None pitch 12.8 v 1.05/1.00 False
+slope_down_10 None pitch 15.2 v 1.18/1.00 False
+replay_straight_1.0 None pitch 14.3 v 1.24/1.16 False
+replay_start_stop None pitch 14.6 v 1.24/1.16 False
+replay_lateral_crossing None pitch 14.7 v 1.00/0.94 False
+replay_curve_r1 None pitch 14.3 v 0.90/0.82 False
+replay_corner_90 None pitch 15.0 v 1.24/1.16 False
+replay_loss_fov None pitch 12.9 v 0.41/0.29 False
+mass_plus_15pct_drive_step None pitch 14.4 v 1.38/1.20 False
+mass_plus_15pct_weave None pitch 13.9 v 1.25/1.00 False
+mass_plus_15pct_replay_corner_90 None pitch 15.1 v 1.23/1.16 False
+friction_0p5_drive_step None pitch 14.6 v 1.38/1.20 False
+friction_0p5_weave None pitch 13.5 v 1.29/1.00 False
+friction_0p5_replay_corner_90 None pitch 15.0 v 1.25/1.16 False
+wheel_lag_10ms_drive_step None pitch 15.3 v 1.42/1.20 False
+wheel_lag_10ms_weave None pitch 13.9 v 1.33/1.00 False
+wheel_lag_10ms_replay_corner_90 None pitch 14.8 v 1.27/1.16 False
+wheel_lag_25ms_drive_step None pitch 14.8 v 1.44/1.20 False
+wheel_lag_25ms_weave None pitch 13.7 v 1.32/1.00 False
+wheel_lag_25ms_replay_corner_90 None pitch 14.6 v 1.28/1.16 False
+delay_15ms_noise_x2_drive_step None pitch 13.2 v 1.43/1.20 False
+delay_15ms_noise_x2_weave None pitch 12.5 v 1.24/1.00 False
+delay_15ms_noise_x2_replay_corner_90 None pitch 13.0 v 1.29/1.16 False
+seed_plus_1_drive_step None pitch 14.5 v 1.38/1.20 False
+seed_plus_1_weave None pitch 13.3 v 1.28/1.00 False
+seed_plus_1_replay_corner_90 None pitch 15.0 v 1.24/1.16 False
+seed_plus_2_drive_step None pitch 14.6 v 1.38/1.20 False
+seed_plus_2_weave None pitch 13.2 v 1.29/1.00 False
+seed_plus_2_replay_corner_90 None pitch 15.0 v 1.26/1.16 False
+low_posture_drive_ramp None pitch 15.1 v 1.38/1.20 None
+drive_step_half_timestep None pitch 14.7 v 1.38/1.20 False
+{
+  "failed": [
+    "arc_r1",
+    "arc_r2",
+    "delay_15ms_noise_x2_drive_step",
+    "delay_15ms_noise_x2_replay_corner_90",
+    "delay_15ms_noise_x2_weave",
+    "drive_ramp",
+    "drive_step",
+    "drive_step_half_timestep",
+    "friction_0p5_drive_step",
+    "friction_0p5_replay_corner_90",
+    "friction_0p5_weave",
+    "mass_plus_15pct_drive_step",
+    "mass_plus_15pct_replay_corner_90",
+    "mass_plus_15pct_weave",
+    "push_fast_+2",
+    "push_fast_-2",
+    "replay_corner_90",
+    "replay_curve_r1",
+    "replay_lateral_crossing",
+    "replay_loss_fov",
+    "replay_start_stop",
+    "replay_straight_1.0",
+    "reverse",
+    "seed_plus_1_drive_step",
+    "seed_plus_1_replay_corner_90",
+    "seed_plus_1_weave",
+    "seed_plus_2_drive_step",
+    "seed_plus_2_replay_corner_90",
+    "seed_plus_2_weave",
+    "slope_down_10",
+    "slope_down_4",
+    "slope_down_8",
+    "slope_up_10",
+    "slope_up_4",
+    "slope_up_8",
+    "spin",
+    "weave",
+    "wheel_lag_10ms_drive_step",
+    "wheel_lag_10ms_replay_corner_90",
+    "wheel_lag_10ms_weave",
+    "wheel_lag_25ms_drive_step",
+    "wheel_lag_25ms_replay_corner_90",
+    "wheel_lag_25ms_weave"
+  ],
+  "unrecorded_failures": [
+    "arc_r1",
+    "arc_r2",
+    "delay_15ms_noise_x2_drive_step",
+    "delay_15ms_noise_x2_replay_corner_90",
+    "delay_15ms_noise_x2_weave",
+    "drive_ramp",
+    "drive_step",
+    "drive_step_half_timestep",
+    "friction_0p5_drive_step",
+    "friction_0p5_replay_corner_90",
+    "friction_0p5_weave",
+    "mass_plus_15pct_drive_step",
+    "mass_plus_15pct_replay_corner_90",
+    "mass_plus_15pct_weave",
+    "push_fast_+2",
+    "push_fast_-2",
+    "replay_corner_90",
+    "replay_curve_r1",
+    "replay_lateral_crossing",
+    "replay_loss_fov",
+    "replay_start_stop",
+    "replay_straight_1.0",
+    "reverse",
+    "seed_plus_1_drive_step",
+    "seed_plus_1_replay_corner_90",
+    "seed_plus_1_weave",
+    "seed_plus_2_drive_step",
+    "seed_plus_2_replay_corner_90",
+    "seed_plus_2_weave",
+    "slope_down_10",
+    "slope_down_4",
+    "slope_down_8",
+    "slope_up_10",
+    "spin",
+    "weave",
+    "wheel_lag_10ms_drive_step",
+    "wheel_lag_10ms_replay_corner_90",
+    "wheel_lag_10ms_weave"
+  ],
+  "worst": {
+    "peak_pitch_deg": [
+      15.684486683727622,
+      "slope_down_8"
+    ],
+    "hub_phase_current_peak_A": [
+      3.2934077782129205,
+      "push_fast_-2"
+    ],
+    "hub_phase_voltage_demand_peak_V": [
+      20.38826475434467,
+      "low_posture_drive_ramp"
+    ],
+    "bus_current_peak_A_pack_low": [
+      28.659691004058555,
+      "low_posture_drive_ramp"
+    ]
+  },
+  "passed": false,
+  "passed_except_recorded_shortfalls": false
+}

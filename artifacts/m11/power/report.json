@@ -1,0 +1,686 @@
+{
+  "scope": "M11 phase C calculations from config/robot.json m10.electronics and the phase A requirements; a digital design check, not a hardware measurement",
+  "electronics_config": {
+    "status": "M11 phase C electrical design (18 October 2026): parts signed off in phase B; calculations in bipe/m11/power.py. Digital design only, not hardware-validated",
+    "drivers": {
+      "model": "mjbots moteus-c1",
+      "count": 6,
+      "input_V": [
+        10.0,
+        51.0
+      ],
+      "peak_phase_current_A": 20.0,
+      "continuous_phase_current_A_uncooled": 5.0,
+      "peak_power_W_at_28V": 250.0,
+      "bulk_capacitance_F_each": 5.64e-05,
+      "bulk_capacitance_basis": "12 x 4.7 uF 100 V MLCC (mjbots/moteus hw/c1/bulk_capacitance.kicad_sch); nominal, no DC-bias derating",
+      "mlcc_dc_bias_retained_fraction_assumption": 0.5,
+      "logic_power_W_each_assumption": 0.4,
+      "logic_power_basis": "Not published; STM32G4, gate driver and MAX15062 buck. Assumption to be measured on the bench",
+      "aux_3V3_A": 0.05,
+      "settings": {
+        "servo.max_voltage": 30.0,
+        "servo.flux_brake_margin_voltage": 3.0,
+        "servo.max_regen_power_W": 10.0
+      },
+      "settings_basis": "max_voltage at least 5 V above the 25.2 V full pack (mjbots electrical setup guide); regen limit above the 5.7 W phase A driver peak",
+      "can": {
+        "arbitration_bit_s": 1000000,
+        "data_bit_s": 5000000,
+        "sample_point": 0.666,
+        "termination": "split 2 x 60 ohm with 4.7 nF to ground at both bus ends"
+      },
+      "source": "https://mjbots.com/products/moteus-c1; https://github.com/mjbots/moteus/blob/main/docs/guides/electrical-setup.md"
+    },
+    "host": {
+      "model": "PJRC Teensy 4.0 on a custom 2-layer carrier",
+      "input_A_at_5V": 0.1,
+      "basis": "about 100 mA at 600 MHz (pjrc.com/store/teensy40.html); CAN3 (FD) on bottom pads 30/31"
+    },
+    "can_transceiver": {
+      "model": "Microchip MCP2562FD-E/SN (SOIC-8)",
+      "lcsc": "C124016",
+      "data_rate_bit_s": 8000000,
+      "supply_A_5V_dominant_max": 0.07,
+      "supply_A_5V_recessive_max": 0.01,
+      "vio_V": 3.3,
+      "basis": "Phase D: replaces the TCAN330G, which LCSC does not stock (MCP2562FD: about 1.5k in stock, $1.71). Datasheet DS20005284A: CAN FD to 8 Mbps; VDD 4.5-5.5 V; IDD 45 mA typ / 70 mA max dominant, 10 mA max recessive; VIO 1.8-5.5 V; STBY high = standby"
+    },
+    "imu": {
+      "model": "ST LSM6DSO",
+      "supply_A_3V3": 0.00055,
+      "basis": "high-performance mode, both sensors on (assumed from the LSM6DSO family datasheet)"
+    },
+    "eye_leds": {
+      "model": "Adafruit NeoPixel Jewel (7 x 5050)",
+      "count": 2,
+      "leds_each": 7,
+      "channel_current_A": 0.018,
+      "channels": 3,
+      "firmware_brightness_cap": 0.25,
+      "source": "https://www.adafruit.com/product/2226"
+    },
+    "vision_reservation": {
+      "model": "Raspberry Pi Zero 2 W with the head Camera Module 3",
+      "typical_A_at_5V": 0.35,
+      "supply_A_at_5V": 2.0,
+      "camera_A_at_5V_assumption": 0.25,
+      "mass_kg_assumption": 0.012,
+      "board_xy_m": [
+        0.065,
+        0.03
+      ],
+      "basis": "Zero 2 W: 350 mA typical bare-board active, 2 A recommended supply (raspberrypi.com documentation power table); reserved, not wired to the controller"
+    },
+    "regulator_5V": {
+      "model": "Matek BEC12S-PRO",
+      "input_V": [
+        9.0,
+        55.0
+      ],
+      "output_V": 5.2,
+      "continuous_A": 5.0,
+      "peak_A": 9.0,
+      "efficiency_assumption": 0.85,
+      "mass_kg": 0.005,
+      "size_m": [
+        0.035,
+        0.024,
+        0.0055
+      ],
+      "basis": "Retailer specifications (e.g. racedayquads.com); chosen over the Pololu D36V28F5 (3.2 A, 17.8 x 20.3 x 8.8 mm) for the 5 V peak with the vision reservation"
+    },
+    "soft_start": {
+      "controller": "TI LM5060 high-side protection controller with an external N-channel MOSFET",
+      "gate_charge_current_A": [
+        1.7e-05,
+        2.4e-05,
+        3.1e-05
+      ],
+      "gate_discharge_current_A_off": 0.0022,
+      "gate_discharge_current_A_fault": 0.08,
+      "gate_capacitor_F": 2.2e-08,
+      "uvlo_threshold_V": 1.6,
+      "enable": "EN from the shell power switch (microamp signal current)",
+      "timer_capacitor_F": 3.3e-07,
+      "timer": {
+        "start_up_charge_A": [
+          4e-06,
+          6e-06,
+          7e-06
+        ],
+        "fault_charge_A": [
+          8.5e-06,
+          1.1e-05,
+          1.3e-05
+        ],
+        "fault_threshold_V": 2.0,
+        "fault_threshold_tolerance_assumption": 0.06,
+        "reset_V": 0.3,
+        "vgs_status_threshold_V": [
+          3.5,
+          5.0,
+          6.5
+        ]
+      },
+      "sense": {
+        "resistor_ohm": 10000.0,
+        "current_A": [
+          1.36e-05,
+          1.6e-05,
+          1.8e-05
+        ],
+        "offset_V": 0.007
+      },
+      "gate_clamp_V": 16.8,
+      "ovp": "OVP pin to GND (not used, as the datasheet allows; the pack is the only source)",
+      "timer_basis": "LM5060 SNVS628H: ITIMERL 4/6/7 uA, ITIMERH 8.5/11/13 uA, VTMRH 2.0 V typ (no limits given; +/-6% assumed), VTMRL 0.3 V, VGATE-TH 3.5/5/6.5 V; ISENSE 13.6/16/18 uA, VOFFSET +/-7 mV",
+      "mosfet": {
+        "model": "AOS AOD4184A (TO-252)",
+        "lcsc": "C99124",
+        "vds_V": 40.0,
+        "vgs_max_V": 20.0,
+        "rds_on_ohm_max_25C": 0.007,
+        "rds_on_ohm_max_125C": 0.012,
+        "ciss_F_max": 1.8e-09,
+        "crss_F_max": 1.9e-10,
+        "plateau_V_assumption": 3.5,
+        "single_pulse_power_W_10ms": 50.0,
+        "rth_jc_K_W": 3.0,
+        "rth_ja_K_W": 55.0,
+        "source": "https://www.aosmd.com/res/datasheets/AOD4184A.pdf (Rev 1.0, September 2023); SOA and single-pulse power are rated at a 25 C case. LCSC C99124: about 6k in stock, $0.30"
+      },
+      "basis": "LM5060 datasheet SNVS628H: IGATE 17/24/31 uA, IGATE-OFF 2.2 mA, IGATE-FLT 80 mA, UVLO 1.6 V; output rise time set by a GATE-to-GND capacitor",
+      "mosfet_requirements": {
+        "vds_V": 40.0,
+        "rds_on_ohm_max_hot": 0.02,
+        "vgs_max_V": 20.0,
+        "linear_mode_energy_J": 0.25,
+        "linear_mode_time_s": 0.035,
+        "basis": "Ramp energy 0.16-0.21 J over 18-33 ms (bipe/m11/power.py); the part is chosen in phase D from stocked 40 V N-channel MOSFETs against its single-pulse SOA"
+      }
+    },
+    "fuse": {
+      "model": "Littelfuse MINI 297 series 10 A (0297010.WXNV) in a PCB holder",
+      "rating_A": 10.0,
+      "voltage_V": 32.0,
+      "interrupting_A": 1000.0,
+      "basis": "Littelfuse MINI blade fuse datasheet: 32 VDC, 1000 A interrupting; the 0451 Nano2 10 A interrupts only 400 A at 32 V"
+    },
+    "pack": {
+      "cells": 6,
+      "full_V": 25.2,
+      "nominal_V": 22.2,
+      "arm_minimum_V": 19.2,
+      "cutoff_V": 18.0,
+      "internal_resistance_ohm_per_cell_assumption": 0.008,
+      "basis": "3.2 V/cell arm minimum and 3.0 V/cell cutoff (M4 config/electronics.json limits); internal resistance is an assumption for 850 mAh packs"
+    },
+    "wiring": {
+      "trunk": {
+        "awg": 20,
+        "ohm_per_m": 0.0333,
+        "length_m": 0.25
+      },
+      "branch": {
+        "awg": 22,
+        "ohm_per_m": 0.053,
+        "length_m": 0.15
+      },
+      "connector_ohm_each_assumption": 0.001,
+      "basis": "Annealed copper AWG resistance at 20 C; lengths are layout estimates for phase D"
+    },
+    "battery_monitor": {
+      "upper_ohm": 180000.0,
+      "lower_ohm": 10000.0,
+      "adc_bits": 12,
+      "adc_reference_V": 3.3,
+      "basis": "M4 divider (config/electronics.json adc); Teensy 4.0 ADC"
+    },
+    "firmware": {
+      "status": "M11 phase E firmware hardware layer: digital design, values marked assumption or commissioning are measured on hardware",
+      "host_can_source": 0,
+      "driver_ids": {
+        "left_hip": 1,
+        "left_knee": 2,
+        "right_hip": 3,
+        "right_knee": 4,
+        "left_wheel_joint": 5,
+        "right_wheel_joint": 6
+      },
+      "driver_ids_basis": "moteus id.id per driver, keyed by the plant's JOINTS and WHEELS names",
+      "watchdog_timeout_s": 0.02,
+      "timeout_mode_joints": 12,
+      "timeout_mode_wheels": 0,
+      "timeout_max_torque_Nm": 0.5,
+      "timeout_basis": "User decision 19 October 2026: after 20 ms (4 control periods) without a command the joints damp in moteus zero-velocity mode (12) and the wheels stop (0, limp). The 0.5 N*m damping cap is about a third of the 1.65 N*m joint command cap, to tune on the bench",
+      "imu": {
+        "spi_rate_hz": 8000000,
+        "spi_mode": 3,
+        "who_am_i": 108,
+        "ctrl3_c": 68,
+        "ctrl1_xl": 136,
+        "ctrl2_g": 132,
+        "int1_ctrl": 2,
+        "odr_hz": 1660.0,
+        "accel_mg_per_lsb": 0.122,
+        "gyro_mdps_per_lsb": 17.5,
+        "first_output_register": 34,
+        "gravity_check_deg": 30.0,
+        "standard_gravity_m_s2": 9.80665,
+        "basis": "ST DS12140 Rev 3 (June 2024): WHO_AM_I 6Ch; CTRL3_C BDU + IF_INC (44h); CTRL1_XL 1.66 kHz, +-4 g (88h); CTRL2_G 1.66 kHz, +-500 dps (84h); INT1_CTRL INT1_DRDY_G (02h); outputs OUTX_L_G (22h) to OUTZ_H_A (2Dh); typical sensitivities 0.122 mg/LSB and 17.50 mdps/LSB; SPI mode 3, clock at most 10 MHz. Axes from Figure 3 (top view: pin 1 top left, X right, Y up, Z out of the top face)"
+      },
+      "timing": {
+        "driver_turnaround_s_assumption": 0.00025,
+        "compute_s_assumption": 0.0005,
+        "spi_overhead_s_assumption": 2e-05,
+        "basis": "Driver turnaround (CAN receive to reply start) and Teensy compute time are assumptions for the bench check with the DWT cycle counter; the compute bound is at least 10 x the host-measured estimator and controller step (artifacts/m11/firmware/timing.json)"
+      }
+    },
+    "boards": {
+      "carrier": {
+        "size_m": [
+          0.04,
+          0.03
+        ],
+        "thickness_m": 0.0016,
+        "copper_layers": 2,
+        "origin_body_m": [
+          -0.014,
+          0.0139,
+          0.0055
+        ],
+        "board_x_axis_body": [
+          1,
+          0,
+          0
+        ],
+        "board_y_axis_body": [
+          0,
+          0,
+          1
+        ],
+        "front_normal_body": [
+          0,
+          1,
+          0
+        ],
+        "basis": "Teensy carrier in the probed host slot (x -14 to 26, y 13.9 to 23.9 mm), at z 5.5 to 35.5 mm: 0.5 mm below the cover and 0.5 mm above the inner shaft (cad/m11/adoption_check.py); KiCad origin at the bottom -x corner (KiCad y runs up the body), front facing +y so the top-entry PH plugs exit into the clear space at y 23.9-36 mm (the -y side holds the knee pulley and belt, the edges the knee shaft and cover); Teensy USB at the +x edge facing the battery bay"
+      },
+      "power": {
+        "size_m": [
+          0.06,
+          0.02
+        ],
+        "thickness_m": 0.0016,
+        "copper_layers": 2,
+        "origin_body_m": [
+          -0.082,
+          -0.03,
+          -0.0135
+        ],
+        "board_x_axis_body": [
+          0,
+          1,
+          0
+        ],
+        "board_y_axis_body": [
+          0,
+          0,
+          -1
+        ],
+        "front_normal_body": [
+          1,
+          0,
+          0
+        ],
+        "basis": "Power board in the probed rear-low slot (x -82 to -73, y -30 to 30, z -33.5 to -13.5 mm); PCB back at x -82, components face the body interior; the top-entry PH plugs and soldered leads exit +x into the clear gap at x -73 to -66 mm (the tub floor sits 2.5 mm below the board)"
+      },
+      "frame": "origin_body_m is the KiCad (0, 0) corner on the board's back face; board points map as origin + x board_x_axis + y board_y_axis + height front_normal, the height measured from the back face",
+      "component_heights_m": {
+        "C_0603_1608Metric": 0.0009,
+        "R_0603_1608Metric": 0.00055,
+        "C_0805_2012Metric": 0.00145,
+        "C_1206_3216Metric": 0.0018,
+        "LGA-14_3x2.5mm_P0.5mm_LayoutBorder3x4y": 0.00086,
+        "SOIC-8_3.9x4.9mm_P1.27mm": 0.00175,
+        "SOT-23-5": 0.00145,
+        "SOT-23": 0.00112,
+        "TO-252-2": 0.0024,
+        "D_SMB": 0.00244,
+        "VSSOP-10_3x3mm_P0.5mm": 0.0011,
+        "JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical": 0.008,
+        "JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical": 0.008,
+        "JST_PH_B7B-PH-K_1x07_P2.00mm_Vertical": 0.008,
+        "PinHeader_1x14_P2.54mm": 0.0025,
+        "Teensy40_Carrier": [
+          0.0025,
+          0.0065
+        ],
+        "basis": "Package maximum heights above the board front from the datasheets (LSM6DSO 0.86, SOIC-8 1.75, SOT-23-5 1.45, SOT-23 1.12, TO-252 2.39, SMB 2.44, VSSOP-10 1.1 mm; MLCC and resistor maxima by size). PH headers carry the mated plug: JST ePH catalog, 8.0 mm high after mounting. Teensy 4.0 on 2.5 mm header spacers, 4.0 mm for its board, parts and micro-USB above them (assumption)"
+      }
+    },
+    "harness": {
+      "hub_conductors": {
+        "phase": 3,
+        "encoder": 6,
+        "encoder_signals": [
+          "3V3",
+          "GND",
+          "CS",
+          "SCK",
+          "MISO",
+          "MOSI"
+        ]
+      },
+      "assignment": "Hub c1s are the two boards beside the battery (nearest the body ports at y +/-24 mm); the four motor-row boards drive the RO40s",
+      "wires": {
+        "phase": {
+          "model": "Alpha Wire 2843/7, 26 AWG 7/34 thin-wall PTFE",
+          "od_m": 0.00079,
+          "strands": 7,
+          "strand_d_m": 0.00016
+        },
+        "encoder": {
+          "model": "Alpha Wire 2841/7, 30 AWG 7/38 thin-wall PTFE",
+          "od_m": 0.00061,
+          "strands": 7,
+          "strand_d_m": 0.0001016
+        },
+        "rejected": {
+          "model": "Silicone hook-up wire (Adafruit 1970 26 AWG; 30 AWG)",
+          "phase_od_m": 0.0014,
+          "encoder_od_m": 0.0008
+        },
+        "basis": "User decision 18 October 2026 (thin-wall PTFE). ODs from distributor listings of the Alpha Wire parts (2843/7 0.79 mm, 2841/7 0.61 mm) and Adafruit 1970 (1.4 +/- 0.1 mm); strand diameters from the AWG stranding codes"
+      },
+      "copper_resistivity_ohm_m_20C": 1.724e-08,
+      "lay_factor": 1.02,
+      "packing_fraction": [
+        0.6,
+        0.75
+      ],
+      "restrictions_m": {
+        "shaft_port": 0.003,
+        "thigh_gallery": 0.0031,
+        "shin_channel": 0.0032,
+        "shaft_bore": 0.005
+      },
+      "route_m": {
+        "body": 0.06,
+        "inner_shaft_bore": 0.0485,
+        "thigh_gallery": 0.059,
+        "knee_shaft": 0.01,
+        "shin_channel": 0.052,
+        "axle_tube": 0.0265
+      },
+      "slack_fraction": 0.15,
+      "route_basis": "Gallery, shin channel and axle tube from the CAD envelopes (artifacts/m11/harness/geometry_0.103.json); body run 1.5 x the 41 mm straight line from the side board to the body port; inner-shaft bore from the body port (y 24 mm) to the gallery (y 72.5 mm)",
+      "crossings": {
+        "body_port": {
+          "range": "knee_drive_a2",
+          "shaft_radius_m": 0.005
+        },
+        "hip_gallery_port": {
+          "range": "knee_angle",
+          "shaft_radius_m": 0.005
+        },
+        "knee_shaft_port": {
+          "range": "knee_angle",
+          "shaft_radius_m": 0.005
+        }
+      },
+      "service_loop_radius_m": 0.01,
+      "service_loop_basis": "User decision 18 October 2026: service loops of radius 10 mm or more at the rotating crossings; strand strain is reported, fatigue life is a bench cycle test",
+      "encoder": {
+        "supply_A": 0.015,
+        "supply_basis": "AS5047P supply current, distributor catalog attribute (RS 2009463); the ams datasheet download is restricted",
+        "spi_rate_hz": 2000000,
+        "spi_rate_basis": "moteus aux[12].spi.rate_hz defaults to 12 MHz, above the AS5047P 10 MHz maximum; 2 MHz for the 0.32 m hub runs (a 16-bit frame takes 8 us)",
+        "line_capacitance_F_per_m_assumption": 1e-10,
+        "driver_resistance_ohm_assumption": 50.0,
+        "series_resistor_ohm": 33.0
+      }
+    }
+  },
+  "logic_budget": {
+    "loads": {
+      "teensy_A": 0.1,
+      "three_v3_loads_A": 0.00055,
+      "can_transceiver_A": 0.07,
+      "eye_leds_capped_A": 0.18899999999999997,
+      "eye_leds_full_white_A": 0.7559999999999999,
+      "vision_typical_A": 0.6,
+      "vision_supply_A": 2.0
+    },
+    "five_volt_typical_A": 0.9595499999999999,
+    "five_volt_peak_A": 2.9265499999999998,
+    "five_volt_without_vision_A": 0.35955,
+    "regulator": "Matek BEC12S-PRO",
+    "regulator_peak_utilisation": 0.58531,
+    "regulator_passes": true,
+    "driver_logic_W": 2.4000000000000004,
+    "auxiliary_bus_W": {
+      "typical": 8.270188235294118,
+      "without_vision": 4.599600000000001,
+      "peak": 20.303600000000003
+    }
+  },
+  "runtime": {
+    "basis": "draw scenario (0.85 inverter efficiency, 125 C copper), 80% of 0.85 Ah x 22.2 V",
+    "replaced_auxiliary_W": 6,
+    "minutes": {
+      "backlash_crouch_0.6": {
+        "typical": 33.923221082465275,
+        "without_vision": 39.33007142210701
+      },
+      "mass_plus_15pct_combined": {
+        "typical": 27.09954248269016,
+        "without_vision": 30.442793551217488
+      },
+      "push_drive_+2.5": {
+        "typical": 33.69288569065842,
+        "without_vision": 39.020795410839106
+      },
+      "push_drive_-2.5": {
+        "typical": 29.659782780005692,
+        "without_vision": 33.71181226173665
+      },
+      "push_hold_+2.5": {
+        "typical": 33.51269295258964,
+        "without_vision": 38.77931273781807
+      },
+      "push_hold_-2.5": {
+        "typical": 28.730758609094796,
+        "without_vision": 32.516721723168494
+      },
+      "push_low_+2.5": {
+        "typical": 26.991404583900252,
+        "without_vision": 30.306395154081276
+      },
+      "push_low_-2.5": {
+        "typical": 26.03993760024849,
+        "without_vision": 29.11203542655488
+      },
+      "sensors_combined": {
+        "typical": 33.267169751407124,
+        "without_vision": 38.450934503401825
+      },
+      "sensors_crouch": {
+        "typical": 33.94109213863027,
+        "without_vision": 39.354095238036834
+      },
+      "sensors_drive": {
+        "typical": 31.8136431450862,
+        "without_vision": 36.522262825557306
+      },
+      "sensors_hold": {
+        "typical": 35.083279192407275,
+        "without_vision": 40.8979362249346
+      },
+      "sensors_push": {
+        "typical": 34.7306586044421,
+        "without_vision": 40.419540563104306
+      },
+      "sensors_turn": {
+        "typical": 33.446475700067005,
+        "without_vision": 38.69067515918379
+      },
+      "slope_down_10": {
+        "typical": 30.45430046190337,
+        "without_vision": 34.74201836353666
+      },
+      "slope_hold_10": {
+        "typical": 33.02899217157035,
+        "without_vision": 38.133101689779274
+      },
+      "slope_up_10": {
+        "typical": 27.696837381433088,
+        "without_vision": 31.198610132365868
+      }
+    },
+    "range_typical_min": [
+      26.03993760024849,
+      35.083279192407275
+    ]
+  },
+  "soft_start": {
+    "bus_capacitance_nominal_F": 0.0003384,
+    "ramps": {
+      "slowest": {
+        "rise_time_s": 0.032611764705882354,
+        "slew_V_s": 772.7272727272727,
+        "inrush_A": 0.2614909090909091,
+        "mosfet_energy_J": 0.21176065458834148,
+        "mosfet_mean_power_W": 6.493382265515521
+      },
+      "typical": {
+        "rise_time_s": 0.0231,
+        "slew_V_s": 1090.909090909091,
+        "inrush_A": 0.36916363636363636,
+        "mosfet_energy_J": 0.18133635433340853,
+        "mosfet_mean_power_W": 7.850058629151885
+      },
+      "fastest": {
+        "rise_time_s": 0.017883870967741935,
+        "slew_V_s": 1409.0909090909092,
+        "inrush_A": 0.47683636363636367,
+        "mosfet_energy_J": 0.1646520606452195,
+        "mosfet_mean_power_W": 9.206734992788249
+      }
+    },
+    "turn_off_s_estimate": 0.0004227272727272727,
+    "turn_off_basis": "GATE-to-GND capacitor plus about 3 nF MOSFET input capacitance, discharged from VIN + 12 V at IGATE-OFF 2.2 mA",
+    "inrush_passes": true,
+    "inrush_limit_basis": "Inrush below 1 A: under 15% of the 6.6 A phase A peak and far below the fuse rating"
+  },
+  "uvlo": {
+    "upper_ohm": 53190.63874281144,
+    "lower_ohm": 4700.0,
+    "rising_V": 19.999999999999996,
+    "falling_V": 17.782911707722114,
+    "falling_V_per_cell": 2.963818617953686,
+    "divider_current_A_at_full": 0.0004353035403868161,
+    "placement": "The shell switch connects the top of the UVLO divider (and EN) to the pack, so the off-state drain is the LM5060 disabled current only (<15 uA)",
+    "basis": "LM5060 UVLO 1.6 V rising, 180 mV hysteresis, 5.5 uA pull-down (typical)"
+  },
+  "fuse_and_wiring": {
+    "fuse": "Littelfuse MINI 297 series 10 A (0297010.WXNV) in a PCB holder",
+    "carries_peak": true,
+    "carries_rms_with_75pct_derating": true,
+    "peak_A": 6.610150464637189,
+    "rms_A": 1.711442203209222,
+    "worst_1s_mean_A": 2.7842226871319555,
+    "short_circuit_A_estimate": 367.07938820101964,
+    "short_circuit_basis": "Full pack across the pack resistance (assumed per-cell value), the trunk and the connectors; this ignores the MOSFET, so it is an upper estimate",
+    "interrupting_passes": true,
+    "drop": {
+      "pack_and_wiring_ohm": 0.06865,
+      "branch_ohm": 0.015899999999999997,
+      "branch_peak_A": 2.506908199471933,
+      "sag_at_peak_V": 0.4936466697689468,
+      "driver_minimum_V_at_low_pack": 18.706353330231053,
+      "driver_minimum_passes": true
+    },
+    "trunk_power_loss_W_at_rms": 0.04876842300851185
+  },
+  "lm5060": {
+    "start_up": {
+      "to_plateau_s": 0.0049,
+      "ramp_s": 0.03289341176470588,
+      "to_vgs_status_s": 0.0042,
+      "needed_s": 0.04199341176470588,
+      "timer_timeout_min_s": 0.08862857142857143,
+      "margin": 2.110535145969276,
+      "passes": true
+    },
+    "overcurrent_delay_s": [
+      0.04772307692307693,
+      0.08230588235294119
+    ],
+    "vds_threshold_V": [
+      0.129,
+      0.187
+    ],
+    "trip_current_min_A": 10.75,
+    "trip_above_peak": true,
+    "bus_peak_A": 6.610150464637189,
+    "vgs_on_V": 14.0,
+    "vgs_within_rating": true,
+    "linear_mode_peak_W": 22.545345646289242,
+    "linear_mode_junction_rise_K": 67.63603693886773,
+    "linear_mode_passes": true,
+    "basis": "Gate path: C_gate plus Ciss (to the plateau and after the ramp) or Crss (during the ramp) at IGATE 17 uA. The MOSFET single-pulse rating is for a 25 C case, so the check keeps half of it; the junction rise uses RthJC because the ramps last 18-33 ms"
+  },
+  "overvoltage": {
+    "bus_capacitance_derated_F": 0.0001692,
+    "pack_disconnected": {
+      "0.3_m_s": {
+        "kinetic_energy_J": 0.088875,
+        "bus_V_without_flux_braking": 41.05571720106247
+      },
+      "1_m_s": {
+        "kinetic_energy_J": 0.9875,
+        "bus_V_without_flux_braking": 110.93969908085788
+      }
+    },
+    "flux_brake_point_V": 27.0,
+    "max_voltage_V": 30.0,
+    "finding": "While the pack is plugged in it absorbs regenerated energy, even with the switch off: the high-side N-MOSFET's body diode conducts from the bus back to the pack (phase A: the bus never regenerates in operation). Only an unplugged pack or a blown fuse leaves the bus capacitance alone; braking energy would then lift it far above max_voltage, so flux braking (above the brake point) must absorb it.",
+    "hub_back_emf_reaches_low_pack_at_m_s": 4.591751822486842,
+    "back_emf_basis": "Hub back-EMF Ke w equals the 19.2 V low pack voltage at this ground speed; below it a back-driven hub cannot charge the bus through the driver body diodes"
+  },
+  "battery_monitor": {
+    "ratio": 0.05263157894736842,
+    "pin_V_at_full": 1.3263157894736841,
+    "pin_within_reference": true,
+    "bus_V_per_lsb": 0.0153076171875,
+    "source_impedance_ohm": 9473.684210526315,
+    "thresholds_V": {
+      "arm_minimum": 19.2,
+      "firmware_cutoff": 18.0
+    },
+    "placement": "On the switched bus, so it draws nothing when the robot is off"
+  },
+  "fault_table": [
+    {
+      "fault": "Short circuit on the bus",
+      "detection": "LM5060 VDS comparator; fuse",
+      "response": "LM5060 pulls GATE low at 80 mA (5 us); the 10 A MINI fuse interrupts if the MOSFET fails short"
+    },
+    {
+      "fault": "Inrush at switch-on",
+      "detection": "-",
+      "response": "LM5060 rise time 15-33 ms holds inrush below 0.5 A; XT30s are never hot-plugged"
+    },
+    {
+      "fault": "Pack over-discharge",
+      "detection": "Teensy bus ADC and moteus bus voltage; LM5060 UVLO",
+      "response": "Firmware stops and disarms at 18.0 V (3.0 V/cell); the UVLO opens the switch near 2.9 V/cell as a hardware backstop"
+    },
+    {
+      "fault": "Bus overvoltage from regeneration",
+      "detection": "moteus bus sensing",
+      "response": "Flux braking above 27 V; moteus faults at 30 V; regen power limited to 10 W per driver"
+    },
+    {
+      "fault": "Reverse pack polarity",
+      "detection": "-",
+      "response": "Prevented by the keyed XT30; the moteus has no reverse protection"
+    },
+    {
+      "fault": "CAN-FD bus loss",
+      "detection": "moteus watchdog; Teensy feedback timeout",
+      "response": "moteus stops on command timeout; the supervisor latches a stop"
+    },
+    {
+      "fault": "IMU loss",
+      "detection": "Teensy IMU timeout",
+      "response": "Supervisor latches a stop"
+    },
+    {
+      "fault": "Driver or motor overtemperature",
+      "detection": "moteus temperature sensing",
+      "response": "moteus derates, then faults"
+    },
+    {
+      "fault": "5 V regulator overload",
+      "detection": "-",
+      "response": "LED brightness capped in firmware; the vision host is reserved within the 5 A rating"
+    }
+  ],
+  "checks": {
+    "regulator": true,
+    "inrush": true,
+    "lm5060_start_up_timer": true,
+    "lm5060_trip_above_peak": true,
+    "mosfet_gate_voltage": true,
+    "mosfet_linear_mode": true,
+    "fuse_peak": true,
+    "fuse_rms": true,
+    "fuse_interrupting": true,
+    "driver_minimum_voltage": true,
+    "battery_monitor_range": true
+  },
+  "passed": true
+}

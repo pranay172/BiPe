@@ -1,0 +1,569 @@
+{
+  "board": "bipe-m11-carrier",
+  "size_mm": [
+    40.0,
+    30.0
+  ],
+  "components": [
+    {
+      "ref": "U1",
+      "kind": "Teensy40",
+      "value": "Teensy 4.0",
+      "footprint": "Teensy40_Carrier",
+      "xy": [
+        21.92,
+        20.0
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "GND",
+        "4": "CAN_STBY",
+        "5": "LED_DATA",
+        "6": "ARM_N",
+        "7": "STOP_N",
+        "9": "PWR_GOOD_N",
+        "11": "IMU_INT1",
+        "12": "IMU_CS",
+        "13": "SPI_MOSI",
+        "14": "SPI_MISO",
+        "15": "SPI_SCK",
+        "16": "BUS_ADC",
+        "26": "+3V3",
+        "27": "GND",
+        "28": "+5V",
+        "29": "CAN_RX",
+        "30": "CAN_TX"
+      },
+      "mpn": "PJRC Teensy 4.0 (VUSB-VIN pad cut)",
+      "lcsc": "",
+      "source": "https://www.pjrc.com/store/teensy40.html",
+      "fpname": "Teensy40_Carrier"
+    },
+    {
+      "ref": "U2",
+      "kind": "MCP2562FD",
+      "value": "MCP2562FD-E/SN",
+      "footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+      "xy": [
+        31.5,
+        20.0
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "CAN_TX",
+        "2": "GND",
+        "3": "+5V",
+        "4": "CAN_RX",
+        "5": "+3V3",
+        "6": "CAN_L",
+        "7": "CAN_H",
+        "8": "CAN_STBY"
+      },
+      "mpn": "MCP2562FD-E/SN",
+      "lcsc": "C124016",
+      "source": "Microchip DS20005284",
+      "fpname": "SOIC-8_3.9x4.9mm_P1.27mm"
+    },
+    {
+      "ref": "R1",
+      "kind": "R",
+      "value": "10k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "xy": [
+        27.0,
+        15.5
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "CAN_STBY",
+        "2": "+3V3"
+      },
+      "mpn": "0603 10k",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "R_0603_1608Metric"
+    },
+    {
+      "ref": "C1",
+      "kind": "C",
+      "value": "100nF 16V",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "xy": [
+        27.0,
+        18.5
+      ],
+      "rot": 90,
+      "nets": {
+        "1": "+5V",
+        "2": "GND"
+      },
+      "mpn": "100nF 16V",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_0603_1608Metric"
+    },
+    {
+      "ref": "C2",
+      "kind": "C",
+      "value": "100nF 16V",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "xy": [
+        27.0,
+        22.0
+      ],
+      "rot": 90,
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "mpn": "100nF 16V",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_0603_1608Metric"
+    },
+    {
+      "ref": "R2",
+      "kind": "R",
+      "value": "60.4R 1%",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "xy": [
+        36.8,
+        16.0
+      ],
+      "rot": 90,
+      "nets": {
+        "1": "CAN_H",
+        "2": "CAN_MID"
+      },
+      "mpn": "0603 60.4R 1%",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "R_0603_1608Metric"
+    },
+    {
+      "ref": "R3",
+      "kind": "R",
+      "value": "60.4R 1%",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "xy": [
+        36.8,
+        20.0
+      ],
+      "rot": 90,
+      "nets": {
+        "1": "CAN_MID",
+        "2": "CAN_L"
+      },
+      "mpn": "0603 60.4R 1%",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "R_0603_1608Metric"
+    },
+    {
+      "ref": "C3",
+      "kind": "C",
+      "value": "4.7nF 50V",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "xy": [
+        36.8,
+        24.0
+      ],
+      "rot": 90,
+      "nets": {
+        "1": "CAN_MID",
+        "2": "GND"
+      },
+      "mpn": "4.7nF 50V",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_0603_1608Metric"
+    },
+    {
+      "ref": "U3",
+      "kind": "LSM6DSO",
+      "value": "LSM6DSOTR",
+      "footprint": "Package_LGA:LGA-14_3x2.5mm_P0.5mm_LayoutBorder3x4y",
+      "xy": [
+        19.0,
+        20.0
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "SPI_MISO",
+        "2": "GND",
+        "3": "GND",
+        "4": "IMU_INT1",
+        "5": "+3V3",
+        "6": "GND",
+        "7": "GND",
+        "8": "+3V3",
+        "12": "IMU_CS",
+        "13": "SPI_SCK",
+        "14": "SPI_MOSI"
+      },
+      "mpn": "LSM6DSOTR",
+      "lcsc": "C2655100",
+      "source": "https://www.st.com/resource/en/datasheet/lsm6dso.pdf",
+      "fpname": "LGA-14_3x2.5mm_P0.5mm_LayoutBorder3x4y"
+    },
+    {
+      "ref": "C4",
+      "kind": "C",
+      "value": "100nF 16V",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "xy": [
+        22.0,
+        16.5
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "mpn": "100nF 16V",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_0603_1608Metric"
+    },
+    {
+      "ref": "C5",
+      "kind": "C",
+      "value": "100nF 16V",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "xy": [
+        22.0,
+        23.5
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "mpn": "100nF 16V",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_0603_1608Metric"
+    },
+    {
+      "ref": "C6",
+      "kind": "C",
+      "value": "1uF 16V",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "xy": [
+        15.6,
+        16.5
+      ],
+      "rot": 90,
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "mpn": "1uF 16V",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_0603_1608Metric"
+    },
+    {
+      "ref": "R4",
+      "kind": "R",
+      "value": "10k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "xy": [
+        16.0,
+        23.5
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "IMU_CS",
+        "2": "+3V3"
+      },
+      "mpn": "0603 10k",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "R_0603_1608Metric"
+    },
+    {
+      "ref": "U4",
+      "kind": "74AHCT1G125",
+      "value": "SN74AHCT1G125DBVR",
+      "footprint": "Package_TO_SOT_SMD:SOT-23-5",
+      "xy": [
+        10.5,
+        16.5
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "GND",
+        "2": "LED_DATA",
+        "3": "GND",
+        "4": "LED_Y",
+        "5": "+5V"
+      },
+      "mpn": "SN74AHCT1G125DBVR",
+      "lcsc": "C7484",
+      "source": "https://www.ti.com/lit/ds/symlink/sn74ahct1g125.pdf",
+      "fpname": "SOT-23-5"
+    },
+    {
+      "ref": "C7",
+      "kind": "C",
+      "value": "100nF 16V",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "xy": [
+        13.8,
+        15.25
+      ],
+      "rot": 90,
+      "nets": {
+        "1": "+5V",
+        "2": "GND"
+      },
+      "mpn": "100nF 16V",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_0603_1608Metric"
+    },
+    {
+      "ref": "R5",
+      "kind": "R",
+      "value": "330R",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "xy": [
+        13.8,
+        18.5
+      ],
+      "rot": 90,
+      "nets": {
+        "1": "LED_Y",
+        "2": "LED_DIN"
+      },
+      "mpn": "0603 330R",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "R_0603_1608Metric"
+    },
+    {
+      "ref": "D1",
+      "kind": "BAT54S",
+      "value": "BAT54S",
+      "footprint": "Package_TO_SOT_SMD:SOT-23",
+      "xy": [
+        9.5,
+        23.0
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "GND",
+        "2": "+3V3",
+        "3": "BUS_ADC"
+      },
+      "mpn": "BAT54S",
+      "lcsc": "C2828465",
+      "source": "BAT54S series Schottky pair (clamps the ADC input)",
+      "fpname": "SOT-23"
+    },
+    {
+      "ref": "R6",
+      "kind": "R",
+      "value": "10k 1%",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "xy": [
+        6.5,
+        20.5
+      ],
+      "rot": 90,
+      "nets": {
+        "1": "BUS_ADC",
+        "2": "GND"
+      },
+      "mpn": "0603 10k 1%",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "R_0603_1608Metric"
+    },
+    {
+      "ref": "C8",
+      "kind": "C",
+      "value": "10nF 50V",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "xy": [
+        6.5,
+        24.0
+      ],
+      "rot": 90,
+      "nets": {
+        "1": "BUS_ADC",
+        "2": "GND"
+      },
+      "mpn": "10nF 50V",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_0603_1608Metric"
+    },
+    {
+      "ref": "R7",
+      "kind": "R",
+      "value": "10k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric",
+      "xy": [
+        12.8,
+        24.5
+      ],
+      "rot": 90,
+      "nets": {
+        "1": "PWR_GOOD_N",
+        "2": "+3V3"
+      },
+      "mpn": "0603 10k",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "R_0603_1608Metric"
+    },
+    {
+      "ref": "C9",
+      "kind": "C",
+      "value": "10uF 10V",
+      "footprint": "Capacitor_SMD:C_0805_2012Metric",
+      "xy": [
+        6.5,
+        15.45
+      ],
+      "rot": 90,
+      "nets": {
+        "1": "+5V",
+        "2": "GND"
+      },
+      "mpn": "10uF 10V",
+      "lcsc": "",
+      "source": "JLC basic/extended passive, matched by value and footprint at order time",
+      "fpname": "C_0805_2012Metric"
+    },
+    {
+      "ref": "J1",
+      "kind": "Conn7",
+      "value": "SYS: +5V GND BUS_SENSE PGD_N ARM_N STOP_N GND",
+      "footprint": "Connector_JST:JST_PH_B7B-PH-K_1x07_P2.00mm_Vertical",
+      "xy": [
+        2.8,
+        2.4
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "+5V",
+        "2": "GND",
+        "3": "BUS_ADC",
+        "4": "PWR_GOOD_N",
+        "5": "ARM_N",
+        "6": "STOP_N",
+        "7": "GND"
+      },
+      "mpn": "B7B-PH-K-S(LF)(SN)",
+      "lcsc": "C157981",
+      "source": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf",
+      "fpname": "JST_PH_B7B-PH-K_1x07_P2.00mm_Vertical"
+    },
+    {
+      "ref": "J2",
+      "kind": "Conn3",
+      "value": "EYES: +5V DIN GND",
+      "footprint": "Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical",
+      "xy": [
+        19.9,
+        2.4
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "+5V",
+        "2": "LED_DIN",
+        "3": "GND"
+      },
+      "mpn": "B3B-PH-K-S(LF)(SN)",
+      "lcsc": "C131339",
+      "source": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf",
+      "fpname": "JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical"
+    },
+    {
+      "ref": "J3",
+      "kind": "Conn3",
+      "value": "CAN: H L GND (moteus-c1 order)",
+      "footprint": "Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical",
+      "xy": [
+        29.0,
+        2.4
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "CAN_H",
+        "2": "CAN_L",
+        "3": "GND"
+      },
+      "mpn": "B3B-PH-K-S(LF)(SN)",
+      "lcsc": "C131339",
+      "source": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf",
+      "fpname": "JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical"
+    },
+    {
+      "ref": "#FLG01",
+      "kind": "PWR_FLAG",
+      "value": "PWR_FLAG",
+      "footprint": "",
+      "xy": [
+        0,
+        0
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "+5V"
+      },
+      "mpn": "",
+      "lcsc": "",
+      "source": "",
+      "fpname": ""
+    },
+    {
+      "ref": "#FLG02",
+      "kind": "PWR_FLAG",
+      "value": "PWR_FLAG",
+      "footprint": "",
+      "xy": [
+        0,
+        0
+      ],
+      "rot": 0,
+      "nets": {
+        "1": "GND"
+      },
+      "mpn": "",
+      "lcsc": "",
+      "source": "",
+      "fpname": ""
+    }
+  ],
+  "net_names": [
+    "+3V3",
+    "+5V",
+    "ARM_N",
+    "BUS_ADC",
+    "CAN_H",
+    "CAN_L",
+    "CAN_MID",
+    "CAN_RX",
+    "CAN_STBY",
+    "CAN_TX",
+    "GND",
+    "IMU_CS",
+    "IMU_INT1",
+    "LED_DATA",
+    "LED_DIN",
+    "LED_Y",
+    "PWR_GOOD_N",
+    "SPI_MISO",
+    "SPI_MOSI",
+    "SPI_SCK",
+    "STOP_N"
+  ],
+  "power_nets": [
+    "+5V"
+  ],
+  "status": "M11 phase D digital candidate; not hardware validated or released"
+}

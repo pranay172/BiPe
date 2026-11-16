@@ -1,0 +1,214 @@
+{
+  "controller": {
+    "description": "M10 serial-leg cascade: the M9 sensor-only cascade with the pitch-rate gains lowered from 0.15 / 0.13 (hold / drive) to 0.07. With the 5 ms sensor transport delay, the M9 rate gains drive a ~19 Hz oscillation through the knee-belt compliance (wheel torque reacts on the shin, which the 1:1 knee belt holds): the tires hop, the airborne wheels spin up and corrupt the velocity estimate. Physical limits and acceptance thresholds are not changed by tuning. Phase C6: a whole-robot momentum observer (slope_observer_tau_s) compares the wheel torque before friction compensation with the CoM momentum (axle velocity plus the rate of the CoM's horizontal offset) and adds the static slope lean, bounded by slope_feedforward_limit_rad and slew limited by slope_lean_rate_limit_rad_s so a push cannot step it. The hold integral limit rises from 0.3 to 1.0 so the integral can trim the remaining slope error. M12 phase B (speed envelope to 1.2 m/s): the velocity reference is jerk limited (command_jerk_m_s3) at the 1.25 m/s^2 envelope acceleration (max_command_acceleration, was 3) and the lean reference adds atan(a/g) of the reference acceleration (acceleration_feedforward); a stop brakes the reference to rest and holds there. The hold reference, the position loop's output, keeps the earlier 3 m/s^2 rate limit without the jerk limit and the feedforward (hold_command_acceleration): shaping the feedback loop's output cost the push recovery at rest under a 25 ms hub lag (artifacts/m12/speed/lag_check/attribution.json). Tuning: artifacts/m12/speed/tuning/tuning.json.",
+    "pitch_kp": 1.3,
+    "pitch_kd": 0.07,
+    "speed_kp": 0.3,
+    "speed_ki": 0.2,
+    "hold_speed_kp": 0.4,
+    "hold_speed_ki": 0.1,
+    "speed_integral_limit": 1.0,
+    "hold_kp": 0.8,
+    "max_hold_speed": 0.1,
+    "max_pitch_offset": 0.22,
+    "max_command_acceleration": 1.25,
+    "heading_kp": 0.5,
+    "yaw_rate_kd": 0.035,
+    "joint_kp": 8.0,
+    "joint_kd": 0.05,
+    "posture_gain_schedule": true,
+    "wheel_friction_compensation": 0.005,
+    "friction_compensation_scale": 0.01,
+    "friction_velocity_threshold_rad_s": 1.0,
+    "drive_pitch_kd": 0.07,
+    "slope_observer_tau_s": 0.2,
+    "slope_feedforward_limit_rad": 0.2,
+    "slope_lean_rate_limit_rad_s": 0.1,
+    "command_jerk_m_s3": 10,
+    "hold_command_acceleration": 3,
+    "acceleration_feedforward": 1.0,
+    "tuning_record": "artifacts/m10/tuning/summary.json"
+  },
+  "rows": [
+    {
+      "case": "push_drive_+2",
+      "bound": null,
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 18.78058606092427,
+      "late_speed_peak_m_s": 0.022682650446893042
+    },
+    {
+      "case": "push_drive_+2",
+      "bound": 1.25,
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 18.316590199119208,
+      "late_speed_peak_m_s": 0.0222331522846366
+    },
+    {
+      "case": "push_drive_+2",
+      "bound": 0.75,
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 18.083034249217405,
+      "late_speed_peak_m_s": 0.02263417932397426
+    },
+    {
+      "case": "push_drive_+2.5",
+      "bound": null,
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 18.88810387321419,
+      "late_speed_peak_m_s": 0.02317780952235458
+    },
+    {
+      "case": "push_drive_+2.5",
+      "bound": 1.25,
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 18.56514809041427,
+      "late_speed_peak_m_s": 0.023072696819601644
+    },
+    {
+      "case": "push_drive_+2.5",
+      "bound": 0.75,
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 18.34951339277995,
+      "late_speed_peak_m_s": 0.024146748364662032
+    },
+    {
+      "case": "push_drive_-2.5",
+      "bound": null,
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 19.472532557567494,
+      "late_speed_peak_m_s": 0.0195349759279034
+    },
+    {
+      "case": "push_drive_-2.5",
+      "bound": 1.25,
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 18.514388075707785,
+      "late_speed_peak_m_s": 0.022449951027860567
+    },
+    {
+      "case": "push_drive_-2.5",
+      "bound": 0.75,
+      "physical_pass": true,
+      "recovered": true,
+      "peak_pitch_deg": 18.491408509841882,
+      "late_speed_peak_m_s": 0.02205761121469125
+    },
+    {
+      "case": "drive_step",
+      "bound": null,
+      "failure": null,
+      "peak_pitch_deg": 13.573818281790004,
+      "peak_speed_m_s": 1.3048775005315827,
+      "overshoot_m_s": 0.10487750053158273,
+      "path_error_m": null
+    },
+    {
+      "case": "drive_step",
+      "bound": 1.25,
+      "failure": null,
+      "peak_pitch_deg": 13.573758428968949,
+      "peak_speed_m_s": 1.3064817043358914,
+      "overshoot_m_s": 0.10648170433589144,
+      "path_error_m": null
+    },
+    {
+      "case": "drive_step",
+      "bound": 0.75,
+      "failure": null,
+      "peak_pitch_deg": 13.89743177096069,
+      "peak_speed_m_s": 1.3485975163206747,
+      "overshoot_m_s": 0.14859751632067475,
+      "path_error_m": null
+    },
+    {
+      "case": "replay_corner_90",
+      "bound": null,
+      "failure": null,
+      "peak_pitch_deg": 12.318996327040532,
+      "peak_speed_m_s": 1.2623428408083057,
+      "overshoot_m_s": null,
+      "path_error_m": 0.1969009514647467
+    },
+    {
+      "case": "replay_corner_90",
+      "bound": 1.25,
+      "failure": null,
+      "peak_pitch_deg": 12.316625612333782,
+      "peak_speed_m_s": 1.2623491999405443,
+      "overshoot_m_s": null,
+      "path_error_m": 0.19691164262359487
+    },
+    {
+      "case": "replay_corner_90",
+      "bound": 0.75,
+      "failure": null,
+      "peak_pitch_deg": 12.6057685681402,
+      "peak_speed_m_s": 1.280646787578631,
+      "overshoot_m_s": null,
+      "path_error_m": 0.19571007325172618
+    },
+    {
+      "case": "replay_start_stop",
+      "bound": null,
+      "failure": null,
+      "peak_pitch_deg": 12.752554287989158,
+      "peak_speed_m_s": 1.2623428408083057,
+      "overshoot_m_s": null,
+      "path_error_m": 0.19810516045683574
+    },
+    {
+      "case": "replay_start_stop",
+      "bound": 1.25,
+      "failure": null,
+      "peak_pitch_deg": 12.75209281450696,
+      "peak_speed_m_s": 1.2623491999405443,
+      "overshoot_m_s": null,
+      "path_error_m": 0.19816110234052764
+    },
+    {
+      "case": "replay_start_stop",
+      "bound": 0.75,
+      "failure": null,
+      "peak_pitch_deg": 13.057132901567343,
+      "peak_speed_m_s": 1.280646787578631,
+      "overshoot_m_s": null,
+      "path_error_m": 0.22178207053220286
+    },
+    {
+      "case": "replay_curve_r1",
+      "bound": null,
+      "failure": null,
+      "peak_pitch_deg": 11.298698205883337,
+      "peak_speed_m_s": 0.886166994930952,
+      "overshoot_m_s": null,
+      "path_error_m": 0.17129718122973808
+    },
+    {
+      "case": "replay_curve_r1",
+      "bound": 1.25,
+      "failure": null,
+      "peak_pitch_deg": 11.298698205883337,
+      "peak_speed_m_s": 0.886166994930952,
+      "overshoot_m_s": null,
+      "path_error_m": 0.17129718122973808
+    },
+    {
+      "case": "replay_curve_r1",
+      "bound": 0.75,
+      "failure": null,
+      "peak_pitch_deg": 11.31452505901134,
+      "peak_speed_m_s": 0.8965183488688673,
+      "overshoot_m_s": null,
+      "path_error_m": 0.18575767659581557
+    }
+  ]
+}

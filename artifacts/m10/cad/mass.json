@@ -1,0 +1,570 @@
+{
+  "basis": "cad/m10/assembly.py at the nominal pose; Phase B3 CAD mass basis: densities and catalog masses from the M9 sourced catalog (m9_cad.parameters.materials, catalog, sources) unless noted; assumptions are marked",
+  "pose": {
+    "hip_height_m": 0.103,
+    "a1_deg": -153.6942408925736,
+    "a2_deg": -35.47176955093474,
+    "knee_m": [
+      -0.06275093232679169,
+      -0.031021290948611596
+    ],
+    "axle_m": [
+      -0.012258036836479975,
+      -0.06700000000000002
+    ]
+  },
+  "cad_mass_kg": 1.815,
+  "allowances_kg": {
+    "harness": 0.06,
+    "fasteners_and_inserts": 0.06,
+    "head_pan_reserve": 0.04
+  },
+  "allocated_kg": 1.975,
+  "ceiling_kg": 2.15,
+  "margin_kg": 0.175,
+  "gate_pass": true,
+  "robot_com_hip_m": [
+    -0.01345,
+    6e-05,
+    -0.01502
+  ],
+  "rigid_bodies": {
+    "body": {
+      "mass_kg": 0.89798,
+      "com_link_m": [
+        -0.007137,
+        0.000126,
+        0.004583
+      ],
+      "inertia_about_com_link_kg_m2": [
+        [
+          0.0014184,
+          2.3404e-06,
+          -0.0001963
+        ],
+        [
+          2.3404e-06,
+          0.0023164,
+          -2.2566e-07
+        ],
+        [
+          -0.0001963,
+          -2.2566e-07,
+          0.0023188
+        ]
+      ],
+      "frame": {
+        "origin_hip_m": [
+          0.0,
+          0.0
+        ],
+        "angle_deg": 0.0
+      }
+    },
+    "left_kneedrive": {
+      "mass_kg": 0.061,
+      "com_link_m": [
+        0.000585,
+        0.026348,
+        0.000364
+      ],
+      "inertia_about_com_link_kg_m2": [
+        [
+          4.6286e-05,
+          7.0435e-07,
+          2.1859e-07
+        ],
+        [
+          7.0435e-07,
+          1.3093e-05,
+          4.2705e-07
+        ],
+        [
+          2.1859e-07,
+          4.2705e-07,
+          4.6064e-05
+        ]
+      ],
+      "frame": {
+        "origin_hip_m": [
+          0.0,
+          0.0
+        ],
+        "angle_deg": -35.472
+      }
+    },
+    "left_kneerotor": {
+      "mass_kg": 0.03053,
+      "com_link_m": [
+        0.0,
+        0.01803,
+        0.0
+      ],
+      "inertia_about_com_link_kg_m2": [
+        [
+          6.6799e-06,
+          4.3198e-22,
+          6.57e-24
+        ],
+        [
+          4.3198e-22,
+          1.2281e-05,
+          -1.5097e-22
+        ],
+        [
+          6.57e-24,
+          -1.5097e-22,
+          6.6799e-06
+        ]
+      ],
+      "frame": {
+        "origin_hip_m": [
+          -0.04153,
+          0.0
+        ],
+        "angle_deg": 0.0
+      }
+    },
+    "left_shin": {
+      "mass_kg": 0.11135,
+      "com_link_m": [
+        0.042893,
+        0.081952,
+        4.7e-05
+      ],
+      "inertia_about_com_link_kg_m2": [
+        [
+          1.6791e-05,
+          -1.6874e-05,
+          1.5166e-07
+        ],
+        [
+          -1.6874e-05,
+          9.5636e-05,
+          1.1871e-08
+        ],
+        [
+          1.5166e-07,
+          1.1871e-08,
+          9.2262e-05
+        ]
+      ],
+      "frame": {
+        "origin_hip_m": [
+          -0.062751,
+          -0.031021
+        ],
+        "angle_deg": -35.472
+      }
+    },
+    "left_thigh": {
+      "mass_kg": 0.0971,
+      "com_link_m": [
+        0.021079,
+        0.058982,
+        -0.000218
+      ],
+      "inertia_about_com_link_kg_m2": [
+        [
+          2.9988e-05,
+          -1.8153e-05,
+          -3.2515e-07
+        ],
+        [
+          -1.8153e-05,
+          0.00011353,
+          -1.3637e-07
+        ],
+        [
+          -3.2515e-07,
+          -1.3637e-07,
+          0.0001138
+        ]
+      ],
+      "frame": {
+        "origin_hip_m": [
+          0.0,
+          0.0
+        ],
+        "angle_deg": -153.694
+      }
+    },
+    "left_thighrotor": {
+      "mass_kg": 0.03053,
+      "com_link_m": [
+        0.0,
+        0.03747,
+        0.0
+      ],
+      "inertia_about_com_link_kg_m2": [
+        [
+          6.6799e-06,
+          5.9611e-22,
+          6.57e-24
+        ],
+        [
+          5.9611e-22,
+          1.2281e-05,
+          1.4638e-22
+        ],
+        [
+          6.57e-24,
+          1.4638e-22,
+          6.6799e-06
+        ]
+      ],
+      "frame": {
+        "origin_hip_m": [
+          -0.04153,
+          0.0
+        ],
+        "angle_deg": 0.0
+      }
+    },
+    "left_wheel": {
+      "mass_kg": 0.128,
+      "com_link_m": [
+        0.0,
+        0.100314,
+        0.0
+      ],
+      "inertia_about_com_link_kg_m2": [
+        [
+          4.2869e-05,
+          -1.3337e-20,
+          2.4859e-20
+        ],
+        [
+          -1.3337e-20,
+          6.9263e-05,
+          -3.3948e-20
+        ],
+        [
+          2.4859e-20,
+          -3.3948e-20,
+          4.2869e-05
+        ]
+      ],
+      "frame": {
+        "origin_hip_m": [
+          -0.012258,
+          -0.067
+        ],
+        "angle_deg": 0.0
+      }
+    },
+    "right_kneedrive": {
+      "mass_kg": 0.061,
+      "com_link_m": [
+        0.000585,
+        -0.026348,
+        0.000364
+      ],
+      "inertia_about_com_link_kg_m2": [
+        [
+          4.6286e-05,
+          -7.0435e-07,
+          2.1859e-07
+        ],
+        [
+          -7.0435e-07,
+          1.3093e-05,
+          -4.2705e-07
+        ],
+        [
+          2.1859e-07,
+          -4.2705e-07,
+          4.6064e-05
+        ]
+      ],
+      "frame": {
+        "origin_hip_m": [
+          0.0,
+          0.0
+        ],
+        "angle_deg": -35.472
+      }
+    },
+    "right_kneerotor": {
+      "mass_kg": 0.03053,
+      "com_link_m": [
+        0.0,
+        -0.01803,
+        0.0
+      ],
+      "inertia_about_com_link_kg_m2": [
+        [
+          6.6799e-06,
+          -8.1547e-22,
+          1.3099e-24
+        ],
+        [
+          -8.1547e-22,
+          1.2281e-05,
+          1.3255e-22
+        ],
+        [
+          1.3099e-24,
+          1.3255e-22,
+          6.6799e-06
+        ]
+      ],
+      "frame": {
+        "origin_hip_m": [
+          -0.04153,
+          0.0
+        ],
+        "angle_deg": 0.0
+      }
+    },
+    "right_shin": {
+      "mass_kg": 0.11135,
+      "com_link_m": [
+        0.042893,
+        -0.081952,
+        4.7e-05
+      ],
+      "inertia_about_com_link_kg_m2": [
+        [
+          1.6791e-05,
+          1.6874e-05,
+          1.5166e-07
+        ],
+        [
+          1.6874e-05,
+          9.5636e-05,
+          -1.1871e-08
+        ],
+        [
+          1.5166e-07,
+          -1.1871e-08,
+          9.2262e-05
+        ]
+      ],
+      "frame": {
+        "origin_hip_m": [
+          -0.062751,
+          -0.031021
+        ],
+        "angle_deg": -35.472
+      }
+    },
+    "right_thigh": {
+      "mass_kg": 0.0971,
+      "com_link_m": [
+        0.021079,
+        -0.058982,
+        -0.000218
+      ],
+      "inertia_about_com_link_kg_m2": [
+        [
+          2.9988e-05,
+          1.8153e-05,
+          -3.2515e-07
+        ],
+        [
+          1.8153e-05,
+          0.00011353,
+          1.3637e-07
+        ],
+        [
+          -3.2515e-07,
+          1.3637e-07,
+          0.0001138
+        ]
+      ],
+      "frame": {
+        "origin_hip_m": [
+          0.0,
+          0.0
+        ],
+        "angle_deg": -153.694
+      }
+    },
+    "right_thighrotor": {
+      "mass_kg": 0.03053,
+      "com_link_m": [
+        0.0,
+        -0.03747,
+        0.0
+      ],
+      "inertia_about_com_link_kg_m2": [
+        [
+          6.6799e-06,
+          -1.4561e-21,
+          1.3099e-24
+        ],
+        [
+          -1.4561e-21,
+          1.2281e-05,
+          -1.4522e-22
+        ],
+        [
+          1.3099e-24,
+          -1.4522e-22,
+          6.6799e-06
+        ]
+      ],
+      "frame": {
+        "origin_hip_m": [
+          -0.04153,
+          0.0
+        ],
+        "angle_deg": 0.0
+      }
+    },
+    "right_wheel": {
+      "mass_kg": 0.128,
+      "com_link_m": [
+        0.0,
+        -0.100314,
+        0.0
+      ],
+      "inertia_about_com_link_kg_m2": [
+        [
+          4.2869e-05,
+          7.1204e-21,
+          3.5333e-21
+        ],
+        [
+          7.1204e-21,
+          6.9263e-05,
+          7.7581e-20
+        ],
+        [
+          3.5333e-21,
+          7.7581e-20,
+          4.2869e-05
+        ]
+      ],
+      "frame": {
+        "origin_hip_m": [
+          -0.012258,
+          -0.067
+        ],
+        "angle_deg": 0.0
+      }
+    }
+  },
+  "knee_drive_train": {
+    "left": {
+      "mass_kg": 0.061,
+      "inertia_hip_axis_kg_m2": 1.3122e-05
+    },
+    "right": {
+      "mass_kg": 0.061,
+      "inertia_hip_axis_kg_m2": 1.3122e-05
+    }
+  },
+  "mass_by_basis_kg": {
+    "al7075": 0.1614,
+    "aluminium": 0.2719,
+    "bearing": 0.056,
+    "belt": 0.0173,
+    "catalog": 0.7153,
+    "catalog rotor": 0.104,
+    "epoxy": 0.0001,
+    "fr4": 0.0107,
+    "iglidur_g": 0.0022,
+    "ld45": 0.0043,
+    "magnet": 0.0004,
+    "pa12": 0.303,
+    "pmma": 0.0032,
+    "steel": 0.0206,
+    "tpu": 0.1446
+  },
+  "mass_by_part_kg": {
+    "Battery": 0.165,
+    "KneeMotor": 0.128,
+    "ThighMotor": 0.128,
+    "HubStatorBase": 0.11,
+    "HubRotor": 0.104,
+    "Tire": 0.1019,
+    "Bulkhead": 0.0842,
+    "KneeHipPulley": 0.0692,
+    "Shin": 0.0672,
+    "BodyTub": 0.0628,
+    "BodyCover": 0.0625,
+    "ThighHipPulley": 0.0599,
+    "Moteus": 0.0534,
+    "KneeMotorRotor": 0.052,
+    "ThighMotorRotor": 0.052,
+    "HeadRear": 0.0341,
+    "HubDisc": 0.0336,
+    "Thigh": 0.032,
+    "KneeBeltHipPulley": 0.0249,
+    "KneePulley": 0.0249,
+    "OuterShaft": 0.0249,
+    "InnerShaft": 0.0248,
+    "ThighLid": 0.0235,
+    "HipBracket": 0.0183,
+    "SkidSkin": 0.0168,
+    "HipHousing": 0.0156,
+    "Neck": 0.0127,
+    "KneeShaft": 0.012,
+    "HeadFront": 0.012,
+    "WheelRingSkin": 0.0109,
+    "HipInnerBearing": 0.0109,
+    "HipPodBearing": 0.0109,
+    "KneeInnerBearing": 0.0108,
+    "KneeOuterBearing": 0.0108,
+    "Ear": 0.0106,
+    "PiZero": 0.01,
+    "KneeBelt": 0.008,
+    "HipFlange": 0.0074,
+    "BulkheadBearing": 0.0063,
+    "InnerShaftEndBearing": 0.0063,
+    "KneeMotorShaft": 0.0059,
+    "ThighMotorShaft": 0.0059,
+    "Teensy": 0.0051,
+    "BEC": 0.005,
+    "KneeHipBelt": 0.0047,
+    "ThighHipBelt": 0.0047,
+    "AxleTube": 0.0045,
+    "CarrierPCB": 0.0036,
+    "PowerPCB": 0.0036,
+    "ThighPanel": 0.0035,
+    "SkidPad": 0.0034,
+    "BatteryHatch": 0.0033,
+    "KneeMotorPulley": 0.0031,
+    "ThighMotorPulley": 0.0031,
+    "HipStopPin": 0.0031,
+    "EyeLEDBoard": 0.0027,
+    "MotorStandoff": 0.0025,
+    "CameraBoard": 0.0025,
+    "KneeStopPin": 0.0025,
+    "KneeDriveStopPin": 0.0025,
+    "HipCap": 0.0023,
+    "InnerShaftEnds": 0.0023,
+    "Sleeve": 0.0022,
+    "EyeLens": 0.0022,
+    "WheelRingCarrier": 0.002,
+    "Tread": 0.0016,
+    "CameraLensBlock": 0.0015,
+    "FrontCameraBezel": 0.0014,
+    "KneeStopPad": 0.0012,
+    "PowerParts": 0.001,
+    "PowerSwitch": 0.001,
+    "FrontCameraLens": 0.001,
+    "EncoderPCB": 0.0009,
+    "WheelRing": 0.0009,
+    "KneeDriveStopPad": 0.0008,
+    "HipStopPad": 0.0008,
+    "CarrierParts": 0.0008,
+    "KneeBolt": 0.0007,
+    "KneeBoss": 0.0005,
+    "CameraBezel": 0.0004,
+    "EncoderMagnet": 0.0004,
+    "HubBlade": 0.0004,
+    "HubCap": 0.0003,
+    "CameraRing": 0.0001,
+    "EncoderChip": 0.0001,
+    "HeadScrew": 0.0001,
+    "CameraLens": 0.0,
+    "HarnessThigh": 0.0,
+    "HarnessLoopBody": 0.0,
+    "HarnessLoopHip": 0.0,
+    "HarnessLoopKnee": 0.0,
+    "HarnessShin": 0.0
+  }
+}

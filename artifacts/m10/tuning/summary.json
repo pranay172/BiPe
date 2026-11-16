@@ -1,0 +1,479 @@
+{
+  "status": "Phase C3 tuning of the M10 cascade, python implementation with the configured sensor model; simulation under stated assumptions, not hardware-validated",
+  "plant": "bipe.m10.plant, config/robot.json m10 (commits 7b734b5, b544390)",
+  "sensor_config": {
+    "description": "M10 LSM6DSO IMU (M9 assumptions); AS5047P on each RO40 rotor, so the joint angles include both belt deflections; AS5047P on each axle end reading the hub magnet, so the wheel angle is relative to the shin. Catalog INL is a deterministic periodic term, not quantization. Noise, bias, delay and filter values are the M9 assumptions.",
+    "gyro_noise_std_rad_s": 0.003,
+    "gyro_residual_bias_rad_s": [
+      0.0003,
+      -0.0003,
+      0.0003
+    ],
+    "accel_noise_std_m_s2": 0.06,
+    "accel_bias_m_s2": [
+      0.01,
+      -0.01,
+      0.01
+    ],
+    "wheel_encoder_counts_per_rev": 16384,
+    "joint_encoder_counts_per_rev": 65536,
+    "transport_delay_s": 0.005,
+    "velocity_filter_tau_s": 0.005,
+    "gyro_anti_alias_tau_s": 0.003,
+    "accel_anti_alias_tau_s": 0.005,
+    "posture_filter_tau_s": 0.02,
+    "joint_velocity_filter_tau_s": 0.002,
+    "local_joint_velocity_filter_tau_s": 0.002,
+    "attitude_correction_tau_s": 3.0,
+    "accel_norm_gate_m_s2": 1.5,
+    "seed": 20260930,
+    "local_joint_encoder_counts_per_rev": 65536,
+    "joint_encoder_bias_rad": [
+      0.0001,
+      -0.0001,
+      0.0001,
+      -0.0001
+    ],
+    "joint_encoder_periodic_error_rad": 0.005235987755982988,
+    "wheel_encoder_periodic_error_rad": 0.020943951023931952,
+    "parts": {
+      "joint": "AS5047P 14 bit on the RO40 rotor; 16384 counts per rotor revolution are 65536 per output revolution through the 4:1 belt. The output ranges (a1 60 deg, a2 54 deg) stay within one rotor turn, so the reading is absolute.",
+      "wheel": "AS5047P 14 bit on the fixed axle end, reading a 6 x 1 mm diametric magnet in the hub wall (m10.internals.hub): wheel angle relative to the shin.",
+      "imu": "LSM6DSO retained",
+      "references": [
+        "https://look.ams-osram.com/m/d05ee39221f9857/original/AS5047P-DS000324.pdf"
+      ],
+      "error_basis": "AS5047P displaced/full-temperature INL bound 1.2 deg. Joint: divided by the 4:1 belt and modelled as sin(2 x output angle), so the amplitude is right but the rotor-side harmonic is not reproduced. Wheel: modelled as sin(angle). Transport 5 ms is a host assumption including device readout."
+    }
+  },
+  "starting_gains": "M9 sensor-only cascade values: pitch_kd 0.15, drive_pitch_kd 0.13",
+  "diagnosis": {
+    "symptom": "crouch with sensors fails at 1.2-1.4 s (pitch error 20 deg); ideal sensing passes",
+    "sensor_ablation_crouch_8s": {
+      "base": "fail 1.23 s",
+      "velocity_filter_tau 20 ms": "fail 1.72 s",
+      "velocity_filter_tau 40 ms": "fail 1.57 s",
+      "no joint/wheel INL": "fail 1.27 s",
+      "no noise or bias": "fail 1.33 s",
+      "no posture filter": "fail 1.34 s",
+      "no transport delay or anti-alias lag": "pass, 0.71 deg",
+      "all sensor effects removed": "pass, 0.78 deg"
+    },
+    "mechanism": "A ~19 Hz oscillation grows from 0.56 s once the joints break away. The hub torque reacts on the shin, which only the 69 N m/rad knee belt holds; 5 ms transport plus 3 ms anti-alias lag put about 55 deg of lag on the pitch-rate term at 19 Hz. The tires hop and the airborne wheels spin to ~60 rad/s, so wheel odometry reads 2-3.5 m/s and the speed loop leans to its 12.6 deg limit.",
+    "gain_sweep_crouch_8s": {
+      "pitch_kd 0.20": "fail 1.05 s",
+      "pitch_kd 0.10": "pass, 18.65 deg peak",
+      "pitch_kd 0.07": "pass, 0.93 deg",
+      "pitch_kp 0.9": "fail 1.19 s",
+      "joint_kp 4": "fail 1.36 s",
+      "joint_kp 16": "fail 1.34 s",
+      "joint_kd 0.02": "fail 1.19 s",
+      "joint_kd 0.1": "fail 1.52 s"
+    },
+    "set_A": {
+      "gains": {
+        "pitch_kd": 0.07
+      },
+      "note": "combined fails at 13.4 s: the 0.13 drive-mode rate gain repeats the hop/spin mechanism during the driven crouch"
+    },
+    "set_B": {
+      "gains": {
+        "pitch_kd": 0.07,
+        "drive_pitch_kd": 0.07
+      },
+      "note": "adopted; all eight scenarios pass"
+    },
+    "belt_corner_holds_20s_set_B": {
+      "hip lash 0.45, soft k, knee lash 0.225": "pass 1.50 deg",
+      "hip lash 0.45, soft k, knee lash 0.9": "pass 2.05 deg",
+      "hip lash 0.45, stiff k, knee lash 0.225": "pass 0.27 deg",
+      "hip lash 0.45, stiff k, knee lash 0.9": "pass 1.03 deg"
+    }
+  },
+  "suite_results": {
+    "A": {
+      "combined": {
+        "failure": "physical limit at 13.414s: pitch=20.01, roll=0.00, contact=False, joint_limit=False",
+        "passed": false,
+        "max_pitch_error_deg": 20.010555732533945,
+        "max_travel_m": 9.220388516922556,
+        "max_joint_error_deg": 6.132947401666786,
+        "settling_time_s": null,
+        "final_velocity_m_s": -0.09324725016536148,
+        "plateau_speed_mae_m_s": null,
+        "height_range_m": 0.0660215554608382,
+        "longest_saturation_s": 0.07000000000000005,
+        "peak": {
+          "left_hip": 1.0565913223011103,
+          "left_knee": 0.9300923501215684,
+          "right_hip": 1.0506736004213941,
+          "right_knee": 0.9321280262438332,
+          "left": 0.4949999987963611,
+          "right": 0.4949999708802833
+        },
+        "wall_s": 93.2,
+        "label": ""
+      },
+      "crouch": {
+        "failure": null,
+        "passed": true,
+        "max_pitch_error_deg": 0.9327568761300645,
+        "max_travel_m": 0.006469406068162701,
+        "max_joint_error_deg": 1.89449231419482,
+        "settling_time_s": null,
+        "final_velocity_m_s": 8.404925283390807e-05,
+        "plateau_speed_mae_m_s": null,
+        "height_range_m": 0.060946721424638896,
+        "longest_saturation_s": 0.0,
+        "peak": {
+          "left_hip": 0.539422294115361,
+          "left_knee": 0.4868234176443892,
+          "right_hip": 0.5449669984416695,
+          "right_knee": 0.48096225421410715,
+          "left": 0.05111365203121751,
+          "right": 0.04941417244676708
+        },
+        "wall_s": 238.6,
+        "label": ""
+      },
+      "drive": {
+        "failure": null,
+        "passed": true,
+        "max_pitch_error_deg": 8.678270973045386,
+        "max_travel_m": 1.5764753886281286,
+        "max_joint_error_deg": 1.054322406176713,
+        "settling_time_s": null,
+        "final_velocity_m_s": -0.0034761779268263657,
+        "plateau_speed_mae_m_s": 0.019005477646285747,
+        "height_range_m": 0.0029281383363895797,
+        "longest_saturation_s": 0.0,
+        "peak": {
+          "left_hip": 0.41568376635945503,
+          "left_knee": 0.37753214587646294,
+          "right_hip": 0.4192171305474256,
+          "right_knee": 0.3815297835365663,
+          "left": 0.06233307865456378,
+          "right": 0.0635795997991512
+        },
+        "wall_s": 142.0,
+        "label": ""
+      },
+      "hold": {
+        "failure": null,
+        "passed": true,
+        "max_pitch_error_deg": 0.932756696302187,
+        "max_travel_m": 0.007295752589324631,
+        "max_joint_error_deg": 0.9736346798429422,
+        "settling_time_s": 0.0,
+        "final_velocity_m_s": 0.002558129345288145,
+        "plateau_speed_mae_m_s": null,
+        "height_range_m": 0.00020634963655774552,
+        "longest_saturation_s": 0.0,
+        "peak": {
+          "left_hip": 0.4100278360234181,
+          "left_knee": 0.3705003396460301,
+          "right_hip": 0.4083668124480599,
+          "right_knee": 0.37126661416217344,
+          "left": 0.039036797623952804,
+          "right": 0.039041421283740094
+        },
+        "wall_s": 361.3,
+        "label": ""
+      },
+      "push": {
+        "failure": null,
+        "passed": true,
+        "max_pitch_error_deg": 2.037870548801972,
+        "max_travel_m": 0.024207922212037755,
+        "max_joint_error_deg": 0.9736036506247685,
+        "settling_time_s": null,
+        "final_velocity_m_s": -1.9298384195606024e-05,
+        "plateau_speed_mae_m_s": null,
+        "height_range_m": 0.0006627891131771035,
+        "longest_saturation_s": 0.0,
+        "peak": {
+          "left_hip": 0.4100278360234181,
+          "left_knee": 0.3705003396460301,
+          "right_hip": 0.4083668124480599,
+          "right_knee": 0.37126661416217344,
+          "left": 0.039036797623952804,
+          "right": 0.039041421283740094
+        },
+        "wall_s": 109.3,
+        "label": ""
+      },
+      "tilt_negative": {
+        "failure": null,
+        "passed": true,
+        "max_pitch_error_deg": 5.022399021287093,
+        "max_travel_m": 0.01011215391855688,
+        "max_joint_error_deg": 1.1723230636389903,
+        "settling_time_s": 0.030000000000000023,
+        "final_velocity_m_s": 4.0813285647646266e-10,
+        "plateau_speed_mae_m_s": null,
+        "height_range_m": 0.0002319225567277705,
+        "longest_saturation_s": 0.0,
+        "peak": {
+          "left_hip": 0.46686592540458294,
+          "left_knee": 0.4407216439930762,
+          "right_hip": 0.4675756762438614,
+          "right_knee": 0.4446210767043342,
+          "left": 0.19038788062667494,
+          "right": 0.19035849214505873
+        },
+        "wall_s": 363.7,
+        "label": ""
+      },
+      "tilt_positive": {
+        "failure": null,
+        "passed": true,
+        "max_pitch_error_deg": 5.000000000000001,
+        "max_travel_m": 0.013520190791158033,
+        "max_joint_error_deg": 1.0164602440240798,
+        "settling_time_s": 0.09000000000000007,
+        "final_velocity_m_s": -0.000623834684612486,
+        "plateau_speed_mae_m_s": null,
+        "height_range_m": 0.00023698923663807714,
+        "longest_saturation_s": 0.0,
+        "peak": {
+          "left_hip": 0.6866233765415327,
+          "left_knee": 0.6056125710043743,
+          "right_hip": 0.6957004488378729,
+          "right_knee": 0.6054677873707315,
+          "left": 0.37555109990645424,
+          "right": 0.3807618953937793
+        },
+        "wall_s": 363.6,
+        "label": ""
+      },
+      "turn": {
+        "failure": null,
+        "passed": true,
+        "max_pitch_error_deg": 0.932756696302187,
+        "max_travel_m": 0.007698522497402845,
+        "max_joint_error_deg": 1.0684922107769692,
+        "settling_time_s": null,
+        "final_velocity_m_s": -0.0019931937225616497,
+        "plateau_speed_mae_m_s": null,
+        "height_range_m": 0.00014637924025297233,
+        "longest_saturation_s": 0.0,
+        "peak": {
+          "left_hip": 0.4153678140816531,
+          "left_knee": 0.3705003396460301,
+          "right_hip": 0.4157521499162262,
+          "right_knee": 0.37126661416217344,
+          "left": 0.04748394099346426,
+          "right": 0.04796317732186666
+        },
+        "wall_s": 109.7,
+        "label": ""
+      }
+    },
+    "B": {
+      "combined": {
+        "failure": null,
+        "passed": true,
+        "max_pitch_error_deg": 5.144359188154698,
+        "max_travel_m": 1.660352579201562,
+        "max_joint_error_deg": 2.3005658904156445,
+        "settling_time_s": null,
+        "final_velocity_m_s": -0.007758344785531549,
+        "plateau_speed_mae_m_s": null,
+        "height_range_m": 0.0632746952905137,
+        "longest_saturation_s": 0.0,
+        "peak": {
+          "left_hip": 0.5745154886319235,
+          "left_knee": 0.5206987213399108,
+          "right_hip": 0.5706274562164573,
+          "right_knee": 0.5282603816171463,
+          "left": 0.12124817626680114,
+          "right": 0.13343748672255074
+        },
+        "wall_s": 281.3,
+        "label": ""
+      },
+      "crouch": {
+        "failure": null,
+        "passed": true,
+        "max_pitch_error_deg": 0.9327568761300645,
+        "max_travel_m": 0.006469406068162701,
+        "max_joint_error_deg": 1.89449231419482,
+        "settling_time_s": null,
+        "final_velocity_m_s": 8.404925283390807e-05,
+        "plateau_speed_mae_m_s": null,
+        "height_range_m": 0.060946721424638896,
+        "longest_saturation_s": 0.0,
+        "peak": {
+          "left_hip": 0.539422294115361,
+          "left_knee": 0.4868234176443892,
+          "right_hip": 0.5449669984416695,
+          "right_knee": 0.48096225421410715,
+          "left": 0.05111365203121751,
+          "right": 0.04941417244676708
+        },
+        "wall_s": 261.5,
+        "label": ""
+      },
+      "drive": {
+        "failure": null,
+        "passed": true,
+        "max_pitch_error_deg": 8.70209744757973,
+        "max_travel_m": 1.5777896235948023,
+        "max_joint_error_deg": 1.0498533081191312,
+        "settling_time_s": null,
+        "final_velocity_m_s": -0.003394045823492088,
+        "plateau_speed_mae_m_s": 0.019281727202958673,
+        "height_range_m": 0.002908870661050153,
+        "longest_saturation_s": 0.0,
+        "peak": {
+          "left_hip": 0.41902136940993245,
+          "left_knee": 0.38302910595208145,
+          "right_hip": 0.42040937396614525,
+          "right_knee": 0.3828194470857504,
+          "left": 0.06421574181955511,
+          "right": 0.0650270730562614
+        },
+        "wall_s": 174.0,
+        "label": ""
+      },
+      "hold": {
+        "failure": null,
+        "passed": true,
+        "max_pitch_error_deg": 0.932756696302187,
+        "max_travel_m": 0.007295752589324631,
+        "max_joint_error_deg": 0.9736346798429422,
+        "settling_time_s": 0.0,
+        "final_velocity_m_s": 0.002558129345288145,
+        "plateau_speed_mae_m_s": null,
+        "height_range_m": 0.00020634963655774552,
+        "longest_saturation_s": 0.0,
+        "peak": {
+          "left_hip": 0.4100278360234181,
+          "left_knee": 0.3705003396460301,
+          "right_hip": 0.4083668124480599,
+          "right_knee": 0.37126661416217344,
+          "left": 0.039036797623952804,
+          "right": 0.039041421283740094
+        },
+        "wall_s": 421.2,
+        "label": ""
+      },
+      "push": {
+        "failure": null,
+        "passed": true,
+        "max_pitch_error_deg": 2.037870548801972,
+        "max_travel_m": 0.024207922212037755,
+        "max_joint_error_deg": 0.9736036506247685,
+        "settling_time_s": null,
+        "final_velocity_m_s": -1.9298384195606024e-05,
+        "plateau_speed_mae_m_s": null,
+        "height_range_m": 0.0006627891131771035,
+        "longest_saturation_s": 0.0,
+        "peak": {
+          "left_hip": 0.4100278360234181,
+          "left_knee": 0.3705003396460301,
+          "right_hip": 0.4083668124480599,
+          "right_knee": 0.37126661416217344,
+          "left": 0.039036797623952804,
+          "right": 0.039041421283740094
+        },
+        "wall_s": 122.6,
+        "label": ""
+      },
+      "tilt_negative": {
+        "failure": null,
+        "passed": true,
+        "max_pitch_error_deg": 5.022399021287093,
+        "max_travel_m": 0.01011215391855688,
+        "max_joint_error_deg": 1.1723230636389903,
+        "settling_time_s": 0.030000000000000023,
+        "final_velocity_m_s": 4.0813285647646266e-10,
+        "plateau_speed_mae_m_s": null,
+        "height_range_m": 0.0002319225567277705,
+        "longest_saturation_s": 0.0,
+        "peak": {
+          "left_hip": 0.46686592540458294,
+          "left_knee": 0.4407216439930762,
+          "right_hip": 0.4675756762438614,
+          "right_knee": 0.4446210767043342,
+          "left": 0.19038788062667494,
+          "right": 0.19035849214505873
+        },
+        "wall_s": 420.6,
+        "label": ""
+      },
+      "tilt_positive": {
+        "failure": null,
+        "passed": true,
+        "max_pitch_error_deg": 5.000000000000001,
+        "max_travel_m": 0.013520190791158033,
+        "max_joint_error_deg": 1.0164602440240798,
+        "settling_time_s": 0.09000000000000007,
+        "final_velocity_m_s": -0.000623834684612486,
+        "plateau_speed_mae_m_s": null,
+        "height_range_m": 0.00023698923663807714,
+        "longest_saturation_s": 0.0,
+        "peak": {
+          "left_hip": 0.6866233765415327,
+          "left_knee": 0.6056125710043743,
+          "right_hip": 0.6957004488378729,
+          "right_knee": 0.6054677873707315,
+          "left": 0.37555109990645424,
+          "right": 0.3807618953937793
+        },
+        "wall_s": 433.0,
+        "label": ""
+      },
+      "turn": {
+        "failure": null,
+        "passed": true,
+        "max_pitch_error_deg": 0.932756696302187,
+        "max_travel_m": 0.007698522497402845,
+        "max_joint_error_deg": 1.0684922107769692,
+        "settling_time_s": null,
+        "final_velocity_m_s": -0.0019931937225616497,
+        "plateau_speed_mae_m_s": null,
+        "height_range_m": 0.00014637924025297233,
+        "longest_saturation_s": 0.0,
+        "peak": {
+          "left_hip": 0.4153678140816531,
+          "left_knee": 0.3705003396460301,
+          "right_hip": 0.4157521499162262,
+          "right_knee": 0.37126661416217344,
+          "left": 0.04748394099346426,
+          "right": 0.04796317732186666
+        },
+        "wall_s": 123.2,
+        "label": ""
+      }
+    }
+  },
+  "adopted_gains": {
+    "description": "M10 serial-leg cascade: the M9 sensor-only cascade with the pitch-rate gains lowered from 0.15 / 0.13 (hold / drive) to 0.07. With the 5 ms sensor transport delay, the M9 rate gains drive a ~19 Hz oscillation through the knee-belt compliance (wheel torque reacts on the shin, which the 1:1 knee belt holds): the tires hop, the airborne wheels spin up and corrupt the velocity estimate. Physical limits and acceptance thresholds are not changed by tuning.",
+    "pitch_kp": 1.3,
+    "pitch_kd": 0.07,
+    "speed_kp": 0.3,
+    "speed_ki": 0.2,
+    "hold_speed_kp": 0.4,
+    "hold_speed_ki": 0.1,
+    "speed_integral_limit": 0.3,
+    "hold_kp": 0.8,
+    "max_hold_speed": 0.1,
+    "max_pitch_offset": 0.22,
+    "max_command_acceleration": 3,
+    "heading_kp": 0.5,
+    "yaw_rate_kd": 0.035,
+    "joint_kp": 8.0,
+    "joint_kd": 0.05,
+    "posture_gain_schedule": true,
+    "wheel_friction_compensation": 0.005,
+    "friction_compensation_scale": 0.01,
+    "friction_velocity_threshold_rad_s": 1.0,
+    "drive_pitch_kd": 0.07,
+    "tuning_record": "artifacts/m10/tuning/summary.json"
+  },
+  "traces": {
+    "crouch_base_sensors_3s.npz": "M9 rate gains, failing crouch",
+    "combined_setA_14s.npz": "set A combined failure"
+  }
+}

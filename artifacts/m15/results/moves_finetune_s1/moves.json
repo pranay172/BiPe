@@ -1,0 +1,352 @@
+{
+ "nominal_passed": 3,
+ "nominal": 3,
+ "variants_passed": 21,
+ "variants": 21,
+ "falls": 0,
+ "cases": {
+  "crouch_bob": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true,
+    "peak_pitch": true,
+    "heading": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 28.307630639464037,
+    "peak_mm": 28.66989209859319,
+    "steady_p95_mm": 28.383300212459467,
+    "steady_fraction": 0.9375390381011868
+   },
+   "peak_pitch_deg": 1.7139812538292043,
+   "failure": null
+  },
+  "delay_15ms_noise_x2_crouch_bob": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 28.906981271140594,
+    "peak_mm": 29.487755153096913,
+    "steady_p95_mm": 29.01895550682157,
+    "steady_fraction": 0.9375390381011868
+   },
+   "peak_pitch_deg": 2.0259665723278957,
+   "failure": null
+  },
+  "delay_15ms_noise_x2_spin_stop": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 1.9749186414522444,
+    "peak_mm": 2.252933363456042,
+    "steady_p95_mm": 1.97406479988938,
+    "steady_fraction": 0.7569275644141954
+   },
+   "peak_pitch_deg": 2.769452487683239,
+   "failure": null
+  },
+  "delay_15ms_noise_x2_wiggle": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 1.923516863747643,
+    "peak_mm": 2.3803326607418906,
+    "steady_p95_mm": 0.5664284613619307,
+    "steady_fraction": 0.4015984015984016
+   },
+   "peak_pitch_deg": 2.6561549155685538,
+   "failure": null
+  },
+  "friction_0p5_crouch_bob": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 28.26275677591994,
+    "peak_mm": 28.63333513142712,
+    "steady_p95_mm": 28.293111331191625,
+    "steady_fraction": 0.9375390381011868
+   },
+   "peak_pitch_deg": 1.8191678504670301,
+   "failure": null
+  },
+  "friction_0p5_spin_stop": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 1.977906262850329,
+    "peak_mm": 2.3093561833497644,
+    "steady_p95_mm": 1.9767894177050271,
+    "steady_fraction": 0.7569275644141954
+   },
+   "peak_pitch_deg": 2.70405682627173,
+   "failure": null
+  },
+  "friction_0p5_wiggle": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 2.0515449039231193,
+    "peak_mm": 2.814736300965126,
+    "steady_p95_mm": 0.6147562918032936,
+    "steady_fraction": 0.4015984015984016
+   },
+   "peak_pitch_deg": 2.6642118607347496,
+   "failure": null
+  },
+  "mass_plus_15pct_crouch_bob": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 29.37549598706555,
+    "peak_mm": 29.66790516689362,
+    "steady_p95_mm": 29.41797341084654,
+    "steady_fraction": 0.9375390381011868
+   },
+   "peak_pitch_deg": 2.0701104283897624,
+   "failure": null
+  },
+  "mass_plus_15pct_spin_stop": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 2.848913603159578,
+    "peak_mm": 3.3855250888560615,
+    "steady_p95_mm": 2.849069179128147,
+    "steady_fraction": 0.7569275644141954
+   },
+   "peak_pitch_deg": 2.503428116975911,
+   "failure": null
+  },
+  "mass_plus_15pct_wiggle": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 3.072614690349293,
+    "peak_mm": 3.621174991744885,
+    "steady_p95_mm": 1.7343534669742158,
+    "steady_fraction": 0.4015984015984016
+   },
+   "peak_pitch_deg": 2.6469776418563264,
+   "failure": null
+  },
+  "seed_plus_1_crouch_bob": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 28.291233259293918,
+    "peak_mm": 28.62400280273312,
+    "steady_p95_mm": 28.359632105494118,
+    "steady_fraction": 0.9375390381011868
+   },
+   "peak_pitch_deg": 1.8892699838184248,
+   "failure": null
+  },
+  "seed_plus_1_spin_stop": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 1.7974881270867964,
+    "peak_mm": 2.3746841351256625,
+    "steady_p95_mm": 1.7909423595474705,
+    "steady_fraction": 0.7569275644141954
+   },
+   "peak_pitch_deg": 2.7348162319977414,
+   "failure": null
+  },
+  "seed_plus_1_wiggle": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 2.106363983991111,
+    "peak_mm": 2.7706230157814176,
+    "steady_p95_mm": 0.6162706827520722,
+    "steady_fraction": 0.4015984015984016
+   },
+   "peak_pitch_deg": 2.7372815858830744,
+   "failure": null
+  },
+  "seed_plus_2_crouch_bob": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 28.340588967516013,
+    "peak_mm": 28.78144943248731,
+    "steady_p95_mm": 28.400172116526317,
+    "steady_fraction": 0.9375390381011868
+   },
+   "peak_pitch_deg": 1.9313334462980383,
+   "failure": null
+  },
+  "seed_plus_2_spin_stop": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 1.8753371448264027,
+    "peak_mm": 2.25504448479899,
+    "steady_p95_mm": 1.865184801916897,
+    "steady_fraction": 0.7569275644141954
+   },
+   "peak_pitch_deg": 2.6953099105583127,
+   "failure": null
+  },
+  "seed_plus_2_wiggle": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 2.0790704606623995,
+    "peak_mm": 2.6244554426970437,
+    "steady_p95_mm": 0.5739213071562131,
+    "steady_fraction": 0.4015984015984016
+   },
+   "peak_pitch_deg": 2.807704529377785,
+   "failure": null
+  },
+  "spin_stop": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true,
+    "peak_pitch": true,
+    "yaw_rate": true,
+    "heading": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 1.8081001703348283,
+    "peak_mm": 2.3024163069439303,
+    "steady_p95_mm": 1.805383272460062,
+    "steady_fraction": 0.7569275644141954
+   },
+   "peak_pitch_deg": 2.732487583472145,
+   "failure": null
+  },
+  "wheel_lag_10ms_crouch_bob": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 28.28665305387946,
+    "peak_mm": 28.762985999396737,
+    "steady_p95_mm": 28.362091214797854,
+    "steady_fraction": 0.9375390381011868
+   },
+   "peak_pitch_deg": 1.3923841731667888,
+   "failure": null
+  },
+  "wheel_lag_10ms_spin_stop": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 1.948598146486541,
+    "peak_mm": 2.349526083456885,
+    "steady_p95_mm": 1.9457960821711333,
+    "steady_fraction": 0.7569275644141954
+   },
+   "peak_pitch_deg": 2.6889865280187495,
+   "failure": null
+  },
+  "wheel_lag_10ms_wiggle": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 2.311011865337928,
+    "peak_mm": 3.1387933461268918,
+    "steady_p95_mm": 0.6013015511709207,
+    "steady_fraction": 0.4015984015984016
+   },
+   "peak_pitch_deg": 2.139308428188661,
+   "failure": null
+  },
+  "wheel_lag_25ms_crouch_bob": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 28.259965268558076,
+    "peak_mm": 28.726775364001934,
+    "steady_p95_mm": 28.326926011681547,
+    "steady_fraction": 0.9375390381011868
+   },
+   "peak_pitch_deg": 1.5529348373407377,
+   "failure": null
+  },
+  "wheel_lag_25ms_spin_stop": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 2.430547516496831,
+    "peak_mm": 3.438556507550122,
+    "steady_p95_mm": 2.402184406328976,
+    "steady_fraction": 0.7569275644141954
+   },
+   "peak_pitch_deg": 2.728127787314247,
+   "failure": null
+  },
+  "wheel_lag_25ms_wiggle": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 2.485283532198221,
+    "peak_mm": 3.27460433246167,
+    "steady_p95_mm": 0.5914298150469101,
+    "steady_fraction": 0.4015984015984016
+   },
+   "peak_pitch_deg": 2.2086927222157735,
+   "failure": null
+  },
+  "wiggle": {
+   "passed": true,
+   "checks": {
+    "survives_and_recovers": true,
+    "peak_pitch": true,
+    "heading": true
+   },
+   "axle_depth_error": {
+    "p95_mm": 2.061398513756169,
+    "peak_mm": 2.770265426772736,
+    "steady_p95_mm": 0.6045720582166222,
+    "steady_fraction": 0.4015984015984016
+   },
+   "peak_pitch_deg": 2.6953399853922813,
+   "failure": null
+  }
+ }
+}

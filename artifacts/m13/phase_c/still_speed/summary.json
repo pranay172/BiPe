@@ -1,0 +1,442 @@
+{
+  "scope": "M10 C/sensor simulation under stated assumptions; not hardware-validated",
+  "controller_sha256": "4def3a8e89b4abd638c306d417f364af4a6ce4cb899ac8ffc5ee69091a5efdac",
+  "speed_config_sha256": "938e819234e78270f9b8b5f38b392802b1e83343a71b5ec68e36cf1b18988654",
+  "cases": {
+    "arc_r1": {
+      "checks": {
+        "survives_and_recovers": false,
+        "peak_pitch": false,
+        "overshoot": false,
+        "plateau": true,
+        "yaw_rate": true,
+        "heading": true,
+        "stop": true
+      },
+      "passed": false
+    },
+    "arc_r2": {
+      "checks": {
+        "survives_and_recovers": false,
+        "peak_pitch": false,
+        "overshoot": false,
+        "plateau": true,
+        "yaw_rate": true,
+        "heading": true,
+        "stop": true
+      },
+      "passed": false
+    },
+    "delay_15ms_noise_x2_drive_step": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "delay_15ms_noise_x2_replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "delay_15ms_noise_x2_weave": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "drive_ramp": {
+      "checks": {
+        "survives_and_recovers": false,
+        "peak_pitch": true,
+        "overshoot": false,
+        "plateau": true,
+        "heading": true,
+        "stop": true
+      },
+      "passed": false
+    },
+    "drive_step": {
+      "checks": {
+        "survives_and_recovers": false,
+        "peak_pitch": false,
+        "overshoot": false,
+        "plateau": true,
+        "heading": true,
+        "stop": true
+      },
+      "passed": false
+    },
+    "drive_step_half_timestep": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "friction_0p5_drive_step": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "friction_0p5_replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "friction_0p5_weave": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "low_posture_drive_ramp": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": null
+    },
+    "mass_plus_15pct_drive_step": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "mass_plus_15pct_replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "mass_plus_15pct_weave": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "push_fast_+2": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "push_fast_-2": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": false,
+        "peak_pitch": true,
+        "heading": true,
+        "path": false
+      },
+      "passed": false
+    },
+    "replay_curve_r1": {
+      "checks": {
+        "survives_and_recovers": false,
+        "peak_pitch": false,
+        "heading": true,
+        "path": false
+      },
+      "passed": false
+    },
+    "replay_lateral_crossing": {
+      "checks": {
+        "survives_and_recovers": false,
+        "peak_pitch": true,
+        "heading": true,
+        "path": true
+      },
+      "passed": false
+    },
+    "replay_loss_fov": {
+      "checks": {
+        "survives_and_recovers": false,
+        "peak_pitch": true,
+        "heading": true,
+        "path": true
+      },
+      "passed": false
+    },
+    "replay_start_stop": {
+      "checks": {
+        "survives_and_recovers": false,
+        "peak_pitch": true,
+        "heading": true,
+        "path": false
+      },
+      "passed": false
+    },
+    "replay_straight_1.0": {
+      "checks": {
+        "survives_and_recovers": false,
+        "peak_pitch": true,
+        "heading": true,
+        "path": false
+      },
+      "passed": false
+    },
+    "reverse": {
+      "checks": {
+        "survives_and_recovers": false,
+        "peak_pitch": false,
+        "overshoot": false,
+        "plateau": true,
+        "heading": true,
+        "stop": true
+      },
+      "passed": false
+    },
+    "seed_plus_1_drive_step": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "seed_plus_1_replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "seed_plus_1_weave": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "seed_plus_2_drive_step": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "seed_plus_2_replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "seed_plus_2_weave": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "slope_down_10": {
+      "checks": {
+        "survives_and_holds": false
+      },
+      "passed": false
+    },
+    "slope_down_4": {
+      "checks": {
+        "survives_and_holds": false
+      },
+      "passed": false
+    },
+    "slope_down_8": {
+      "checks": {
+        "survives_and_holds": false
+      },
+      "passed": false
+    },
+    "slope_up_10": {
+      "checks": {
+        "survives_and_holds": false
+      },
+      "passed": false
+    },
+    "slope_up_4": {
+      "checks": {
+        "survives_and_holds": false
+      },
+      "passed": false
+    },
+    "slope_up_8": {
+      "checks": {
+        "survives_and_holds": false
+      },
+      "passed": false
+    },
+    "spin": {
+      "checks": {
+        "survives_and_recovers": false,
+        "peak_pitch": true,
+        "yaw_rate": false,
+        "heading": true
+      },
+      "passed": false
+    },
+    "weave": {
+      "checks": {
+        "survives_and_recovers": false,
+        "peak_pitch": false,
+        "overshoot": false,
+        "plateau": true,
+        "yaw_rate": true,
+        "heading": true,
+        "stop": true
+      },
+      "passed": false
+    },
+    "wheel_lag_10ms_drive_step": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "wheel_lag_10ms_replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "wheel_lag_10ms_weave": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "wheel_lag_25ms_drive_step": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "wheel_lag_25ms_replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "wheel_lag_25ms_weave": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    }
+  },
+  "failed": [
+    "arc_r1",
+    "arc_r2",
+    "delay_15ms_noise_x2_drive_step",
+    "delay_15ms_noise_x2_replay_corner_90",
+    "delay_15ms_noise_x2_weave",
+    "drive_ramp",
+    "drive_step",
+    "drive_step_half_timestep",
+    "friction_0p5_drive_step",
+    "friction_0p5_replay_corner_90",
+    "friction_0p5_weave",
+    "mass_plus_15pct_drive_step",
+    "mass_plus_15pct_replay_corner_90",
+    "mass_plus_15pct_weave",
+    "push_fast_+2",
+    "push_fast_-2",
+    "replay_corner_90",
+    "replay_curve_r1",
+    "replay_lateral_crossing",
+    "replay_loss_fov",
+    "replay_start_stop",
+    "replay_straight_1.0",
+    "reverse",
+    "seed_plus_1_drive_step",
+    "seed_plus_1_replay_corner_90",
+    "seed_plus_1_weave",
+    "seed_plus_2_drive_step",
+    "seed_plus_2_replay_corner_90",
+    "seed_plus_2_weave",
+    "slope_down_10",
+    "slope_down_4",
+    "slope_down_8",
+    "slope_up_10",
+    "slope_up_4",
+    "slope_up_8",
+    "spin",
+    "weave",
+    "wheel_lag_10ms_drive_step",
+    "wheel_lag_10ms_replay_corner_90",
+    "wheel_lag_10ms_weave",
+    "wheel_lag_25ms_drive_step",
+    "wheel_lag_25ms_replay_corner_90",
+    "wheel_lag_25ms_weave"
+  ],
+  "worst": {
+    "peak_pitch_deg": [
+      20.000605278716108,
+      "push_fast_+2"
+    ],
+    "hub_phase_current_peak_A": [
+      3.2211009563385367,
+      "push_fast_-2"
+    ],
+    "hub_phase_voltage_demand_peak_V": [
+      19.73086623009202,
+      "push_fast_+2"
+    ],
+    "bus_current_peak_A_pack_low": [
+      26.70369673325952,
+      "low_posture_drive_ramp"
+    ]
+  },
+  "convergence": {
+    "pitch_peak_difference_deg": 0.03496056496782529,
+    "speed_peak_difference_m_s": 0.00897107546180309,
+    "passed": true
+  },
+  "recorded_shortfalls": [
+    "slope_up_4",
+    "slope_up_8",
+    "wheel_lag_25ms_drive_step",
+    "wheel_lag_25ms_replay_corner_90",
+    "wheel_lag_25ms_weave"
+  ],
+  "unrecorded_failures": [
+    "arc_r1",
+    "arc_r2",
+    "delay_15ms_noise_x2_drive_step",
+    "delay_15ms_noise_x2_replay_corner_90",
+    "delay_15ms_noise_x2_weave",
+    "drive_ramp",
+    "drive_step",
+    "drive_step_half_timestep",
+    "friction_0p5_drive_step",
+    "friction_0p5_replay_corner_90",
+    "friction_0p5_weave",
+    "mass_plus_15pct_drive_step",
+    "mass_plus_15pct_replay_corner_90",
+    "mass_plus_15pct_weave",
+    "push_fast_+2",
+    "push_fast_-2",
+    "replay_corner_90",
+    "replay_curve_r1",
+    "replay_lateral_crossing",
+    "replay_loss_fov",
+    "replay_start_stop",
+    "replay_straight_1.0",
+    "reverse",
+    "seed_plus_1_drive_step",
+    "seed_plus_1_replay_corner_90",
+    "seed_plus_1_weave",
+    "seed_plus_2_drive_step",
+    "seed_plus_2_replay_corner_90",
+    "seed_plus_2_weave",
+    "slope_down_10",
+    "slope_down_4",
+    "slope_down_8",
+    "slope_up_10",
+    "spin",
+    "weave",
+    "wheel_lag_10ms_drive_step",
+    "wheel_lag_10ms_replay_corner_90",
+    "wheel_lag_10ms_weave"
+  ],
+  "passed": false,
+  "passed_except_recorded_shortfalls": false
+}

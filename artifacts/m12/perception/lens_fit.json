@@ -1,0 +1,132 @@
+{
+ "status": "layout study: CAD envelopes from config/robot.json m10 (the lens block and its offset are assumptions until checked against the Camera Module 3 mechanical drawing); module depths from the Raspberry Pi documentation",
+ "method": "Builds the M10 head pod and its internals (cad/m10/assembly.head_internals, hollowed as the assembly hollows it) with the camera module envelope at the standard depth (11.5 mm) and the Wide depth (12.4 mm, Raspberry Pi documentation), at the current 15 degree camera pitch and at the 42 degree pitch of the waist-tag layout. The extra depth of the Wide grows the module backwards from its fixed lens face (the board moves back). For each case it reports the volume of the camera board and lens block inside the head shell or the eye LED boards (and the bezel, neck and head screws), and the smallest gap to each. The 42 degree case is information for the phase E head change: the bezel and seat are re-pitched with the module, as the CAD does today at 15 degrees.",
+ "cases": [
+  {
+   "module_depth_mm": 11.5,
+   "camera_pitch_deg": 15,
+   "HeadShell": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 0.5
+   },
+   "CameraBezel": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 0.3
+   },
+   "Neck": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 3.381
+   },
+   "HeadScrew": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 43.212
+   },
+   "EyeLEDBoards": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 1.754
+   },
+   "fits": true,
+   "lens": "standard"
+  },
+  {
+   "module_depth_mm": 11.5,
+   "camera_pitch_deg": 42,
+   "HeadShell": {
+    "overlap_mm3": 7.864,
+    "gap_mm": 0.0,
+    "overlap_box_mm": [
+     59.47,
+     60.59,
+     -12.5,
+     12.5,
+     49.04,
+     49.6
+    ],
+    "parts": [
+     "CameraBoard"
+    ]
+   },
+   "CameraBezel": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 0.3
+   },
+   "Neck": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 4.135
+   },
+   "HeadScrew": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 40.976
+   },
+   "EyeLEDBoards": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 2.849
+   },
+   "fits": false,
+   "lens": "standard"
+  },
+  {
+   "module_depth_mm": 12.4,
+   "camera_pitch_deg": 15,
+   "HeadShell": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 0.5
+   },
+   "CameraBezel": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 0.3
+   },
+   "Neck": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 3.148
+   },
+   "HeadScrew": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 42.668
+   },
+   "EyeLEDBoards": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 2.487
+   },
+   "fits": true,
+   "lens": "wide"
+  },
+  {
+   "module_depth_mm": 12.4,
+   "camera_pitch_deg": 42,
+   "HeadShell": {
+    "overlap_mm3": 33.915,
+    "gap_mm": 0.0,
+    "overlap_box_mm": [
+     58.26,
+     60.59,
+     -12.5,
+     12.5,
+     48.44,
+     49.6
+    ],
+    "parts": [
+     "CameraBoard"
+    ]
+   },
+   "CameraBezel": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 0.3
+   },
+   "Neck": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 3.235
+   },
+   "HeadScrew": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 40.639
+   },
+   "EyeLEDBoards": {
+    "overlap_mm3": 0.0,
+    "gap_mm": 3.462
+   },
+   "fits": false,
+   "lens": "wide"
+  }
+ ]
+}

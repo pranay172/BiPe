@@ -1,0 +1,365 @@
+{
+  "scope": "M10 C/sensor simulation under stated assumptions; not hardware-validated",
+  "controller_sha256": "4def3a8e89b4abd638c306d417f364af4a6ce4cb899ac8ffc5ee69091a5efdac",
+  "speed_config_sha256": "938e819234e78270f9b8b5f38b392802b1e83343a71b5ec68e36cf1b18988654",
+  "cases": {
+    "arc_r1": {
+      "checks": {
+        "survives_and_recovers": true,
+        "peak_pitch": true,
+        "overshoot": true,
+        "plateau": true,
+        "yaw_rate": true,
+        "heading": true,
+        "stop": true
+      },
+      "passed": true
+    },
+    "arc_r2": {
+      "checks": {
+        "survives_and_recovers": true,
+        "peak_pitch": true,
+        "overshoot": true,
+        "plateau": true,
+        "yaw_rate": true,
+        "heading": true,
+        "stop": true
+      },
+      "passed": true
+    },
+    "delay_15ms_noise_x2_drive_step": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "delay_15ms_noise_x2_replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "delay_15ms_noise_x2_weave": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "drive_ramp": {
+      "checks": {
+        "survives_and_recovers": true,
+        "peak_pitch": true,
+        "overshoot": true,
+        "plateau": true,
+        "heading": true,
+        "stop": true
+      },
+      "passed": true
+    },
+    "drive_step": {
+      "checks": {
+        "survives_and_recovers": true,
+        "peak_pitch": true,
+        "overshoot": true,
+        "plateau": true,
+        "heading": true,
+        "stop": true
+      },
+      "passed": true
+    },
+    "drive_step_half_timestep": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "friction_0p5_drive_step": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "friction_0p5_replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "friction_0p5_weave": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "low_posture_drive_ramp": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": null
+    },
+    "mass_plus_15pct_drive_step": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "mass_plus_15pct_replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "mass_plus_15pct_weave": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "push_fast_+2": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "push_fast_-2": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": true,
+        "peak_pitch": true,
+        "heading": true,
+        "path": true
+      },
+      "passed": true
+    },
+    "replay_curve_r1": {
+      "checks": {
+        "survives_and_recovers": true,
+        "peak_pitch": true,
+        "heading": true,
+        "path": true
+      },
+      "passed": true
+    },
+    "replay_lateral_crossing": {
+      "checks": {
+        "survives_and_recovers": true,
+        "peak_pitch": true,
+        "heading": true,
+        "path": true
+      },
+      "passed": true
+    },
+    "replay_loss_fov": {
+      "checks": {
+        "survives_and_recovers": true,
+        "peak_pitch": true,
+        "heading": true,
+        "path": true
+      },
+      "passed": true
+    },
+    "replay_start_stop": {
+      "checks": {
+        "survives_and_recovers": true,
+        "peak_pitch": true,
+        "heading": true,
+        "path": true
+      },
+      "passed": true
+    },
+    "replay_straight_1.0": {
+      "checks": {
+        "survives_and_recovers": true,
+        "peak_pitch": true,
+        "heading": true,
+        "path": true
+      },
+      "passed": true
+    },
+    "reverse": {
+      "checks": {
+        "survives_and_recovers": true,
+        "peak_pitch": true,
+        "overshoot": true,
+        "plateau": true,
+        "heading": true,
+        "stop": true
+      },
+      "passed": true
+    },
+    "seed_plus_1_drive_step": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "seed_plus_1_replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "seed_plus_1_weave": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "seed_plus_2_drive_step": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "seed_plus_2_replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "seed_plus_2_weave": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "slope_down_10": {
+      "checks": {
+        "survives_and_holds": true
+      },
+      "passed": true
+    },
+    "slope_down_4": {
+      "checks": {
+        "survives_and_holds": true
+      },
+      "passed": true
+    },
+    "slope_down_8": {
+      "checks": {
+        "survives_and_holds": true
+      },
+      "passed": true
+    },
+    "slope_up_10": {
+      "checks": {
+        "survives_and_holds": true
+      },
+      "passed": true
+    },
+    "slope_up_4": {
+      "checks": {
+        "survives_and_holds": false
+      },
+      "passed": false
+    },
+    "slope_up_8": {
+      "checks": {
+        "survives_and_holds": false
+      },
+      "passed": false
+    },
+    "spin": {
+      "checks": {
+        "survives_and_recovers": true,
+        "peak_pitch": true,
+        "yaw_rate": true,
+        "heading": true
+      },
+      "passed": true
+    },
+    "weave": {
+      "checks": {
+        "survives_and_recovers": true,
+        "peak_pitch": true,
+        "overshoot": true,
+        "plateau": true,
+        "yaw_rate": true,
+        "heading": true,
+        "stop": true
+      },
+      "passed": true
+    },
+    "wheel_lag_10ms_drive_step": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "wheel_lag_10ms_replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "wheel_lag_10ms_weave": {
+      "checks": {
+        "survives_and_recovers": true
+      },
+      "passed": true
+    },
+    "wheel_lag_25ms_drive_step": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "wheel_lag_25ms_replay_corner_90": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    },
+    "wheel_lag_25ms_weave": {
+      "checks": {
+        "survives_and_recovers": false
+      },
+      "passed": false
+    }
+  },
+  "failed": [
+    "slope_up_4",
+    "slope_up_8",
+    "wheel_lag_25ms_drive_step",
+    "wheel_lag_25ms_replay_corner_90",
+    "wheel_lag_25ms_weave"
+  ],
+  "worst": {
+    "peak_pitch_deg": [
+      20.046663976065975,
+      "wheel_lag_25ms_drive_step"
+    ],
+    "hub_phase_current_peak_A": [
+      2.6143975589718402,
+      "wheel_lag_25ms_weave"
+    ],
+    "hub_phase_voltage_demand_peak_V": [
+      19.884886321893433,
+      "wheel_lag_25ms_weave"
+    ],
+    "bus_current_peak_A_pack_low": [
+      9.582778941548948,
+      "wheel_lag_25ms_weave"
+    ]
+  },
+  "convergence": {
+    "pitch_peak_difference_deg": 0.013134377614941073,
+    "speed_peak_difference_m_s": 0.00038098358824445455,
+    "passed": true
+  },
+  "recorded_shortfalls": [
+    "slope_up_4",
+    "slope_up_8",
+    "wheel_lag_25ms_drive_step",
+    "wheel_lag_25ms_replay_corner_90",
+    "wheel_lag_25ms_weave"
+  ],
+  "unrecorded_failures": [],
+  "passed": false,
+  "passed_except_recorded_shortfalls": true
+}

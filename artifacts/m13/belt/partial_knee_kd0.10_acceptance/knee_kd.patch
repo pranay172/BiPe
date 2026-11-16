@@ -1,0 +1,135 @@
+diff --git a/artifacts/m13/export/settle/SHA256SUMS b/artifacts/m13/export/settle/SHA256SUMS
+index a309122..c33a524 100644
+--- a/artifacts/m13/export/settle/SHA256SUMS
++++ b/artifacts/m13/export/settle/SHA256SUMS
+@@ -1,2 +1,2 @@
+-c98743af45d5d7f562919075f97d38c8c4d2f37ea03b94b25d28df089c957f93  manifest.json
++98d85175ec3c09dc12aad051ed2377c7870236a801fc87ee5a6443318125db63  manifest.json
+ acedce422ee79a8c30aa245e803bd221304117eca7d43c03e6dfd4fdcdb995ac  policy.onnx
+diff --git a/artifacts/m13/export/settle/manifest.json b/artifacts/m13/export/settle/manifest.json
+index 0637a6a..8530c3f 100644
+--- a/artifacts/m13/export/settle/manifest.json
++++ b/artifacts/m13/export/settle/manifest.json
+@@ -100,7 +100,9 @@
+         "rate_Hz": 1000,
+         "law": "torque = kp * (target - q) - kd * qd on the local encoder and its filtered rate",
+         "kp_Nm_per_rad": 8.0,
+-        "kd_Nm_s_per_rad": 0.05
++        "kd_Nm_s_per_rad": 0.05,
++        "knee_kd_Nm_s_per_rad": 0.1,
++        "kd_basis": "kd on the hips as trained; the knees' kd raised to damp the soft knee belt corner (M13 belt range follow-up)"
+       }
+     },
+     "wheels": {
+diff --git a/bipe/m13/export.py b/bipe/m13/export.py
+index 848ab9d..a4e8f8b 100644
+--- a/bipe/m13/export.py
++++ b/bipe/m13/export.py
+@@ -24,7 +24,7 @@ import subprocess
+ import numpy as np
+ 
+ from ..parameters import ROOT, load_parameters
+-from .policy_control import LABELS
++from .policy_control import KNEE_KD, LABELS
+ from .rl.firmware import DriveActionCfg, posture_table
+ from .rl.mdp import DriveCommandCfg
+ 
+@@ -168,6 +168,8 @@ def manifest(checkpoint, onnx_path):
+                     "law": "torque = kp * (target - q) - kd * qd on the local encoder and its filtered rate",
+                     "kp_Nm_per_rad": cfg.joint_kp,
+                     "kd_Nm_s_per_rad": cfg.joint_kd,
++                    "knee_kd_Nm_s_per_rad": KNEE_KD,
++                    "kd_basis": "kd on the hips as trained; the knees' kd raised to damp the soft knee belt corner (M13 belt range follow-up)",
+                 },
+             },
+             "wheels": {
+diff --git a/bipe/m13/full_plant.py b/bipe/m13/full_plant.py
+index d28eb59..4905277 100644
+--- a/bipe/m13/full_plant.py
++++ b/bipe/m13/full_plant.py
+@@ -4,6 +4,7 @@
+     python -m bipe.m13.full_plant speed [--case NAME ...] [--workers 4]
+     python -m bipe.m13.full_plant gap [--case NAME ...] [--workers 4]
+     ... [--forward c]  (phase D: the firmware forward pass in place of the numpy actor)
++    ... [--knee-kd 0.05]  (the knee servo rate gain; phases C and D ran 0.05)
+ 
+ Runs the classical runners (bipe.robustness for the M10 profile, bipe.m12.speed)
+ with the policy in the loop (bipe.m13.policy_control), so cases, timing, sensors,
+@@ -32,6 +33,7 @@ import multiprocessing
+ import sys
+ from pathlib import Path
+ 
++from . import policy_control
+ from .policy_control import CActor, policy_in_loop
+ 
+ ROOT = Path(__file__).resolve().parents[2]
+@@ -64,7 +66,14 @@ def main():
+     parser.add_argument("--case", action="append", default=[])
+     parser.add_argument("--forward", choices=["numpy", "c"], default="numpy")
+     parser.add_argument("--resume", action="store_true", help="acceptance: continue saved cases")
++    parser.add_argument(
++        "--knee-kd",
++        type=float,
++        default=policy_control.KNEE_KD,
++        help="knee servo rate gain, N m s/rad (phase C and D ran 0.05)",
++    )
+     args = parser.parse_args()
++    policy_control.KNEE_KD = args.knee_kd
+     run = args.checkpoint.resolve().parent.name
+     default = (
+         ("phase_c", f"{run}_{args.suite}")
+@@ -79,9 +88,10 @@ def main():
+         "checkpoint_sha256": hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),
+         "suite": args.suite,
+         "forward": args.forward,
++        "knee_kd": args.knee_kd,
+     }
+     if (output / "policy.json").exists():
+-        saved = json.loads((output / "policy.json").read_text())
++        saved = {"knee_kd": 0.05, **json.loads((output / "policy.json").read_text())}
+         if {k: saved.get(k) for k in policy} != policy:
+             parser.error(
+                 f"{output} holds results of another policy or forward pass; use another --output"
+diff --git a/bipe/m13/policy_control.py b/bipe/m13/policy_control.py
+index dd522b5..dc43261 100644
+--- a/bipe/m13/policy_control.py
++++ b/bipe/m13/policy_control.py
+@@ -19,6 +19,7 @@ The robot side of the policy interface is bipe.m13.rl.firmware's, in numpy:
+   rate-limited command, and the policy's mean action is held for 20 ms;
+ - every 1 ms the leg PD runs on the local encoder readings and their filtered rates
+   (no added lag: the full plant has the belt lash that training randomised as lag),
++  with the knees' rate gain raised to KNEE_KD for the soft knee belts,
+   and the wheel PI speed loop runs on the hub speed with the rolling feedforward.
+ The knee encoder reads the motor side of the knee belt, where training read the
+ shin angle (about 0.5-0.6 degrees apart at rest, inside the trained encoder offset).
+@@ -41,6 +42,13 @@ from .rl.mdp import DriveCommandCfg
+ 
+ WHEELS = ("left_wheel_joint", "right_wheel_joint")
+ LABELS = np.linspace(30, 65, 36)
++# The leg servo's rate gain on the robot, per joint [left hip, left knee, right hip,
++# right knee], N m s/rad. Training used joint_kd (0.05) on every joint. At the soft end
++# of the knee belt range (23.5 N m/rad) that leaves a 4.6 Hz knee and pitch mode
++# underdamped and the policy sustains it as an 8-11 degree pitch limit cycle at rest;
++# twice the knee rate gain damps it (docs/milestones/13-learned-locomotion-plan.md,
++# "Belt range follow-up").
++KNEE_KD = 0.10
+ # The C classes, kept here because policy_in_loop() swaps the module's names.
+ Classical, ClassicalEstimator = fc.FirmwareController, fc.FirmwareEstimator
+ 
+@@ -109,6 +117,7 @@ class PolicyController:
+         self.actor, self.gains = actor, gains
+         cfg, command = DriveActionCfg(), DriveCommandCfg(resampling_time_range=(1.0, 1.0))
+         self.cfg = cfg
++        self.leg_kd = np.array([cfg.joint_kd, KNEE_KD, cfg.joint_kd, KNEE_KD])
+         self.table = posture_table(p, LABELS)
+         self.wheel_radius = p["geometry"]["wheel_radius"]
+         self.wheel_track = p["geometry"]["wheel_track"]
+@@ -194,7 +203,7 @@ class PolicyController:
+     def leg_torques(self, s, qref, qdref, feedforward=None):
+         if self.classical.protection.latched:
+             return self.classical.leg_torques(s, qref, qdref, feedforward)
+-        return self.cfg.joint_kp * (self.leg_target - s["q"]) - self.cfg.joint_kd * s["qd"]
++        return self.cfg.joint_kp * (self.leg_target - s["q"]) - self.leg_kd * s["qd"]
+ 
+     def wheel_torques(self, d, dt):
+         if self.classical.protection.latched:

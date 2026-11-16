@@ -1,0 +1,50 @@
+{
+  "inputs": {
+    "can": {
+      "arbitration_bit_s": 1000000,
+      "data_bit_s": 5000000
+    },
+    "imu_odr_hz": 1660.0,
+    "imu_spi_rate_hz": 8000000,
+    "timing_assumptions": {
+      "driver_turnaround_s_assumption": 0.00025,
+      "compute_s_assumption": 0.0005,
+      "spi_overhead_s_assumption": 2e-05
+    },
+    "transport_delay_s": 0.005,
+    "control_dt": 0.005,
+    "watchdog_timeout_s": 0.02
+  },
+  "frame_bytes": {
+    "joint_command": 20,
+    "wheel_command": 32,
+    "query": 6,
+    "reply": 24
+  },
+  "frame_time_s": {
+    "joint_command": 0.0001046,
+    "wheel_command": 0.0001286,
+    "query": 7.560000000000001e-05,
+    "reply": 0.0001126
+  },
+  "phases": {
+    "imu_sample_age_s": 0.0006024096385542169,
+    "imu_spi_read_s": 3.3e-05,
+    "driver_feedback_s": 0.0013792,
+    "compute_s": 0.0005,
+    "commands_s": 0.0006755999999999999,
+    "driver_apply_s": 0.00025
+  },
+  "sample_to_actuation_s": 0.003440209638554217,
+  "margin_s": 0.0015597903614457832,
+  "bus_utilization": 0.36096,
+  "watchdog_cycles": 4.0,
+  "status": "estimate from bit counts and stated assumptions; bench DWT and bus captures replace the assumptions at commissioning",
+  "host_cycle": {
+    "median_s": 1.7724000000000002e-05,
+    "p99_s": 2.127e-05,
+    "repeats": 20000,
+    "note": "x86 host via ctypes, includes Python call overhead; the Teensy image measures the same work with the DWT cycle counter"
+  },
+  "compute_bound_over_host_p99": 23.507287259050305
+}

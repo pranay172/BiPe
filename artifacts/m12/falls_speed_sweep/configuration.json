@@ -1,0 +1,702 @@
+{
+  "structure": {
+    "status": "Phase D load-path inventory; screen inputs, not hardware qualification",
+    "units": "SI",
+    "materials_source": "config/m9-impact-materials.json",
+    "sections_source": "artifacts/m10/cad/sections.json (cad/m10/sections.py, D4 CAD at the nominal pose)",
+    "required_factor": 2.0,
+    "shafts": {
+      "hip_outer": {
+        "material": "al7075",
+        "od": 0.02,
+        "bore": 0.012,
+        "bearings": [
+          "HipInnerBearing",
+          "HipPodBearing"
+        ],
+        "carries": "thigh (chassis -> thigh wrench) and the thigh hip-belt pull"
+      },
+      "hip_inner": {
+        "material": "al7075",
+        "od": 0.008,
+        "bore": 0.005,
+        "bearings": [
+          "BulkheadBearing",
+          "InnerShaftEndBearing"
+        ],
+        "carries": "knee drive (wrench on the knee drive body), the knee-drive hip-belt pull and the knee-belt pull",
+        "basis": "Checked at the 8 mm ends with the 5 mm harness bore; the iglidur sleeve in the outer shaft gets no support credit (conservative)"
+      },
+      "knee": {
+        "material": "al7075",
+        "od": 0.01,
+        "bore": 0.005,
+        "bearings": [
+          "KneeInnerBearing",
+          "KneeOuterBearing"
+        ],
+        "carries": "shin (thigh -> shin wrench) overhung at the shin, and the knee-belt pull",
+        "basis": "Hollow knee shaft; harness bore 5 mm (m10.internals.harness.shaft_bore_diameter)"
+      },
+      "axle": {
+        "material": "al7075",
+        "od": 0.008,
+        "bore": 0.005,
+        "root": "Shin outer face",
+        "carries": "wheel (shin -> wheel wrench) cantilevered from the shin face"
+      }
+    },
+    "bearings": {
+      "HipInnerBearing": "6704",
+      "HipPodBearing": "6704",
+      "BulkheadBearing": "688A",
+      "InnerShaftEndBearing": "688A",
+      "KneeInnerBearing": "6800",
+      "KneeOuterBearing": "6800"
+    },
+    "bearing_catalog": {
+      "6704": {
+        "d": 0.02,
+        "D": 0.027,
+        "B": 0.004,
+        "C0_N": 730,
+        "source": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6704",
+        "basis": "NTN 6704 open, static load rating 0.73 kN"
+      },
+      "6700": {
+        "d": 0.01,
+        "D": 0.015,
+        "B": 0.003,
+        "C0_N": 435,
+        "source": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6700",
+        "basis": "NTN 6700 open (10x15x3), 0.435 kN; the B2 CAD seat is 4 mm (shielded width), rating of the open bearing used"
+      },
+      "MR128": {
+        "d": 0.008,
+        "D": 0.012,
+        "B": 0.0035,
+        "C0_N": 252,
+        "source": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/flaw678azz",
+        "basis": "NTN FLAW678AZZ (8x12x3.5, flanged, shielded) 0.252 kN; same rings and balls as the unflanged size (assumption)"
+      },
+      "6800": {
+        "d": 0.01,
+        "D": 0.019,
+        "B": 0.005,
+        "C0_N": 925,
+        "source": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6800",
+        "basis": "NTN 6800 open (10x19x5), 0.925 kN; phase D upsize candidate"
+      },
+      "6900": {
+        "d": 0.01,
+        "D": 0.022,
+        "B": 0.006,
+        "C0_N": 1270,
+        "source": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6900",
+        "basis": "NTN 6900 open (10x22x6), 1.27 kN; phase D upsize candidate"
+      },
+      "6804": {
+        "d": 0.02,
+        "D": 0.032,
+        "B": 0.007,
+        "C0_N": 2470,
+        "source": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6804",
+        "basis": "NTN 6804 open (20x32x7), 2.47 kN; phase D upsize candidate"
+      },
+      "688A": {
+        "d": 0.008,
+        "D": 0.016,
+        "B": 0.004,
+        "C0_N": 715,
+        "source": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/688a",
+        "basis": "NTN 688A open (8x16x4), 0.715 kN; phase D upsize candidate"
+      }
+    },
+    "static_equivalent": "P0 = max(Fr, 0.6 Fr + 0.5 Fa), axial load on either locating bearing (M9 basis)",
+    "hub_bearings": {
+      "status": "unpublished",
+      "basis": "CubeMars publishes no GL40 bearing designation or rating (2D drawing: 46.5 x 21.5 mm envelope, 8 mm through bore). The screen reports the static rating each bearing would need (factor 2) for confirmation with CubeMars.",
+      "span_m_assumption": 0.012,
+      "source": "https://www.cubemars.com/data/cms/202602/gl40-gimbal-motor-2d-drawing.pdf"
+    },
+    "belts": {
+      "hip": {
+        "pretension_per_span_N": 62.5,
+        "pretension_basis": "m10.physics.belts.hip_pretension_basis",
+        "large_pulley_teeth": 80,
+        "small_pulley_teeth": 20,
+        "pitch": 0.002,
+        "rating": "m9 belt hip_input_rating_lb_in (2MGT 6 mm, 20T small pulley) x length factor",
+        "length_factor": 0.9,
+        "length_basis": "Gates 2MR-192-06 (96T, 192 mm, a stock length; Light Power & Precision manual printed p. 15). Length correction factor 0.90 for 170-196 mm / 85-98 teeth (printed p. 18); 0.95 starts at 198 mm. Phase D4 (14 October 2026): the 190 mm (95T) belt was not a stock length and had carried the M9 202 mm belt's 0.95, overstating the rating by 5.6 percent (found by the Grok parts check, verified against the manual)."
+      },
+      "knee": {
+        "pretension_per_span_N_assumption": 120.0,
+        "pulley_teeth": 40,
+        "pitch": 0.002,
+        "corrected_rating_Nm": {
+          "10": 4.64,
+          "100": 3.43
+        },
+        "rating_basis": "m10.internals.knee_belt.rating_screen (Gates p17, 9 mm, 110T)",
+        "pretension_basis": "Eccentric-seat tensioning target equal to the hip belts (assumption)"
+      },
+      "slack_check": "Slack-side tension T0 - tau/(2 r) >= 0; the factor is 2 T0 r / |tau|",
+      "pull_model": "Radial pull on each pulley max(2 T0, |tau|/r) along the belt centre line"
+    },
+    "printed": {
+      "material": "pa12",
+      "basis": "EOS PA2200 weakest-Z 42 MPa x 0.6 (M9 knockdown). Thigh is an open C channel (lid not credited); shin is a 6 mm plate with the harness channel. Normal stress N/A + |M_sag|/Z_sag + |M_lat|/Z_lat; torsion of the open sections uses J = A t^2 / 3 with the wall t below; von Mises with transverse shear 1.5 V/A.",
+      "thigh_wall_m": 0.002,
+      "shin_thickness_m": 0.006,
+      "thigh_sections": "thigh_closed",
+      "thigh_hip_flange": "cad",
+      "hip_bracket_material": "al7075",
+      "shin_material": "al7075",
+      "d4_basis": "Phase D4 adopted set: the lid is fastened along the rim (closed thigh), the 7075 hip flange is in the CAD (sections thigh_torsion rows), and the hip bracket and shin are machined 7075",
+      "hip_bracket_basis": "HipInnerBearing reaction carried by the HipBracket arm (x > 0, forward of the hub) to the side-wall web: each x section in axial load plus bending with the reaction lever x from the hip axis",
+      "hip_bracket_material_note": "B2 lists PA12-CF as an assumption; the screen uses PA12 (conservative)"
+    },
+    "head": {
+      "geoms": [
+        "HeadFront",
+        "HeadRear",
+        "Ear",
+        "Ear_1"
+      ],
+      "neck_material": "pa12",
+      "basis": "Neck sections carry the solved contact wrench on the head geoms plus the head inertial load; head mass from the CAD part masses plus the pan reserve"
+    },
+    "cosmetic": {
+      "parts": [
+        "Ear",
+        "Ear_1",
+        "FrontCameraBezel",
+        "FrontCameraBezel_1",
+        "HipCap",
+        "BatteryHatch",
+        "ThighLid"
+      ],
+      "check": "Attachment and containment only: peak contact force and depth reported"
+    },
+    "candidates": {
+      "basis": "Phase D remedy candidates, merged into m10 by bipe.m10.falls --candidate. Mass deltas are estimates (bearings: ring volume x 7.85 g/cm3 x 0.6 fill; printed and machined parts: CAD volume x density) for the whole robot, not CAD results.",
+      "structural_lid": {
+        "patch": {
+          "structure": {
+            "printed": {
+              "thigh_sections": "thigh_closed"
+            }
+          }
+        },
+        "visible": false,
+        "mass_delta_kg_estimate": 0.004,
+        "description": "ThighLid screwed along the rim (M2 at about 12 mm pitch, 8 per thigh) so the thigh is a closed cell (Bredt torsion)"
+      },
+      "bracket_7075": {
+        "patch": {
+          "structure": {
+            "printed": {
+              "hip_bracket_material": "al7075"
+            }
+          }
+        },
+        "visible": false,
+        "mass_delta_kg_estimate": 0.022,
+        "description": "Machined 7075 HipBracket of the B3 geometry (2 x 6.1 g PA12 -> 2 x 17 g)"
+      },
+      "knee_6900": {
+        "patch": {
+          "structure": {
+            "bearings": {
+              "KneeInnerBearing": "6900",
+              "KneeOuterBearing": "6900"
+            }
+          }
+        },
+        "visible": false,
+        "mass_delta_kg_estimate": 0.03,
+        "description": "Knee 6700 -> 6900 (10x22x6), four bearings; seats grow from 15 to 22 mm inside the thigh knee boss"
+      },
+      "knee_6800": {
+        "patch": {
+          "structure": {
+            "bearings": {
+              "KneeInnerBearing": "6800",
+              "KneeOuterBearing": "6800"
+            }
+          }
+        },
+        "visible": false,
+        "mass_delta_kg_estimate": 0.014,
+        "description": "Knee 6700 -> 6800 (10x19x5), four bearings"
+      },
+      "hip_pod_6804": {
+        "patch": {
+          "structure": {
+            "bearings": {
+              "HipPodBearing": "6804"
+            }
+          }
+        },
+        "visible": true,
+        "mass_delta_kg_estimate": 0.03,
+        "description": "Hip pod 6704 -> 6804 (20x32x7); the pod housing grows from 27 to 32 mm bearing OD"
+      },
+      "inner_688a": {
+        "patch": {
+          "structure": {
+            "bearings": {
+              "BulkheadBearing": "688A",
+              "InnerShaftEndBearing": "688A"
+            }
+          }
+        },
+        "visible": false,
+        "mass_delta_kg_estimate": 0.007,
+        "description": "Inner shaft MR128 -> 688A (8x16x4), four bearings"
+      },
+      "soft_pads": {
+        "patch": {
+          "physics": {
+            "end_stop_pads": {
+              "joints": {
+                "thigh_a1": {
+                  "thickness_m": 0.008
+                },
+                "knee_drive_a2": {
+                  "thickness_m": 0.008
+                },
+                "knee_angle": {
+                  "thickness_m": 0.008
+                }
+              }
+            }
+          }
+        },
+        "visible": false,
+        "mass_delta_kg_estimate": 0.002,
+        "description": "End-stop pads 4 -> 8 mm TPU (half the stiffness, twice the stroke)"
+      },
+      "internal_set": {
+        "patch": {
+          "structure": {
+            "printed": {
+              "thigh_sections": "thigh_closed",
+              "hip_bracket_material": "al7075"
+            },
+            "bearings": {
+              "KneeInnerBearing": "6800",
+              "KneeOuterBearing": "6800",
+              "BulkheadBearing": "688A",
+              "InnerShaftEndBearing": "688A"
+            },
+            "belts": {
+              "knee": {
+                "pretension_per_span_N_assumption": 120.0
+              }
+            }
+          }
+        },
+        "visible": false,
+        "mass_delta_kg_estimate": 0.047,
+        "description": "structural_lid + bracket_7075 + knee_6800 + inner_688a + knee_pretension_120: the invisible changes together"
+      },
+      "protection_ring8": {
+        "patch": {
+          "physics": {
+            "bumpers": {
+              "enabled": true,
+              "wheel_ring": {
+                "thickness_m": 0.008
+              }
+            }
+          },
+          "structure": {
+            "printed": {
+              "thigh_sections": "thigh_closed",
+              "hip_bracket_material": "al7075",
+              "shin_material": "al7075"
+            },
+            "bearings": {
+              "KneeInnerBearing": "6900",
+              "KneeOuterBearing": "6900",
+              "BulkheadBearing": "688A",
+              "InnerShaftEndBearing": "688A"
+            },
+            "belts": {
+              "knee": {
+                "pretension_per_span_N_assumption": 120.0
+              }
+            }
+          }
+        },
+        "visible": true,
+        "mass_delta_kg_estimate": 0.122,
+        "description": "internal_set with 6900 knees and a 7075 shin, plus the skid pad, 8 mm wheel-face rings and TPU ears"
+      },
+      "protection_ring10": {
+        "patch": {
+          "physics": {
+            "bumpers": {
+              "enabled": true,
+              "wheel_ring": {
+                "thickness_m": 0.01
+              }
+            }
+          },
+          "structure": {
+            "printed": {
+              "thigh_sections": "thigh_closed",
+              "hip_bracket_material": "al7075",
+              "shin_material": "al7075"
+            },
+            "bearings": {
+              "KneeInnerBearing": "6900",
+              "KneeOuterBearing": "6900",
+              "BulkheadBearing": "688A",
+              "InnerShaftEndBearing": "688A"
+            },
+            "belts": {
+              "knee": {
+                "pretension_per_span_N_assumption": 120.0
+              }
+            }
+          }
+        },
+        "visible": true,
+        "mass_delta_kg_estimate": 0.123,
+        "description": "internal_set with 6900 knees and a 7075 shin, plus the skid pad, 10 mm wheel-face rings and TPU ears"
+      },
+      "protection_ring12": {
+        "patch": {
+          "physics": {
+            "bumpers": {
+              "enabled": true,
+              "wheel_ring": {
+                "thickness_m": 0.012
+              }
+            }
+          },
+          "structure": {
+            "printed": {
+              "thigh_sections": "thigh_closed",
+              "hip_bracket_material": "al7075",
+              "shin_material": "al7075"
+            },
+            "bearings": {
+              "KneeInnerBearing": "6900",
+              "KneeOuterBearing": "6900",
+              "BulkheadBearing": "688A",
+              "InnerShaftEndBearing": "688A"
+            },
+            "belts": {
+              "knee": {
+                "pretension_per_span_N_assumption": 120.0
+              }
+            }
+          }
+        },
+        "visible": true,
+        "mass_delta_kg_estimate": 0.124,
+        "description": "internal_set with 6900 knees and a 7075 shin, plus the skid pad, 12 mm wheel-face rings and TPU ears"
+      },
+      "protection_ring10_flange": {
+        "patch": {
+          "physics": {
+            "bumpers": {
+              "enabled": true
+            }
+          },
+          "structure": {
+            "printed": {
+              "thigh_sections": "thigh_closed",
+              "thigh_hip_flange": true,
+              "hip_bracket_material": "al7075",
+              "shin_material": "al7075"
+            },
+            "bearings": {
+              "KneeInnerBearing": "6900",
+              "KneeOuterBearing": "6900",
+              "BulkheadBearing": "688A",
+              "InnerShaftEndBearing": "688A"
+            },
+            "belts": {
+              "knee": {
+                "pretension_per_span_N_assumption": 120.0
+              }
+            }
+          }
+        },
+        "visible": true,
+        "mass_delta_kg_estimate": 0.137,
+        "description": "protection_ring10 plus the 7075 thigh hip flange (screen assumption before the CAD: about 7 g per side with the 1.5 mm thicker thigh)"
+      },
+      "protection_v2": {
+        "patch": {
+          "physics": {
+            "bumpers": {
+              "enabled": true,
+              "skid": {
+                "size_m": [
+                  0.13,
+                  0.08,
+                  0.01
+                ],
+                "center_x_m": -0.01,
+                "end_bevel_deg": 12.5,
+                "flat_length_m": 0.07
+              },
+              "wheel_ring": {
+                "dome_deg": 12.0
+              }
+            },
+            "end_stop_pads": {
+              "joints": {
+                "knee_angle": {
+                  "radius_m": 0.016,
+                  "area_m2": 2.4e-05,
+                  "thickness_m": 0.012
+                }
+              }
+            }
+          },
+          "structure": {
+            "printed": {
+              "thigh_sections": "thigh_closed",
+              "thigh_hip_flange": true,
+              "hip_bracket_material": "al7075",
+              "shin_material": "al7075"
+            },
+            "bearings": {
+              "KneeInnerBearing": "6900",
+              "KneeOuterBearing": "6900",
+              "BulkheadBearing": "688A",
+              "InnerShaftEndBearing": "688A"
+            },
+            "belts": {
+              "knee": {
+                "pretension_per_span_N_assumption": 120.0
+              }
+            }
+          }
+        },
+        "visible": true,
+        "mass_delta_kg_estimate": 0.143,
+        "description": "Phase D4 set: internal_set, 6900 knees, 7075 shin, thigh hip flange (screen assumption), 130 x 80 x 10 mm skid with 12.5 deg end bevels, 12 deg coned wheel rings, three-screw TPU ear roots in 3 mm bosses, and a softer knee-angle stop pad (TPU 12 mm long, 24 mm2, at 16 mm radius)"
+      },
+      "knee_pretension_120": {
+        "patch": {
+          "structure": {
+            "belts": {
+              "knee": {
+                "pretension_per_span_N_assumption": 120.0
+              }
+            }
+          }
+        },
+        "visible": false,
+        "mass_delta_kg_estimate": 0.0,
+        "description": "Knee belt pretension 60 -> 120 N per span (eccentric seat)"
+      }
+    }
+  },
+  "end_stop_pads": {
+    "status": "Phase D stop features: a TPU pad on one member strikes the other at each end of each range. The knee_angle stop is in the CAD as the D4 arc slot (m10.internals.knee_stop: shin steel pin in a thigh-lid groove with a TPU pad at each end, 14.5 mm radius); the thigh_a1 and knee_drive_a2 stops are in the CAD as the D4 hidden arc slots (m10.internals.end_stops: steel dowels on the body in padded grooves in the 80T hip pulleys, 20 mm radius; were plant-only pads at 10 mm, 48 mm2, 4 mm before 18 October 2026)",
+    "basis": "Winkler pad M = E A r^2 theta / t over the overtravel theta, the TPU 88A tensile modulus as the compliance proxy (contact materials); beyond max_strain the pad bottoms onto the PA12 backing (E A r^2 / backing_thickness added). Damping from the contact restitution with the joint's exact effective inertia. Mapped through the solver row diagonal like the material contacts; exceeding max_strain is reported, never clipped.",
+    "material": "tpu",
+    "backing_material": "pa12",
+    "backing_thickness_m": 0.002,
+    "max_strain": 0.5,
+    "pad_station_basis": "y_m: left-side station of the pad on its shaft (sections.json stations): thigh_a1 at the groove mid-depth in the thigh 80T pulley's inboard face (0.046), knee_drive_a2 at the groove mid-depth in the knee 80T pulley's inboard face (0.0065), knee_angle at the arc-slot groove mid-depth (0.0775, phase D4 option B). The pad force |M|/r passes through the shaft's bearing pair.",
+    "joints": {
+      "thigh_a1": {
+        "radius_m": 0.02,
+        "area_m2": 2.28e-05,
+        "thickness_m": 0.008,
+        "y_m": 0.046
+      },
+      "knee_drive_a2": {
+        "radius_m": 0.02,
+        "area_m2": 2.28e-05,
+        "thickness_m": 0.008,
+        "y_m": 0.0065
+      },
+      "knee_angle": {
+        "radius_m": 0.0145,
+        "area_m2": 2.4e-05,
+        "thickness_m": 0.012,
+        "y_m": 0.0775
+      }
+    }
+  },
+  "bumpers": {
+    "enabled": true,
+    "status": "Phase D4 adopted (user decisions 13 October 2026), in the D4 CAD: LD45 foam behind a 1 mm TPU 88A wear skin, mounted on the chassis frame (skid, screwed through the tub floor into the bulkhead feet; it also retains the battery hatch, so it comes off for a battery swap) or the wheel hub (rings, on a PA12 carrier in the hub recess), so the load bypasses the printed shells; flexible TPU 88A ears with a three-screw root retention",
+    "foam": "ld45_upper",
+    "stiffness_scale": 1.0,
+    "stiffness_scale_range": [
+      0.5,
+      4.0
+    ],
+    "skin_thickness_m": 0.0012,
+    "skin_basis": "TPU 88A cup over the ground face and sides of each pad, 1.2 mm: above the 1.0 mm printed-wall screen (cad/m10/manufacturability.py). The plant neglects the skin in series with the foam",
+    "max_strain": 0.5,
+    "max_strain_basis": "End of the supplier compression curve (Zotefoams LD45 25 and 50 percent values); beyond it the densification term is an assumption, so a peak strain above 0.5 is reported as bottoming",
+    "skid": {
+      "size_m": [
+        0.13,
+        0.08,
+        0.01
+      ],
+      "center_x_m": -0.01,
+      "end_bevel_deg": 12.5,
+      "flat_length_m": 0.07,
+      "basis": "Keel under the tub centreline, 10 mm proud of the tub floor; long enough that the tub ends stay clear at the 12-13 deg belly-strike pitch"
+    },
+    "wheel_ring": {
+      "outer_radius_m": 0.031,
+      "inner_radius_m": 0.021,
+      "thickness_m": 0.01,
+      "dome_deg": 12.0,
+      "basis": "Annulus on each wheel's outer face, outboard of the tire; 5 mm inside the 36 mm tire radius so it clears the floor below about 27 deg of roll"
+    },
+    "ear": {
+      "material": "tpu",
+      "elongation_at_break_Z": 1.3,
+      "strain_knockdown": 0.6,
+      "source": "https://forward-am.com/wp-content/uploads/2021/04/BASF_3DPS_TDS_Ultrasint-TPU-88A.pdf",
+      "basis": "BASF Ultrasint TPU 88A TDS 2.2 (08/2021): elongation at break 130 percent (Z), 270 percent (XY); flexural modulus 70 MPa. The ear is a root-fixed cantilever of the CAD length, width and thickness; root bending strain 3 t d / (2 L^2) at tip deflection d",
+      "retention": {
+        "name": "ear_root_screws",
+        "count": 6,
+        "thread": "M2",
+        "length_m": 0.006,
+        "washers_per_screw": 1,
+        "parent_material": "pa12",
+        "thread_engagement_m": 0.004,
+        "edge_center_distance_m": 0.003,
+        "member_thickness_m": 0.003,
+        "tab_thickness_m": 0.003,
+        "per_interface": 3,
+        "bolt_spacing_m": 0.024,
+        "fit": "Three M2 x 6 per ear, 12 mm pitch (outer pair 24 mm apart), through a 3 mm TPU root tab into SPIROL M2 heat-set inserts in a 3 mm local boss inside the head pod side wall (D4 CAD: the boss; the screws and inserts are in the fastener allowance). Phase D4: two screws in the 2 mm wall gave shear factor 1.04 (PA12 bearing 101 N)"
+      }
+    },
+    "mass_estimate_kg": {
+      "wheel_rings": 0.0052,
+      "skid": 0.0057,
+      "tpu_ears_increase": 0.0021,
+      "ear_screws_and_inserts": 0.0033,
+      "ear_root_bosses": 0.0004,
+      "basis": "LD45 47 kg/m3 foam volumes plus 1 mm TPU 88A (1100 kg/m3) skins; TPU ears at the CAD ear volume (PA12 11.6 g at 930 kg/m3); M2 x 6 screws and SPIROL inserts"
+    }
+  },
+  "shell_backing": {
+    "basis": "Measured interior clearance (phase D4, user decision 17 October 2026). The M9 shell strip law puts a metal backing at its 4 mm travel assumption (config/m9-impact-materials.json contacts.shell_maximum_travel_m_assumption). At the two sideways strike spots the backing is placed at the gap measured in the CAD instead: a FreeCAD ray-cast from the struck outer surface along the inward contact normal, a 5 x 5 grid at +/-6 mm, against every other part at the nominal pose (cad/m10/shell_clearance.py, artifacts/m10/cad/shell_clearance.json). Spots and inward normals are in the struck part's link frame, from the sideways falls run without the backing; the thighs' second spot is where the M11 plant's sideways_rest strike landed outside the first (phase D step 6, user decision 19 October 2026). Each value is the smallest thin-wall gap on the grid, rounded down to 0.1 mm, so it holds only within radius_m of a listed spot; the falls fail a strike past the default travel outside it.",
+    "radius_m": 0.006,
+    "parts": {
+      "BodyTub": {
+        "travel_m": 0.0076,
+        "spots_m": [
+          [
+            0.0614,
+            0.0466,
+            -0.0307
+          ],
+          [
+            0.0614,
+            -0.0466,
+            -0.0307
+          ]
+        ],
+        "inward_normals": [
+          [
+            -0.852,
+            -0.518,
+            0.078
+          ],
+          [
+            -0.852,
+            0.518,
+            0.078
+          ]
+        ],
+        "obstacle": "the tub's own screw column (7.6 mm); battery about 32 mm",
+        "strike": "front-lower vertical edge, sideways_0p3"
+      },
+      "left_Thigh": {
+        "travel_m": 0.0063,
+        "spots_m": [
+          [
+            0.08456,
+            0.06127,
+            0.01485
+          ],
+          [
+            0.08924,
+            0.06125,
+            0.00805
+          ]
+        ],
+        "inward_normals": [
+          [
+            -0.69,
+            0.117,
+            -0.714
+          ],
+          [
+            -0.91,
+            0.112,
+            -0.399
+          ]
+        ],
+        "obstacle": "the thigh's far wall at the knee-stop boss edge (6.65 mm) and the knee belt (7.2 mm) at the first spot; the knee belt (6.34 mm) at the second; rays through the solid boss itself are excluded",
+        "strike": "knee end, sideways_rest; the second spot is the M11 plant's strike (phase D step 6, user decision 19 October 2026)"
+      },
+      "right_Thigh": {
+        "travel_m": 0.0063,
+        "spots_m": [
+          [
+            0.08456,
+            -0.06127,
+            0.01485
+          ],
+          [
+            0.08924,
+            -0.06125,
+            0.00805
+          ]
+        ],
+        "inward_normals": [
+          [
+            -0.69,
+            -0.117,
+            -0.714
+          ],
+          [
+            -0.91,
+            -0.112,
+            -0.399
+          ]
+        ],
+        "obstacle": "mirror of left_Thigh",
+        "strike": "knee end, mirror of sideways_rest"
+      }
+    }
+  },
+  "fall_dt_s": 0.000125,
+  "experiment": {
+    "output": "artifacts/m12/falls_speed_sweep",
+    "duration": 3.0,
+    "dt": null,
+    "case": null,
+    "workers": 6,
+    "speeds": [
+      0.6,
+      0.9
+    ],
+    "candidate": null,
+    "report": false
+  }
+}

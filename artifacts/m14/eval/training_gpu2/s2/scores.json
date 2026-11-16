@@ -1,0 +1,46 @@
+{
+  "scores": {
+    "name": "s2",
+    "checkpoint": "artifacts/m14/checkpoints/locomotion_s2/model_7999.pt",
+    "checkpoint_sha256": "58410065b2eee8f954147b44e0a6351666446909d8b521627f62b24b0ae2f0a7",
+    "acceptance": null,
+    "speed": null,
+    "stress": null,
+    "hardware": null,
+    "training": {
+      "episodes": 1000,
+      "falls": 252,
+      "fall_rate": 0.252,
+      "interval_95": [
+        0.22607425342832418,
+        0.2798238882705255
+      ],
+      "episode_s": 10.0,
+      "complete": true,
+      "causes": {
+        "tipped": 96,
+        "shell_contact": 28,
+        "rolled": 29,
+        "joint_limit": 4,
+        "nan": 0,
+        "leaned": 145
+      }
+    },
+    "stages": {
+      "training": {
+        "exit": 0,
+        "commit": "9e3392d39026911cbec2e322cbf6907d4016cf9e",
+        "dirty": false
+      }
+    },
+    "gates": {
+      "5_training_fall_rate": {
+        "value": 0.252,
+        "mark": 0.05,
+        "complete": true,
+        "passed": false
+      }
+    }
+  },
+  "baseline": null
+}

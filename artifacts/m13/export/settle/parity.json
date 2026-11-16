@@ -1,0 +1,47 @@
+{
+  "tolerance": 0.0001,
+  "reference": "numpy actor (float64), as phase C ran",
+  "sets": {
+    "recorded": {
+      "observations": 4600,
+      "action_abs_range": 1.2918707702099985,
+      "max_abs_error": {
+        "torch": 6.530224985201727e-07,
+        "onnxruntime": 6.530224985201727e-07,
+        "c_host": 5.338132089693914e-07,
+        "c_cortex_m7": 3.264774341982246e-07
+      },
+      "c_cortex_m7_observations": 512,
+      "c_cortex_m7_vs_c_host_max_abs": 1.1920928955078125e-07,
+      "passed": true
+    },
+    "random": {
+      "observations": 2000,
+      "action_abs_range": 2.0362000411179215,
+      "max_abs_error": {
+        "torch": 1.0153730798379001e-06,
+        "onnxruntime": 8.847208159412645e-07,
+        "c_host": 1.0153730798379001e-06,
+        "c_cortex_m7": 8.156552819826857e-07
+      },
+      "c_cortex_m7_observations": 500,
+      "c_cortex_m7_vs_c_host_max_abs": 1.1920928955078125e-07,
+      "passed": true
+    }
+  },
+  "passed": true,
+  "recorded_from": {
+    "cases": [
+      "push_drive_+2.5",
+      "sensors_combined",
+      "belt_hold_h0.45_n0.9_k1",
+      "backlash_turn_0.6"
+    ],
+    "runner": "bipe.robustness --profile m10"
+  },
+  "identity": {
+    "checkpoint_sha256": "bfccb81281711676d361d18f049190ed2d39fecb7f6abc8235b2ba896d222f91",
+    "onnx_sha256": "acedce422ee79a8c30aa245e803bd221304117eca7d43c03e6dfd4fdcdb995ac",
+    "arm_image_sha256": "0eb4d708221ce5a7c94fe757def8d1176dbbc07f2c60448ed6810fa8f8b87e3e"
+  }
+}

@@ -1,0 +1,37 @@
+{
+ "sit": {
+  "trials": 20,
+  "passed": 20
+ },
+ "front_lean": {
+  "trials": 20,
+  "passed": 20
+ },
+ "back_lean": {
+  "trials": 20,
+  "passed": 19
+ },
+ "all": {
+  "trials": 60,
+  "passed": 59
+ },
+ "flat_over_70deg": {
+  "trials": 19,
+  "passed": 18
+ },
+ "gate_80pct": true,
+ "settings": {
+  "getup": "artifacts/m15/checkpoints/getup_s1/model_12997.pt",
+  "locomotion": "artifacts/m14/checkpoints/finetune_s1/model_9998.pt",
+  "fallen": "c",
+  "quiet_handover": true,
+  "flat_prepose": [
+   "back",
+   "front"
+  ],
+  "prepose_s": 0.5,
+  "flat_deg": 70.0,
+  "commit": "b87de78",
+  "note": "settings added after the run; prepose_s was the code default 0.5 (PR #17 review)"
+ }
+}

@@ -1,0 +1,109 @@
+{
+  "description": "M12 phase B speed-envelope gates for the M10 balance controller. Commands are piecewise-linear knots [t_s, velocity_m_s, yaw_rate_rad_s] (linear between knots), or replays of the phase A ideal-follower commands. Every case runs on the C core with the sensor model, a free base, finite motor limits and physical contact. The envelope itself is config/robot.json m10.targets.drive_envelope.",
+  "status": "Criteria signed off by the user on 21 October 2026 at the phase B exit",
+  "criteria": {
+    "peak_pitch_max_deg": 15.0,
+    "overshoot_max_m_s": 0.15,
+    "hold_speed_max_m_s": 0.03,
+    "plateau_speed_error_max_m_s": 0.05,
+    "yaw_rate_error_max_rad_s": 0.08,
+    "heading_error_max_deg": 8.0,
+    "stop_excess_max_m": 0.15,
+    "replay_path_error_max_m": 0.2,
+    "basis": "Physical failure stays the acceptance limit (20 deg pitch, 10 deg roll, forbidden contact, joint limits, saturation at most 0.5 s). Gated cases also keep 5 deg of pitch margin to it. Speed overshoot above the largest command at most 0.15 m/s, an absolute bound because the overshoot comes from the lean transient of a start and is about 0.1 m/s from 0.3 to 1.2 m/s (the recorded M10 acceptance drive overshoots 0.3 m/s by 0.13 m/s); 0.15 m/s for the half second of the transient is under 0.08 m of range. Plateau speed error at most 0.05 m/s (4 % of 1.2 m/s; the 0.3 m/s acceptance allows 0.03 m/s, 10 %). Yaw-rate error and final heading error are the acceptance turn limits. A stop may run past the stopping distance of the shaped reference by at most 0.15 m: the loss rule (following-m12.json loss) brings the robot to rest 0.8 m after the last detection from 1.0 m/s, so 0.15 m keeps the robot 0.05 m short of the 1.0 m nominal range. In a replay the robot's path stays within 0.2 m of the ideal follower's path, inside the 0.3 m between the nominal range and the lower edge of the range band. A case recovers when the last 2 s have pitch within 2 deg and speed within 0.03 m/s (the acceptance recovery rule). A slope case holds instead when the last 2 s have speed within 0.03 m/s: on a slope the held pitch includes the slope lean, so the M10 suite judges slopes by survival and rollback, not by the pitch recovery rule."
+  },
+  "cases": {
+    "drive_step": {
+      "purpose": "Step to the 1.2 m/s envelope speed and a step stop; the controller's shaping sets the profile",
+      "knots": [[0, 0, 0], [1, 0, 0], [1, 1.2, 0], [9, 1.2, 0], [9, 0, 0], [16, 0, 0]],
+      "plateaus": [[4, 9]],
+      "stops": [9]
+    },
+    "drive_ramp": {
+      "purpose": "Follower-like ramp at 1.25 m/s^2 to 1.2 m/s and a 1.0 m/s^2 brake",
+      "knots": [[0, 0, 0], [1, 0, 0], [1.96, 1.2, 0], [9, 1.2, 0], [10.2, 0, 0], [16, 0, 0]],
+      "plateaus": [[4, 9]],
+      "stops": [10.2]
+    },
+    "reverse": {
+      "purpose": "The 0.3 m/s reverse limit",
+      "knots": [[0, 0, 0], [1, 0, 0], [1, -0.3, 0], [7, -0.3, 0], [7, 0, 0], [12, 0, 0]],
+      "plateaus": [[3, 7]],
+      "stops": [7]
+    },
+    "spin": {
+      "purpose": "Spin at the 1.0 rad/s envelope yaw rate both ways, at rest",
+      "knots": [[0, 0, 0], [1, 0, 0], [1, 0, 1.0], [5, 0, 1.0], [5, 0, 0], [7, 0, 0], [7, 0, -1.0], [11, 0, -1.0], [11, 0, 0], [15, 0, 0]],
+      "yaw_windows": [[2, 5], [8, 11]]
+    },
+    "arc_r2": {
+      "purpose": "2 m radius at 1.0 m/s (0.5 m/s^2 lateral, the target curve limit)",
+      "knots": [[0, 0, 0], [1, 0, 0], [1.8, 1.0, 0], [3, 1.0, 0], [3, 1.0, 0.5], [10, 1.0, 0.5], [10, 1.0, 0], [11, 0, 0], [16, 0, 0]],
+      "plateaus": [[4, 10]],
+      "yaw_windows": [[4, 10]],
+      "stops": [11]
+    },
+    "arc_r1": {
+      "purpose": "1 m radius at 0.7 m/s (0.5 m/s^2 lateral)",
+      "knots": [[0, 0, 0], [1, 0, 0], [1.56, 0.7, 0], [3, 0.7, 0], [3, 0.7, 0.7], [10, 0.7, 0.7], [10, 0.7, 0], [10.7, 0, 0], [16, 0, 0]],
+      "plateaus": [[4, 10]],
+      "yaw_windows": [[4, 10]],
+      "stops": [10.7]
+    },
+    "weave": {
+      "purpose": "Alternating turns at 0.8 rad/s while driving at 1.0 m/s, reversing the yaw rate at the yaw acceleration limit",
+      "knots": [[0, 0, 0], [1, 0, 0], [1.8, 1.0, 0], [3, 1.0, 0], [3.64, 1.0, 0.8], [4.5, 1.0, 0.8], [5.78, 1.0, -0.8], [6.5, 1.0, -0.8], [7.78, 1.0, 0.8], [8.5, 1.0, 0.8], [9.14, 1.0, 0], [10, 1.0, 0], [11, 0, 0], [16, 0, 0]],
+      "plateaus": [[4, 10]],
+      "yaw_windows": [[4, 9.5]],
+      "stops": [11]
+    },
+    "push_fast_+2": {
+      "purpose": "2 N s forward push at 4 s while driving at 1.2 m/s",
+      "knots": [[0, 0, 0], [1, 0, 0], [1.96, 1.2, 0], [9, 1.2, 0], [10.2, 0, 0], [16, 0, 0]],
+      "disturbance": {"push_Ns": 2.0},
+      "gate": "survive"
+    },
+    "push_fast_-2": {
+      "purpose": "2 N s backward push at 4 s while driving at 1.2 m/s",
+      "knots": [[0, 0, 0], [1, 0, 0], [1.96, 1.2, 0], [9, 1.2, 0], [10.2, 0, 0], [16, 0, 0]],
+      "disturbance": {"push_Ns": -2.0},
+      "gate": "survive"
+    }
+  },
+  "slopes": {
+    "degrees": [4, 8, 10],
+    "speed_m_s": 1.0,
+    "knots_unit_speed": [[0, 0, 0], [1, 0, 0], [1.8, 1.0, 0], [9, 1.0, 0], [10, 0, 0], [16, 0, 0]],
+    "plateaus": [[4, 9]],
+    "stops": [10],
+    "gate": "slope",
+    "basis": "Up and down the M10 acceptance slopes at 1.0 m/s, driving forward (downhill is a negative ground slope); the robot must survive, stop and hold"
+  },
+  "replays": {
+    "layout": "waist_tag",
+    "scenarios": ["straight_1.0", "start_stop", "curve_r1", "corner_90", "lateral_crossing", "loss_fov"],
+    "start_s": 1.0,
+    "settle_s": 4.0,
+    "basis": "The ideal follower's speed and yaw rate (artifacts/m12/requirements/follower_traces.npz) as the balance controller's commands, zero while the follower waits or holds"
+  },
+  "variants": {
+    "names": ["mass_plus_15pct", "friction_0p5", "wheel_lag_10ms", "wheel_lag_25ms", "delay_15ms_noise_x2", "seed_plus_1", "seed_plus_2"],
+    "cases": ["drive_step", "weave", "replay_corner_90"],
+    "gate": "survive",
+    "basis": "The M10 acceptance variants. A wheel lag is applied to physics.hub_motor.FOC_time_constant_s, the constant the M10 hub drives use (the inherited acceptance job sets motor.torque_time_constant, which the M10 drives do not read, so on M10 it never applied). The modelled moteus FOC lag is 0.8 ms; 10 ms is added as the largest lag both the pre-phase-B and the phase B controllers survive in the 0.3 m/s acceptance cases (artifacts/m12/speed/lag_check)."
+  },
+  "recorded_shortfalls": {
+    "cases": ["wheel_lag_25ms_drive_step", "wheel_lag_25ms_weave", "wheel_lag_25ms_replay_corner_90", "slope_up_4", "slope_up_8"],
+    "status": "Accepted by the user at the phase B sign-off, 21 October 2026",
+    "basis": "Wheel lag: a real 25 ms hub torque lag also fails the 0.3 m/s M10 acceptance drive and combined cases with the controller before phase B (artifacts/m12/speed/lag_check/before_phase_b.json), so this is an inherited M10 gap, hidden because the inherited variant did not apply on M10; it is not a phase B regression. The phase B controller survives a 10 ms lag at speed. slope_up_4 and slope_up_8: after the stop the robot creeps back to its hold point, peaking at 0.041 and 0.032 m/s in the last 2 s (0.016 and 0.009 m/s at the end), over the 0.03 m/s hold speed proposed here; the M10 suite judges slope holds by rollback (at most 0.1 m; these cases roll back 0.029 and 0.042 m as they first settle on the slope), which they meet. slope_up_8 passed (0.024 m/s) while the estimator's acceleration compensation also ran during the hold; it is now off while holding, so a push at rest is not taken for a drive acceleration (artifacts/m12/speed/regression/push_low.json). The hold keeps its pre-phase-B rate limit (controller_m10.json hold_command_acceleration); shaping the hold reference with the lean feedforward held this case to 0.029 m/s but lost the push recovery at rest under a 25 ms hub lag (artifacts/m12/speed/lag_check/attribution.json)."
+  },
+  "convergence": {
+    "case": "drive_step",
+    "physics_dt_scale": 0.5,
+    "pitch_peak_difference_max_deg": 0.5,
+    "speed_peak_difference_max_m_s": 0.02
+  },
+  "information": {
+    "low_posture_drive_ramp": {"base": "drive_ramp", "posture_deg": 60}
+  }
+}

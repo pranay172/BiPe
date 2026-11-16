@@ -1,0 +1,96 @@
+{
+  "board": "bipe-m11-power",
+  "status": "M11 phase D digital candidate: routed and checked in KiCad, not ordered, assembled or hardware validated",
+  "router": "Freerouting 1.9.0 (-mp 20 -mt 1) on artifacts/m11/boards/power/unrouted.dsn; heavy power tracks placed and locked by the generator",
+  "erc_violations": 0,
+  "drc_violations": 0,
+  "drc_unconnected": 0,
+  "schematic_parity_issues": 0,
+  "tracks": 160,
+  "vias": 3,
+  "track_widths_mm": [
+    0.25,
+    0.3,
+    0.4,
+    2.0
+  ],
+  "track_length_mm": 406.4,
+  "zones": [
+    {
+      "net": "/GND",
+      "layer": "F.Cu",
+      "priority": 0,
+      "filled_area_mm2": 415.3
+    },
+    {
+      "net": "/GND",
+      "layer": "B.Cu",
+      "priority": 0,
+      "filled_area_mm2": 1054.0
+    },
+    {
+      "net": "/VBAT",
+      "layer": "F.Cu",
+      "priority": 1,
+      "filled_area_mm2": 94.7
+    },
+    {
+      "net": "/BUS",
+      "layer": "F.Cu",
+      "priority": 2,
+      "filled_area_mm2": 158.4
+    }
+  ],
+  "jlc_placed": [
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "D1",
+    "J4",
+    "J5",
+    "J6",
+    "Q1",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "U1"
+  ],
+  "hand_fit": [
+    "#FLG01",
+    "#FLG02",
+    "J1",
+    "J2",
+    "J3"
+  ],
+  "files": {
+    "artifacts/m11/boards/power/fab/bipe-m11-power-gerbers.zip": "c8f7075fd31de65c7de2b1e1d20922f6b41613882ece64032bb67e54773bdbeb",
+    "artifacts/m11/boards/power/fab/cpl-jlc.csv": "56948509891dce70d0503c12d3e19a7451d900445ae46c6ac339df1b528fd444",
+    "artifacts/m11/boards/power/fab/gerbers/bipe-m11-power-B_Cu.gbr": "5ef20aba4d9fa16ddde3f0842e71473da412a530208990de3b35588fb453f278",
+    "artifacts/m11/boards/power/fab/gerbers/bipe-m11-power-B_Mask.gbr": "8d9fc42d1c363251ec32f96c41e5b797eea84ce843c3fac079855c53418a4b0b",
+    "artifacts/m11/boards/power/fab/gerbers/bipe-m11-power-B_Paste.gbr": "fac3b2e17fc6df578aa36769c6ed5f41c6a76488b6b3b922edf8f684f2c2a421",
+    "artifacts/m11/boards/power/fab/gerbers/bipe-m11-power-B_Silkscreen.gbr": "c83c70bdbb8f34b68f1f45dd241fd4bf605c0d34651856f6b1c1033d20deb779",
+    "artifacts/m11/boards/power/fab/gerbers/bipe-m11-power-Edge_Cuts.gbr": "374a977c7f31e2276c0be2b41c5a52db42caceb71326d94ce46a2c9ca6f372c5",
+    "artifacts/m11/boards/power/fab/gerbers/bipe-m11-power-F_Cu.gbr": "d8382c32643a6f6ea70bfa7e0749ec3e24e547e95e20e178e5fcf78f83453e20",
+    "artifacts/m11/boards/power/fab/gerbers/bipe-m11-power-F_Mask.gbr": "c43db37b310267476fc171b0e833afae9ab7c93d45043c5c3b7e2f264aa354fd",
+    "artifacts/m11/boards/power/fab/gerbers/bipe-m11-power-F_Paste.gbr": "f069d69da79db5f3e9cc8883034698ac5ee838e4f56d9101a75f1db4ccd0470c",
+    "artifacts/m11/boards/power/fab/gerbers/bipe-m11-power-F_Silkscreen.gbr": "40bf37694787d77572632bb31705bf55d98982646d522d82f298870a83d3807a",
+    "artifacts/m11/boards/power/fab/gerbers/bipe-m11-power-NPTH-drl_map.gbr": "4feeb4cdf05d0a95ea5ea562594a5488919752191a4675128b219383bd38f51d",
+    "artifacts/m11/boards/power/fab/gerbers/bipe-m11-power-NPTH.drl": "652f94d3416dc5e5c3ff1b082b10214ccb801389d8902be349eab21c43399282",
+    "artifacts/m11/boards/power/fab/gerbers/bipe-m11-power-PTH-drl_map.gbr": "6f485e2b6f372161bec4e0ce5bc5c626a8b415fe135354391b4b714a8c5988b6",
+    "artifacts/m11/boards/power/fab/gerbers/bipe-m11-power-PTH.drl": "7b0880756ec411ba381a7c4db10a68458c641a42c9d2079caced8eba1be2ba05",
+    "artifacts/m11/boards/power/fab/gerbers/bipe-m11-power-job.gbrjob": "f0f5aa617e355623d0bb7b6c9c445edf57cd4a0ae89f88717b2dceba5b4385ae",
+    "artifacts/m11/boards/power/fab/pos-kicad.csv": "70b6ba059d5ab59ab44d70bc72e1fa255eedc5955e29c0723d26ef56c1cd2537",
+    "electronics/m11/power/bipe-m11-power.kicad_pcb": "978d960073a8440b220c44f4f65cb1a8c469596f4d4ea7873a7c432fc3fbece6",
+    "electronics/m11/power/bipe-m11-power.kicad_sch": "8bc12087e34b9d07d85cd09baa68ed1e778593148ef6bcd3183eb4a20f6e1691"
+  },
+  "passed": true
+}

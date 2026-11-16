@@ -1,0 +1,70 @@
+{
+  "reference": "artifacts/m14/eval/finetune_ft1/acceptance/summary.json",
+  "c_forward_pass": "artifacts/m14/export/locomotion/c_acceptance/summary.json",
+  "complete": true,
+  "cases": 99,
+  "same_verdicts": 98,
+  "flipped": {
+    "wheel_lag_25ms_drive": {
+      "passed_without_joint_error": [
+        true,
+        false
+      ]
+    }
+  },
+  "flipped_late_rest": {
+    "wheel_lag_25ms_drive": {
+      "late_pitch_peak_deg": [
+        null,
+        null
+      ],
+      "late_speed_peak_m_s": [
+        null,
+        null
+      ]
+    }
+  },
+  "within_bands": 99,
+  "out_of_band": {},
+  "bands": {
+    "peak_pitch_deg": [
+      0.5,
+      0.25
+    ],
+    "late_pitch_pp_deg": [
+      0.5,
+      0.25
+    ],
+    "rollback_m": [
+      0.02,
+      0.25
+    ],
+    "max_travel_m": [
+      0.02,
+      0.25
+    ],
+    "peak_wheel_Nm": [
+      0.02,
+      0.25
+    ],
+    "peak_motor_Nm": [
+      0.05,
+      0.25
+    ]
+  },
+  "numpy_rerun_reproduces_phase_c": {
+    "delay_15ms_noise_x2_drive": true,
+    "push_low_-2.5": true,
+    "wheel_lag_25ms_drive": true
+  },
+  "max_abs_difference": {
+    "peak_pitch_deg": 0.5163271166473997,
+    "late_pitch_pp_deg": 0.3262171569073117,
+    "rollback_m": 0.009597824208736228,
+    "max_travel_m": 0.009964993190550664,
+    "peak_wheel_Nm": 0.014501288606009355,
+    "peak_motor_Nm": 0.020287670386512358,
+    "late_pitch_peak_deg": 0.40207143415531643,
+    "late_speed_peak_m_s": 0.01047770725567813
+  }
+}

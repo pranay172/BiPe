@@ -1,0 +1,6052 @@
+{
+ "curve_r1_seed0_lat0.15": {
+  "name": "curve_r1",
+  "seed": 0,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.186222204282057,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.0164296151677772,
+   "peak_reverse_m_s": 0.44997253102632895,
+   "peak_acceleration_m_s2": 3.5508843016606413,
+   "peak_yaw_rate_rad_s": 1.3835189607645775,
+   "peak_yaw_acceleration_rad_s2": 28.899926180062998,
+   "range_min_m": 0.8500909063046088,
+   "range_max_m": 1.17618037377298,
+   "peak_bearing_deg": 6.332667488406002,
+   "peak_view_angle_deg": 60.30297869910115,
+   "min_pixels": 40.720233142342636,
+   "invisible_while_following_s": 0.1,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6749999999999534,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6749999999999534,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.9075161238382564,
+   "reverse_max_m_s": 0.16855770021942373,
+   "yaw_rate_max_rad_s": 0.7522828817652066,
+   "acceleration_max_m_s2": 1.250000000000011,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000027,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.01328386452589242,
+   "range_rms_m": 0.01677579984441852,
+   "range_max_abs_m": 0.05058883074935139,
+   "bearing_rms_deg": 0.4618852952084257,
+   "bearing_max_abs_deg": 2.521609962763008
+  },
+  "reports": {
+   "accepted": 533,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 540,
+  "frames_possible": 540,
+  "frames_detected": 540,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 914,
+  "wall_s": 1068.251174211502,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 540,
+   "detected": 540,
+   "in_frame": 540,
+   "possible": 540,
+   "detected_when_possible": 540,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.01397866576362416,
+   "range_error_std_m": 0.002308553839814098,
+   "range_error_max_abs_m": 0.022156988463145844,
+   "bearing_error_mean_deg": -0.07147923107560912,
+   "bearing_error_std_deg": 0.00479703182362892,
+   "bearing_error_max_abs_deg": 0.09439452075490484,
+   "detector_s_mean": 0.0024438108667305235,
+   "gated": 0
+  }
+ },
+ "start_stop_seed0_lat0.15": {
+  "name": "start_stop",
+  "seed": 0,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.03675595954427,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.3177263679711437,
+   "peak_reverse_m_s": 0.5209420309528572,
+   "peak_acceleration_m_s2": 3.8822980541205894,
+   "peak_yaw_rate_rad_s": 1.2792340582283537,
+   "peak_yaw_acceleration_rad_s2": 24.477542920540955,
+   "range_min_m": 0.6389503548311704,
+   "range_max_m": 1.277430138331003,
+   "peak_bearing_deg": 4.4167912687018225,
+   "peak_view_angle_deg": 1.7663428689998717,
+   "min_pixels": 58.41885443603824,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6899999999999518,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6899999999999518,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 0.1972652339221162,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010998033681065306,
+   "range_rms_m": 0.015301618812508648,
+   "range_max_abs_m": 0.0541412443978907,
+   "bearing_rms_deg": 0.2241937047750364,
+   "bearing_max_abs_deg": 1.5820211424126562
+  },
+  "reports": {
+   "accepted": 525,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 532,
+  "frames_possible": 532,
+  "frames_detected": 532,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 902,
+  "wall_s": 1071.0782766342163,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 532,
+   "detected": 532,
+   "in_frame": 532,
+   "possible": 532,
+   "detected_when_possible": 532,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013102450286748422,
+   "range_error_std_m": 0.0029782542731595805,
+   "range_error_max_abs_m": 0.02163202074985171,
+   "bearing_error_mean_deg": -0.07443146826533938,
+   "bearing_error_std_deg": 0.005898437372141125,
+   "bearing_error_max_abs_deg": 0.09849690441649984,
+   "detector_s_mean": 0.0020910062386591513,
+   "gated": 0
+  }
+ },
+ "straight_1.0_seed0_lat0.15": {
+  "name": "straight_1.0",
+  "seed": 0,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.507372152403994,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 1.2679178951716494,
+   "peak_reverse_m_s": 0.4685359490720992,
+   "peak_acceleration_m_s2": 3.327266800453387,
+   "peak_yaw_rate_rad_s": 1.268399157574221,
+   "peak_yaw_acceleration_rad_s2": 25.290876195248284,
+   "range_min_m": 0.7931037108149033,
+   "range_max_m": 1.252757269126208,
+   "peak_bearing_deg": 4.125759315712159,
+   "peak_view_angle_deg": 1.3222490452347215,
+   "min_pixels": 59.57143904131108,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true,
+   "steady_bearing_ok": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [],
+   "steady_bearing_ok": true
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.2046345611603993,
+   "yaw_rate_max_rad_s": 0.21235652520855625,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000027,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010857389316774773,
+   "range_rms_m": 0.01451687045037281,
+   "range_max_abs_m": 0.04199667754234693,
+   "bearing_rms_deg": 0.26845401845075856,
+   "bearing_max_abs_deg": 1.187487873768803
+  },
+  "reports": {
+   "accepted": 541,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 547,
+  "frames_possible": 547,
+  "frames_detected": 547,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 926,
+  "wall_s": 1091.1990826129913,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 547,
+   "detected": 547,
+   "in_frame": 547,
+   "possible": 547,
+   "detected_when_possible": 547,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013539876495887022,
+   "range_error_std_m": 0.0020035430360961786,
+   "range_error_max_abs_m": 0.02429265457713159,
+   "bearing_error_mean_deg": -0.07352651220318411,
+   "bearing_error_std_deg": 0.004040321600927448,
+   "bearing_error_max_abs_deg": 0.09498382875186956,
+   "detector_s_mean": 0.0021217891006473032,
+   "gated": 0
+  }
+ },
+ "curve_r2_seed0_lat0.15": {
+  "name": "curve_r2",
+  "seed": 0,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.204387631852605,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.2780684372811817,
+   "peak_reverse_m_s": 0.5292184703179987,
+   "peak_acceleration_m_s2": 3.729381549986499,
+   "peak_yaw_rate_rad_s": 1.397710754219097,
+   "peak_yaw_acceleration_rad_s2": 26.62718263214436,
+   "range_min_m": 0.7148818702243551,
+   "range_max_m": 1.2365454876190975,
+   "peak_bearing_deg": 7.519216259562085,
+   "peak_view_angle_deg": 28.171198749609307,
+   "min_pixels": 60.352437547771075,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6849999999999523,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6849999999999523,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.28009136534845996,
+   "yaw_rate_max_rad_s": 0.6266076620352994,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.250000000000011,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.012772111890490104,
+   "range_rms_m": 0.016369510395280548,
+   "range_max_abs_m": 0.05191752509938985,
+   "bearing_rms_deg": 0.49370687413199005,
+   "bearing_max_abs_deg": 1.7881684522756438
+  },
+  "reports": {
+   "accepted": 548,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 556,
+  "frames_possible": 556,
+  "frames_detected": 556,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 940,
+  "wall_s": 1102.6056780815125,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 556,
+   "detected": 556,
+   "in_frame": 556,
+   "possible": 556,
+   "detected_when_possible": 556,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.01370993771389331,
+   "range_error_std_m": 0.0025972753066991565,
+   "range_error_max_abs_m": 0.0224796843613273,
+   "bearing_error_mean_deg": -0.07266399471915709,
+   "bearing_error_std_deg": 0.005038561200673664,
+   "bearing_error_max_abs_deg": 0.09462129261586189,
+   "detector_s_mean": 0.0023406740414194252,
+   "gated": 0
+  }
+ },
+ "straight_0.6_seed0_lat0.15": {
+  "name": "straight_0.6",
+  "seed": 0,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.741885550844298,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.9240985475164905,
+   "peak_reverse_m_s": 0.47238598430962775,
+   "peak_acceleration_m_s2": 2.9094451558494234,
+   "peak_yaw_rate_rad_s": 1.25957205578806,
+   "peak_yaw_acceleration_rad_s2": 28.63810341852692,
+   "range_min_m": 0.7509917298291974,
+   "range_max_m": 1.1643281125954799,
+   "peak_bearing_deg": 4.200624537995066,
+   "peak_view_angle_deg": 0.962849236874072,
+   "min_pixels": 64.0965032471608,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true,
+   "steady_bearing_ok": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6849999999999523,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [],
+   "steady_bearing_ok": true
+  },
+  "events": [
+   {
+    "t": 0.6849999999999523,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.7993918258108091,
+   "reverse_max_m_s": 0.2597710836007872,
+   "yaw_rate_max_rad_s": 0.18601310596673792,
+   "acceleration_max_m_s2": 1.250000000000011,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.01055965192748112,
+   "range_rms_m": 0.01420163535816676,
+   "range_max_abs_m": 0.058383759523859435,
+   "bearing_rms_deg": 0.3051295629198014,
+   "bearing_max_abs_deg": 1.4815421610535544
+  },
+  "reports": {
+   "accepted": 642,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 650,
+  "frames_possible": 650,
+  "frames_detected": 650,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 1096,
+  "wall_s": 1272.4406321048737,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 650,
+   "detected": 650,
+   "in_frame": 650,
+   "possible": 650,
+   "detected_when_possible": 650,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.01328626446871917,
+   "range_error_std_m": 0.0016752949404590925,
+   "range_error_max_abs_m": 0.020635495798757453,
+   "bearing_error_mean_deg": -0.07391779393064551,
+   "bearing_error_std_deg": 0.0036437923470871688,
+   "bearing_error_max_abs_deg": 0.08669330969116607,
+   "detector_s_mean": 0.0021015004400228815,
+   "gated": 0
+  }
+ },
+ "loss_fov_seed0_lat0.15": {
+  "name": "loss_fov",
+  "seed": 0,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 13.712655376954881,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.7087607627839922,
+   "peak_reverse_m_s": 0.4172735052121752,
+   "peak_acceleration_m_s2": 2.8982328115603266,
+   "peak_yaw_rate_rad_s": 1.6523384910339274,
+   "peak_yaw_acceleration_rad_s2": 27.074865222523385,
+   "range_min_m": 0.6019291297206124,
+   "range_max_m": 0.9966723005448107,
+   "peak_bearing_deg": 78.03228241252378,
+   "peak_view_angle_deg": 1.2074182697257333e-06,
+   "min_pixels": 74.87887087707468,
+   "invisible_while_following_s": 0.36,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6899999999999518,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [
+    0.19871438574497732
+   ]
+  },
+  "events": [
+   {
+    "t": 0.6899999999999518,
+    "event": "engaged"
+   },
+   {
+    "t": 3.0949999999996445,
+    "event": "coasting"
+   },
+   {
+    "t": 3.4699999999994366,
+    "event": "lost",
+    "speed": 0.40034286533285085
+   },
+   {
+    "t": 4.2999999999995095,
+    "event": "holding",
+    "stopping_distance_m": 0.19871438574497732
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 3.0949999999996445,
+    "length_s": 0.37499999999979217,
+    "then": "braking"
+   }
+  ],
+  "brakes": [
+   {
+    "start_s": 3.4699999999994366,
+    "length_s": 0.8300000000000729,
+    "then": "holding"
+   }
+  ],
+  "losses_to_hold": 1,
+  "envelope": {
+   "speed_max_m_s": 0.5249999999995427,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 1.0,
+   "acceleration_max_m_s2": 1.25,
+   "yaw_acceleration_max_rad_s2": 1.250000000000011,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.02607655361208081,
+   "range_rms_m": 0.03597081912077875,
+   "range_max_abs_m": 0.10607999865652395,
+   "bearing_rms_deg": 2.209544421309859,
+   "bearing_max_abs_deg": 8.463305004789557
+  },
+  "reports": {
+   "accepted": 76,
+   "empty": 29,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 4
+  },
+  "frames": 110,
+  "frames_possible": 75,
+  "frames_detected": 80,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 524,
+  "wall_s": 346.21389174461365,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 110,
+   "detected": 80,
+   "in_frame": 80,
+   "possible": 75,
+   "detected_when_possible": 75,
+   "detected_not_possible": 5,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.011783371330775722,
+   "range_error_std_m": 0.0026405744335422465,
+   "range_error_max_abs_m": 0.01381748460168919,
+   "bearing_error_mean_deg": -0.07864897878642993,
+   "bearing_error_std_deg": 0.00869768332114786,
+   "bearing_error_max_abs_deg": 0.1046921831902523,
+   "detector_s_mean": 0.009748406981684225,
+   "gated": 0
+  }
+ },
+ "lateral_crossing_seed0_lat0.15": {
+  "name": "lateral_crossing",
+  "seed": 0,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.14522206627689,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.1687404426618848,
+   "peak_reverse_m_s": 0.5164031418088634,
+   "peak_acceleration_m_s2": 3.4208277028181335,
+   "peak_yaw_rate_rad_s": 1.3558438569894966,
+   "peak_yaw_acceleration_rad_s2": 25.853568742843756,
+   "range_min_m": 0.7398101643164819,
+   "range_max_m": 1.0350631243524904,
+   "peak_bearing_deg": 9.098179931184804,
+   "peak_view_angle_deg": 1.2074182697257333e-06,
+   "min_pixels": 72.10158950058077,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6849999999999523,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6849999999999523,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.0134261256933217,
+   "reverse_max_m_s": 0.2692772720249365,
+   "yaw_rate_max_rad_s": 0.9824843791124404,
+   "acceleration_max_m_s2": 1.2500000000000007,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000056,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.012131104826445282,
+   "range_rms_m": 0.01488296468415443,
+   "range_max_abs_m": 0.05192770201809571,
+   "bearing_rms_deg": 0.4704483244149358,
+   "bearing_max_abs_deg": 1.99453355445317
+  },
+  "reports": {
+   "accepted": 315,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 323,
+  "frames_possible": 323,
+  "frames_detected": 323,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 551,
+  "wall_s": 623.8259763717651,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 323,
+   "detected": 323,
+   "in_frame": 323,
+   "possible": 323,
+   "detected_when_possible": 323,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.01326773403233716,
+   "range_error_std_m": 0.002886252273279947,
+   "range_error_max_abs_m": 0.027230607889139002,
+   "bearing_error_mean_deg": -0.07452548872511158,
+   "bearing_error_std_deg": 0.004463351513900605,
+   "bearing_error_max_abs_deg": 0.08893344976493388,
+   "detector_s_mean": 0.002030287099093103,
+   "gated": 0
+  }
+ },
+ "straight_0.3_seed0_lat0.15": {
+  "name": "straight_0.3",
+  "seed": 0,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 12.833741716145678,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.5997812449560345,
+   "peak_reverse_m_s": 0.36773149040396247,
+   "peak_acceleration_m_s2": 3.24567076353769,
+   "peak_yaw_rate_rad_s": 1.3319491916545474,
+   "peak_yaw_acceleration_rad_s2": 28.832577867313418,
+   "range_min_m": 0.9019233346409994,
+   "range_max_m": 1.0798283454008917,
+   "peak_bearing_deg": 3.516427740854392,
+   "peak_view_angle_deg": 0.4931028383223261,
+   "min_pixels": 69.1122845941907,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true,
+   "steady_bearing_ok": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6749999999999534,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [],
+   "steady_bearing_ok": true
+  },
+  "events": [
+   {
+    "t": 0.6749999999999534,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.44559592040932366,
+   "reverse_max_m_s": 0.1447345452454481,
+   "yaw_rate_max_rad_s": 0.18564417775291422,
+   "acceleration_max_m_s2": 1.2500000000000056,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.009868558855693394,
+   "range_rms_m": 0.013128248182247981,
+   "range_max_abs_m": 0.04106177951235368,
+   "bearing_rms_deg": 0.3296552843699472,
+   "bearing_max_abs_deg": 1.7633883174962872
+  },
+  "reports": {
+   "accepted": 929,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 936,
+  "frames_possible": 936,
+  "frames_detected": 936,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 1573,
+  "wall_s": 1787.9974331855774,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 936,
+   "detected": 936,
+   "in_frame": 936,
+   "possible": 936,
+   "detected_when_possible": 936,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013408947457832531,
+   "range_error_std_m": 0.001472824600890549,
+   "range_error_max_abs_m": 0.02374518121217495,
+   "bearing_error_mean_deg": -0.07350727925442896,
+   "bearing_error_std_deg": 0.0032679989488067205,
+   "bearing_error_max_abs_deg": 0.08512139322438186,
+   "detector_s_mean": 0.0020551838963864355,
+   "gated": 0
+  }
+ },
+ "approach_seed0_lat0.15": {
+  "name": "approach",
+  "seed": 0,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.806259025894137,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.9418667251013929,
+   "peak_reverse_m_s": 0.4629653672143566,
+   "peak_acceleration_m_s2": 3.1212387011661704,
+   "peak_yaw_rate_rad_s": 1.298910466047975,
+   "peak_yaw_acceleration_rad_s2": 26.556295625854773,
+   "range_min_m": 0.5232165817135658,
+   "range_max_m": 1.146900330788887,
+   "peak_bearing_deg": 3.923691800676525,
+   "peak_view_angle_deg": 1.2074182697257333e-06,
+   "min_pixels": 65.07077772653388,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": false
+  },
+  "checks": {
+   "engaged_at_s": 0.6899999999999518,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6899999999999518,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.80197356159487,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 0.18336473080496907,
+   "acceleration_max_m_s2": 1.2500000000000013,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.009690630374246051,
+   "range_rms_m": 0.014047548509742892,
+   "range_max_abs_m": 0.041865818684598266,
+   "bearing_rms_deg": 0.19131326825017428,
+   "bearing_max_abs_deg": 1.2686944938836786
+  },
+  "reports": {
+   "accepted": 420,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 426,
+  "frames_possible": 426,
+  "frames_detected": 426,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 725,
+  "wall_s": 803.821163892746,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 426,
+   "detected": 426,
+   "in_frame": 426,
+   "possible": 426,
+   "detected_when_possible": 426,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.011942225960745961,
+   "range_error_std_m": 0.0026922826862612517,
+   "range_error_max_abs_m": 0.022256048302805143,
+   "bearing_error_mean_deg": -0.07736669038657422,
+   "bearing_error_std_deg": 0.00736715964745501,
+   "bearing_error_max_abs_deg": 0.10702365943761064,
+   "detector_s_mean": 0.0021157218991095465,
+   "gated": 0
+  }
+ },
+ "corner_90_seed0_lat0.15": {
+  "name": "corner_90",
+  "seed": 0,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.242231525813189,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.2709594808324025,
+   "peak_reverse_m_s": 0.5299946992877316,
+   "peak_acceleration_m_s2": 4.240813421414707,
+   "peak_yaw_rate_rad_s": 1.3697839255867252,
+   "peak_yaw_acceleration_rad_s2": 25.25838483934406,
+   "range_min_m": 0.7293802906211083,
+   "range_max_m": 1.2520525985315965,
+   "peak_bearing_deg": 12.094663154417866,
+   "peak_view_angle_deg": 73.18043943767118,
+   "min_pixels": 23.858451291796523,
+   "invisible_while_following_s": 0.34,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6749999999999534,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6749999999999534,
+    "event": "engaged"
+   },
+   {
+    "t": 8.355000000003203,
+    "event": "coasting"
+   },
+   {
+    "t": 8.655000000002504,
+    "event": "reacquired"
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 8.355000000003203,
+    "length_s": 0.2999999999993008,
+    "then": "following"
+   }
+  ],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.2798267513896105,
+   "yaw_rate_max_rad_s": 0.9638611920899129,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.012334855201974278,
+   "range_rms_m": 0.017402455117305374,
+   "range_max_abs_m": 0.06685148712981792,
+   "bearing_rms_deg": 0.6980881036628059,
+   "bearing_max_abs_deg": 6.995467957395545
+  },
+  "reports": {
+   "accepted": 495,
+   "empty": 4,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 4
+  },
+  "frames": 508,
+  "frames_possible": 508,
+  "frames_detected": 507,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 868,
+  "wall_s": 956.352142572403,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 508,
+   "detected": 504,
+   "in_frame": 508,
+   "possible": 508,
+   "detected_when_possible": 504,
+   "detected_not_possible": 0,
+   "miss_runs": 1,
+   "miss_run_max": 4,
+   "range_error_mean_m": 0.014245818502575431,
+   "range_error_std_m": 0.0038547457827238655,
+   "range_error_max_abs_m": 0.03027910319640048,
+   "bearing_error_mean_deg": -0.07234941769921545,
+   "bearing_error_std_deg": 0.005992272888357102,
+   "bearing_error_max_abs_deg": 0.09432467618922591,
+   "detector_s_mean": 0.002096862383821888,
+   "gated": 3
+  }
+ },
+ "occlusion_short_seed0_lat0.15": {
+  "name": "occlusion_short",
+  "seed": 0,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.764974077465189,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.9003321301712938,
+   "peak_reverse_m_s": 0.44706196060034253,
+   "peak_acceleration_m_s2": 3.348097557446465,
+   "peak_yaw_rate_rad_s": 1.2750741869875746,
+   "peak_yaw_acceleration_rad_s2": 25.50128391541872,
+   "range_min_m": 0.7851280591921224,
+   "range_max_m": 1.1417757378858382,
+   "peak_bearing_deg": 4.15810593334411,
+   "peak_view_angle_deg": 0.8006167456452961,
+   "min_pixels": 65.36263530474098,
+   "invisible_while_following_s": 0.3,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6899999999999518,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6899999999999518,
+    "event": "engaged"
+   },
+   {
+    "t": 5.130000000000524,
+    "event": "coasting"
+   },
+   {
+    "t": 5.505000000000982,
+    "event": "lost",
+    "speed": 0.6233004165588234
+   },
+   {
+    "t": 5.58500000000108,
+    "event": "reacquired"
+   },
+   {
+    "t": 5.660000000001172,
+    "event": "coasting"
+   },
+   {
+    "t": 5.67500000000119,
+    "event": "reacquired"
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 5.130000000000524,
+    "length_s": 0.3750000000004583,
+    "then": "braking"
+   },
+   {
+    "start_s": 5.660000000001172,
+    "length_s": 0.015000000000018332,
+    "then": "following"
+   }
+  ],
+  "brakes": [
+   {
+    "start_s": 5.505000000000982,
+    "length_s": 0.08000000000009777,
+    "then": "following"
+   }
+  ],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.77212717413024,
+   "reverse_max_m_s": 0.22736691232975237,
+   "yaw_rate_max_rad_s": 0.16872727341944296,
+   "acceleration_max_m_s2": 1.2500000000000013,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010188372664567418,
+   "range_rms_m": 0.013790177829689285,
+   "range_max_abs_m": 0.0529832804311583,
+   "bearing_rms_deg": 0.275371189372057,
+   "bearing_max_abs_deg": 1.4382278819901222
+  },
+  "reports": {
+   "accepted": 505,
+   "empty": 2,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 514,
+  "frames_possible": 509,
+  "frames_detected": 512,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 896,
+  "wall_s": 981.9806203842163,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 514,
+   "detected": 512,
+   "in_frame": 514,
+   "possible": 509,
+   "detected_when_possible": 509,
+   "detected_not_possible": 3,
+   "miss_runs": 1,
+   "miss_run_max": 2,
+   "range_error_mean_m": 0.01313051573665765,
+   "range_error_std_m": 0.001610349439836987,
+   "range_error_max_abs_m": 0.020955210254348655,
+   "bearing_error_mean_deg": -0.07415138347079103,
+   "bearing_error_std_deg": 0.0036176389410283146,
+   "bearing_error_max_abs_deg": 0.09779227111049728,
+   "detector_s_mean": 0.0021096561789188304,
+   "gated": 0
+  }
+ },
+ "occlusion_long_seed0_lat0.15": {
+  "name": "occlusion_long",
+  "seed": 0,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.449200571081375,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.980090804088805,
+   "peak_reverse_m_s": 0.42243395786903776,
+   "peak_acceleration_m_s2": 3.7067467202482933,
+   "peak_yaw_rate_rad_s": 1.1394877729519537,
+   "peak_yaw_acceleration_rad_s2": 32.678098937799014,
+   "range_min_m": 0.8056506059468955,
+   "range_max_m": 1.1778695771189582,
+   "peak_bearing_deg": 3.6937411085904044,
+   "peak_view_angle_deg": 0.5989613730825188,
+   "min_pixels": 63.359658838902355,
+   "invisible_while_following_s": 0.28,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [
+    0.2667221094332851
+   ]
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   },
+   {
+    "t": 5.035000000000408,
+    "event": "coasting"
+   },
+   {
+    "t": 5.410000000000866,
+    "event": "lost",
+    "speed": 0.6352792868675764
+   },
+   {
+    "t": 6.055000000001654,
+    "event": "holding",
+    "stopping_distance_m": 0.2667221094332851
+   },
+   {
+    "t": 8.690000000002422,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 5.035000000000408,
+    "length_s": 0.3750000000004583,
+    "then": "braking"
+   }
+  ],
+  "brakes": [
+   {
+    "start_s": 5.410000000000866,
+    "length_s": 0.6450000000007883,
+    "then": "holding"
+   }
+  ],
+  "losses_to_hold": 1,
+  "envelope": {
+   "speed_max_m_s": 0.8212292403985045,
+   "reverse_max_m_s": 0.2235174774112793,
+   "yaw_rate_max_rad_s": 0.1817080111003728,
+   "acceleration_max_m_s2": 1.2500000000000029,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010129457347996485,
+   "range_rms_m": 0.014085697937153458,
+   "range_max_abs_m": 0.04852317292889008,
+   "bearing_rms_deg": 0.3235644517832651,
+   "bearing_max_abs_deg": 1.4977964573183709
+  },
+  "reports": {
+   "accepted": 575,
+   "empty": 13,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 4
+  },
+  "frames": 596,
+  "frames_possible": 580,
+  "frames_detected": 583,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 1158,
+  "wall_s": 1209.041217803955,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 596,
+   "detected": 583,
+   "in_frame": 596,
+   "possible": 580,
+   "detected_when_possible": 580,
+   "detected_not_possible": 3,
+   "miss_runs": 1,
+   "miss_run_max": 13,
+   "range_error_mean_m": 0.013710833682238122,
+   "range_error_std_m": 0.0019456711394561696,
+   "range_error_max_abs_m": 0.02471299468393473,
+   "bearing_error_mean_deg": -0.0732331739642982,
+   "bearing_error_std_deg": 0.003771736790426953,
+   "bearing_error_max_abs_deg": 0.08860731138206168,
+   "detector_s_mean": 0.0025119118960395055,
+   "gated": 0
+  }
+ },
+ "straight_1.0_seed1_lat0.15": {
+  "name": "straight_1.0",
+  "seed": 1,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.10073168439854,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.2989496007770445,
+   "peak_reverse_m_s": 0.512160226235609,
+   "peak_acceleration_m_s2": 4.230266093548742,
+   "peak_yaw_rate_rad_s": 1.1760210622092713,
+   "peak_yaw_acceleration_rad_s2": 24.03056335115587,
+   "range_min_m": 0.7079469706360172,
+   "range_max_m": 1.2342796862121748,
+   "peak_bearing_deg": 4.321323090901373,
+   "peak_view_angle_deg": 1.1209432942128559,
+   "min_pixels": 60.46319363217636,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true,
+   "steady_bearing_ok": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6749999999999534,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [],
+   "steady_bearing_ok": true
+  },
+  "events": [
+   {
+    "t": 0.6749999999999534,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.2884395696792331,
+   "yaw_rate_max_rad_s": 0.19484568254812237,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.0110599911453917,
+   "range_rms_m": 0.014612464347579441,
+   "range_max_abs_m": 0.047730473224325554,
+   "bearing_rms_deg": 0.2679315266457071,
+   "bearing_max_abs_deg": 1.185237265250321
+  },
+  "reports": {
+   "accepted": 541,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 4
+  },
+  "frames": 549,
+  "frames_possible": 549,
+  "frames_detected": 549,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 926,
+  "wall_s": 1092.3290402889252,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 549,
+   "detected": 549,
+   "in_frame": 549,
+   "possible": 549,
+   "detected_when_possible": 549,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013324555679404783,
+   "range_error_std_m": 0.0021431105861412715,
+   "range_error_max_abs_m": 0.01989555918149688,
+   "bearing_error_mean_deg": -0.07394497935124715,
+   "bearing_error_std_deg": 0.004389554147726154,
+   "bearing_error_max_abs_deg": 0.09193681944423082,
+   "detector_s_mean": 0.0020357843442917133,
+   "gated": 0
+  }
+ },
+ "straight_0.6_seed1_lat0.15": {
+  "name": "straight_0.6",
+  "seed": 1,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.921682089456253,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.9025509948951684,
+   "peak_reverse_m_s": 0.4611521309743567,
+   "peak_acceleration_m_s2": 2.946074210690817,
+   "peak_yaw_rate_rad_s": 1.2649223819486748,
+   "peak_yaw_acceleration_rad_s2": 22.044159213798366,
+   "range_min_m": 0.778636996377671,
+   "range_max_m": 1.1581129810830344,
+   "peak_bearing_deg": 3.949722863840665,
+   "peak_view_angle_deg": 0.8513724430083192,
+   "min_pixels": 64.44021113659973,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true,
+   "steady_bearing_ok": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6949999999999512,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [],
+   "steady_bearing_ok": true
+  },
+  "events": [
+   {
+    "t": 0.6949999999999512,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.7989876120555475,
+   "reverse_max_m_s": 0.238863610374161,
+   "yaw_rate_max_rad_s": 0.22660059141079886,
+   "acceleration_max_m_s2": 1.2500000000000013,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.01065539368970688,
+   "range_rms_m": 0.014077077131510577,
+   "range_max_abs_m": 0.054973407986400824,
+   "bearing_rms_deg": 0.2738159691188622,
+   "bearing_max_abs_deg": 1.7249814436123305
+  },
+  "reports": {
+   "accepted": 642,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 649,
+  "frames_possible": 649,
+  "frames_detected": 649,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 1096,
+  "wall_s": 1234.6408269405365,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 649,
+   "detected": 649,
+   "in_frame": 649,
+   "possible": 649,
+   "detected_when_possible": 649,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013224741381598085,
+   "range_error_std_m": 0.0015102183600215844,
+   "range_error_max_abs_m": 0.020080878030132254,
+   "bearing_error_mean_deg": -0.07366669034497852,
+   "bearing_error_std_deg": 0.0034071894114348703,
+   "bearing_error_max_abs_deg": 0.09433863950102324,
+   "detector_s_mean": 0.0019887810661795603,
+   "gated": 0
+  }
+ },
+ "start_stop_seed1_lat0.15": {
+  "name": "start_stop",
+  "seed": 1,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.00369560939355,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.3010677582466639,
+   "peak_reverse_m_s": 0.5436001316001501,
+   "peak_acceleration_m_s2": 4.114783996489834,
+   "peak_yaw_rate_rad_s": 1.1709077516520436,
+   "peak_yaw_acceleration_rad_s2": 21.23411861219538,
+   "range_min_m": 0.6486483724383594,
+   "range_max_m": 1.2429832877694063,
+   "peak_bearing_deg": 4.38536978432564,
+   "peak_view_angle_deg": 1.6626829920485338,
+   "min_pixels": 60.03811634218704,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6949999999999512,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6949999999999512,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 0.20179263995750424,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010808652627088914,
+   "range_rms_m": 0.01563709400403144,
+   "range_max_abs_m": 0.05381336293282224,
+   "bearing_rms_deg": 0.22852003324050926,
+   "bearing_max_abs_deg": 1.2701298513849373
+  },
+  "reports": {
+   "accepted": 526,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 533,
+  "frames_possible": 533,
+  "frames_detected": 533,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 902,
+  "wall_s": 1030.151695728302,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 533,
+   "detected": 533,
+   "in_frame": 533,
+   "possible": 533,
+   "detected_when_possible": 533,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013050399591549916,
+   "range_error_std_m": 0.0029792666320254194,
+   "range_error_max_abs_m": 0.020942447617390725,
+   "bearing_error_mean_deg": -0.07480151775195036,
+   "bearing_error_std_deg": 0.005775819013399647,
+   "bearing_error_max_abs_deg": 0.09867711164630273,
+   "detector_s_mean": 0.002012099063793402,
+   "gated": 0
+  }
+ },
+ "curve_r1_seed1_lat0.15": {
+  "name": "curve_r1",
+  "seed": 1,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.88727374062058,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 1.010275404876373,
+   "peak_reverse_m_s": 0.44856122088251654,
+   "peak_acceleration_m_s2": 3.7161245120543924,
+   "peak_yaw_rate_rad_s": 1.3087930397208094,
+   "peak_yaw_acceleration_rad_s2": 22.275810028201576,
+   "range_min_m": 0.8509550603780052,
+   "range_max_m": 1.1804733936790694,
+   "peak_bearing_deg": 6.415574536303718,
+   "peak_view_angle_deg": 59.91681158731204,
+   "min_pixels": 41.270664234264544,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.9247948991285592,
+   "reverse_max_m_s": 0.15736831446667215,
+   "yaw_rate_max_rad_s": 0.7395598268821174,
+   "acceleration_max_m_s2": 1.2500000000000056,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000056,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.013166422749808103,
+   "range_rms_m": 0.01646515969338982,
+   "range_max_abs_m": 0.049918925631490585,
+   "bearing_rms_deg": 0.46041575937858575,
+   "bearing_max_abs_deg": 2.22441543203577
+  },
+  "reports": {
+   "accepted": 533,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 540,
+  "frames_possible": 540,
+  "frames_detected": 540,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 914,
+  "wall_s": 1019.0681395530701,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 540,
+   "detected": 540,
+   "in_frame": 540,
+   "possible": 540,
+   "detected_when_possible": 540,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.014022887531403268,
+   "range_error_std_m": 0.0023181890122401503,
+   "range_error_max_abs_m": 0.02202738165442364,
+   "bearing_error_mean_deg": -0.07135276902819924,
+   "bearing_error_std_deg": 0.004680524182264588,
+   "bearing_error_max_abs_deg": 0.08808529947495251,
+   "detector_s_mean": 0.0022018780165901125,
+   "gated": 0
+  }
+ },
+ "straight_0.3_seed1_lat0.15": {
+  "name": "straight_0.3",
+  "seed": 1,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 11.455527587260208,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.5999949873050133,
+   "peak_reverse_m_s": 0.3050541403415279,
+   "peak_acceleration_m_s2": 3.314898366667915,
+   "peak_yaw_rate_rad_s": 1.0297009612390091,
+   "peak_yaw_acceleration_rad_s2": 27.372783856561053,
+   "range_min_m": 0.9389583576042988,
+   "range_max_m": 1.0782089640368555,
+   "peak_bearing_deg": 3.0574991884558513,
+   "peak_view_angle_deg": 0.5654579905504044,
+   "min_pixels": 69.21615730192157,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true,
+   "steady_bearing_ok": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6749999999999534,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [],
+   "steady_bearing_ok": true
+  },
+  "events": [
+   {
+    "t": 0.6749999999999534,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.4557589986473547,
+   "reverse_max_m_s": 0.11020084102869471,
+   "yaw_rate_max_rad_s": 0.20046574026990116,
+   "acceleration_max_m_s2": 1.2500000000000056,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.00996599284078763,
+   "range_rms_m": 0.013061778490486469,
+   "range_max_abs_m": 0.03630265692628021,
+   "bearing_rms_deg": 0.32435528642547307,
+   "bearing_max_abs_deg": 1.5613455569692118
+  },
+  "reports": {
+   "accepted": 929,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 935,
+  "frames_possible": 935,
+  "frames_detected": 935,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 1573,
+  "wall_s": 1763.8214225769043,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 935,
+   "detected": 935,
+   "in_frame": 935,
+   "possible": 935,
+   "detected_when_possible": 935,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013511362977195867,
+   "range_error_std_m": 0.0014125580179367829,
+   "range_error_max_abs_m": 0.023418290393339425,
+   "bearing_error_mean_deg": -0.07337961611235289,
+   "bearing_error_std_deg": 0.0034713687676582094,
+   "bearing_error_max_abs_deg": 0.08510673110065124,
+   "detector_s_mean": 0.0019235952631156408,
+   "gated": 0
+  }
+ },
+ "lateral_crossing_seed1_lat0.15": {
+  "name": "lateral_crossing",
+  "seed": 1,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.012266058673275,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.2152928691981586,
+   "peak_reverse_m_s": 0.5099870987823824,
+   "peak_acceleration_m_s2": 3.7232473637925345,
+   "peak_yaw_rate_rad_s": 1.4130442802774967,
+   "peak_yaw_acceleration_rad_s2": 26.78817898182127,
+   "range_min_m": 0.7523757729555891,
+   "range_max_m": 1.035834155839613,
+   "peak_bearing_deg": 9.278328843398562,
+   "peak_view_angle_deg": 1.2074182697257333e-06,
+   "min_pixels": 72.04792010238307,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6949999999999512,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6949999999999512,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.0263828566079423,
+   "reverse_max_m_s": 0.2653517746896765,
+   "yaw_rate_max_rad_s": 1.0,
+   "acceleration_max_m_s2": 1.250000000000011,
+   "yaw_acceleration_max_rad_s2": 1.250000000000011,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.012338563767256524,
+   "range_rms_m": 0.01501167742949567,
+   "range_max_abs_m": 0.04900818992844247,
+   "bearing_rms_deg": 0.48568010418107593,
+   "bearing_max_abs_deg": 1.9362475871217317
+  },
+  "reports": {
+   "accepted": 315,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 322,
+  "frames_possible": 322,
+  "frames_detected": 322,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 551,
+  "wall_s": 570.7720296382904,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 322,
+   "detected": 322,
+   "in_frame": 322,
+   "possible": 322,
+   "detected_when_possible": 322,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013322862268606428,
+   "range_error_std_m": 0.002999685629923771,
+   "range_error_max_abs_m": 0.027209861615097086,
+   "bearing_error_mean_deg": -0.074270575313108,
+   "bearing_error_std_deg": 0.00457564971330116,
+   "bearing_error_max_abs_deg": 0.09220706318107608,
+   "detector_s_mean": 0.002009692838475067,
+   "gated": 0
+  }
+ },
+ "loss_fov_seed1_lat0.15": {
+  "name": "loss_fov",
+  "seed": 1,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 13.659288186571544,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.7109054246134039,
+   "peak_reverse_m_s": 0.41947060528089447,
+   "peak_acceleration_m_s2": 3.1867177268565747,
+   "peak_yaw_rate_rad_s": 1.5777597463506987,
+   "peak_yaw_acceleration_rad_s2": 24.580163063749737,
+   "range_min_m": 0.6055009345335962,
+   "range_max_m": 0.9967222542380928,
+   "peak_bearing_deg": 78.0441414382903,
+   "peak_view_angle_deg": 1.2074182697257333e-06,
+   "min_pixels": 74.87511810027733,
+   "invisible_while_following_s": 0.37,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [
+    0.20417936901656653
+   ]
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   },
+   {
+    "t": 3.0999999999996417,
+    "event": "coasting"
+   },
+   {
+    "t": 3.474999999999434,
+    "event": "lost",
+    "speed": 0.4056933340779976
+   },
+   {
+    "t": 4.314999999999528,
+    "event": "holding",
+    "stopping_distance_m": 0.20417936901656653
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 3.0999999999996417,
+    "length_s": 0.37499999999979217,
+    "then": "braking"
+   }
+  ],
+  "brakes": [
+   {
+    "start_s": 3.474999999999434,
+    "length_s": 0.840000000000094,
+    "then": "holding"
+   }
+  ],
+  "losses_to_hold": 1,
+  "envelope": {
+   "speed_max_m_s": 0.5312499999995393,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 1.0,
+   "acceleration_max_m_s2": 1.2500000000000056,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000013,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.02639736600885352,
+   "range_rms_m": 0.036485838848926644,
+   "range_max_abs_m": 0.1087351499243332,
+   "bearing_rms_deg": 2.240070302006556,
+   "bearing_max_abs_deg": 8.272907999050043
+  },
+  "reports": {
+   "accepted": 76,
+   "empty": 28,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 107,
+  "frames_possible": 73,
+  "frames_detected": 78,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 524,
+  "wall_s": 327.36644315719604,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 107,
+   "detected": 78,
+   "in_frame": 78,
+   "possible": 73,
+   "detected_when_possible": 73,
+   "detected_not_possible": 5,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.011687941271152344,
+   "range_error_std_m": 0.002547555725182948,
+   "range_error_max_abs_m": 0.013887280347300246,
+   "bearing_error_mean_deg": -0.07806610119517887,
+   "bearing_error_std_deg": 0.008120703208911588,
+   "bearing_error_max_abs_deg": 0.10003623492888156,
+   "detector_s_mean": 0.008615743299028466,
+   "gated": 0
+  }
+ },
+ "curve_r2_seed1_lat0.15": {
+  "name": "curve_r2",
+  "seed": 1,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.645217506632564,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.3090431583987705,
+   "peak_reverse_m_s": 0.5013313018008466,
+   "peak_acceleration_m_s2": 3.767971877482651,
+   "peak_yaw_rate_rad_s": 1.3299514691366068,
+   "peak_yaw_acceleration_rad_s2": 24.700855270485196,
+   "range_min_m": 0.7666275073510747,
+   "range_max_m": 1.2339160936985853,
+   "peak_bearing_deg": 7.385554676120865,
+   "peak_view_angle_deg": 28.17253684795643,
+   "min_pixels": 60.48103052095023,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6749999999999534,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6749999999999534,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.23248550024114306,
+   "yaw_rate_max_rad_s": 0.6550926190835138,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.250000000000011,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.013142110130070907,
+   "range_rms_m": 0.016652480776975367,
+   "range_max_abs_m": 0.0528039298157037,
+   "bearing_rms_deg": 0.4835922589659135,
+   "bearing_max_abs_deg": 1.9401070917229195
+  },
+  "reports": {
+   "accepted": 549,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 556,
+  "frames_possible": 556,
+  "frames_detected": 556,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 940,
+  "wall_s": 1003.8658716678619,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 556,
+   "detected": 556,
+   "in_frame": 556,
+   "possible": 556,
+   "detected_when_possible": 556,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013978396202774919,
+   "range_error_std_m": 0.0026783353768168087,
+   "range_error_max_abs_m": 0.02621501206221577,
+   "bearing_error_mean_deg": -0.07209064928547931,
+   "bearing_error_std_deg": 0.004786700458129639,
+   "bearing_error_max_abs_deg": 0.09235501981037125,
+   "detector_s_mean": 0.0021125705486005728,
+   "gated": 0
+  }
+ },
+ "approach_seed1_lat0.15": {
+  "name": "approach",
+  "seed": 1,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.939436186165691,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.9623130054833308,
+   "peak_reverse_m_s": 0.4664467593690929,
+   "peak_acceleration_m_s2": 3.530087375811977,
+   "peak_yaw_rate_rad_s": 1.2502671863370383,
+   "peak_yaw_acceleration_rad_s2": 28.174352357489752,
+   "range_min_m": 0.5197518668355305,
+   "range_max_m": 1.1307389908600876,
+   "peak_bearing_deg": 3.920901231922369,
+   "peak_view_angle_deg": 1.2074182697257333e-06,
+   "min_pixels": 66.00081637096936,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": false
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.812459346792304,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 0.1822886276661219,
+   "acceleration_max_m_s2": 1.2500000000000004,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000013,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.009077620935530353,
+   "range_rms_m": 0.014053603274034938,
+   "range_max_abs_m": 0.04815798565899709,
+   "bearing_rms_deg": 0.24936285279973422,
+   "bearing_max_abs_deg": 1.378473201437033
+  },
+  "reports": {
+   "accepted": 419,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 4
+  },
+  "frames": 428,
+  "frames_possible": 428,
+  "frames_detected": 428,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 725,
+  "wall_s": 762.1032929420471,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 428,
+   "detected": 428,
+   "in_frame": 428,
+   "possible": 428,
+   "detected_when_possible": 428,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.011967609731312738,
+   "range_error_std_m": 0.0028045205091742696,
+   "range_error_max_abs_m": 0.02580668267550612,
+   "bearing_error_mean_deg": -0.0775288668791383,
+   "bearing_error_std_deg": 0.007730732394861662,
+   "bearing_error_max_abs_deg": 0.10447585154749103,
+   "detector_s_mean": 0.0019307344135630164,
+   "gated": 0
+  }
+ },
+ "corner_90_seed1_lat0.15": {
+  "name": "corner_90",
+  "seed": 1,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.543091363280732,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.3483496171431302,
+   "peak_reverse_m_s": 0.4795919266792053,
+   "peak_acceleration_m_s2": 4.229223279716351,
+   "peak_yaw_rate_rad_s": 1.264633985364584,
+   "peak_yaw_acceleration_rad_s2": 29.027058106871003,
+   "range_min_m": 0.7803903965293183,
+   "range_max_m": 1.3701173615504176,
+   "peak_bearing_deg": 12.514695426178475,
+   "peak_view_angle_deg": 73.1019710098141,
+   "min_pixels": 24.351549689910854,
+   "invisible_while_following_s": 0.35000000000000003,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   },
+   {
+    "t": 8.360000000003192,
+    "event": "coasting"
+   },
+   {
+    "t": 8.72500000000234,
+    "event": "reacquired"
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 8.360000000003192,
+    "length_s": 0.36499999999914934,
+    "then": "following"
+   }
+  ],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.22781420455189713,
+   "yaw_rate_max_rad_s": 0.8857003527426639,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000013,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.011209252679930738,
+   "range_rms_m": 0.021421516147128568,
+   "range_max_abs_m": 0.13956959611962472,
+   "bearing_rms_deg": 0.8494843060972799,
+   "bearing_max_abs_deg": 8.186872860679333
+  },
+  "reports": {
+   "accepted": 493,
+   "empty": 4,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 505,
+  "frames_possible": 505,
+  "frames_detected": 504,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 868,
+  "wall_s": 911.2237141132355,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 505,
+   "detected": 501,
+   "in_frame": 505,
+   "possible": 505,
+   "detected_when_possible": 501,
+   "detected_not_possible": 0,
+   "miss_runs": 1,
+   "miss_run_max": 4,
+   "range_error_mean_m": 0.014375326249855621,
+   "range_error_std_m": 0.004270166332614305,
+   "range_error_max_abs_m": 0.0338183703994408,
+   "bearing_error_mean_deg": -0.07217021084759484,
+   "bearing_error_std_deg": 0.00623315949982232,
+   "bearing_error_max_abs_deg": 0.09623137407641133,
+   "detector_s_mean": 0.0020488104236725427,
+   "gated": 3
+  }
+ },
+ "occlusion_short_seed1_lat0.15": {
+  "name": "occlusion_short",
+  "seed": 1,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.640421714596243,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.8912762752145931,
+   "peak_reverse_m_s": 0.42330099145508426,
+   "peak_acceleration_m_s2": 3.092057508814176,
+   "peak_yaw_rate_rad_s": 1.3039171562872336,
+   "peak_yaw_acceleration_rad_s2": 26.4177248609708,
+   "range_min_m": 0.8128187449289805,
+   "range_max_m": 1.1475879637898299,
+   "peak_bearing_deg": 4.211388147423783,
+   "peak_view_angle_deg": 0.7270165596588845,
+   "min_pixels": 65.03138372517152,
+   "invisible_while_following_s": 0.29,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   },
+   {
+    "t": 5.120000000000512,
+    "event": "coasting"
+   },
+   {
+    "t": 5.49500000000097,
+    "event": "lost",
+    "speed": 0.6162553878959139
+   },
+   {
+    "t": 5.5200000000010006,
+    "event": "reacquired"
+   },
+   {
+    "t": 5.595000000001092,
+    "event": "coasting"
+   },
+   {
+    "t": 5.6100000000011105,
+    "event": "reacquired"
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 5.120000000000512,
+    "length_s": 0.3750000000004583,
+    "then": "braking"
+   },
+   {
+    "start_s": 5.595000000001092,
+    "length_s": 0.015000000000018332,
+    "then": "following"
+   }
+  ],
+  "brakes": [
+   {
+    "start_s": 5.49500000000097,
+    "length_s": 0.025000000000030553,
+    "then": "following"
+   }
+  ],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.7742025194891524,
+   "reverse_max_m_s": 0.20076318372056898,
+   "yaw_rate_max_rad_s": 0.19090795848976083,
+   "acceleration_max_m_s2": 1.2500000000000004,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.00993274313655248,
+   "range_rms_m": 0.013574322493180219,
+   "range_max_abs_m": 0.052400904903141976,
+   "bearing_rms_deg": 0.2872000814531987,
+   "bearing_max_abs_deg": 1.477212115892767
+  },
+  "reports": {
+   "accepted": 507,
+   "empty": 2,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 516,
+  "frames_possible": 511,
+  "frames_detected": 514,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 896,
+  "wall_s": 936.4809393882751,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 516,
+   "detected": 514,
+   "in_frame": 516,
+   "possible": 511,
+   "detected_when_possible": 511,
+   "detected_not_possible": 3,
+   "miss_runs": 1,
+   "miss_run_max": 2,
+   "range_error_mean_m": 0.013216761805056777,
+   "range_error_std_m": 0.0016869413323739456,
+   "range_error_max_abs_m": 0.023629908266605493,
+   "bearing_error_mean_deg": -0.07394182919413468,
+   "bearing_error_std_deg": 0.0035218172403499266,
+   "bearing_error_max_abs_deg": 0.09432345544819307,
+   "detector_s_mean": 0.002009448087261798,
+   "gated": 0
+  }
+ },
+ "occlusion_long_seed1_lat0.15": {
+  "name": "occlusion_long",
+  "seed": 1,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.377834458380933,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.9406012475591217,
+   "peak_reverse_m_s": 0.4299040552639363,
+   "peak_acceleration_m_s2": 3.1053675968420045,
+   "peak_yaw_rate_rad_s": 1.2009484944532602,
+   "peak_yaw_acceleration_rad_s2": 29.09162711514797,
+   "range_min_m": 0.8215022664608241,
+   "range_max_m": 1.1742211633200184,
+   "peak_bearing_deg": 3.7205762922418426,
+   "peak_view_angle_deg": 0.781810413319063,
+   "min_pixels": 63.556260584208644,
+   "invisible_while_following_s": 0.28,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6899999999999518,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [
+    0.27059093331100004
+   ]
+  },
+  "events": [
+   {
+    "t": 0.6899999999999518,
+    "event": "engaged"
+   },
+   {
+    "t": 5.030000000000402,
+    "event": "coasting"
+   },
+   {
+    "t": 5.40500000000086,
+    "event": "lost",
+    "speed": 0.662604955731485
+   },
+   {
+    "t": 6.055000000001654,
+    "event": "holding",
+    "stopping_distance_m": 0.27059093331100004
+   },
+   {
+    "t": 8.690000000002422,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 5.030000000000402,
+    "length_s": 0.3750000000004583,
+    "then": "braking"
+   }
+  ],
+  "brakes": [
+   {
+    "start_s": 5.40500000000086,
+    "length_s": 0.6500000000007944,
+    "then": "holding"
+   }
+  ],
+  "losses_to_hold": 1,
+  "envelope": {
+   "speed_max_m_s": 0.8109166917369878,
+   "reverse_max_m_s": 0.21067888420213024,
+   "yaw_rate_max_rad_s": 0.21195326723465674,
+   "acceleration_max_m_s2": 1.250000000000011,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000027,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010489337165173042,
+   "range_rms_m": 0.01409095292824182,
+   "range_max_abs_m": 0.05070713854263631,
+   "bearing_rms_deg": 0.29026918833967286,
+   "bearing_max_abs_deg": 1.6399498261605039
+  },
+  "reports": {
+   "accepted": 574,
+   "empty": 13,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 594,
+  "frames_possible": 578,
+  "frames_detected": 581,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 1158,
+  "wall_s": 1131.984351158142,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 594,
+   "detected": 581,
+   "in_frame": 594,
+   "possible": 578,
+   "detected_when_possible": 578,
+   "detected_not_possible": 3,
+   "miss_runs": 1,
+   "miss_run_max": 13,
+   "range_error_mean_m": 0.013736665102421115,
+   "range_error_std_m": 0.0020063190521421273,
+   "range_error_max_abs_m": 0.02925947614454527,
+   "bearing_error_mean_deg": -0.07320960418772644,
+   "bearing_error_std_deg": 0.0038453186350190785,
+   "bearing_error_max_abs_deg": 0.09139772047975137,
+   "detector_s_mean": 0.0023344021397487475,
+   "gated": 0
+  }
+ },
+ "straight_1.0_seed2_lat0.15": {
+  "name": "straight_1.0",
+  "seed": 2,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.383467022065535,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.3156184893803495,
+   "peak_reverse_m_s": 0.5024584878276842,
+   "peak_acceleration_m_s2": 4.01882317934156,
+   "peak_yaw_rate_rad_s": 1.266388675267957,
+   "peak_yaw_acceleration_rad_s2": 50.118948339655375,
+   "range_min_m": 0.7888727006490304,
+   "range_max_m": 1.2307753161229569,
+   "peak_bearing_deg": 4.275402789825771,
+   "peak_view_angle_deg": 1.333562053074385,
+   "min_pixels": 60.63538430577694,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true,
+   "steady_bearing_ok": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6849999999999523,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [],
+   "steady_bearing_ok": true
+  },
+  "events": [
+   {
+    "t": 0.6849999999999523,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.21921526256089247,
+   "yaw_rate_max_rad_s": 0.18887334525402494,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010781062187938,
+   "range_rms_m": 0.014432724373960227,
+   "range_max_abs_m": 0.037325248744142225,
+   "bearing_rms_deg": 0.2724475293489133,
+   "bearing_max_abs_deg": 1.2756756011507513
+  },
+  "reports": {
+   "accepted": 540,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 548,
+  "frames_possible": 548,
+  "frames_detected": 548,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 926,
+  "wall_s": 983.7180891036987,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 548,
+   "detected": 548,
+   "in_frame": 548,
+   "possible": 548,
+   "detected_when_possible": 548,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013590310068966768,
+   "range_error_std_m": 0.00194189817601213,
+   "range_error_max_abs_m": 0.021513052760746554,
+   "bearing_error_mean_deg": -0.07340652012400346,
+   "bearing_error_std_deg": 0.003927985440325024,
+   "bearing_error_max_abs_deg": 0.09305761914944097,
+   "detector_s_mean": 0.0019035398887075126,
+   "gated": 0
+  }
+ },
+ "straight_0.6_seed2_lat0.15": {
+  "name": "straight_0.6",
+  "seed": 2,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.713367839160362,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.8937911495716537,
+   "peak_reverse_m_s": 0.4652745016732032,
+   "peak_acceleration_m_s2": 2.990246891550143,
+   "peak_yaw_rate_rad_s": 1.2222484236525906,
+   "peak_yaw_acceleration_rad_s2": 28.47325036782027,
+   "range_min_m": 0.7536396557809403,
+   "range_max_m": 1.1546195280935294,
+   "peak_bearing_deg": 4.150946916003714,
+   "peak_view_angle_deg": 1.0450252015941905,
+   "min_pixels": 64.63537720103878,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true,
+   "steady_bearing_ok": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6949999999999512,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [],
+   "steady_bearing_ok": true
+  },
+  "events": [
+   {
+    "t": 0.6949999999999512,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.7897127265202672,
+   "reverse_max_m_s": 0.256947760990488,
+   "yaw_rate_max_rad_s": 0.20082631028139378,
+   "acceleration_max_m_s2": 1.250000000000011,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010565952510907651,
+   "range_rms_m": 0.014156490867141224,
+   "range_max_abs_m": 0.05610609969274005,
+   "bearing_rms_deg": 0.3039066928557793,
+   "bearing_max_abs_deg": 1.60937820865097
+  },
+  "reports": {
+   "accepted": 642,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 649,
+  "frames_possible": 649,
+  "frames_detected": 649,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 1096,
+  "wall_s": 1158.121351480484,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 649,
+   "detected": 649,
+   "in_frame": 649,
+   "possible": 649,
+   "detected_when_possible": 649,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013284122519917778,
+   "range_error_std_m": 0.0016323857218760829,
+   "range_error_max_abs_m": 0.019544490689227922,
+   "bearing_error_mean_deg": -0.07385334327751152,
+   "bearing_error_std_deg": 0.0037738315147963376,
+   "bearing_error_max_abs_deg": 0.0946744140063682,
+   "detector_s_mean": 0.0019592119938008634,
+   "gated": 0
+  }
+ },
+ "start_stop_seed2_lat0.15": {
+  "name": "start_stop",
+  "seed": 2,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.999750299386445,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 1.3828810626603452,
+   "peak_reverse_m_s": 0.534178632930654,
+   "peak_acceleration_m_s2": 3.743727286941237,
+   "peak_yaw_rate_rad_s": 1.1643747672872553,
+   "peak_yaw_acceleration_rad_s2": 25.12273625586341,
+   "range_min_m": 0.641096713436915,
+   "range_max_m": 1.2394517474237334,
+   "peak_bearing_deg": 4.409220146111578,
+   "peak_view_angle_deg": 1.7986243325460254,
+   "min_pixels": 60.21108517062467,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6749999999999534,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6749999999999534,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 0.21431500303278572,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000027,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010361288541238729,
+   "range_rms_m": 0.015661163805435217,
+   "range_max_abs_m": 0.05990361860986981,
+   "bearing_rms_deg": 0.25989641902571947,
+   "bearing_max_abs_deg": 1.3399959562623807
+  },
+  "reports": {
+   "accepted": 525,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 4
+  },
+  "frames": 534,
+  "frames_possible": 534,
+  "frames_detected": 534,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 902,
+  "wall_s": 972.896763086319,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 534,
+   "detected": 534,
+   "in_frame": 534,
+   "possible": 534,
+   "detected_when_possible": 534,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013038807912320797,
+   "range_error_std_m": 0.003105878602018766,
+   "range_error_max_abs_m": 0.028521702318824005,
+   "bearing_error_mean_deg": -0.07496699249195024,
+   "bearing_error_std_deg": 0.006369740007315246,
+   "bearing_error_max_abs_deg": 0.09965872327868373,
+   "detector_s_mean": 0.0019571303577669845,
+   "gated": 0
+  }
+ },
+ "straight_0.3_seed2_lat0.15": {
+  "name": "straight_0.3",
+  "seed": 2,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 12.541144542770683,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.6172706852142629,
+   "peak_reverse_m_s": 0.35965959472962106,
+   "peak_acceleration_m_s2": 3.5713664498631914,
+   "peak_yaw_rate_rad_s": 1.3602175231600644,
+   "peak_yaw_acceleration_rad_s2": 30.104506299536034,
+   "range_min_m": 0.9259260036007698,
+   "range_max_m": 1.0789881597032325,
+   "peak_bearing_deg": 3.3953297538297234,
+   "peak_view_angle_deg": 0.5698894730553931,
+   "min_pixels": 69.16616397216731,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true,
+   "steady_bearing_ok": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6949999999999512,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [],
+   "steady_bearing_ok": true
+  },
+  "events": [
+   {
+    "t": 0.6949999999999512,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.4602124435516862,
+   "reverse_max_m_s": 0.13784943499573876,
+   "yaw_rate_max_rad_s": 0.2182681233018018,
+   "acceleration_max_m_s2": 1.2500000000000056,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010036681685763155,
+   "range_rms_m": 0.013263723136004912,
+   "range_max_abs_m": 0.038552766417289,
+   "bearing_rms_deg": 0.34278085912546624,
+   "bearing_max_abs_deg": 2.0218214735891578
+  },
+  "reports": {
+   "accepted": 928,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 936,
+  "frames_possible": 936,
+  "frames_detected": 936,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 1573,
+  "wall_s": 1650.0430853366852,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 936,
+   "detected": 936,
+   "in_frame": 936,
+   "possible": 936,
+   "detected_when_possible": 936,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013567183991021116,
+   "range_error_std_m": 0.0014070349050668582,
+   "range_error_max_abs_m": 0.024046151070838295,
+   "bearing_error_mean_deg": -0.07335404549499662,
+   "bearing_error_std_deg": 0.003481002870628982,
+   "bearing_error_max_abs_deg": 0.08678783819377517,
+   "detector_s_mean": 0.001943145357861204,
+   "gated": 0
+  }
+ },
+ "curve_r1_seed2_lat0.15": {
+  "name": "curve_r1",
+  "seed": 2,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.351772635719367,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.0117564849114549,
+   "peak_reverse_m_s": 0.45976004095019857,
+   "peak_acceleration_m_s2": 3.3668780613737734,
+   "peak_yaw_rate_rad_s": 1.2508431795529695,
+   "peak_yaw_acceleration_rad_s2": 27.235477405071087,
+   "range_min_m": 0.7966192314334686,
+   "range_max_m": 1.1811843537515145,
+   "peak_bearing_deg": 6.977242774804808,
+   "peak_view_angle_deg": 60.04572786101047,
+   "min_pixels": 41.35782970056464,
+   "invisible_while_following_s": 0.02,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6949999999999512,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6949999999999512,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.9063918054402097,
+   "reverse_max_m_s": 0.20898753019411045,
+   "yaw_rate_max_rad_s": 0.7195804847922221,
+   "acceleration_max_m_s2": 1.2500000000000007,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.013098420222511899,
+   "range_rms_m": 0.016444273910816962,
+   "range_max_abs_m": 0.05636463629070099,
+   "bearing_rms_deg": 0.467044593328396,
+   "bearing_max_abs_deg": 2.3304355671466106
+  },
+  "reports": {
+   "accepted": 533,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 4
+  },
+  "frames": 541,
+  "frames_possible": 541,
+  "frames_detected": 541,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 914,
+  "wall_s": 991.9286365509033,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 541,
+   "detected": 541,
+   "in_frame": 541,
+   "possible": 541,
+   "detected_when_possible": 541,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013890423710253582,
+   "range_error_std_m": 0.0024370554359906585,
+   "range_error_max_abs_m": 0.025368444386992817,
+   "bearing_error_mean_deg": -0.07176643685818712,
+   "bearing_error_std_deg": 0.004674812606193004,
+   "bearing_error_max_abs_deg": 0.09089889586086601,
+   "detector_s_mean": 0.0021696808096432958,
+   "gated": 0
+  }
+ },
+ "lateral_crossing_seed2_lat0.15": {
+  "name": "lateral_crossing",
+  "seed": 2,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.330643945596831,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.1028731148570174,
+   "peak_reverse_m_s": 0.5110163798982287,
+   "peak_acceleration_m_s2": 3.0024790658743488,
+   "peak_yaw_rate_rad_s": 1.2424906247627565,
+   "peak_yaw_acceleration_rad_s2": 23.45810071870577,
+   "range_min_m": 0.6819372862103977,
+   "range_max_m": 1.0307244455134985,
+   "peak_bearing_deg": 8.380963234685755,
+   "peak_view_angle_deg": 1.2074182697257333e-06,
+   "min_pixels": 72.40509024899661,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6749999999999534,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6749999999999534,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.9846347026411677,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 0.9497828003383736,
+   "acceleration_max_m_s2": 1.2500000000000007,
+   "yaw_acceleration_max_rad_s2": 1.250000000000011,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.012396448353773985,
+   "range_rms_m": 0.01483175239857952,
+   "range_max_abs_m": 0.05215821495463069,
+   "bearing_rms_deg": 0.455229688953446,
+   "bearing_max_abs_deg": 1.8991730677648782
+  },
+  "reports": {
+   "accepted": 315,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 323,
+  "frames_possible": 323,
+  "frames_detected": 323,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 551,
+  "wall_s": 585.7433321475983,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 323,
+   "detected": 323,
+   "in_frame": 323,
+   "possible": 323,
+   "detected_when_possible": 323,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.012930930793207996,
+   "range_error_std_m": 0.002872655597333493,
+   "range_error_max_abs_m": 0.022723303321378063,
+   "bearing_error_mean_deg": -0.0747794385945289,
+   "bearing_error_std_deg": 0.004638571893767879,
+   "bearing_error_max_abs_deg": 0.09616836573224419,
+   "detector_s_mean": 0.00210964932526008,
+   "gated": 0
+  }
+ },
+ "loss_fov_seed2_lat0.15": {
+  "name": "loss_fov",
+  "seed": 2,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 13.841523197706328,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.6801070813331435,
+   "peak_reverse_m_s": 0.41943013150681213,
+   "peak_acceleration_m_s2": 3.1137624669340767,
+   "peak_yaw_rate_rad_s": 1.6310006346618902,
+   "peak_yaw_acceleration_rad_s2": 19.64332608971107,
+   "range_min_m": 0.6052017640922166,
+   "range_max_m": 0.9969627165084857,
+   "peak_bearing_deg": 76.61362457584676,
+   "peak_view_angle_deg": 1.2074182697257333e-06,
+   "min_pixels": 74.85705860758397,
+   "invisible_while_following_s": 0.35000000000000003,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6849999999999523,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [
+    0.18912633280054794
+   ]
+  },
+  "events": [
+   {
+    "t": 0.6849999999999523,
+    "event": "engaged"
+   },
+   {
+    "t": 3.08499999999965,
+    "event": "coasting"
+   },
+   {
+    "t": 3.459999999999442,
+    "event": "lost",
+    "speed": 0.38637946922823846
+   },
+   {
+    "t": 4.274999999999479,
+    "event": "holding",
+    "stopping_distance_m": 0.18912633280054794
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 3.08499999999965,
+    "length_s": 0.37499999999979217,
+    "then": "braking"
+   }
+  ],
+  "brakes": [
+   {
+    "start_s": 3.459999999999442,
+    "length_s": 0.8150000000000368,
+    "then": "holding"
+   }
+  ],
+  "losses_to_hold": 1,
+  "envelope": {
+   "speed_max_m_s": 0.5062499999995531,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 1.0,
+   "acceleration_max_m_s2": 1.2500000000000029,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000004,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.02652342112123113,
+   "range_rms_m": 0.03634797636962907,
+   "range_max_abs_m": 0.10770638296481483,
+   "bearing_rms_deg": 2.258996566530471,
+   "bearing_max_abs_deg": 8.309177074485449
+  },
+  "reports": {
+   "accepted": 76,
+   "empty": 28,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 4
+  },
+  "frames": 109,
+  "frames_possible": 75,
+  "frames_detected": 80,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 524,
+  "wall_s": 328.54227352142334,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 109,
+   "detected": 80,
+   "in_frame": 80,
+   "possible": 75,
+   "detected_when_possible": 75,
+   "detected_not_possible": 5,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.011775667950797986,
+   "range_error_std_m": 0.0025333176122028416,
+   "range_error_max_abs_m": 0.013749169300588893,
+   "bearing_error_mean_deg": -0.07838584096862664,
+   "bearing_error_std_deg": 0.008711470213586371,
+   "bearing_error_max_abs_deg": 0.10519968961221175,
+   "detector_s_mean": 0.009319486486265722,
+   "gated": 0
+  }
+ },
+ "approach_seed2_lat0.15": {
+  "name": "approach",
+  "seed": 2,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.57272380760639,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.9445630805960928,
+   "peak_reverse_m_s": 0.47494987292791624,
+   "peak_acceleration_m_s2": 3.149838622190214,
+   "peak_yaw_rate_rad_s": 1.2078370372931715,
+   "peak_yaw_acceleration_rad_s2": 24.880494174225724,
+   "range_min_m": 0.5271160463942627,
+   "range_max_m": 1.1480114824304952,
+   "peak_bearing_deg": 4.012404148394676,
+   "peak_view_angle_deg": 1.2074182697257333e-06,
+   "min_pixels": 65.00779621232596,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": false
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.8068523619090994,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 0.1739704960642471,
+   "acceleration_max_m_s2": 1.2500000000000029,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.009210467596140937,
+   "range_rms_m": 0.01410557030592856,
+   "range_max_abs_m": 0.04846521758532307,
+   "bearing_rms_deg": 0.2502611330028079,
+   "bearing_max_abs_deg": 1.307967664367428
+  },
+  "reports": {
+   "accepted": 419,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 427,
+  "frames_possible": 427,
+  "frames_detected": 427,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 725,
+  "wall_s": 767.8852088451385,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 427,
+   "detected": 427,
+   "in_frame": 427,
+   "possible": 427,
+   "detected_when_possible": 427,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.012000411214113415,
+   "range_error_std_m": 0.0029089912430012846,
+   "range_error_max_abs_m": 0.025460511322391577,
+   "bearing_error_mean_deg": -0.07762824868235593,
+   "bearing_error_std_deg": 0.007474001932075974,
+   "bearing_error_max_abs_deg": 0.10826166398772188,
+   "detector_s_mean": 0.002046979688434721,
+   "gated": 0
+  }
+ },
+ "corner_90_seed2_lat0.15": {
+  "name": "corner_90",
+  "seed": 2,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.043290005430489,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.276578457200552,
+   "peak_reverse_m_s": 0.5295232765946648,
+   "peak_acceleration_m_s2": 5.2409759883451414,
+   "peak_yaw_rate_rad_s": 1.246445104839665,
+   "peak_yaw_acceleration_rad_s2": 23.72933051964749,
+   "range_min_m": 0.6786228515819994,
+   "range_max_m": 1.2643903214391075,
+   "peak_bearing_deg": 11.447017409168676,
+   "peak_view_angle_deg": 73.0578874734187,
+   "min_pixels": 24.336416025877146,
+   "invisible_while_following_s": 0.38,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   },
+   {
+    "t": 8.350000000003215,
+    "event": "coasting"
+   },
+   {
+    "t": 8.51500000000283,
+    "event": "reacquired"
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 8.350000000003215,
+    "length_s": 0.16499999999961545,
+    "then": "following"
+   }
+  ],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 0.9634523124881148,
+   "acceleration_max_m_s2": 1.250000000000011,
+   "yaw_acceleration_max_rad_s2": 1.250000000000011,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.012561401575082563,
+   "range_rms_m": 0.01708854807858504,
+   "range_max_abs_m": 0.053752534442311095,
+   "bearing_rms_deg": 0.4766372196883913,
+   "bearing_max_abs_deg": 4.017860570240558
+  },
+  "reports": {
+   "accepted": 499,
+   "empty": 6,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 512,
+  "frames_possible": 512,
+  "frames_detected": 512,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 868,
+  "wall_s": 895.9168112277985,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 512,
+   "detected": 506,
+   "in_frame": 512,
+   "possible": 512,
+   "detected_when_possible": 506,
+   "detected_not_possible": 0,
+   "miss_runs": 1,
+   "miss_run_max": 6,
+   "range_error_mean_m": 0.013859212476926877,
+   "range_error_std_m": 0.003787628218663004,
+   "range_error_max_abs_m": 0.027840489181093497,
+   "bearing_error_mean_deg": -0.07259010133624383,
+   "bearing_error_std_deg": 0.0066196270810039174,
+   "bearing_error_max_abs_deg": 0.10234190546245715,
+   "detector_s_mean": 0.0020916907637342774,
+   "gated": 6
+  }
+ },
+ "curve_r2_seed2_lat0.15": {
+  "name": "curve_r2",
+  "seed": 2,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.636830765490187,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.3424601676242998,
+   "peak_reverse_m_s": 0.4870725517820371,
+   "peak_acceleration_m_s2": 3.8636962749053723,
+   "peak_yaw_rate_rad_s": 1.2702569870697853,
+   "peak_yaw_acceleration_rad_s2": 26.754909491968835,
+   "range_min_m": 0.792151749136498,
+   "range_max_m": 1.217864996314647,
+   "peak_bearing_deg": 7.80738880948656,
+   "peak_view_angle_deg": 28.2513549329983,
+   "min_pixels": 61.278586513260585,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.2062669422618305,
+   "yaw_rate_max_rad_s": 0.6400177672223708,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.250000000000011,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.012815733824187872,
+   "range_rms_m": 0.016108532743042768,
+   "range_max_abs_m": 0.0486908116207001,
+   "bearing_rms_deg": 0.49374999425338084,
+   "bearing_max_abs_deg": 2.0185398200304046
+  },
+  "reports": {
+   "accepted": 549,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 556,
+  "frames_possible": 556,
+  "frames_detected": 556,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 940,
+  "wall_s": 972.8460328578949,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 556,
+   "detected": 556,
+   "in_frame": 556,
+   "possible": 556,
+   "detected_when_possible": 556,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.01393790476219409,
+   "range_error_std_m": 0.002522150410378809,
+   "range_error_max_abs_m": 0.023878800308749004,
+   "bearing_error_mean_deg": -0.0721977292680379,
+   "bearing_error_std_deg": 0.00486077334634761,
+   "bearing_error_max_abs_deg": 0.09358591351789518,
+   "detector_s_mean": 0.0021302243453417942,
+   "gated": 0
+  }
+ },
+ "occlusion_short_seed2_lat0.15": {
+  "name": "occlusion_short",
+  "seed": 2,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.665884738454196,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.9124701570109437,
+   "peak_reverse_m_s": 0.41103457297317847,
+   "peak_acceleration_m_s2": 3.43145266447252,
+   "peak_yaw_rate_rad_s": 1.2991715383486975,
+   "peak_yaw_acceleration_rad_s2": 28.091050875807227,
+   "range_min_m": 0.8227800041446683,
+   "range_max_m": 1.1573767117220501,
+   "peak_bearing_deg": 4.284592691557269,
+   "peak_view_angle_deg": 0.6753832526944716,
+   "min_pixels": 64.48136302893356,
+   "invisible_while_following_s": 0.3,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6849999999999523,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6849999999999523,
+    "event": "engaged"
+   },
+   {
+    "t": 5.13500000000053,
+    "event": "coasting"
+   },
+   {
+    "t": 5.510000000000988,
+    "event": "lost",
+    "speed": 0.618189546235205
+   },
+   {
+    "t": 5.525000000001007,
+    "event": "reacquired"
+   },
+   {
+    "t": 5.600000000001098,
+    "event": "coasting"
+   },
+   {
+    "t": 5.6100000000011105,
+    "event": "reacquired"
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 5.13500000000053,
+    "length_s": 0.3750000000004583,
+    "then": "braking"
+   },
+   {
+    "start_s": 5.600000000001098,
+    "length_s": 0.010000000000012221,
+    "then": "following"
+   }
+  ],
+  "brakes": [
+   {
+    "start_s": 5.510000000000988,
+    "length_s": 0.015000000000018332,
+    "then": "following"
+   }
+  ],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.7944040952621488,
+   "reverse_max_m_s": 0.19648949850599284,
+   "yaw_rate_max_rad_s": 0.168166682849287,
+   "acceleration_max_m_s2": 1.2500000000000029,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000013,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010118382158786066,
+   "range_rms_m": 0.013201988653951125,
+   "range_max_abs_m": 0.03795294282299566,
+   "bearing_rms_deg": 0.2651092139105694,
+   "bearing_max_abs_deg": 1.5697588542993346
+  },
+  "reports": {
+   "accepted": 507,
+   "empty": 2,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 517,
+  "frames_possible": 512,
+  "frames_detected": 515,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 896,
+  "wall_s": 929.1482570171356,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 517,
+   "detected": 515,
+   "in_frame": 517,
+   "possible": 512,
+   "detected_when_possible": 512,
+   "detected_not_possible": 3,
+   "miss_runs": 1,
+   "miss_run_max": 2,
+   "range_error_mean_m": 0.013135786344348109,
+   "range_error_std_m": 0.0015618178173027648,
+   "range_error_max_abs_m": 0.021554502727690994,
+   "bearing_error_mean_deg": -0.07392982961866262,
+   "bearing_error_std_deg": 0.0034692882832189813,
+   "bearing_error_max_abs_deg": 0.09507168570473515,
+   "detector_s_mean": 0.0019576720251789927,
+   "gated": 0
+  }
+ },
+ "occlusion_long_seed2_lat0.15": {
+  "name": "occlusion_long",
+  "seed": 2,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.875803967533962,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.971240806392007,
+   "peak_reverse_m_s": 0.4437868340779254,
+   "peak_acceleration_m_s2": 3.359617050184461,
+   "peak_yaw_rate_rad_s": 1.2332239363599709,
+   "peak_yaw_acceleration_rad_s2": 31.108170737577087,
+   "range_min_m": 0.7956688647899631,
+   "range_max_m": 1.1458941778602014,
+   "peak_bearing_deg": 3.625821180860428,
+   "peak_view_angle_deg": 0.5925008326533956,
+   "min_pixels": 65.12752686506943,
+   "invisible_while_following_s": 0.26,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6749999999999534,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [
+    0.2613792622722766
+   ]
+  },
+  "events": [
+   {
+    "t": 0.6749999999999534,
+    "event": "engaged"
+   },
+   {
+    "t": 5.015000000000383,
+    "event": "coasting"
+   },
+   {
+    "t": 5.390000000000842,
+    "event": "lost",
+    "speed": 0.6429743683200083
+   },
+   {
+    "t": 6.025000000001618,
+    "event": "holding",
+    "stopping_distance_m": 0.2613792622722766
+   },
+   {
+    "t": 8.710000000002376,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 5.015000000000383,
+    "length_s": 0.3750000000004583,
+    "then": "braking"
+   }
+  ],
+  "brakes": [
+   {
+    "start_s": 5.390000000000842,
+    "length_s": 0.635000000000776,
+    "then": "holding"
+   }
+  ],
+  "losses_to_hold": 1,
+  "envelope": {
+   "speed_max_m_s": 0.8351983071378505,
+   "reverse_max_m_s": 0.22236776164409697,
+   "yaw_rate_max_rad_s": 0.1856896514436795,
+   "acceleration_max_m_s2": 1.2500000000000029,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.01010489126836899,
+   "range_rms_m": 0.014289589328416882,
+   "range_max_abs_m": 0.058676192030239105,
+   "bearing_rms_deg": 0.2780851034976385,
+   "bearing_max_abs_deg": 1.4717869931066003
+  },
+  "reports": {
+   "accepted": 574,
+   "empty": 13,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 594,
+  "frames_possible": 578,
+  "frames_detected": 581,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 1158,
+  "wall_s": 1104.012344121933,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 594,
+   "detected": 581,
+   "in_frame": 594,
+   "possible": 578,
+   "detected_when_possible": 578,
+   "detected_not_possible": 3,
+   "miss_runs": 1,
+   "miss_run_max": 13,
+   "range_error_mean_m": 0.013646716906315718,
+   "range_error_std_m": 0.0019981494303644063,
+   "range_error_max_abs_m": 0.02645346058651321,
+   "bearing_error_mean_deg": -0.07343438507561262,
+   "bearing_error_std_deg": 0.0036740689578003104,
+   "bearing_error_max_abs_deg": 0.08618908621838878,
+   "detector_s_mean": 0.0023889987913128115,
+   "gated": 0
+  }
+ },
+ "start_stop_seed3_lat0.15": {
+  "name": "start_stop",
+  "seed": 3,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.048322677499861,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.3069948592426603,
+   "peak_reverse_m_s": 0.5514028192725886,
+   "peak_acceleration_m_s2": 4.032935338434939,
+   "peak_yaw_rate_rad_s": 1.167411844275498,
+   "peak_yaw_acceleration_rad_s2": 25.645404748141065,
+   "range_min_m": 0.6293432327219278,
+   "range_max_m": 1.2575254344826774,
+   "peak_bearing_deg": 4.314222445866479,
+   "peak_view_angle_deg": 1.9933250781617298,
+   "min_pixels": 59.34230126728119,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 0.21165123893633808,
+   "acceleration_max_m_s2": 1.250000000000011,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000013,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010825368421731913,
+   "range_rms_m": 0.01576790841027058,
+   "range_max_abs_m": 0.06276750803302444,
+   "bearing_rms_deg": 0.23482734684099574,
+   "bearing_max_abs_deg": 1.4604894203155085
+  },
+  "reports": {
+   "accepted": 526,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 533,
+  "frames_possible": 533,
+  "frames_detected": 533,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 902,
+  "wall_s": 964.3990070819855,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 533,
+   "detected": 533,
+   "in_frame": 533,
+   "possible": 533,
+   "detected_when_possible": 533,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.01304332984378968,
+   "range_error_std_m": 0.003087082143702855,
+   "range_error_max_abs_m": 0.0215260634522767,
+   "bearing_error_mean_deg": -0.07505234278154857,
+   "bearing_error_std_deg": 0.00620809537102627,
+   "bearing_error_max_abs_deg": 0.09893628589340438,
+   "detector_s_mean": 0.0020073451801514105,
+   "gated": 0
+  }
+ },
+ "straight_1.0_seed3_lat0.15": {
+  "name": "straight_1.0",
+  "seed": 3,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.47770147111296,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 1.343161216454561,
+   "peak_reverse_m_s": 0.45324967003847605,
+   "peak_acceleration_m_s2": 3.9488651413480156,
+   "peak_yaw_rate_rad_s": 1.2105268384829098,
+   "peak_yaw_acceleration_rad_s2": 22.907551359814377,
+   "range_min_m": 0.7915577605006832,
+   "range_max_m": 1.2274668638716093,
+   "peak_bearing_deg": 3.9820514709259536,
+   "peak_view_angle_deg": 1.4405224761624453,
+   "min_pixels": 60.79907092217288,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true,
+   "steady_bearing_ok": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [],
+   "steady_bearing_ok": true
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.2062464283882457,
+   "yaw_rate_max_rad_s": 0.22007285782541006,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010679899347236604,
+   "range_rms_m": 0.014203951901866962,
+   "range_max_abs_m": 0.05185998439323469,
+   "bearing_rms_deg": 0.2537569796968026,
+   "bearing_max_abs_deg": 1.3283251123738422
+  },
+  "reports": {
+   "accepted": 540,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 547,
+  "frames_possible": 547,
+  "frames_detected": 547,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 926,
+  "wall_s": 985.5538487434387,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 547,
+   "detected": 547,
+   "in_frame": 547,
+   "possible": 547,
+   "detected_when_possible": 547,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013490779369522352,
+   "range_error_std_m": 0.002020807575154283,
+   "range_error_max_abs_m": 0.02402715931497279,
+   "bearing_error_mean_deg": -0.07355846716980527,
+   "bearing_error_std_deg": 0.003942254645746665,
+   "bearing_error_max_abs_deg": 0.09071845135720567,
+   "detector_s_mean": 0.0019689715063877034,
+   "gated": 0
+  }
+ },
+ "straight_0.6_seed3_lat0.15": {
+  "name": "straight_0.6",
+  "seed": 3,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.857909695144388,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.9047585490446362,
+   "peak_reverse_m_s": 0.4709748870487293,
+   "peak_acceleration_m_s2": 3.4151759977809633,
+   "peak_yaw_rate_rad_s": 1.2223267119759234,
+   "peak_yaw_acceleration_rad_s2": 23.46802856233086,
+   "range_min_m": 0.7584465632784617,
+   "range_max_m": 1.1651687836059335,
+   "peak_bearing_deg": 3.965946080951842,
+   "peak_view_angle_deg": 0.8543491769678073,
+   "min_pixels": 64.04990119633203,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true,
+   "steady_bearing_ok": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [],
+   "steady_bearing_ok": true
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.80626868066678,
+   "reverse_max_m_s": 0.25929022240730437,
+   "yaw_rate_max_rad_s": 0.19278489001767504,
+   "acceleration_max_m_s2": 1.2500000000000013,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010735293409120108,
+   "range_rms_m": 0.014139102474412045,
+   "range_max_abs_m": 0.05420831160119033,
+   "bearing_rms_deg": 0.29392764642155395,
+   "bearing_max_abs_deg": 1.7817335810806487
+  },
+  "reports": {
+   "accepted": 642,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 649,
+  "frames_possible": 649,
+  "frames_detected": 649,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 1096,
+  "wall_s": 1159.6959240436554,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 649,
+   "detected": 649,
+   "in_frame": 649,
+   "possible": 649,
+   "detected_when_possible": 649,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013278741274559929,
+   "range_error_std_m": 0.0016040431476125596,
+   "range_error_max_abs_m": 0.021788728233788968,
+   "bearing_error_mean_deg": -0.07374575567633704,
+   "bearing_error_std_deg": 0.003717751911870433,
+   "bearing_error_max_abs_deg": 0.09090985250954207,
+   "detector_s_mean": 0.001996506882861455,
+   "gated": 0
+  }
+ },
+ "straight_0.3_seed3_lat0.15": {
+  "name": "straight_0.3",
+  "seed": 3,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 11.041087124113695,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.5807695179151421,
+   "peak_reverse_m_s": 0.3351669827757139,
+   "peak_acceleration_m_s2": 3.2392930347141053,
+   "peak_yaw_rate_rad_s": 1.122294166271071,
+   "peak_yaw_acceleration_rad_s2": 26.400205171546048,
+   "range_min_m": 0.9330051559443101,
+   "range_max_m": 1.0802210987354532,
+   "peak_bearing_deg": 2.979951913033489,
+   "peak_view_angle_deg": 0.4245372534594202,
+   "min_pixels": 69.0871758477758,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true,
+   "steady_bearing_ok": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6749999999999534,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [],
+   "steady_bearing_ok": true
+  },
+  "events": [
+   {
+    "t": 0.6749999999999534,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.455708326594346,
+   "reverse_max_m_s": 0.1060847644194111,
+   "yaw_rate_max_rad_s": 0.17767568928643074,
+   "acceleration_max_m_s2": 1.2500000000000056,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.009907040903737712,
+   "range_rms_m": 0.013102297238236325,
+   "range_max_abs_m": 0.03579322814557129,
+   "bearing_rms_deg": 0.32442344041034965,
+   "bearing_max_abs_deg": 1.6940752133744679
+  },
+  "reports": {
+   "accepted": 928,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 935,
+  "frames_possible": 935,
+  "frames_detected": 935,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 1573,
+  "wall_s": 1647.9824786186218,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 935,
+   "detected": 935,
+   "in_frame": 935,
+   "possible": 935,
+   "detected_when_possible": 935,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013506752526655553,
+   "range_error_std_m": 0.001412919896860627,
+   "range_error_max_abs_m": 0.022835877631979917,
+   "bearing_error_mean_deg": -0.07347615913814387,
+   "bearing_error_std_deg": 0.0031851184802131386,
+   "bearing_error_max_abs_deg": 0.0853657088362659,
+   "detector_s_mean": 0.001954700116587636,
+   "gated": 0
+  }
+ },
+ "lateral_crossing_seed3_lat0.15": {
+  "name": "lateral_crossing",
+  "seed": 3,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.039166299328947,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.2320247409248977,
+   "peak_reverse_m_s": 0.5027457634621503,
+   "peak_acceleration_m_s2": 3.6236624955440604,
+   "peak_yaw_rate_rad_s": 1.375423012947629,
+   "peak_yaw_acceleration_rad_s2": 29.109616710390547,
+   "range_min_m": 0.7448079364144812,
+   "range_max_m": 1.038138651724888,
+   "peak_bearing_deg": 8.879245845728597,
+   "peak_view_angle_deg": 1.2074182697257333e-06,
+   "min_pixels": 71.88798565129342,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6949999999999512,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6949999999999512,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.030593698353821,
+   "reverse_max_m_s": 0.2765073438620921,
+   "yaw_rate_max_rad_s": 0.9828309398574064,
+   "acceleration_max_m_s2": 1.2500000000000056,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000056,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.012189033531182617,
+   "range_rms_m": 0.015006202518466181,
+   "range_max_abs_m": 0.04928166240959364,
+   "bearing_rms_deg": 0.4815604375296549,
+   "bearing_max_abs_deg": 2.057554426305287
+  },
+  "reports": {
+   "accepted": 315,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 323,
+  "frames_possible": 323,
+  "frames_detected": 323,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 551,
+  "wall_s": 585.4983122348785,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 323,
+   "detected": 323,
+   "in_frame": 323,
+   "possible": 323,
+   "detected_when_possible": 323,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013320491615041624,
+   "range_error_std_m": 0.0029310449331518876,
+   "range_error_max_abs_m": 0.026672296692357822,
+   "bearing_error_mean_deg": -0.07433731882124131,
+   "bearing_error_std_deg": 0.004239378989251277,
+   "bearing_error_max_abs_deg": 0.09127731684154515,
+   "detector_s_mean": 0.001965368523301817,
+   "gated": 0
+  }
+ },
+ "curve_r1_seed3_lat0.15": {
+  "name": "curve_r1",
+  "seed": 3,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.213473944500066,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.0038523927300975,
+   "peak_reverse_m_s": 0.4345974177916606,
+   "peak_acceleration_m_s2": 3.652720950125431,
+   "peak_yaw_rate_rad_s": 1.2618935881436533,
+   "peak_yaw_acceleration_rad_s2": 29.226539047273686,
+   "range_min_m": 0.842487150582682,
+   "range_max_m": 1.1725478394904523,
+   "peak_bearing_deg": 6.365819307205724,
+   "peak_view_angle_deg": 59.66406446385775,
+   "min_pixels": 41.83766458054036,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6849999999999523,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6849999999999523,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.9135923446461857,
+   "reverse_max_m_s": 0.16676219427229252,
+   "yaw_rate_max_rad_s": 0.7197270284367575,
+   "acceleration_max_m_s2": 1.250000000000011,
+   "yaw_acceleration_max_rad_s2": 1.250000000000011,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.013079851937393134,
+   "range_rms_m": 0.016336426547063784,
+   "range_max_abs_m": 0.04720838746073641,
+   "bearing_rms_deg": 0.4674530853374901,
+   "bearing_max_abs_deg": 2.5753615388409945
+  },
+  "reports": {
+   "accepted": 533,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 539,
+  "frames_possible": 539,
+  "frames_detected": 539,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 914,
+  "wall_s": 979.2014739513397,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 539,
+   "detected": 539,
+   "in_frame": 539,
+   "possible": 539,
+   "detected_when_possible": 539,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.01388882929526258,
+   "range_error_std_m": 0.0022393471953141343,
+   "range_error_max_abs_m": 0.023115726135336523,
+   "bearing_error_mean_deg": -0.07173568610870659,
+   "bearing_error_std_deg": 0.004262458240025885,
+   "bearing_error_max_abs_deg": 0.08509530662487408,
+   "detector_s_mean": 0.0021879067143259255,
+   "gated": 0
+  }
+ },
+ "curve_r2_seed3_lat0.15": {
+  "name": "curve_r2",
+  "seed": 3,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.110321160155424,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.2924583068245452,
+   "peak_reverse_m_s": 0.48205436265749135,
+   "peak_acceleration_m_s2": 3.847579559652189,
+   "peak_yaw_rate_rad_s": 1.2949950406758195,
+   "peak_yaw_acceleration_rad_s2": 21.430034115383165,
+   "range_min_m": 0.7811855726954656,
+   "range_max_m": 1.2497372516002396,
+   "peak_bearing_deg": 7.713811877598173,
+   "peak_view_angle_deg": 28.332432555127216,
+   "min_pixels": 59.71508555044556,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6849999999999523,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6849999999999523,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.21455787673405363,
+   "yaw_rate_max_rad_s": 0.641725342939352,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.250000000000011,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.013481199377379426,
+   "range_rms_m": 0.01660967703222373,
+   "range_max_abs_m": 0.05233000231052076,
+   "bearing_rms_deg": 0.46847537106405107,
+   "bearing_max_abs_deg": 1.9540924124012444
+  },
+  "reports": {
+   "accepted": 549,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 4
+  },
+  "frames": 557,
+  "frames_possible": 557,
+  "frames_detected": 557,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 940,
+  "wall_s": 987.8976554870605,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 557,
+   "detected": 557,
+   "in_frame": 557,
+   "possible": 557,
+   "detected_when_possible": 557,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013947977872895626,
+   "range_error_std_m": 0.002610242369444991,
+   "range_error_max_abs_m": 0.02405610721343876,
+   "bearing_error_mean_deg": -0.07215085777180541,
+   "bearing_error_std_deg": 0.00451429414611682,
+   "bearing_error_max_abs_deg": 0.08936279533664428,
+   "detector_s_mean": 0.002175152816898697,
+   "gated": 0
+  }
+ },
+ "loss_fov_seed3_lat0.15": {
+  "name": "loss_fov",
+  "seed": 3,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 13.706074390606886,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.6881476121923568,
+   "peak_reverse_m_s": 0.4033290684202795,
+   "peak_acceleration_m_s2": 2.988847528011405,
+   "peak_yaw_rate_rad_s": 1.6359424133605471,
+   "peak_yaw_acceleration_rad_s2": 19.00992032513367,
+   "range_min_m": 0.5995675966313907,
+   "range_max_m": 0.9969796315188088,
+   "peak_bearing_deg": 77.95788250901796,
+   "peak_view_angle_deg": 1.2074182697257333e-06,
+   "min_pixels": 74.85578856366426,
+   "invisible_while_following_s": 0.37,
+   "range_in_band": false
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [
+    0.19886331082690534
+   ]
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   },
+   {
+    "t": 3.104999999999639,
+    "event": "coasting"
+   },
+   {
+    "t": 3.479999999999431,
+    "event": "lost",
+    "speed": 0.391991701379471
+   },
+   {
+    "t": 4.2999999999995095,
+    "event": "holding",
+    "stopping_distance_m": 0.19886331082690534
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 3.104999999999639,
+    "length_s": 0.37499999999979217,
+    "then": "braking"
+   }
+  ],
+  "brakes": [
+   {
+    "start_s": 3.479999999999431,
+    "length_s": 0.8200000000000784,
+    "then": "holding"
+   }
+  ],
+  "losses_to_hold": 1,
+  "envelope": {
+   "speed_max_m_s": 0.5187499999995462,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 1.0,
+   "acceleration_max_m_s2": 1.2500000000000007,
+   "yaw_acceleration_max_rad_s2": 1.250000000000011,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.02544701110952038,
+   "range_rms_m": 0.03539688061230939,
+   "range_max_abs_m": 0.10385550365500285,
+   "bearing_rms_deg": 2.197958545299318,
+   "bearing_max_abs_deg": 8.750777255176637
+  },
+  "reports": {
+   "accepted": 76,
+   "empty": 29,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 109,
+  "frames_possible": 74,
+  "frames_detected": 79,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 524,
+  "wall_s": 329.8341007232666,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 109,
+   "detected": 79,
+   "in_frame": 79,
+   "possible": 74,
+   "detected_when_possible": 74,
+   "detected_not_possible": 5,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.011738540180963665,
+   "range_error_std_m": 0.0026019481480754197,
+   "range_error_max_abs_m": 0.013872834267667056,
+   "bearing_error_mean_deg": -0.07827059930250768,
+   "bearing_error_std_deg": 0.009178972484828279,
+   "bearing_error_max_abs_deg": 0.10780957829337581,
+   "detector_s_mean": 0.009447684211058622,
+   "gated": 0
+  }
+ },
+ "approach_seed3_lat0.15": {
+  "name": "approach",
+  "seed": 3,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.538219218815787,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.9849606121021358,
+   "peak_reverse_m_s": 0.4673384748045474,
+   "peak_acceleration_m_s2": 3.1755961026234303,
+   "peak_yaw_rate_rad_s": 1.2746091087860374,
+   "peak_yaw_acceleration_rad_s2": 30.579356333241744,
+   "range_min_m": 0.5195981730610015,
+   "range_max_m": 1.1417534271215068,
+   "peak_bearing_deg": 4.1451650066165335,
+   "peak_view_angle_deg": 1.2074182697257333e-06,
+   "min_pixels": 65.36410990891615,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": false
+  },
+  "checks": {
+   "engaged_at_s": 0.6749999999999534,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6749999999999534,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.8251639639464586,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 0.20171622191517652,
+   "acceleration_max_m_s2": 1.2500000000000056,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.009055736806897235,
+   "range_rms_m": 0.014200366486974486,
+   "range_max_abs_m": 0.05085324378839928,
+   "bearing_rms_deg": 0.2609905731790078,
+   "bearing_max_abs_deg": 1.4676539174572523
+  },
+  "reports": {
+   "accepted": 419,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 427,
+  "frames_possible": 427,
+  "frames_detected": 427,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 725,
+  "wall_s": 768.8131411075592,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 427,
+   "detected": 427,
+   "in_frame": 427,
+   "possible": 427,
+   "detected_when_possible": 427,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.011959340117035,
+   "range_error_std_m": 0.002823459788208782,
+   "range_error_max_abs_m": 0.023322078462485463,
+   "bearing_error_mean_deg": -0.07758268608062684,
+   "bearing_error_std_deg": 0.0078054960769314745,
+   "bearing_error_max_abs_deg": 0.10821441041715252,
+   "detector_s_mean": 0.0020896158313205705,
+   "gated": 0
+  }
+ },
+ "corner_90_seed3_lat0.15": {
+  "name": "corner_90",
+  "seed": 3,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.190021402788005,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.3278507512468205,
+   "peak_reverse_m_s": 0.5446449884400546,
+   "peak_acceleration_m_s2": 4.1463761207744625,
+   "peak_yaw_rate_rad_s": 1.2746388361893357,
+   "peak_yaw_acceleration_rad_s2": 32.52588723312822,
+   "range_min_m": 0.6866660077660061,
+   "range_max_m": 1.281002308913187,
+   "peak_bearing_deg": 12.093512483753008,
+   "peak_view_angle_deg": 72.73314205351394,
+   "min_pixels": 24.772388699457817,
+   "invisible_while_following_s": 0.36,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6749999999999534,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6749999999999534,
+    "event": "engaged"
+   },
+   {
+    "t": 8.350000000003215,
+    "event": "coasting"
+   },
+   {
+    "t": 8.530000000002795,
+    "event": "reacquired"
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 8.350000000003215,
+    "length_s": 0.1799999999995805,
+    "then": "following"
+   }
+  ],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 0.96462422906755,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.250000000000011,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.012350790840227112,
+   "range_rms_m": 0.017877787482973112,
+   "range_max_abs_m": 0.05919330820860147,
+   "bearing_rms_deg": 0.4973173854465316,
+   "bearing_max_abs_deg": 4.441762322282456
+  },
+  "reports": {
+   "accepted": 499,
+   "empty": 6,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 513,
+  "frames_possible": 513,
+  "frames_detected": 513,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 868,
+  "wall_s": 905.2886154651642,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 513,
+   "detected": 507,
+   "in_frame": 513,
+   "possible": 513,
+   "detected_when_possible": 507,
+   "detected_not_possible": 0,
+   "miss_runs": 1,
+   "miss_run_max": 6,
+   "range_error_mean_m": 0.014060057705622098,
+   "range_error_std_m": 0.004033126597687724,
+   "range_error_max_abs_m": 0.030615332676023677,
+   "bearing_error_mean_deg": -0.07280976062296134,
+   "bearing_error_std_deg": 0.00724525029569175,
+   "bearing_error_max_abs_deg": 0.10885378299583474,
+   "detector_s_mean": 0.0020619738966099043,
+   "gated": 6
+  }
+ },
+ "occlusion_short_seed3_lat0.15": {
+  "name": "occlusion_short",
+  "seed": 3,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.836583454903861,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.8986756286578568,
+   "peak_reverse_m_s": 0.43298777268634847,
+   "peak_acceleration_m_s2": 3.0706811117524992,
+   "peak_yaw_rate_rad_s": 1.2589677981928635,
+   "peak_yaw_acceleration_rad_s2": 24.393196346729994,
+   "range_min_m": 0.793637959485947,
+   "range_max_m": 1.1556489875022071,
+   "peak_bearing_deg": 4.185289626967851,
+   "peak_view_angle_deg": 0.6974786567346504,
+   "min_pixels": 64.57785228008284,
+   "invisible_while_following_s": 0.29,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6849999999999523,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6849999999999523,
+    "event": "engaged"
+   },
+   {
+    "t": 5.120000000000512,
+    "event": "coasting"
+   },
+   {
+    "t": 5.49500000000097,
+    "event": "lost",
+    "speed": 0.6326444732560463
+   },
+   {
+    "t": 5.595000000001092,
+    "event": "reacquired"
+   },
+   {
+    "t": 5.670000000001184,
+    "event": "coasting"
+   },
+   {
+    "t": 5.680000000001196,
+    "event": "reacquired"
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 5.120000000000512,
+    "length_s": 0.3750000000004583,
+    "then": "braking"
+   },
+   {
+    "start_s": 5.670000000001184,
+    "length_s": 0.010000000000012221,
+    "then": "following"
+   }
+  ],
+  "brakes": [
+   {
+    "start_s": 5.49500000000097,
+    "length_s": 0.10000000000012221,
+    "then": "following"
+   }
+  ],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.7993469708713761,
+   "reverse_max_m_s": 0.22180826477208354,
+   "yaw_rate_max_rad_s": 0.19616789206963178,
+   "acceleration_max_m_s2": 1.2500000000000013,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010121996881697765,
+   "range_rms_m": 0.013804929394578263,
+   "range_max_abs_m": 0.05059096279973185,
+   "bearing_rms_deg": 0.28524045147394633,
+   "bearing_max_abs_deg": 1.5864042277932122
+  },
+  "reports": {
+   "accepted": 505,
+   "empty": 2,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 515,
+  "frames_possible": 510,
+  "frames_detected": 513,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 896,
+  "wall_s": 934.8406839370728,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 515,
+   "detected": 513,
+   "in_frame": 515,
+   "possible": 510,
+   "detected_when_possible": 510,
+   "detected_not_possible": 3,
+   "miss_runs": 1,
+   "miss_run_max": 2,
+   "range_error_mean_m": 0.013191845658320404,
+   "range_error_std_m": 0.0016306153592103463,
+   "range_error_max_abs_m": 0.019414256608538905,
+   "bearing_error_mean_deg": -0.07385579761920019,
+   "bearing_error_std_deg": 0.0037727360327832974,
+   "bearing_error_max_abs_deg": 0.09017913742621063,
+   "detector_s_mean": 0.002150886137798842,
+   "gated": 0
+  }
+ },
+ "occlusion_long_seed3_lat0.15": {
+  "name": "occlusion_long",
+  "seed": 3,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.635191941483535,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.9472679085166875,
+   "peak_reverse_m_s": 0.4280838912614769,
+   "peak_acceleration_m_s2": 3.9430128487446057,
+   "peak_yaw_rate_rad_s": 1.2290908115264518,
+   "peak_yaw_acceleration_rad_s2": 31.533955208861283,
+   "range_min_m": 0.8551988363337683,
+   "range_max_m": 1.1781157470627366,
+   "peak_bearing_deg": 4.072005269791687,
+   "peak_view_angle_deg": 0.6708899185333459,
+   "min_pixels": 63.346380930309145,
+   "invisible_while_following_s": 0.26,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [
+    0.2692895305565023
+   ]
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   },
+   {
+    "t": 5.015000000000383,
+    "event": "coasting"
+   },
+   {
+    "t": 5.390000000000842,
+    "event": "lost",
+    "speed": 0.6501143850198697
+   },
+   {
+    "t": 6.03500000000163,
+    "event": "holding",
+    "stopping_distance_m": 0.2692895305565023
+   },
+   {
+    "t": 8.720000000002353,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 5.015000000000383,
+    "length_s": 0.3750000000004583,
+    "then": "braking"
+   }
+  ],
+  "brakes": [
+   {
+    "start_s": 5.390000000000842,
+    "length_s": 0.6450000000007883,
+    "then": "holding"
+   }
+  ],
+  "losses_to_hold": 1,
+  "envelope": {
+   "speed_max_m_s": 0.8175070402562274,
+   "reverse_max_m_s": 0.17546978698913543,
+   "yaw_rate_max_rad_s": 0.19083844052384347,
+   "acceleration_max_m_s2": 1.2500000000000013,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000027,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010503009033273156,
+   "range_rms_m": 0.013900861398461991,
+   "range_max_abs_m": 0.033312061357384515,
+   "bearing_rms_deg": 0.3077059279604471,
+   "bearing_max_abs_deg": 1.8801080341869083
+  },
+  "reports": {
+   "accepted": 574,
+   "empty": 13,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 594,
+  "frames_possible": 578,
+  "frames_detected": 581,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 1158,
+  "wall_s": 1164.5134065151215,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 594,
+   "detected": 581,
+   "in_frame": 594,
+   "possible": 578,
+   "detected_when_possible": 578,
+   "detected_not_possible": 3,
+   "miss_runs": 1,
+   "miss_run_max": 13,
+   "range_error_mean_m": 0.013841914142864953,
+   "range_error_std_m": 0.001829623386696246,
+   "range_error_max_abs_m": 0.026537994980457835,
+   "bearing_error_mean_deg": -0.07295619803886455,
+   "bearing_error_std_deg": 0.0035224216301393703,
+   "bearing_error_max_abs_deg": 0.09006832269990103,
+   "detector_s_mean": 0.00251520246967893,
+   "gated": 0
+  }
+ },
+ "start_stop_seed4_lat0.15": {
+  "name": "start_stop",
+  "seed": 4,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.156030870506846,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.3464529452004996,
+   "peak_reverse_m_s": 0.5487751387835682,
+   "peak_acceleration_m_s2": 3.5305984428181603,
+   "peak_yaw_rate_rad_s": 1.1986859431132342,
+   "peak_yaw_acceleration_rad_s2": 28.514572637454698,
+   "range_min_m": 0.6576956268003089,
+   "range_max_m": 1.262166220615057,
+   "peak_bearing_deg": 4.401146118740267,
+   "peak_view_angle_deg": 1.6836419578179942,
+   "min_pixels": 59.12575066812245,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6949999999999512,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6949999999999512,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 0.2276227498486318,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000027,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010783054778486562,
+   "range_rms_m": 0.015664876413851572,
+   "range_max_abs_m": 0.06308735194702875,
+   "bearing_rms_deg": 0.23565619937780558,
+   "bearing_max_abs_deg": 1.3175377799059529
+  },
+  "reports": {
+   "accepted": 526,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 533,
+  "frames_possible": 533,
+  "frames_detected": 533,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 902,
+  "wall_s": 1029.6349799633026,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 533,
+   "detected": 533,
+   "in_frame": 533,
+   "possible": 533,
+   "detected_when_possible": 533,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.012992863564674178,
+   "range_error_std_m": 0.003018367584073232,
+   "range_error_max_abs_m": 0.023387706458246837,
+   "bearing_error_mean_deg": -0.07468902893703099,
+   "bearing_error_std_deg": 0.006084559006840125,
+   "bearing_error_max_abs_deg": 0.09554740656767831,
+   "detector_s_mean": 0.002192653270145801,
+   "gated": 0
+  }
+ },
+ "straight_1.0_seed4_lat0.15": {
+  "name": "straight_1.0",
+  "seed": 4,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.473766220850466,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.3421571938519234,
+   "peak_reverse_m_s": 0.5126684211000749,
+   "peak_acceleration_m_s2": 3.808500720564165,
+   "peak_yaw_rate_rad_s": 1.2541121869747776,
+   "peak_yaw_acceleration_rad_s2": 28.01165890343445,
+   "range_min_m": 0.7742934299298688,
+   "range_max_m": 1.2184576526953503,
+   "peak_bearing_deg": 4.311076910330872,
+   "peak_view_angle_deg": 1.1518873930372469,
+   "min_pixels": 61.24878025450254,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true,
+   "steady_bearing_ok": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6749999999999534,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [],
+   "steady_bearing_ok": true
+  },
+  "events": [
+   {
+    "t": 0.6749999999999534,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.2380424823706369,
+   "yaw_rate_max_rad_s": 0.19434300768067755,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010520745418370956,
+   "range_rms_m": 0.014341457746605007,
+   "range_max_abs_m": 0.03940315160012975,
+   "bearing_rms_deg": 0.2904399937289523,
+   "bearing_max_abs_deg": 1.6077967795498354
+  },
+  "reports": {
+   "accepted": 540,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 4
+  },
+  "frames": 549,
+  "frames_possible": 549,
+  "frames_detected": 549,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 926,
+  "wall_s": 1073.6198546886444,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 549,
+   "detected": 549,
+   "in_frame": 549,
+   "possible": 549,
+   "detected_when_possible": 549,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013530978036900168,
+   "range_error_std_m": 0.0019190624104665813,
+   "range_error_max_abs_m": 0.022424057453287016,
+   "bearing_error_mean_deg": -0.0736759031233594,
+   "bearing_error_std_deg": 0.00422595942014817,
+   "bearing_error_max_abs_deg": 0.08986945427339436,
+   "detector_s_mean": 0.0021248562023635145,
+   "gated": 0
+  }
+ },
+ "straight_0.6_seed4_lat0.15": {
+  "name": "straight_0.6",
+  "seed": 4,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.73529769529923,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.8920187077193927,
+   "peak_reverse_m_s": 0.43822342481116755,
+   "peak_acceleration_m_s2": 3.2743872632902864,
+   "peak_yaw_rate_rad_s": 1.2449062450856514,
+   "peak_yaw_acceleration_rad_s2": 26.114270004849264,
+   "range_min_m": 0.7771561901468708,
+   "range_max_m": 1.1481481074644908,
+   "peak_bearing_deg": 4.04065728248041,
+   "peak_view_angle_deg": 0.8817498896167382,
+   "min_pixels": 64.99973000943297,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true,
+   "steady_bearing_ok": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6949999999999512,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [],
+   "steady_bearing_ok": true
+  },
+  "events": [
+   {
+    "t": 0.6949999999999512,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.7880403240002263,
+   "reverse_max_m_s": 0.2460429765020628,
+   "yaw_rate_max_rad_s": 0.2103869646230147,
+   "acceleration_max_m_s2": 1.2500000000000027,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000027,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010754453969037672,
+   "range_rms_m": 0.014047779199780666,
+   "range_max_abs_m": 0.047362481114877286,
+   "bearing_rms_deg": 0.2777246076288097,
+   "bearing_max_abs_deg": 1.3013224383159578
+  },
+  "reports": {
+   "accepted": 642,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 649,
+  "frames_possible": 649,
+  "frames_detected": 649,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 1096,
+  "wall_s": 1256.6130380630493,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 649,
+   "detected": 649,
+   "in_frame": 649,
+   "possible": 649,
+   "detected_when_possible": 649,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013223388543252302,
+   "range_error_std_m": 0.00161368457971147,
+   "range_error_max_abs_m": 0.021525510953913862,
+   "bearing_error_mean_deg": -0.07367675413321996,
+   "bearing_error_std_deg": 0.0036155752488765255,
+   "bearing_error_max_abs_deg": 0.09454594151276005,
+   "detector_s_mean": 0.002171009426933323,
+   "gated": 0
+  }
+ },
+ "straight_0.3_seed4_lat0.15": {
+  "name": "straight_0.3",
+  "seed": 4,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 12.08639161079479,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.6014842266935608,
+   "peak_reverse_m_s": 0.3432413663546543,
+   "peak_acceleration_m_s2": 3.1631477116321953,
+   "peak_yaw_rate_rad_s": 1.1733634652240381,
+   "peak_yaw_acceleration_rad_s2": 29.783926997233525,
+   "range_min_m": 0.9348686386478441,
+   "range_max_m": 1.078960018400636,
+   "peak_bearing_deg": 3.1376557277184913,
+   "peak_view_angle_deg": 0.5453359528389317,
+   "min_pixels": 69.16799697594772,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true,
+   "steady_bearing_ok": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6849999999999523,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [],
+   "steady_bearing_ok": true
+  },
+  "events": [
+   {
+    "t": 0.6849999999999523,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.45289570503232246,
+   "reverse_max_m_s": 0.11261798380203653,
+   "yaw_rate_max_rad_s": 0.1910066575214365,
+   "acceleration_max_m_s2": 1.2500000000000056,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010000566338328201,
+   "range_rms_m": 0.013240712942876265,
+   "range_max_abs_m": 0.04406469245010358,
+   "bearing_rms_deg": 0.33371745277898196,
+   "bearing_max_abs_deg": 1.7769872894590446
+  },
+  "reports": {
+   "accepted": 929,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 935,
+  "frames_possible": 935,
+  "frames_detected": 935,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 1573,
+  "wall_s": 1802.8431527614594,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 935,
+   "detected": 935,
+   "in_frame": 935,
+   "possible": 935,
+   "detected_when_possible": 935,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013543094800915282,
+   "range_error_std_m": 0.0014077311664719926,
+   "range_error_max_abs_m": 0.025277234292974682,
+   "bearing_error_mean_deg": -0.0735732678062945,
+   "bearing_error_std_deg": 0.0035182506676504494,
+   "bearing_error_max_abs_deg": 0.08590244554433756,
+   "detector_s_mean": 0.002147784619214714,
+   "gated": 0
+  }
+ },
+ "lateral_crossing_seed4_lat0.15": {
+  "name": "lateral_crossing",
+  "seed": 4,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.139115411337945,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.2245939728287136,
+   "peak_reverse_m_s": 0.5196516236017994,
+   "peak_acceleration_m_s2": 3.5152601605996168,
+   "peak_yaw_rate_rad_s": 1.3214772685202023,
+   "peak_yaw_acceleration_rad_s2": 25.211124356405904,
+   "range_min_m": 0.7118889380889766,
+   "range_max_m": 1.0353385034199463,
+   "peak_bearing_deg": 8.784554577275184,
+   "peak_view_angle_deg": 1.2074182697257333e-06,
+   "min_pixels": 72.08241193844707,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.0415501847062472,
+   "reverse_max_m_s": 0.2944338337919793,
+   "yaw_rate_max_rad_s": 0.9734694788076255,
+   "acceleration_max_m_s2": 1.2500000000000056,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000027,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.01220074521312538,
+   "range_rms_m": 0.015096463775569047,
+   "range_max_abs_m": 0.05558106635097271,
+   "bearing_rms_deg": 0.4685007771883085,
+   "bearing_max_abs_deg": 1.9112860535901752
+  },
+  "reports": {
+   "accepted": 315,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 322,
+  "frames_possible": 322,
+  "frames_detected": 322,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 551,
+  "wall_s": 679.7368793487549,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 322,
+   "detected": 322,
+   "in_frame": 322,
+   "possible": 322,
+   "detected_when_possible": 322,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013199634349805003,
+   "range_error_std_m": 0.0030683196312824633,
+   "range_error_max_abs_m": 0.02622081382057928,
+   "bearing_error_mean_deg": -0.0742803749930704,
+   "bearing_error_std_deg": 0.004390360655641618,
+   "bearing_error_max_abs_deg": 0.09370153960165843,
+   "detector_s_mean": 0.0024479021491252916,
+   "gated": 0
+  }
+ },
+ "curve_r1_seed4_lat0.15": {
+  "name": "curve_r1",
+  "seed": 4,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.132010109871326,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.0232524391154652,
+   "peak_reverse_m_s": 0.4417816304188926,
+   "peak_acceleration_m_s2": 3.9707216267787686,
+   "peak_yaw_rate_rad_s": 1.275745427005575,
+   "peak_yaw_acceleration_rad_s2": 27.394609660138755,
+   "range_min_m": 0.8549387501033099,
+   "range_max_m": 1.1782850276388883,
+   "peak_bearing_deg": 6.51964484719297,
+   "peak_view_angle_deg": 59.78469508929832,
+   "min_pixels": 41.02171830680075,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.9163899234308283,
+   "reverse_max_m_s": 0.16469347489036215,
+   "yaw_rate_max_rad_s": 0.7617431944377888,
+   "acceleration_max_m_s2": 1.2500000000000007,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000056,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.013064468721529193,
+   "range_rms_m": 0.016407614192562828,
+   "range_max_abs_m": 0.05132857522198586,
+   "bearing_rms_deg": 0.4776504777143235,
+   "bearing_max_abs_deg": 2.3163334888878815
+  },
+  "reports": {
+   "accepted": 533,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 540,
+  "frames_possible": 540,
+  "frames_detected": 540,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 914,
+  "wall_s": 1122.4617223739624,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 540,
+   "detected": 540,
+   "in_frame": 540,
+   "possible": 540,
+   "detected_when_possible": 540,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.014127940224341934,
+   "range_error_std_m": 0.0023178375279886464,
+   "range_error_max_abs_m": 0.02415443909037618,
+   "bearing_error_mean_deg": -0.07125963321042825,
+   "bearing_error_std_deg": 0.004603911264720569,
+   "bearing_error_max_abs_deg": 0.08803554498454412,
+   "detector_s_mean": 0.0026021132462860637,
+   "gated": 0
+  }
+ },
+ "curve_r2_seed4_lat0.15": {
+  "name": "curve_r2",
+  "seed": 4,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.637599687859385,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.2983016994483176,
+   "peak_reverse_m_s": 0.5141498982784868,
+   "peak_acceleration_m_s2": 4.1418537156355555,
+   "peak_yaw_rate_rad_s": 1.407796798965611,
+   "peak_yaw_acceleration_rad_s2": 24.108943448634385,
+   "range_min_m": 0.7673320250526642,
+   "range_max_m": 1.2337674272007801,
+   "peak_bearing_deg": 7.993787286565864,
+   "peak_view_angle_deg": 28.25976480246826,
+   "min_pixels": 60.4884003434628,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6849999999999523,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6849999999999523,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.23439970746097785,
+   "yaw_rate_max_rad_s": 0.6460704863664829,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.250000000000011,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.013224383994044232,
+   "range_rms_m": 0.016582312154385763,
+   "range_max_abs_m": 0.04477301146501722,
+   "bearing_rms_deg": 0.4975456867168046,
+   "bearing_max_abs_deg": 1.9512980736928143
+  },
+  "reports": {
+   "accepted": 549,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 4
+  },
+  "frames": 557,
+  "frames_possible": 557,
+  "frames_detected": 557,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 940,
+  "wall_s": 1131.8004050254822,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 557,
+   "detected": 557,
+   "in_frame": 557,
+   "possible": 557,
+   "detected_when_possible": 557,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.013916569596956406,
+   "range_error_std_m": 0.002554182004751956,
+   "range_error_max_abs_m": 0.022328019395911558,
+   "bearing_error_mean_deg": -0.07234038982320337,
+   "bearing_error_std_deg": 0.004817493642365586,
+   "bearing_error_max_abs_deg": 0.09387007151034897,
+   "detector_s_mean": 0.002395526599692836,
+   "gated": 0
+  }
+ },
+ "corner_90_seed4_lat0.15": {
+  "name": "corner_90",
+  "seed": 4,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 15.401528543659191,
+  "pitch_within_gate": false,
+  "summary": {
+   "peak_speed_m_s": 1.3203936127208646,
+   "peak_reverse_m_s": 0.5355869191966368,
+   "peak_acceleration_m_s2": 3.7405301655124354,
+   "peak_yaw_rate_rad_s": 1.3399017577877927,
+   "peak_yaw_acceleration_rad_s2": 35.3133354827432,
+   "range_min_m": 0.7563918375376704,
+   "range_max_m": 1.2396440677311527,
+   "peak_bearing_deg": 13.024807012203716,
+   "peak_view_angle_deg": 72.94889836025207,
+   "min_pixels": 24.407205747799825,
+   "invisible_while_following_s": 0.36,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6849999999999523,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6849999999999523,
+    "event": "engaged"
+   },
+   {
+    "t": 8.370000000003168,
+    "event": "coasting"
+   },
+   {
+    "t": 8.685000000002434,
+    "event": "reacquired"
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 8.370000000003168,
+    "length_s": 0.31499999999926587,
+    "then": "following"
+   }
+  ],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 1.2,
+   "reverse_max_m_s": 0.2613259395072145,
+   "yaw_rate_max_rad_s": 0.9577292844453613,
+   "acceleration_max_m_s2": 1.2500000000000222,
+   "yaw_acceleration_max_rad_s2": 1.250000000000011,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.011906720626394768,
+   "range_rms_m": 0.016602036960331534,
+   "range_max_abs_m": 0.050099669351050924,
+   "bearing_rms_deg": 0.8577345553396697,
+   "bearing_max_abs_deg": 8.669579049244229
+  },
+  "reports": {
+   "accepted": 494,
+   "empty": 4,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 505,
+  "frames_possible": 505,
+  "frames_detected": 504,
+  "passed": false,
+  "group": "nominal",
+  "policy_steps": 868,
+  "wall_s": 1012.5796868801117,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 505,
+   "detected": 501,
+   "in_frame": 505,
+   "possible": 505,
+   "detected_when_possible": 501,
+   "detected_not_possible": 0,
+   "miss_runs": 1,
+   "miss_run_max": 4,
+   "range_error_mean_m": 0.013983444241902775,
+   "range_error_std_m": 0.0033240390765699288,
+   "range_error_max_abs_m": 0.028211307337340452,
+   "bearing_error_mean_deg": -0.07262557519663909,
+   "bearing_error_std_deg": 0.0056040360369022865,
+   "bearing_error_max_abs_deg": 0.09368787513625475,
+   "detector_s_mean": 0.002395221213870659,
+   "gated": 3
+  }
+ },
+ "loss_fov_seed4_lat0.15": {
+  "name": "loss_fov",
+  "seed": 4,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 13.813124347304697,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.6700435706665133,
+   "peak_reverse_m_s": 0.40831980477733637,
+   "peak_acceleration_m_s2": 3.022926302710051,
+   "peak_yaw_rate_rad_s": 1.6364996877325917,
+   "peak_yaw_acceleration_rad_s2": 19.78464760347778,
+   "range_min_m": 0.6030007370211558,
+   "range_max_m": 0.9966723005448107,
+   "peak_bearing_deg": 76.85514282311563,
+   "peak_view_angle_deg": 1.2074182697257333e-06,
+   "min_pixels": 74.87887087707468,
+   "invisible_while_following_s": 0.36,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6899999999999518,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [
+    0.19252542705007814
+   ]
+  },
+  "events": [
+   {
+    "t": 0.6899999999999518,
+    "event": "engaged"
+   },
+   {
+    "t": 3.0899999999996473,
+    "event": "coasting"
+   },
+   {
+    "t": 3.4649999999994394,
+    "event": "lost",
+    "speed": 0.39090527672781294
+   },
+   {
+    "t": 4.279999999999485,
+    "event": "holding",
+    "stopping_distance_m": 0.19252542705007814
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 3.0899999999996473,
+    "length_s": 0.37499999999979217,
+    "then": "braking"
+   }
+  ],
+  "brakes": [
+   {
+    "start_s": 3.4649999999994394,
+    "length_s": 0.8150000000000457,
+    "then": "holding"
+   }
+  ],
+  "losses_to_hold": 1,
+  "envelope": {
+   "speed_max_m_s": 0.5124999999995496,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 1.0,
+   "acceleration_max_m_s2": 1.2500000000000056,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.025758120262711598,
+   "range_rms_m": 0.03559983534833855,
+   "range_max_abs_m": 0.1021861513199922,
+   "bearing_rms_deg": 2.0796329452555393,
+   "bearing_max_abs_deg": 7.999102694799979
+  },
+  "reports": {
+   "accepted": 76,
+   "empty": 29,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 2
+  },
+  "frames": 108,
+  "frames_possible": 73,
+  "frames_detected": 78,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 524,
+  "wall_s": 338.9064025878906,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 108,
+   "detected": 78,
+   "in_frame": 78,
+   "possible": 73,
+   "detected_when_possible": 73,
+   "detected_not_possible": 5,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.011786484743146843,
+   "range_error_std_m": 0.0026007103430811286,
+   "range_error_max_abs_m": 0.013843303139730034,
+   "bearing_error_mean_deg": -0.07807008399305991,
+   "bearing_error_std_deg": 0.008373731811456132,
+   "bearing_error_max_abs_deg": 0.10192118863445591,
+   "detector_s_mean": 0.010493728129909464,
+   "gated": 0
+  }
+ },
+ "approach_seed4_lat0.15": {
+  "name": "approach",
+  "seed": 4,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.653505881306776,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.9617961631783917,
+   "peak_reverse_m_s": 0.468085133017201,
+   "peak_acceleration_m_s2": 3.030510655984351,
+   "peak_yaw_rate_rad_s": 1.2560268143416793,
+   "peak_yaw_acceleration_rad_s2": 24.623461364959844,
+   "range_min_m": 0.5217611724825507,
+   "range_max_m": 1.1465339973362776,
+   "peak_bearing_deg": 3.966191019789192,
+   "peak_view_angle_deg": 1.2074182697257333e-06,
+   "min_pixels": 65.09156873903235,
+   "invisible_while_following_s": 0.0,
+   "range_in_band": false
+  },
+  "checks": {
+   "engaged_at_s": 0.6849999999999523,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6849999999999523,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [],
+  "brakes": [],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.7974235881537245,
+   "reverse_max_m_s": 0.3,
+   "yaw_rate_max_rad_s": 0.17648016903762603,
+   "acceleration_max_m_s2": 1.250000000000011,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000013,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.00892812888581257,
+   "range_rms_m": 0.01419548348313039,
+   "range_max_abs_m": 0.047373353288005626,
+   "bearing_rms_deg": 0.26623813288934267,
+   "bearing_max_abs_deg": 1.5450375270834242
+  },
+  "reports": {
+   "accepted": 419,
+   "empty": 0,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 427,
+  "frames_possible": 427,
+  "frames_detected": 427,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 725,
+  "wall_s": 837.5083978176117,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 427,
+   "detected": 427,
+   "in_frame": 427,
+   "possible": 427,
+   "detected_when_possible": 427,
+   "detected_not_possible": 0,
+   "miss_runs": 0,
+   "miss_run_max": 0,
+   "range_error_mean_m": 0.012063561833243471,
+   "range_error_std_m": 0.0029379685500959007,
+   "range_error_max_abs_m": 0.030320789937612558,
+   "bearing_error_mean_deg": -0.07752321443535502,
+   "bearing_error_std_deg": 0.007626638631335362,
+   "bearing_error_max_abs_deg": 0.10419147125182128,
+   "detector_s_mean": 0.002366997850180614,
+   "gated": 0
+  }
+ },
+ "occlusion_short_seed4_lat0.15": {
+  "name": "occlusion_short",
+  "seed": 4,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.794230883022,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.9014576590138214,
+   "peak_reverse_m_s": 0.4311169476921741,
+   "peak_acceleration_m_s2": 3.166282216132771,
+   "peak_yaw_rate_rad_s": 1.246299981255043,
+   "peak_yaw_acceleration_rad_s2": 22.451214820306305,
+   "range_min_m": 0.796996799295587,
+   "range_max_m": 1.153703581481227,
+   "peak_bearing_deg": 4.066155317538502,
+   "peak_view_angle_deg": 0.8775891920344729,
+   "min_pixels": 64.68669694795155,
+   "invisible_while_following_s": 0.29,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6799999999999529,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": []
+  },
+  "events": [
+   {
+    "t": 0.6799999999999529,
+    "event": "engaged"
+   },
+   {
+    "t": 5.125000000000518,
+    "event": "coasting"
+   },
+   {
+    "t": 5.500000000000976,
+    "event": "lost",
+    "speed": 0.6302417160683987
+   },
+   {
+    "t": 5.545000000001031,
+    "event": "reacquired"
+   },
+   {
+    "t": 5.620000000001123,
+    "event": "coasting"
+   },
+   {
+    "t": 5.645000000001153,
+    "event": "reacquired"
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 5.125000000000518,
+    "length_s": 0.3750000000004583,
+    "then": "braking"
+   },
+   {
+    "start_s": 5.620000000001123,
+    "length_s": 0.025000000000030553,
+    "then": "following"
+   }
+  ],
+  "brakes": [
+   {
+    "start_s": 5.500000000000976,
+    "length_s": 0.045000000000054996,
+    "then": "following"
+   }
+  ],
+  "losses_to_hold": 0,
+  "envelope": {
+   "speed_max_m_s": 0.7886530827580268,
+   "reverse_max_m_s": 0.21296152702562635,
+   "yaw_rate_max_rad_s": 0.16812470761101828,
+   "acceleration_max_m_s2": 1.250000000000011,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010469183416720302,
+   "range_rms_m": 0.013746999977598939,
+   "range_max_abs_m": 0.04962145050320965,
+   "bearing_rms_deg": 0.2774375210404835,
+   "bearing_max_abs_deg": 1.5781181822760237
+  },
+  "reports": {
+   "accepted": 506,
+   "empty": 2,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 516,
+  "frames_possible": 511,
+  "frames_detected": 514,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 896,
+  "wall_s": 661.8978538513184,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 516,
+   "detected": 514,
+   "in_frame": 516,
+   "possible": 511,
+   "detected_when_possible": 511,
+   "detected_not_possible": 3,
+   "miss_runs": 1,
+   "miss_run_max": 2,
+   "range_error_mean_m": 0.013097686236186373,
+   "range_error_std_m": 0.0016145601564898026,
+   "range_error_max_abs_m": 0.020976915842354726,
+   "bearing_error_mean_deg": -0.07406961667130371,
+   "bearing_error_std_deg": 0.0034449391550351164,
+   "bearing_error_max_abs_deg": 0.09523561023626613,
+   "detector_s_mean": 0.0019020684766678465,
+   "gated": 0
+  }
+ },
+ "occlusion_long_seed4_lat0.15": {
+  "name": "occlusion_long",
+  "seed": 4,
+  "latency_centre_s": 0.15,
+  "variant": null,
+  "slope_deg": 0.0,
+  "failure": null,
+  "fell": false,
+  "peak_pitch_deg": 14.528548352433148,
+  "pitch_within_gate": true,
+  "summary": {
+   "peak_speed_m_s": 0.9275343593224686,
+   "peak_reverse_m_s": 0.42466693476697776,
+   "peak_acceleration_m_s2": 3.5001687693990773,
+   "peak_yaw_rate_rad_s": 1.1679642005445647,
+   "peak_yaw_acceleration_rad_s2": 30.216921477261454,
+   "range_min_m": 0.8047286778237174,
+   "range_max_m": 1.1729153737359714,
+   "peak_bearing_deg": 3.7215387711465735,
+   "peak_view_angle_deg": 0.7011048402550027,
+   "min_pixels": 63.62742725290414,
+   "invisible_while_following_s": 0.27,
+   "range_in_band": true
+  },
+  "checks": {
+   "engaged_at_s": 0.6899999999999518,
+   "engage_ok": true,
+   "expectation_met": true,
+   "stopping_distances_m": [
+    0.2688360131448978
+   ]
+  },
+  "events": [
+   {
+    "t": 0.6899999999999518,
+    "event": "engaged"
+   },
+   {
+    "t": 5.025000000000396,
+    "event": "coasting"
+   },
+   {
+    "t": 5.400000000000854,
+    "event": "lost",
+    "speed": 0.6414128558947335
+   },
+   {
+    "t": 6.045000000001642,
+    "event": "holding",
+    "stopping_distance_m": 0.2688360131448978
+   },
+   {
+    "t": 8.79000000000219,
+    "event": "engaged"
+   }
+  ],
+  "coasts": [
+   {
+    "start_s": 5.025000000000396,
+    "length_s": 0.3750000000004583,
+    "then": "braking"
+   }
+  ],
+  "brakes": [
+   {
+    "start_s": 5.400000000000854,
+    "length_s": 0.6450000000007883,
+    "then": "holding"
+   }
+  ],
+  "losses_to_hold": 1,
+  "envelope": {
+   "speed_max_m_s": 0.8104628278086982,
+   "reverse_max_m_s": 0.23140148543299152,
+   "yaw_rate_max_rad_s": 0.18219243043690192,
+   "acceleration_max_m_s2": 1.2500000000000056,
+   "yaw_acceleration_max_rad_s2": 1.2500000000000029,
+   "inside": true
+  },
+  "estimate": {
+   "range_mean_m": 0.010181654145171401,
+   "range_rms_m": 0.014041136022870588,
+   "range_max_abs_m": 0.04827552343270902,
+   "bearing_rms_deg": 0.3158574574985422,
+   "bearing_max_abs_deg": 1.5487155111612045
+  },
+  "reports": {
+   "accepted": 571,
+   "empty": 13,
+   "invalid": 0,
+   "repeated": 0,
+   "wrong_id": 0,
+   "too_old": 0,
+   "gated": 0,
+   "ignored": 3
+  },
+  "frames": 592,
+  "frames_possible": 576,
+  "frames_detected": 579,
+  "passed": true,
+  "group": "nominal",
+  "policy_steps": 1158,
+  "wall_s": 740.3092069625854,
+  "lighting": "nominal",
+  "perception": {
+   "frames": 592,
+   "detected": 579,
+   "in_frame": 592,
+   "possible": 576,
+   "detected_when_possible": 576,
+   "detected_not_possible": 3,
+   "miss_runs": 1,
+   "miss_run_max": 13,
+   "range_error_mean_m": 0.013760118745835988,
+   "range_error_std_m": 0.0018920077659967172,
+   "range_error_max_abs_m": 0.022274267109361423,
+   "bearing_error_mean_deg": -0.07327704467546052,
+   "bearing_error_std_deg": 0.0037535378185616633,
+   "bearing_error_max_abs_deg": 0.08451211516434727,
+   "detector_s_mean": 0.0022098382314038032,
+   "gated": 0
+  }
+ }
+}

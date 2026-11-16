@@ -1,0 +1,28 @@
+{
+  "description": "M4 provisional LSM6DSO noise assumptions and generic CubeMars V3.2 0.1 degree CAN position feedback. Exact AK40 variant, latency, calibration and wheel position convention remain unqualified.",
+  "gyro_noise_std_rad_s": 0.003,
+  "gyro_residual_bias_rad_s": [
+    0.0003,
+    -0.0003,
+    0.0003
+  ],
+  "accel_noise_std_m_s2": 0.06,
+  "accel_bias_m_s2": [
+    0.01,
+    -0.01,
+    0.01
+  ],
+  "wheel_encoder_counts_per_rev": 3600,
+  "joint_encoder_counts_per_rev": 3600,
+  "transport_delay_s": 0.005,
+  "velocity_filter_tau_s": 0.005,
+  "gyro_anti_alias_tau_s": 0.003,
+  "accel_anti_alias_tau_s": 0.005,
+  "posture_filter_tau_s": 0.02,
+  "joint_velocity_filter_tau_s": 0.002,
+  "local_joint_velocity_filter_tau_s": 0.002,
+  "attitude_correction_tau_s": 3.0,
+  "accel_norm_gate_m_s2": 1.5,
+  "seed": 20260930,
+  "local_joint_encoder_counts_per_rev": 65536
+}

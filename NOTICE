@@ -1,0 +1,33 @@
+BiPe
+Copyright 2026 Pranay Vandanapu
+
+Licensing by content type:
+
+- Code, firmware, configuration and scripts (bipe/, firmware/, tools/,
+  tests/, cad/, config/, pyproject.toml and the lock files):
+  Apache License 2.0, in LICENSE.
+- Circuit boards (electronics/ and artifacts/m11/boards/: KiCad projects,
+  schematics, layouts, symbols, footprints and fabrication outputs):
+  CERN Open Hardware Licence Version 2 - Permissive (CERN-OHL-P-2.0), in
+  LICENSE-HARDWARE.
+- CAD models, meshes, renders, simulation records and documentation
+  (artifacts/ except artifacts/m11/boards/, and docs/):
+  Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0),
+  in LICENSE-CAD.
+
+Not covered by these licences:
+
+- Workstation tooling (the FreeCAD and Blender MCP servers) is installed
+  from its upstream sources, as docs/freecad-mcp.md and docs/blender-mcp.md
+  describe, and is not redistributed. The blender-mcp server is GPL-3.0.
+- Vendor mechanical data listed in artifacts/m11/packaging/vendor/SOURCES.md
+  is not redistributed; fetch it from the listed sources.
+
+Attributions:
+
+- firmware/include/m11_moteus.h implements the moteus CAN-FD register
+  protocol as documented by mjbots Robotic Systems in the moteus project
+  (https://github.com/mjbots/moteus, Apache License 2.0).
+- Footprints in electronics/m11/*/BipeM11.pretty are copied from the KiCad
+  footprint library (https://gitlab.com/kicad/libraries/kicad-footprints,
+  CC BY-SA 4.0 with the KiCad libraries exception).

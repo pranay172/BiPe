@@ -1,0 +1,45 @@
+{
+ "evidence": "open loop on the measurement model (no plant): the ideal follower's path, the link model's reports and the C follower",
+ "scenarios": [
+  "straight_1.0",
+  "curve_r1",
+  "corner_90",
+  "lateral_crossing",
+  "start_stop"
+ ],
+ "seeds": 4,
+ "table": [
+  {
+   "density_m2_s3": 0.25,
+   "position_rms_m": 0.021465627614752836,
+   "range_rms_m": 0.01955603023097652,
+   "bearing_rms_deg": 0.5138908238327661
+  },
+  {
+   "density_m2_s3": 0.5,
+   "position_rms_m": 0.020969973835842946,
+   "range_rms_m": 0.019111773201074787,
+   "bearing_rms_deg": 0.5016118150697246
+  },
+  {
+   "density_m2_s3": 1.0,
+   "position_rms_m": 0.020909887060344565,
+   "range_rms_m": 0.019085486218678435,
+   "bearing_rms_deg": 0.4967480567713314
+  },
+  {
+   "density_m2_s3": 2.0,
+   "position_rms_m": 0.021300831452472368,
+   "range_rms_m": 0.019498359362706157,
+   "bearing_rms_deg": 0.4986566563238409
+  },
+  {
+   "density_m2_s3": 4.0,
+   "position_rms_m": 0.02220642724011771,
+   "range_rms_m": 0.02042562832500047,
+   "bearing_rms_deg": 0.5063862633878619
+  }
+ ],
+ "best_density_m2_s3": 1.0,
+ "configured_density_m2_s3": 1.0
+}

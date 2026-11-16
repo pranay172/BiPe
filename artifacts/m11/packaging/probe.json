@@ -1,0 +1,283 @@
+{
+ "hip_heights_m": [
+  0.06,
+  0.072,
+  0.103,
+  0.135
+ ],
+ "candidates": {
+  "pi_zero_rear": {
+   "note": "Pi Zero 2 W standing in the y-z plane against the rear wall; 6 mm board envelope (1 mm PCB, components both sides), camera FPC keep-out at the +y end, behind the rear screw column",
+   "replaces": [
+    "PiZero"
+   ],
+   "poses": {
+    "0.060": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.072": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.103": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.135": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    }
+   },
+   "clear": true
+  },
+  "power_board_rear_low": {
+   "note": "Power board (XT30 in, LM5060, DPAK MOSFET, output pads; the MINI fuse is inline in the pack lead), 60 x 20 mm standing in the y-z plane below the Pi; 9 mm component height",
+   "replaces": [
+    "PowerPCB",
+    "PowerParts"
+   ],
+   "poses": {
+    "0.060": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.072": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.103": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.135": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    }
+   },
+   "clear": true
+  },
+  "bec_host_mirror": {
+   "note": "Matek BEC12S-PRO (35 x 24 x 5.5 mm) standing in the x-z plane, mirrored from the host slot; 1 mm for the end solder pads, the 5 V lead crosses to the carrier",
+   "replaces": [
+    "BEC"
+   ],
+   "poses": {
+    "0.060": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.072": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.103": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.135": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    }
+   },
+   "clear": true
+  },
+  "power_switch_rear": {
+   "note": "Miniature SPDT slide switch (EN/UVLO divider, microamps) on the flat rear wall beside the power board, behind the rear screw column; actuator through a slot in the 2 mm wall",
+   "replaces": [
+    "PowerSwitch"
+   ],
+   "poses": {
+    "0.060": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.072": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.103": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.135": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    }
+   },
+   "clear": true
+  },
+  "teensy_usb_via_battery_bay": {
+   "note": "Down-angle micro-USB plug on the Teensy's +x port and its cable to the hatch, with the pack removed (layout-study envelope until the carrier layout fixes the port)",
+   "replaces": [
+    "Battery"
+   ],
+   "poses": {
+    "0.060": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.072": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.103": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.135": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    }
+   },
+   "clear": true
+  },
+  "carrier_host_slot": {
+   "note": "Teensy 4.0 carrier (40 x 30 mm board and its Teensy stack) in the old host envelope, 0.5 mm below the cover",
+   "replaces": [
+    "CarrierPCB",
+    "CarrierParts",
+    "Teensy"
+   ],
+   "poses": {
+    "0.060": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.072": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.103": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.135": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    }
+   },
+   "clear": true
+  },
+  "carrier_plug_keepout": {
+   "note": "Top-entry PH plugs (SYS, EYES, CAN) and wire bends off the carrier front (+y); the carrier -y side holds the knee pulley and belt and its edges the knee shaft and cover",
+   "replaces": [
+    "CarrierParts"
+   ],
+   "poses": {
+    "0.060": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.072": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.103": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.135": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    }
+   },
+   "clear": true
+  },
+  "power_plug_keepout": {
+   "note": "Top-entry PH plugs (MON, CAN END, SWITCH) and the soldered pack, bus and BEC leads off the power board front (+x); the tub floor is 2.5 mm below the board edge",
+   "replaces": [
+    "PowerParts"
+   ],
+   "poses": {
+    "0.060": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.072": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.103": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.135": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    }
+   },
+   "clear": true
+  },
+  "moteus_top_connector_keepout": {
+   "note": "XT30 and PH-3 plug plus wire-bend keep-out (13 mm) off the +x edge of the two upper motor-row moteus boards",
+   "replaces": [],
+   "poses": {
+    "0.060": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.072": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.103": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.135": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    }
+   },
+   "clear": true
+  },
+  "moteus_bottom_connector_keepout": {
+   "note": "The same keep-out (14.5 mm) off the two lower motor-row boards",
+   "replaces": [],
+   "poses": {
+    "0.060": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.072": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.103": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.135": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    }
+   },
+   "clear": true
+  },
+  "moteus_side_connector_keepout": {
+   "note": "XT30 and PH-3 keep-out (14 mm) above the two vertical moteus boards beside the battery",
+   "replaces": [],
+   "poses": {
+    "0.060": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.072": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.103": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    },
+    "0.135": {
+     "outside_interior_mm3": 0.0,
+     "overlaps_mm3": []
+    }
+   },
+   "clear": true
+  }
+ },
+ "mutual_overlaps_mm3": []
+}

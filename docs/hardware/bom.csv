@@ -1,0 +1,48 @@
+group,item,part,qty_robot,qty_spare,unit_usd,price_basis,source,lead_time,notes
+actuators,Hip and knee motors,CubeMars RO40 Lite KV140 frameless,4,1,74.47,checked 21 Oct 2026,https://www.robotshop.com/products/cubemars-ro40-kv140-lite-motor,1-3 weeks; stock not shown,Main supply risk (M11). OpenELAB lists EUR 55.60 shipping from China in 5-10 working days. Check CubeMars direct too.
+actuators,Hub motors,CubeMars GL40 KV70 without encoder,2,1,82.48,checked 21 Oct 2026,https://www.robotshop.com/products/cubemars-gl40-kv70-motor-w-o-encoder,1-3 weeks; stock not shown,The design reads the hub with its own AS5047P so the no-encoder version is enough. CubeMars store shows the KV210 sold out; KV70 not listed.
+drivers,Motor drivers,mjbots moteus-c1,6,1,69.00,checked 21 Oct 2026,https://mjbots.com/products/moteus-c1,ships in 1 business day (US),1098 in stock. Each comes with a mating XT30 and a PH3 housing with crimps and a 1/4 in magnet.
+drivers,Bench CAN-FD adapter,mjbots mjcanfd-usb-1x,1,0,39.00,checked 21 Oct 2026,https://mjbots.com/products/mjcanfd-usb-1x,ships in 1 business day (US),Calibrates each moteus and runs the rig from a laptop.
+compute,Host,PJRC Teensy 4.0,1,1,23.80,M11 18 Oct 2026,https://www.sparkfun.com/teensy-4-0.html,days,Spare covers a damaged CAN3 wire-link job.
+compute,Vision host,Raspberry Pi Zero 2 W,1,0,15.00,M12 phase C list price,https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/,stock varies; widely reported sold out,Signed off: bench-time a real board before M12 phase E. Buy in stage 0.
+compute,Head camera,Raspberry Pi Camera Module 3 Wide,1,0,35.00,list price; Pi Hut GBP 33.60 21 Oct 2026,https://thepihut.com/collections/all/products/raspberry-pi-camera-module-3,days; some resellers out of stock,Signed off: Wide lens. Needs the Zero-size 22-pin camera cable (not the one in the box).
+compute,Pi storage,microSD card 32 GB (A1),1,1,8.00,estimate,,days,For the Zero 2 W image; the spare holds a known-good copy.
+compute,Zero camera cable,Raspberry Pi Zero camera cable 22-15 pin,1,1,4.00,estimate,https://www.raspberrypi.com/products/camera-cable/,days,Length chosen after the phase E head redesign.
+boards,Teensy carrier PCB assembled,electronics/m11/carrier (JLC PCBA),1,4,12.00,estimate (5-off order with parts),https://jlcpcb.com,1-2 weeks incl. shipping,Two-layer 40 x 30 mm. Five is the JLC minimum. CAN3 wire links and VUSB-VIN cut are hand work (bom-hand-fit.csv).
+boards,Power PCB assembled,electronics/m11/power (JLC PCBA),1,4,12.00,estimate (5-off order with parts),https://jlcpcb.com,1-2 weeks incl. shipping,Two-layer 60 x 20 mm. LM5060 start-up temperature is a bench check.
+boards,Carrier revision for the Pi link,electronics/m11/carrier rev B (to design in M12 phase E),1,4,12.00,estimate (5-off order with parts),https://jlcpcb.com,1-2 weeks after design,The M11 carrier has no Pi connection. Phase E chooses the link (a UART on free Teensy pins was the phase A proposal).
+boards,Encoder boards,AS5047P 14 mm round board (to design),6,4,6.00,estimate (chip 3.5-11.7 USD + PCBA),https://lcsc.com/product-detail/image/AS5047P-ATSM_C962063.html,1-2 weeks after design,Not designed yet: the M11 KiCad work covers only the carrier and power boards. MA732 is the fallback chip.
+boards,Encoder magnets,6 x 1 mm diametric NdFeB,6,4,1.00,estimate,https://www.kjmagnetics.com,days,The moteus-supplied 1/4 in magnets are for its onboard encoder and do not fit the 6 x 1 seat.
+power,Battery,Tattu R-Line v5 850 mAh 6S or GNB 850 mAh 6S 80C,1,1,32.00,M11 18 Oct 2026 (31-33 USD),https://www.racedayquads.com/products/gaoneng-gnb-22-2v-6s-850mah-80c-lipo-micro-battery-square-type-xt30,days,Check the 65 x 32 x 47 mm envelope on the one bought.
+power,5 V regulator,Matek BEC12S-PRO,1,0,22.99,checked 21 Oct 2026,https://www.racedayquads.com/products/matek-bec12s-pro-9-55v-to-5-8-12v-5a,days,Stock not shown.
+power,Fuse and holder,Littelfuse MINI 297 10 A + inline holder,1,4,3.00,estimate,https://www.digikey.com,days,
+power,Power switch,SS12D00G-class SPDT slide switch,1,4,0.50,estimate,https://lcsc.com,days,Exact part chosen at order (M11 open item).
+power,Eye LEDs,Adafruit NeoPixel Jewel 7,2,0,5.95,M11 18 Oct 2026,https://www.adafruit.com/product/2226,days,Head is redesigned in M12 phase E; buy now anyway (cheap).
+power,LiPo charger,6S balance charger (ISDT/ToolkitRC class),0,1,55.00,estimate,,days,Tool. Skip if owned.
+power,Bench supply,30 V 5 A current-limited DC supply,0,1,80.00,estimate,,days,Tool. Powers the rig and board bring-up instead of the pack.
+mechanical,Hip bearings,6704 20x27x4,4,2,4.00,estimate,https://vxb.com/products/blue-sealed-6704rs-ball-bearings-set-for-hobby-ele,days,HipInnerBearing and HipPodBearing per side.
+mechanical,Inner shaft bearings,688A 8x16x4,4,2,2.00,estimate,https://www.vxb.com,days,
+mechanical,Knee bearings,6800 10x19x5,4,2,2.00,estimate,https://www.vxb.com,days,Eccentric seats in the thigh.
+mechanical,Motor module bearings,TBD with the RO40 module detail design,8,2,3.00,estimate,,days,The CAD carries the RO40 module as an envelope; its housing bearings are not chosen yet.
+mechanical,Hip belts,Gates 2MR-192-06 (96T 6 mm),4,2,9.00,estimate (192-2MGT-09 is 8.40 USD at MROSupply),https://www.mrosupply.com/products/2231656/as-markdown/,1 day to 2 weeks,Stock length per the M10 D4 check. MROSupply has an 18-unit brand minimum.
+mechanical,Knee belts,Gates 220-2MGT-09 (110T 9 mm),2,1,9.00,estimate,https://www.mrosupply.com/products/2231604/as-markdown/,1 day to 2 weeks,The 6 mm version is listed; confirm the 9 mm.
+mechanical,Motor pulleys,2GT 20T aluminium (re-bore),4,2,4.00,estimate,,days,
+mechanical,Hip output pulleys,2GT 80T aluminium (re-bore and machine stop groove),4,1,15.00,estimate,,1-2 weeks,The end-stop grooves are cut into the inboard faces (M10 D4 option A).
+mechanical,Knee pulleys,2GT 40T 10 mm wide aluminium (re-bore),4,2,6.00,estimate,,days,
+mechanical,Sleeves,iglidur G 10x12 sleeve bearing,2,2,2.00,estimate,https://www.igus.com,days,
+mechanical,Dowels,ISO 8734 5x8 / 5x10 / 5x16 m6,5,5,1.00,estimate,,days,Knee stop 2 x 5x8; hip stop 2 x 5x10; knee drive 1 x 5x16.
+mechanical,Inserts and screws,SPIROL M2.5 heat-set inserts; M2/M2.5 screws; studs,1,0,40.00,estimate (kit),,days,The 60 g fastener allowance. Thigh-lid screws are not detailed yet.
+machined,Shafts,7075: inner shaft x2; outer shaft with hip flange x2; knee shaft x2; axle tube x2,8,2,35.00,estimate (CNC service),https://jlccnc.com,1-3 weeks,Harness ports and 5 mm bores. Order spares of the outer shaft.
+machined,Shins,7075 shin,2,0,45.00,estimate (CNC service),https://jlccnc.com,1-3 weeks,
+machined,Hip brackets,7075 hip bracket,2,0,40.00,estimate (CNC service),https://jlccnc.com,1-3 weeks,Carries the hip stop dowel.
+machined,Bulkhead,6061 pocketed plate with tension slots,1,0,70.00,estimate (CNC service),https://jlccnc.com,1-3 weeks,
+machined,Motor standoffs,aluminium 5 mm standoffs,6,2,3.00,estimate,,1-2 weeks,
+machined,Motor module housings,RO40 module housing and shaft (to design),4,1,30.00,estimate (CNC service),https://jlccnc.com,1-3 weeks after design,Not designed yet (see the plan).
+printed,PA12 parts,"Body cover, tub, hatch, hip housings, thighs, lids, hubs, knee bosses, head",1,0,140.00,"estimate: 303 g at 0.275 USD/g (JLC3DP MJF PA12, Aug 2025 price) x 1.5 for part fees and supports",https://jlc3dp.com/blog/drastic-material-price-cuts-and-adjusted-post-processing-service-fees,3-5 days + shipping,Design basis is SLS PA2200; MJF PA12 is a process choice for the user. Head waits for M12 phase E.
+printed,TPU parts,"Tires, end-stop pads, ears, skid and ring skins (TPU 88A)",1,0,90.00,estimate,https://jlc3dp.com,3-5 days + shipping,145 g in the CAD.
+printed,Fit-check set,"Bearing-seat coupons, insert bosses, one thigh and lid, one hub",1,0,40.00,estimate,https://jlc3dp.com,3-5 days + shipping,Printed first (roadmap phase 4 step 3).
+printed,Foam,LD45 closed-cell foam sheet 10 mm,1,0,15.00,estimate,,days,Skid pad and wheel rings.
+harness,Phase wire,Alpha Wire 2843/7 26 AWG thin-wall PTFE,1,0,70.00,estimate (100 ft spool),https://www.alphawire.com,days to weeks,User decision 18 Oct 2026. 19/38 stranding preferred if stocked.
+harness,Encoder wire,Alpha Wire 2841/7 30 AWG thin-wall PTFE,1,0,60.00,estimate (100 ft spool),https://www.alphawire.com,days to weeks,
+harness,Power wire and connectors,"20/22 AWG silicone, XT30 pairs, JST PH kit, heat shrink, CAN twisted pair",1,0,45.00,estimate,,days,
+rig,Single-leg rig hardware,see the rig BOM in build-plan.md,0,0,0,see the rig section,,,Rig parts are listed separately.

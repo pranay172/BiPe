@@ -1,0 +1,4976 @@
+{
+  "name": "bipe_component_candidate_v4_packaging_m4_closure",
+  "units": "SI",
+  "assumptions": "M3 digital mechanical candidate: six AK40-10 V3 modules; drawing-based interfaces and declared uniform internal mass. Motor response, backlash/friction, electrical operating range and production tolerances await hardware confirmation. Not procurement-ready. M4 redistributes existing allocations and reshapes the custom pack envelope; pack protection and thermal behavior remain conditional.",
+  "geometry": {
+    "body_length": 0.114,
+    "body_width": 0.094,
+    "body_height": 0.096,
+    "body_center_above_hip": 0.035,
+    "link_length": 0.09,
+    "link_radius": 0.006,
+    "hip_half_spacing": 0.095,
+    "wheel_track": 0.242,
+    "wheel_radius": 0.04,
+    "wheel_width": 0.024,
+    "joint_motor_radius": 0.0265,
+    "joint_motor_width": 0.0402,
+    "wheel_motor_radius": 0.0265,
+    "wheel_motor_width": 0.0402,
+    "fixed_leg_angle_deg": 40.0,
+    "leg_angle_range_deg": [
+      25.0,
+      65.0
+    ]
+  },
+  "mass_budget": [
+    {
+      "name": "cad_body",
+      "location": "body",
+      "count": 1,
+      "mass_each": 0.7892100582711559
+    },
+    {
+      "name": "cad_hip",
+      "location": "hip",
+      "count": 1,
+      "mass_each": 0.38
+    },
+    {
+      "name": "cad_upper_link",
+      "location": "upper_link",
+      "count": 1,
+      "mass_each": 0.11014943454411857
+    },
+    {
+      "name": "cad_knee",
+      "location": "knee",
+      "count": 1,
+      "mass_each": 0.38
+    },
+    {
+      "name": "cad_lower_link",
+      "location": "lower_link",
+      "count": 1,
+      "mass_each": 0.19996789508311225
+    },
+    {
+      "name": "cad_axle",
+      "location": "axle",
+      "count": 1,
+      "mass_each": 0.38
+    },
+    {
+      "name": "cad_wheel",
+      "location": "wheel",
+      "count": 1,
+      "mass_each": 0.26019208354772594
+    }
+  ],
+  "sizing": {
+    "mass_ceiling": 2.5,
+    "gravity": 9.81,
+    "drive_speed": 0.3,
+    "drive_acceleration": 0.5,
+    "leg_dynamic_allowance": 2.0
+  },
+  "motor": {
+    "peak_torque_per_wheel": 1.5,
+    "continuous_torque_per_wheel": 1.3,
+    "no_load_speed": 45.5530934771,
+    "torque_time_constant": 0.02,
+    "rotor_inertia_at_output": 0.0009735,
+    "viscous_friction": 0.0005,
+    "coulomb_friction": 0.06,
+    "peak_basis": "M8 conditional 1.5 Nm cap: AK40-10 rated 1.3 / peak 4.1 Nm, peak current 7.3 A. Derated after 2 Nm trials exceeded M4 conditional 6.5 A bus domain; current/regen/thermal traces are reported by the yardstick, not hardware qualified."
+  },
+  "contact": {
+    "sliding_friction": 0.8,
+    "torsional_friction": 0.005,
+    "rolling_friction": 0.0001
+  },
+  "simulation": {
+    "physics_dt": 0.001,
+    "control_dt": 0.005,
+    "joint_servo_dt": 0.001,
+    "log_dt": 0.01
+  },
+  "articulation": {
+    "knee_fold_direction": -1,
+    "hip_limits_deg": [
+      20.0,
+      70.0
+    ],
+    "knee_limits_deg": [
+      -135.0,
+      -40.0
+    ],
+    "peak_torque_per_joint": 2.5,
+    "continuous_torque_reference": 1.3,
+    "no_load_speed": 45.5530934771,
+    "torque_time_constant": 0.02,
+    "rotor_inertia_at_output": 0.0009735,
+    "viscous_friction": 0.02,
+    "coulomb_friction": 0.06
+  },
+  "mechanics": {
+    "status": "Digital mechanical candidate; hardware and production interfaces require confirmation",
+    "actuator_model": "CubeMars AK40-10 V3.0 KV170",
+    "actuator_mass_kg": 0.19,
+    "plate_thickness": 0.003,
+    "proximal_plate_radius": 0.0185,
+    "distal_plate_radius": 0.029,
+    "rotating_clearance_radius": 0.0205,
+    "motor_output_protrusion": 0.001,
+    "output_bolt_circle_radius": 0.0135,
+    "housing_bolt_circle_radius": 0.02375,
+    "mount_hole_radius": 0.00135,
+    "upper_plate_y": 0.004,
+    "lower_plate_y": 0.009,
+    "knee_output_y": 0.005,
+    "wheel_output_y": 0.01,
+    "output_spacer_length": 0.004,
+    "wheel_inner_y": 0.014,
+    "tire_inner_radius": 0.03,
+    "wheel_rim_inner_radius": 0.027,
+    "bearing": {
+      "model": "SKF 608-2Z",
+      "bore": 0.008,
+      "outside_diameter": 0.022,
+      "width": 0.007,
+      "mass_kg": 0.012,
+      "dynamic_load_N": 3450,
+      "static_load_N": 1370,
+      "source": "https://cdn.skfmediahub.skf.com/api/public/0901d196802809de/pdf_preview_medium/0901d196802809de_pdf_preview_medium.pdf"
+    },
+    "bearing_y": 0.04,
+    "fork_outer_radius": 0.015,
+    "fork_top_above_axle": 0.066,
+    "fork_top_thickness": 0.003,
+    "fork_width": 0.018,
+    "shell_wall": 0.0025,
+    "shell_fillet": 0.008,
+    "shell_front_seam_x": 0.032,
+    "shell_density_kg_m3": 1270,
+    "aluminium_density_kg_m3": 2700,
+    "tire_density_kg_m3": 1200,
+    "battery": {
+      "candidate": "6S1P Molicel INR18650-P28A assembled pack",
+      "cell_count": 6,
+      "cell_diameter": 0.0186,
+      "cell_length": 0.0652,
+      "cell_mass_kg": 0.046,
+      "capacity_Ah": 2.8,
+      "nominal_voltage_V": 21.6,
+      "full_voltage_V": 25.2,
+      "reserved_pack_mass_kg": 0.326,
+      "envelope": [
+        0.07,
+        0.064,
+        0.05
+      ],
+      "center": [
+        0.0065,
+        0,
+        0.03
+      ],
+      "source": "https://www.molicel.com/wp-content/uploads/INR18650P28A_1.3_Product-Data-Sheet-of-INR-18650-P28A-80093.pdf",
+      "status": "Custom outsourced 6S pack space provision: six real cells; BMS/fuse are unselected reserved volumes, not a qualified pack."
+    },
+    "electronics_envelope": [
+      0.07,
+      0.064,
+      0.01
+    ],
+    "electronics_center": [
+      0,
+      0,
+      0.063
+    ],
+    "electronics_mass_kg": 0.0795,
+    "camera_reserve_envelope": [
+      0.015,
+      0.038,
+      0.016
+    ],
+    "camera_reserve_center": [
+      0.0445,
+      0,
+      0.067
+    ],
+    "camera_reserve_mass_kg": 0.08,
+    "wiring_and_fastener_reserve_kg": 0.111,
+    "clearance_target": 0.002,
+    "manufacturing": "Outsourced CNC/laser/waterjet aluminium with finished bores; printed enclosure and custom TPU tires. Mating tolerances and purchased fasteners documented separately.",
+    "control_assumption": "200 Hz host reference/feedforward updates; 1 kHz local PD and encoder loop assumed inside actuator. Manufacturer loop timing and AK40-specific scaling need confirmation. Conservative 20 ms torque response and 0.06 Nm backdrive friction used.",
+    "electrical_assumptions": "24 V rated actuator; operation at 21.6 V nominal and 25.2 V full pack is unconfirmed. Power estimate does not sum phase currents as DC current.",
+    "fork_mount_thickness": 0.003,
+    "fork_mount_height": 0.016,
+    "fork_mount_half_pitch": 0.004,
+    "fork_mount_hole_radius": 0.0016,
+    "shell_mount_y": 0.035,
+    "shell_mount_z": [
+      -0.004,
+      0.076
+    ],
+    "shell_lug_height": 0.008,
+    "shell_insert_depth": 0.005,
+    "shell_screw_radius": 0.0016,
+    "shell_insert_radius": 0.0023,
+    "shell_tray_mount_x": 0.025,
+    "hip_brace_span": 0.06,
+    "hip_brace_width": 0.012,
+    "housing_countersink_radius": 0.00255,
+    "output_adapter_bore_radius": 0.0076,
+    "plate_window_width": 0.022,
+    "plate_window_height": 0.03,
+    "eye_radius": 0.008,
+    "eye_length": 0.002,
+    "eye_half_spacing": 0.022,
+    "eye_center_z": 0.055,
+    "eye_inset": 0.001,
+    "battery_tray_envelope": [
+      0.084,
+      0.084,
+      0.002
+    ],
+    "battery_tray_center": [
+      0,
+      0,
+      0.003
+    ],
+    "wiring_envelope": [
+      0.07,
+      0.008,
+      0.004
+    ],
+    "wiring_center": [
+      0,
+      0,
+      0.053
+    ],
+    "hip_brace_post_width": 0.006,
+    "hip_brace_attachment_height": 0.008,
+    "shell_tray_tab_envelope": [
+      0.008,
+      0.009,
+      0.002
+    ],
+    "shell_tray_tab_center_y": 0.04,
+    "shell_tray_tab_center_z": 0.001,
+    "shell_tray_bolt_y": 0.039,
+    "tray_lightening": {
+      "window_envelope_m": [
+        0.032,
+        0.026,
+        0.002
+      ],
+      "window_centers_m": [
+        [
+          -0.023,
+          -0.02,
+          0.003
+        ],
+        [
+          -0.023,
+          0.02,
+          0.003
+        ],
+        [
+          0.023,
+          -0.02,
+          0.003
+        ],
+        [
+          0.023,
+          0.02,
+          0.003
+        ]
+      ],
+      "central_rail_width_m": 0.014,
+      "outer_x_rim_m": 0.003,
+      "status": "laser/CNC through windows; mounting lands and hip brace faces retained; beam screen conditional"
+    },
+    "hardware_mass_model": {
+      "steel_density_kg_m3": 8000,
+      "brass_density_kg_m3": 8500,
+      "insert": [
+        0.0046,
+        0.003,
+        0.005
+      ],
+      "lengths_m": {
+        "output": 0.01,
+        "hip_housing": 0.008,
+        "countersunk": 0.006,
+        "fork": 0.012,
+        "front_shell": 0.03,
+        "bank": 0.01,
+        "pcb_mount": 0.006,
+        "tray": 0.008
+      },
+      "dimensions_m": {
+        "M2": {
+          "diameter": 0.002,
+          "cap_head": [
+            0.0038,
+            0.002
+          ],
+          "washer": [
+            0.005,
+            0.0022,
+            0.0004
+          ]
+        },
+        "M2p5": {
+          "diameter": 0.0025,
+          "cap_head": [
+            0.0045,
+            0.0025
+          ],
+          "washer": [
+            0.005,
+            0.0027,
+            0.0005
+          ],
+          "nut": [
+            0.005,
+            0.0025,
+            0.002
+          ],
+          "countersunk": [
+            0.00235,
+            0.00125,
+            0.0012
+          ]
+        },
+        "M3": {
+          "diameter": 0.003,
+          "cap_head": [
+            0.0055,
+            0.003
+          ],
+          "washer": [
+            0.007,
+            0.0032,
+            0.0005
+          ],
+          "nut": [
+            0.0055,
+            0.003,
+            0.0024
+          ]
+        }
+      },
+      "basis": "Full solid head/shank/washer/nut envelope estimates from the documented M3 quantities. Threads and recesses not subtracted. Exact purchased fastener mass and tolerances remain unqualified."
+    },
+    "electronics_layout": {
+      "status": "M4 conditional packaging candidate; envelope fit is separate from thermal/electrical/hardware release",
+      "carrier_origin_m": [
+        -0.033,
+        -0.03,
+        0.060000000000000005
+      ],
+      "power_origin_m": [
+        -0.0525,
+        -0.033,
+        0.01
+      ],
+      "carrier_mass_proxy_envelope_m": [
+        0.066,
+        0.06,
+        0.0103
+      ],
+      "power_mass_proxy_envelope_m": [
+        0.008,
+        0.066,
+        0.06
+      ],
+      "link_harness_proxy_envelope_m": [
+        0.004,
+        0.004,
+        0.09
+      ],
+      "link_harness_proxy_y_m": 0.013,
+      "power_axes": "native X -> robot Y, native Y -> robot Z, components face +X",
+      "cap_center_m": [
+        -0.03875,
+        0.006,
+        0.0495
+      ],
+      "cap_axis": "Y",
+      "cap_length_max_m": 0.027,
+      "cap_diameter_m": 0.0165,
+      "envelope_tolerance_basis": "Panasonic D+0.5mm, L+2mm; Vishay LTO50 body dimensions +0.3mm",
+      "spreader_envelope_m": [
+        0.07,
+        0.022,
+        0.002
+      ],
+      "spreader_center_m": [
+        0,
+        0,
+        0.073
+      ],
+      "resistor_origin_m": [
+        -0.032,
+        -0.0081,
+        0.074
+      ],
+      "resistor_pitch_m": 0.013,
+      "resistor_envelope_m": [
+        0.0107,
+        0.0165,
+        0.0035
+      ],
+      "carrier_support_envelope_m": [
+        0.066,
+        0.003,
+        0.003
+      ],
+      "carrier_support_centers_m": [
+        [
+          0,
+          -0.025,
+          0.0585
+        ],
+        [
+          0,
+          0.025,
+          0.0585
+        ]
+      ],
+      "power_support_envelope_m": [
+        0.002,
+        0.066,
+        0.003
+      ],
+      "power_support_centers_m": [
+        [
+          -0.0495,
+          0,
+          0.0075
+        ],
+        [
+          -0.0495,
+          0,
+          0.0725
+        ]
+      ],
+      "bus_loom_envelope_m": [
+        0.003,
+        0.004,
+        0.058
+      ],
+      "bus_loom_center_m": [
+        -0.0365,
+        -0.026,
+        0.036
+      ],
+      "logic_loom_envelope_m": [
+        0.01,
+        0.004,
+        0.035
+      ],
+      "logic_loom_center_m": [
+        -0.044,
+        -0.0365,
+        0.0515
+      ],
+      "bank_loom_envelope_m": [
+        0.06,
+        0.003,
+        0.003
+      ],
+      "bank_loom_center_m": [
+        0,
+        -0.015,
+        0.074
+      ],
+      "cells": {
+        "axis": "X",
+        "y_centers_m": [
+          -0.0192,
+          0,
+          0.0192
+        ],
+        "z_centers_m": [
+          0.0158,
+          0.035
+        ]
+      },
+      "bms_reserved_envelope_m": [
+        0.064,
+        0.036,
+        0.008
+      ],
+      "bms_reserved_center_m": [
+        0.006,
+        0,
+        0.0503
+      ],
+      "fuse_reserved_envelope_m": [
+        0.014,
+        0.01,
+        0.005
+      ],
+      "fuse_reserved_center_m": [
+        -0.02,
+        0.025,
+        0.0488
+      ],
+      "notes": [
+        "Capacitor body is parallel to the rear PCB; insulated formed leads/short wires connect its existing pads. Mounting and lead strain/transients need qualification.",
+        "Mount bars and loom volumes reserve space; final attached brackets, removal sequence and connector bend radii require release detail.",
+        "Resistor bank contacts the aluminum spreader. The internal spreader has no proven path to ambient; do not assume a 60 C case.",
+        "The former electronics/harness provisions are reconciled to 79.5 g electronics and 111 g hardware/harness using explicit screw counts, with no duplicate component masses."
+      ],
+      "power_envelope_source": {
+        "path": "artifacts/milestone-4/closure/electrical/electronics-envelopes.json",
+        "sha256": "94545ea1404adb5924d2bfbea756301a1996a14ea05b027a870b467d9ca76a7f"
+      },
+      "carrier_envelope_source": {
+        "path": "artifacts/milestone-4/closure/electrical/electronics-envelopes.json",
+        "sha256": "94545ea1404adb5924d2bfbea756301a1996a14ea05b027a870b467d9ca76a7f"
+      }
+    },
+    "thermal_roof_candidate": {
+      "status": "Selected layout for conditional digital closure; thermal coupling and fabricated board/device limits remain unqualified",
+      "panel_envelope_m": [
+        0.078,
+        0.074,
+        0.0015
+      ],
+      "panel_center_m": [
+        -0.009,
+        0,
+        0.08225
+      ],
+      "roof_cut_envelope_m": [
+        0.074,
+        0.066,
+        0.01
+      ],
+      "roof_cut_center_m": [
+        -0.009,
+        0,
+        0.083
+      ],
+      "mount_hole_diameter_m": 0.0022,
+      "mount_centers_m": [
+        [
+          -0.046,
+          -0.035,
+          0.08225
+        ],
+        [
+          -0.046,
+          0.035,
+          0.08225
+        ],
+        [
+          0.028,
+          -0.035,
+          0.08225
+        ],
+        [
+          0.028,
+          0.035,
+          0.08225
+        ]
+      ],
+      "insulated_seal_and_mount_mass_kg_assumption": 0.003,
+      "resistor_origin_m": [
+        -0.0371,
+        -0.0081,
+        0.078
+      ],
+      "resistor_pitch_m": 0.013,
+      "resistor_envelope_m": [
+        0.0107,
+        0.0165,
+        0.0035
+      ],
+      "note": "Plate replaces cut polymer roof and original internal spreader. Maximum body envelopes are below the panel, with ceramic mounting face proposed toward the panel. Four additional mount sets, seal and grease have an explicit estimate. Flange overlap is intentional. Screw holes/loads need production review.",
+      "thermal": {
+        "ambient_max_C_assumption": 40,
+        "convection_min_W_m2_K_assumption": 3,
+        "external_emissivity_min_assumption": 0.8,
+        "aluminium_cp_J_kg_K_assumption": 900,
+        "aluminium_conductivity_W_m_K_assumption": 170,
+        "resistor_contact_area_each_m2_assumption": 0.00013208,
+        "resistor_contact_max_K_W_requirement": 0.1,
+        "bank_to_panel_max_K_W_assumption": 2,
+        "other_heat_max_W_requirement": 0.2,
+        "event_energy_J_assumption": 15.0,
+        "event_duration_s_assumption": 0.12,
+        "event_min_interval_s_proposal": 600,
+        "case_limit_C": 60,
+        "qualification": "None of emissivity/convection/contact/heat-load limits is a measured hardware bound. Case-to-element bound uses manufacturer DC thermal resistance conservatively; repeated-pulse qualification remains open."
+      }
+    },
+    "logic_buck_candidate": {
+      "mpn": "Pololu D36V28F5 #3782",
+      "envelope_m": [
+        0.0178,
+        0.0203,
+        0.0088
+      ],
+      "mass_kg_typical": 0.0033,
+      "mass_delta_kg": 0.0008,
+      "source": "https://www.pololu.com/product/3782/specs",
+      "qualified_maximum_envelope_or_mass": false,
+      "adopted": false
+    },
+    "m4_integrated_electronics": {
+      "power_board_envelope_m": [
+        0.066,
+        0.06,
+        0.001
+      ],
+      "copper_face_m": 7e-05,
+      "fr4_density_kg_m3_assumption": 1850,
+      "copper_density_kg_m3_assumption": 8960,
+      "coating_solder_via_allowance_kg": 0.0005,
+      "added_parts_mass_kg_assumption": 0.0022,
+      "buck_mass_delta_kg_typical": 0.0008,
+      "sensor_mount_wire_allowance_kg": 0.0004,
+      "independent_startup_monitor": "ATtiny402-SSNR; portable algorithm tested, target commissioning remains required",
+      "adc_top_ohm": 180000,
+      "adc_bottom_ohm": 10000,
+      "adc_resistor_tolerance": 0.01,
+      "auxiliary_storage_J_requirement": 1.5,
+      "future_positive_work_J_requirement": 3.5,
+      "stop_reserve_J": 10.5,
+      "available_mechanical_energy_upper_J_requirement": 5.0,
+      "positive_power_upper_W_requirement": 130.0,
+      "startup_energy_J": 4.0,
+      "startup_timeout_s": 0.5,
+      "total_bus_capacitance_max_F_requirement": 0.004,
+      "cycle_dump_J": 15.0,
+      "normal_stop_trigger_J": 2.0,
+      "cooldown_s": 600.0,
+      "full_duty_ambient_max_C": 40.0,
+      "note": "No separate protection PCB. Additional parts and sensors consume whole-robot margin explicitly; preserved board/pack/harness allocations are retained.",
+      "capacitor_wire_delta_mass_kg_assumption": 0.0005812926285206704,
+      "low_profile_signal_termination_height_m": 0.002,
+      "low_profile_signal_termination_refs": [
+        "J4",
+        "J5",
+        "J6",
+        "J9",
+        "J10"
+      ],
+      "signal_wire_outer_diameter_m": 0.0011,
+      "startup_bus_load_max_A_requirement": 0.075,
+      "power_board_copper_layers": 4,
+      "inner_copper_m": 3.5e-05,
+      "routing_basis": "Four-layer candidate for controller signal escape; preserve outer heavy paths and original 11.5g bare-board allocation. No solid power-board planes or fabrication release.",
+      "status": "Prepared conditional digital configuration; adoption is recorded separately after acceptance, hardware qualification remains false"
+    }
+  },
+  "rigid_bodies": {
+    "chassis": {
+      "mass_kg": 1.1692100582711558,
+      "com_m": [
+        0.0035692845552257576,
+        0.0001779795498189985,
+        0.02513657597966297
+      ],
+      "inertia_kg_m2": [
+        [
+          0.0037522325653480907,
+          6.490779208329564e-06,
+          -0.00012186974826297012
+        ],
+        [
+          6.490779208329564e-06,
+          0.0017282576025604843,
+          -4.707247082674067e-06
+        ],
+        [
+          -0.00012186974826297012,
+          -4.707247082674067e-06,
+          0.0035554158982397423
+        ]
+      ]
+    },
+    "left_upper": {
+      "mass_kg": 0.2450747172720593,
+      "com_m": [
+        1.2114428174398065e-18,
+        -0.01038800249503165,
+        -0.07847737263005311
+      ],
+      "inertia_kg_m2": [
+        [
+          0.00026377432925384406,
+          6.031703616564206e-22,
+          9.330748634904274e-21
+        ],
+        [
+          6.031703616564206e-22,
+          0.0002593938632689255,
+          -4.64543579462071e-05
+        ],
+        [
+          9.330748634904274e-21,
+          -4.64543579462071e-05,
+          8.892656874844398e-05
+        ]
+      ]
+    },
+    "left_lower": {
+      "mass_kg": 0.2899839475415561,
+      "com_m": [
+        1.7062098703579212e-18,
+        0.001291566873726566,
+        -0.07590017609617197
+      ],
+      "inertia_kg_m2": [
+        [
+          0.0003867927614876458,
+          -4.772018402737544e-21,
+          7.522040463058983e-21
+        ],
+        [
+          -4.772018402737544e-21,
+          0.00030584738546332216,
+          -6.66910541240352e-05
+        ],
+        [
+          7.522040463058983e-21,
+          -6.66910541240352e-05,
+          0.00016872811389441393
+        ]
+      ]
+    },
+    "left_wheel": {
+      "mass_kg": 0.13009604177386297,
+      "com_m": [
+        -1.593320627224211e-18,
+        -0.0023169924462742757,
+        -1.0530924201766242e-17
+      ],
+      "inertia_kg_m2": [
+        [
+          6.6470081571631e-05,
+          1.8461701341096486e-21,
+          2.885676387181707e-21
+        ],
+        [
+          1.8461701341096486e-21,
+          0.00011618741331196463,
+          2.1730943533782105e-21
+        ],
+        [
+          2.885676387181707e-21,
+          2.1730943533782105e-21,
+          6.647008157163224e-05
+        ]
+      ]
+    },
+    "right_upper": {
+      "mass_kg": 0.2450747172720593,
+      "com_m": [
+        1.2130084341691916e-18,
+        0.01038800249503165,
+        -0.07847737263005311
+      ],
+      "inertia_kg_m2": [
+        [
+          0.00026377432925384406,
+          -6.034819194778706e-22,
+          9.298181774605824e-21
+        ],
+        [
+          -6.034819194778706e-22,
+          0.00025939386326892543,
+          4.64543579462071e-05
+        ],
+        [
+          9.298181774605824e-21,
+          4.64543579462071e-05,
+          8.892656874844398e-05
+        ]
+      ]
+    },
+    "right_lower": {
+      "mass_kg": 0.2899839475415561,
+      "com_m": [
+        1.7027696730316044e-18,
+        -0.001291566873726566,
+        -0.07590017609617197
+      ],
+      "inertia_kg_m2": [
+        [
+          0.0003867927614876458,
+          4.775762508129994e-21,
+          7.595302994914533e-21
+        ],
+        [
+          4.775762508129994e-21,
+          0.00030584738546332216,
+          6.66910541240352e-05
+        ],
+        [
+          7.595302994914533e-21,
+          6.66910541240352e-05,
+          0.00016872811389441393
+        ]
+      ]
+    },
+    "right_wheel": {
+      "mass_kg": 0.13009604177386297,
+      "com_m": [
+        -1.5838828470223531e-18,
+        0.0023169924462742757,
+        -1.0530924201766242e-17
+      ],
+      "inertia_kg_m2": [
+        [
+          6.6470081571631e-05,
+          -1.853147832210985e-21,
+          2.8684869373181988e-21
+        ],
+        [
+          -1.853147832210985e-21,
+          0.00011618741331196463,
+          -2.1730943533782105e-21
+        ],
+        [
+          2.8684869373181988e-21,
+          -2.1730943533782105e-21,
+          6.647008157163224e-05
+        ]
+      ]
+    }
+  },
+  "mass_properties_source": {
+    "path": "artifacts/milestone-4/closure/cad/component-mass-properties.json",
+    "sha256": "7652cbf466a6922fa038a2713e785ebe052be5dc1801fc65608e452f58641f65",
+    "basis": "Native roof/shell and explicit board/parts estimates; unknown internals and retained allocations remain assumptions"
+  },
+  "candidate_only": false,
+  "m9_cad": {
+    "status": "CAD mass and sampled-clearance checkpoint adopted; active M4 physics unchanged",
+    "units": "SI: metres, kilograms, kg m^2; explicitly suffixed catalog degree values retained as metadata",
+    "allocated_mass_kg": 1.7940856482928784,
+    "allocated_mass_ceiling_kg": 2.15,
+    "unallocated_reserve_kg": 0.15,
+    "overall_mass_ceiling_kg": 2.3,
+    "parameters": {
+      "units": "SI",
+      "status": "M9 CAD mass/clearance checkpoint adopted; physical, impact and electrical acceptance pending",
+      "sources": {
+        "reference_robot": "https://www.mondorobotics.com/",
+        "ak40": "https://www.cubemars.com/product/ak40-10-v3-0-kv170-robotic-actuator.html",
+        "ro40": "https://www.cubemars.com/product/ro40-kv140-lite-without-hall-frameless-torque-motor.html",
+        "ri60": "https://www.cubemars.com/product/ri60-kv120-frameless-inrunner-torque-motor.html",
+        "gl40": "https://www.cubemars.com/product/gl40-kv70-gimbal-motor.html",
+        "gl60": "https://www.cubemars.com/product/gl60-kv25-gimbal-motor.html",
+        "moteus": "https://mjbots.com/products/moteus-c1",
+        "encoder": "https://look.ams-osram.com/m/d05ee39221f9857/original/AS5047P-DS000324.pdf",
+        "xm430": "https://robotis.us/products/dynamixel-xm430-w350-r",
+        "pack": "https://genstattu.com/tattu-r-line-version-5-0-850mah-6s-22-2v-150c-lipo-battery-pack-with-xt30u-f-plug/",
+        "belt": "https://www.gates.com/content/dam/documents-library/catalogs/light-power-and-precision-manual.pdf",
+        "bearing": "https://koyo.jtekt.co.jp/en/products/detail/?pno=",
+        "pa12": "https://www.eos.info/polymer-solutions/polymer-materials/data-sheets/mds-pa-2200",
+        "tpu": "https://forward-am.com/wp-content/uploads/2021/04/BASF_3DPS_TDS_Ultrasint-TPU-88A.pdf",
+        "ro40_drawing": "https://www.cubemars.com/data/cms/202606/ro40-kv140-lite-frameless-torque-motor-2d-drawing.pdf",
+        "wheel_encoder": "https://www.rls.si/eng/fileuploader/download/download/?d=0&file=custom/upload/RLCD02_09_RLC2IC.pdf",
+        "wheel_encoder_ring": "https://www.rls.si/media/wysiwyg/data_sheets/MR01D01_02_bookmarks.pdf",
+        "gl30": "https://www.cubemars.com/product/gl30-kv290-gimbal-motor.html",
+        "iglidur": "https://www.igus.com/ContentData/Products/Downloads/iglide_G300_FM_USen.pdf",
+        "schnorr": "https://www.schnorr-group.com/fileadmin/4_Downloads/Brochures/SCHNORR_Produktbroschuere_EN_2024-02.pdf",
+        "aluminium": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1072/KaiserSelect_Ultra_Precision_Rod.pdf",
+        "al7075": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1028/Kaiser_Aluminum_7075_Rod_and_Bar.pdf",
+        "foam": "https://www.zotefoams.com/wp-content/uploads/2025/03/LD70-December-2017.pdf",
+        "foam_upper_density": "https://www.zotefoams.com/wp-content/uploads/2025/03/TIS-01-Product-Specification.pdf",
+        "encoder_pinout": "https://mjbots.github.io/moteus/reference/encoders/#c1n1x1-pins-aux2abs",
+        "tire_bond": "https://multimedia.3m.com/mws/media/2366108O/3m-adhesive-transfer-tape-9471le.pdf",
+        "steel174": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/Custom%20630%20%2817-4%20PH%29.pdf"
+      },
+      "geometry": {
+        "shell_size": [
+          0.2,
+          0.078,
+          0.132
+        ],
+        "shell_center": [
+          0.02,
+          0,
+          0.016
+        ],
+        "shell_power": 3.6,
+        "shell_wall": 0.002,
+        "front_seam_x": 0.064,
+        "crank": 0.045,
+        "rod": 0.085,
+        "base": 0.056,
+        "height_range": [
+          0.045,
+          0.118
+        ],
+        "nominal_height": 0.1,
+        "crouched_height": 0.07,
+        "fore_aft_range": [
+          -0.01,
+          0.01
+        ],
+        "wheel_radius": 0.05,
+        "wheel_tire_inner": 0.046,
+        "wheel_width": 0.028,
+        "wheel_track": 0.159,
+        "hip_motor_center_y": 0.021,
+        "hip_motor_radius": 0.02315,
+        "hip_motor_width": 0.013,
+        "hip_motor_output_front_y": 0.014
+      },
+      "materials": {
+        "aluminium": 2700,
+        "steel": 7850,
+        "pa12": 930,
+        "tpu": 1100,
+        "fr4": 1850,
+        "copper": 8960,
+        "pmma": 1180,
+        "magnet": 7500,
+        "epoxy": 2000,
+        "belt": 1300,
+        "iglidur_g": 1460,
+        "al7075": 2810,
+        "ld70_upper": 76,
+        "acrylic_adhesive_estimate": 1100,
+        "steel174_h900": 7800
+      },
+      "structure": {
+        "crank_width": 0.014,
+        "crank_thickness": 0.003,
+        "crank_plane_y": 0.042,
+        "rod_width": 0.012,
+        "rod_thickness": 0.004,
+        "rod_plane_y": [
+          0.0475,
+          0.0545
+        ],
+        "hinge_outer_radius": 0.01,
+        "frame_wall": 0.003,
+        "shaft_radius": 0.004,
+        "fork_outer_y": [
+          0.0965,
+          0.0995
+        ],
+        "fork_inner_y": [
+          0.0455,
+          0.0485
+        ],
+        "fork_bridge_length": 0.06,
+        "fork_arm_width": 0.012,
+        "hip_bearing_y": [
+          0.014,
+          0.028
+        ],
+        "hip_journal_y": [
+          0.0091,
+          0.043
+        ],
+        "hip_case_outer_radius": 0.009,
+        "hip_adapter_y": [
+          0.006,
+          0.01325
+        ],
+        "hip_friction_y": [
+          0.0135,
+          0.0145
+        ],
+        "hip_flange_y": [
+          0.0475,
+          0.0485
+        ],
+        "fasteners_allowance_kg": 0.055,
+        "wires_allowance_kg": 0.075,
+        "lightened": true,
+        "cover_wall": 0.001,
+        "cover_width": 0.028,
+        "hip_shaft_radius": 0.006,
+        "hip_shaft_bore": 0.003,
+        "fork_web_width": 0.028,
+        "fork_web_thickness": 0.0025,
+        "fork_yield_allowable_Pa": 435000000.0,
+        "fork_root_to_hip_m": 0.044,
+        "tire_construction": {
+          "outer_tpu_skin_m": 0.001,
+          "bond_film_m": 5.8e-05,
+          "foam": "Plastazote LD70, upper catalog sheet density76kg/m3",
+          "adhesive": "3M9471LE58micrometre transfer film; density1100kg/m3 estimate; tire bond endurance pending",
+          "width_basis": "28mm tread gives wider load/contact area while track159mm leaves all hardware within200mm"
+        },
+        "wheel_hub_radius_m": 0.0135,
+        "wheel_hub_bay_bore_m": 0.0125,
+        "wheel_hub_bay_y_m": [
+          0.0733,
+          0.0845
+        ],
+        "wheel_axle_od_m": 0.008,
+        "wheel_axle_bore_m": 0.006,
+        "wheel_axle_yield_allowable_Pa": 1000000000.0,
+        "wheel_axle_material": "17-4PH H900, required certified 1000MPa yield; manufacturer typical1262MPa"
+      },
+      "drive": {
+        "pitch": 0.003,
+        "small_teeth": 20,
+        "large_teeth": 80,
+        "belt_length": 0.339,
+        "belt_width": 0.006,
+        "belt_thickness": 0.0024,
+        "belt_y": 0.0581,
+        "center_distance": 0.0901633370670542,
+        "motor_along_rod_from_foot": -0.055,
+        "motor_perpendicular": 0.07144527521864011,
+        "housing_y": [
+          0.0655,
+          0.0815
+        ],
+        "housing_outer_radius": 0.02465,
+        "housing_inner_radius": 0.02365,
+        "cover_thickness": 0.001,
+        "encoder_y": [
+          0.082,
+          0.08360000000000001
+        ],
+        "encoder_guard_y": [
+          0.0842,
+          0.085
+        ],
+        "motor_core_front_y": 0.0675,
+        "motor_core_total_depth": 0.0127,
+        "rotor_ring_depth": 0.008,
+        "rotor_face_depth": 0.002,
+        "rotor_mass_kg_assumption": 0.026,
+        "stator_mass_kg_assumption": 0.034,
+        "rotor_inertia_y_kg_m2": 1.2211e-05,
+        "motor_bearing_y": [
+          0.068,
+          0.075
+        ],
+        "wheel_bearing_y": [
+          0.0658,
+          0.085
+        ],
+        "pulley_blank_radial_stock": 0.003,
+        "belt_density_kg_m3_proxy": 1300,
+        "encoder_pcb_size": [
+          0.02,
+          0.02,
+          0.0016
+        ],
+        "encoder_chip_size": [
+          0.0064,
+          0.0045,
+          0.0012
+        ],
+        "encoder_magnet_radius": 0.003,
+        "encoder_magnet_depth": 0.002,
+        "pulley_face_width": 0.00725,
+        "wheel_encoder_ring_y": 0.0927,
+        "wheel_encoder_sensor_y": 0.0951,
+        "wheel_encoder_head_depth": 0.00465,
+        "unloaded_center_distance_m": 0.08989537466102476,
+        "installed_pitch_length_m": 0.3395080682114351,
+        "pretension_per_span_N": 40,
+        "tension_adjustment_travel_m": 0.0007
+      },
+      "catalog": {
+        "AK40": {
+          "mass_kg": 0.19
+        },
+        "RO40_total": {
+          "mass_kg": 0.06
+        },
+        "moteus_c1": {
+          "mass_kg": 0.0089,
+          "envelope": [
+            0.038,
+            0.009,
+            0.038
+          ]
+        },
+        "pack": {
+          "mass_kg": 0.165,
+          "envelope": [
+            0.047,
+            0.032,
+            0.065
+          ],
+          "center": [
+            0.08,
+            0,
+            0.003
+          ]
+        },
+        "6804": {
+          "bore": 0.02,
+          "od": 0.032,
+          "width": 0.007,
+          "mass_kg": 0.018,
+          "C0_N": 2450
+        },
+        "6802": {
+          "bore": 0.015,
+          "od": 0.024,
+          "width": 0.005,
+          "mass_kg": 0.007,
+          "C0_N": 1250
+        },
+        "688": {
+          "bore": 0.008,
+          "od": 0.016,
+          "width": 0.004,
+          "mass_kg": 0.0032,
+          "C0_N": 590
+        },
+        "608": {
+          "bore": 0.008,
+          "od": 0.022,
+          "width": 0.007,
+          "mass_kg": 0.012,
+          "C0_N": 1350
+        },
+        "MR026C_ID12": {
+          "od": 0.026,
+          "bore": 0.012,
+          "width": 0.002,
+          "mass_kg": 0.005
+        },
+        "RLC2IC_through_hole": {
+          "envelope": [
+            0.02,
+            0.00465,
+            0.0135
+          ],
+          "mass_kg": 0.00135
+        },
+        "HK0810": {
+          "bore": 0.008,
+          "od": 0.012,
+          "width": 0.01,
+          "mass_kg": 0.004,
+          "C0_N": 4070
+        },
+        "schnorr_008900": {
+          "mass_kg": 0.002832,
+          "od": 0.025,
+          "bore": 0.0122,
+          "loaded_length": 0.0012,
+          "catalog_force_N": 1359
+        }
+      },
+      "electronics": {
+        "moteus_centers": [
+          [
+            -0.022,
+            0,
+            -0.022
+          ],
+          [
+            0.02,
+            0,
+            -0.022
+          ],
+          [
+            -0.022,
+            0,
+            0.025
+          ],
+          [
+            0.02,
+            0,
+            0.025
+          ],
+          [
+            -0.06,
+            0,
+            0.04
+          ],
+          [
+            0.076,
+            0,
+            0.055
+          ]
+        ],
+        "power_center": [
+          -0.012,
+          0,
+          0.048
+        ],
+        "power_board": [
+          0.066,
+          0.01,
+          0.0016
+        ],
+        "carrier_center": [
+          -0.012,
+          0,
+          0.064
+        ],
+        "carrier_board": [
+          0.066,
+          0.01,
+          0.0016
+        ],
+        "cap_center": [
+          0.056,
+          0,
+          0.055
+        ],
+        "cap_radius": 0.00825,
+        "cap_length": 0.027,
+        "resistor_centers": [
+          [
+            0.056,
+            -0.018,
+            0.07
+          ],
+          [
+            0.056,
+            0,
+            0.07
+          ],
+          [
+            0.056,
+            0.018,
+            0.07
+          ]
+        ],
+        "resistor_size": [
+          0.0107,
+          0.0165,
+          0.0035
+        ],
+        "heat_plate_size": [
+          0.018,
+          0.055,
+          0.0015
+        ],
+        "heat_plate_center": [
+          0.056,
+          0,
+          0.067
+        ],
+        "wire_proxy_size": [
+          0.05,
+          0.01,
+          0.005
+        ],
+        "wire_proxy_center": [
+          0.042,
+          0,
+          0.043
+        ],
+        "moteus_mounts": [
+          {
+            "body": "chassis",
+            "center": [
+              -0.022,
+              0,
+              -0.022
+            ],
+            "size": [
+              0.038,
+              0.009,
+              0.038
+            ]
+          },
+          {
+            "body": "chassis",
+            "center": [
+              0.02,
+              0,
+              -0.022
+            ],
+            "size": [
+              0.038,
+              0.009,
+              0.038
+            ]
+          },
+          {
+            "body": "chassis",
+            "center": [
+              -0.022,
+              0,
+              0.025
+            ],
+            "size": [
+              0.038,
+              0.009,
+              0.038
+            ]
+          },
+          {
+            "body": "chassis",
+            "center": [
+              0.02,
+              0,
+              0.025
+            ],
+            "size": [
+              0.038,
+              0.009,
+              0.038
+            ]
+          },
+          {
+            "body": "chassis",
+            "center": [
+              -0.06,
+              0,
+              0.04
+            ],
+            "size": [
+              0.009,
+              0.038,
+              0.038
+            ]
+          },
+          {
+            "body": "chassis",
+            "center": [
+              0.076,
+              0,
+              0.055
+            ],
+            "size": [
+              0.009,
+              0.038,
+              0.038
+            ]
+          }
+        ]
+      },
+      "face": {
+        "eye_center_y": 0.025,
+        "eye_center_z": 0.055,
+        "rim_outer": 0.0165,
+        "rim_inner": 0.0135,
+        "rim_x": [
+          0.105,
+          0.122
+        ],
+        "lens_x": 0.121,
+        "lens_radius": 0.0135,
+        "pupil_radius": 0.0065,
+        "pupil_offset_y": 0.002,
+        "pupil_offset_z": 0.0015
+      },
+      "belt_model_basis": {
+        "source_page": "Gates Light Power & Precision manual p60 Table6 / p64-65",
+        "GT3_6mm_EA_N_proxy": 26689.32969,
+        "range_factor": [
+          0.2,
+          1.2
+        ],
+        "lash_tangential_m_assumption": [
+          5e-05,
+          0.0002
+        ],
+        "status": "Endless GT3 construction proxy from published equivalent long-length glass cord. Series tooth/support compliance reduces stiffness; exact belt/tension/lash require qualification. Nonzero range saved for later M9 plant; no physics changes now.",
+        "span_m": 0.08520843149561595,
+        "cord_only_output_stiffness_Nm_rad": 914.0034560849181,
+        "stiffness_range_Nm_rad": [
+          182.80069121698364,
+          1096.8041473019016
+        ],
+        "lash_range_deg": [
+          0.07500000000000001,
+          0.30000000000000004
+        ]
+      },
+      "joint_drive": {
+        "model": "RO40 KV140 Lite + moteus-c1 + 4:1 2MGT belt",
+        "ratio": 4,
+        "efficiency_screen": 0.9,
+        "continuous_torque_Nm": 0.72,
+        "peak_torque_Nm": 2.16,
+        "motor_z": 0.0474612657877575,
+        "pitch": 0.002,
+        "small_teeth": 20,
+        "large_teeth": 80,
+        "belt_length": 0.202,
+        "center_distance": 0.0474612657877575,
+        "belt_y": 0.006,
+        "face_width": 0.00725,
+        "rotor_front_y": 0.015,
+        "housing_y": [
+          0.014,
+          0.03
+        ],
+        "encoder_y": 0.031,
+        "rotor_mass_kg_assumption": 0.026,
+        "stator_mass_kg_assumption": 0.034,
+        "rotor_inertia_kg_m2": 1.2211e-05,
+        "output_encoder": "Rotor external AS5047P via moteus-c1 AUX2 SPI; actual crank-output AS5047P after clutch via host MCU SPI",
+        "backlash_deg_assumption": [
+          0.1125,
+          0.45
+        ],
+        "support": "GFM121412 front and GFM121420 rear; front centre22mm/rear39.5mm; force at rod hinge54.5mm, 15mm overhang",
+        "pressure_allowable_Pa": 35000000.0,
+        "friction_mu_range": [
+          0.08,
+          0.15
+        ],
+        "clutch": "Steel/iglidur thrust friction interface, spring preload; calibrate 1.7-2.0Nm release, not qualified by CAD",
+        "rotor_encoder_y": 0.031,
+        "output_encoder_y": 0.0035,
+        "journal_width": 0.012,
+        "shaft_overhang_m": 0.015,
+        "bearing_span_m": 0.0175,
+        "belt_pretension_per_span_N": 60.0,
+        "pretension_basis": "Gates Formula 1: 1.21 Q/d; Q=0.6Nm, d=12.73mm ->57N; round to60N per span",
+        "belt_pull_y_m": 0.009625,
+        "front_journal_center_y_m": 0.022,
+        "journal_radial_clearance_m_range": [
+          1.6e-05,
+          7.25e-05
+        ],
+        "compliance_screen": {
+          "EA_N_proxy": 16903.242136999994,
+          "basis": "Gates Table6 2MGT6 fiberglass 3.8lb at0.1% elongation; tooth/contact/tension uncertainty scale0.2..1.2; qualify assembled drive",
+          "stiffness_Nm_rad_range": [
+            101.91415234661821,
+            611.4849140797093
+          ],
+          "tangential_lash_m_range": [
+            5e-05,
+            0.0002
+          ]
+        },
+        "belt_rating_screen": {
+          "driver_speed_rpm": 120,
+          "driver_torque_rating_Nm_lower_bound": 1.016863461,
+          "basis": "Gates 2MGT 6mm 20T: 9.87lb-in at100rpm,8.84 at200rpm; conservative9lb-in near120rpm, >0.6Nm peak; normal0.2Nm at SF2 fits. Small wrap7.34teeth >6."
+        },
+        "shaft_min_aluminium_od_m": 0.011,
+        "shaft_yield_allowable_Pa": 435000000.0,
+        "large_pulley_radial_stock_m": 0.0018,
+        "front_journal_y": 0.016,
+        "rear_journal_y": 0.0295,
+        "rear_journal_width": 0.02,
+        "shaft_material": "7075-T6, 435MPa required certified design allowable",
+        "unloaded_center_distance_m": 0.04706933277783229,
+        "installed_pitch_length_m": 0.20271702220803373,
+        "pretension_per_span_N": 60,
+        "tension_adjustment_travel_m": 0.0007,
+        "input_friction_face_m": 0.00025
+      },
+      "observed_USD_2026_10_04": {
+        "RO40_Lite_motor": 51.9,
+        "GL30_motor": 50.99,
+        "AK40_V3_integrated": 135.9,
+        "moteus_c1": 69.0,
+        "basis": "Manufacturer product/store prices; custom mechanical/sensing parts, shipping and tax extra"
+      }
+    },
+    "rigid_bodies": {
+      "chassis": {
+        "mass_kg": 0.8900875621754117,
+        "com_m": [
+          0.025240745319239654,
+          -2.29302290824793e-06,
+          0.02213792118653145
+        ],
+        "inertia_kg_m2": [
+          [
+            0.0012594787237849327,
+            3.052623417557473e-08,
+            0.0001516419153675222
+          ],
+          [
+            3.052623417557473e-08,
+            0.0027991464391738242,
+            -1.3197369714260557e-07
+          ],
+          [
+            0.0001516419153675222,
+            -1.3197369714260557e-07,
+            0.0022427568325093157
+          ]
+        ]
+      },
+      "left_crank0": {
+        "mass_kg": 0.03380747482103915,
+        "com_m": [
+          0.012449854750461202,
+          0.03264955743949797,
+          -1.6786559173453692e-18
+        ],
+        "inertia_kg_m2": [
+          [
+            8.0954210143428e-06,
+            -5.237023542892238e-06,
+            -6.478483997520224e-22
+          ],
+          [
+            -5.237023542892238e-06,
+            1.3792884258971929e-05,
+            -9.40655098841233e-22
+          ],
+          [
+            -6.478483997520224e-22,
+            -9.40655098841233e-22,
+            1.9997380673687788e-05
+          ]
+        ]
+      },
+      "left_hipgear0": {
+        "mass_kg": 0.01263059524212464,
+        "com_m": [
+          -3.8104087289266644e-19,
+          0.00962298600286649,
+          2.130779285772471e-18
+        ],
+        "inertia_kg_m2": [
+          [
+            2.3730506630172296e-06,
+            7.705539917514233e-24,
+            -1.8828552104913164e-22
+          ],
+          [
+            7.705539917514233e-24,
+            4.613037194083165e-06,
+            -5.016953336179147e-23
+          ],
+          [
+            -1.8828552104913164e-22,
+            -5.016953336179147e-23,
+            2.3730506630172715e-06
+          ]
+        ]
+      },
+      "left_hiprotor0": {
+        "mass_kg": 0.03560788492793226,
+        "com_m": [
+          -1.0187251807496733e-18,
+          0.018458871965073505,
+          -7.936551843998467e-18
+        ],
+        "inertia_kg_m2": [
+          [
+            6.342254792967421e-06,
+            2.4439084546130638e-24,
+            2.39297589642907e-23
+          ],
+          [
+            2.4439084546130638e-24,
+            1.2625141519034098e-05,
+            -4.541884134686586e-22
+          ],
+          [
+            2.39297589642907e-23,
+            -4.541884134686586e-22,
+            6.342254792967544e-06
+          ]
+        ]
+      },
+      "left_rod0": {
+        "mass_kg": 0.13285768206183304,
+        "com_m": [
+          0.03704897927062013,
+          0.07122888438231514,
+          0.0353883416816158
+        ],
+        "inertia_kg_m2": [
+          [
+            0.00021249543814948088,
+            -9.652161980474273e-07,
+            3.9192849428747975e-05
+          ],
+          [
+            -9.652161980474273e-07,
+            0.0002708885654182543,
+            -1.972481437254513e-05
+          ],
+          [
+            3.9192849428747975e-05,
+            -1.972481437254513e-05,
+            0.00010794657177399486
+          ]
+        ]
+      },
+      "left_crank1": {
+        "mass_kg": 0.03380747482103915,
+        "com_m": [
+          0.012449854750461202,
+          0.03264955743949797,
+          -1.6786559173453692e-18
+        ],
+        "inertia_kg_m2": [
+          [
+            8.0954210143428e-06,
+            -5.237023542892238e-06,
+            -6.478483997520224e-22
+          ],
+          [
+            -5.237023542892238e-06,
+            1.3792884258971929e-05,
+            -9.40655098841233e-22
+          ],
+          [
+            -6.478483997520224e-22,
+            -9.40655098841233e-22,
+            1.9997380673687788e-05
+          ]
+        ]
+      },
+      "left_hipgear1": {
+        "mass_kg": 0.01263059524212464,
+        "com_m": [
+          -3.8104087289266644e-19,
+          0.00962298600286649,
+          2.130779285772471e-18
+        ],
+        "inertia_kg_m2": [
+          [
+            2.3730506630172296e-06,
+            7.705539917514233e-24,
+            -1.8828552104913164e-22
+          ],
+          [
+            7.705539917514233e-24,
+            4.613037194083165e-06,
+            -5.016953336179147e-23
+          ],
+          [
+            -1.8828552104913164e-22,
+            -5.016953336179147e-23,
+            2.3730506630172715e-06
+          ]
+        ]
+      },
+      "left_hiprotor1": {
+        "mass_kg": 0.03560788492793226,
+        "com_m": [
+          -1.0187251807496733e-18,
+          0.018458871965073505,
+          -7.936551843998467e-18
+        ],
+        "inertia_kg_m2": [
+          [
+            6.342254792967421e-06,
+            2.4439084546130638e-24,
+            2.39297589642907e-23
+          ],
+          [
+            2.4439084546130638e-24,
+            1.2625141519034098e-05,
+            -4.541884134686586e-22
+          ],
+          [
+            2.39297589642907e-23,
+            -4.541884134686586e-22,
+            6.342254792967544e-06
+          ]
+        ]
+      },
+      "left_rod1": {
+        "mass_kg": 0.025878653336862026,
+        "com_m": [
+          0.04171990243738024,
+          0.053163464709922274,
+          2.1816834554864277e-18
+        ],
+        "inertia_kg_m2": [
+          [
+            1.1427261109609283e-06,
+            -1.172057492870773e-06,
+            -2.8512693852785614e-22
+          ],
+          [
+            -1.172057492870773e-06,
+            3.592953868030021e-05,
+            -1.8136154491864517e-22
+          ],
+          [
+            -2.8512693852785614e-22,
+            -1.8136154491864517e-22,
+            3.530664419271411e-05
+          ]
+        ]
+      },
+      "left_rotor": {
+        "mass_kg": 0.03868038990184414,
+        "com_m": [
+          -3.419479668708166e-19,
+          0.07001889637578097,
+          -1.1883060482650101e-17
+        ],
+        "inertia_kg_m2": [
+          [
+            6.709781953939954e-06,
+            6.813976127279444e-23,
+            -1.0347152223856155e-21
+          ],
+          [
+            6.813976127279444e-23,
+            1.2817757440416052e-05,
+            -1.798743702557103e-21
+          ],
+          [
+            -1.0347152223856155e-21,
+            -1.798743702557103e-21,
+            6.70978195394016e-06
+          ]
+        ]
+      },
+      "left_wheel": {
+        "mass_kg": 0.09049040777600208,
+        "com_m": [
+          -9.602002075415661e-18,
+          0.07494054901286525,
+          -2.533368047058064e-17
+        ],
+        "inertia_kg_m2": [
+          [
+            5.393886805023143e-05,
+            3.45612581826108e-21,
+            -1.770539759319717e-20
+          ],
+          [
+            3.45612581826108e-21,
+            8.439994620291931e-05,
+            4.2729417303842634e-20
+          ],
+          [
+            -1.770539759319717e-20,
+            4.2729417303842634e-20,
+            5.393886805023264e-05
+          ]
+        ]
+      },
+      "right_crank0": {
+        "mass_kg": 0.03380747482103915,
+        "com_m": [
+          0.012449854750461202,
+          -0.03264955743949797,
+          -1.6786559173453692e-18
+        ],
+        "inertia_kg_m2": [
+          [
+            8.0954210143428e-06,
+            5.237023542892238e-06,
+            -6.478483997520224e-22
+          ],
+          [
+            5.237023542892238e-06,
+            1.3792884258971929e-05,
+            9.40655098841233e-22
+          ],
+          [
+            -6.478483997520224e-22,
+            9.40655098841233e-22,
+            1.9997380673687788e-05
+          ]
+        ]
+      },
+      "right_hipgear0": {
+        "mass_kg": 0.01263059524212464,
+        "com_m": [
+          -3.3243596457850698e-19,
+          -0.00962298600286649,
+          2.1915354211651703e-18
+        ],
+        "inertia_kg_m2": [
+          [
+            2.3730506630172296e-06,
+            -1.3613176897282667e-23,
+            -1.8705770320173821e-22
+          ],
+          [
+            -1.3613176897282667e-23,
+            4.613037194083165e-06,
+            5.0075155605979556e-23
+          ],
+          [
+            -1.8705770320173821e-22,
+            5.0075155605979556e-23,
+            2.3730506630172715e-06
+          ]
+        ]
+      },
+      "right_hiprotor0": {
+        "mass_kg": 0.03560788492793226,
+        "com_m": [
+          -1.0193070164560091e-18,
+          -0.018458871965073505,
+          -7.945172251036673e-18
+        ],
+        "inertia_kg_m2": [
+          [
+            6.342254792967421e-06,
+            -2.6020890727338324e-24,
+            2.3620066137683234e-23
+          ],
+          [
+            -2.6020890727338324e-24,
+            1.2625141519034098e-05,
+            4.573988108842385e-22
+          ],
+          [
+            2.3620066137683234e-23,
+            4.573988108842385e-22,
+            6.342254792967544e-06
+          ]
+        ]
+      },
+      "right_rod0": {
+        "mass_kg": 0.13285768206183307,
+        "com_m": [
+          0.037048979270620126,
+          -0.07122888438231516,
+          0.0353883416816158
+        ],
+        "inertia_kg_m2": [
+          [
+            0.00021249543814948077,
+            9.652161980474059e-07,
+            3.9192849428748016e-05
+          ],
+          [
+            9.652161980474059e-07,
+            0.0002708885654182543,
+            1.9724814372545063e-05
+          ],
+          [
+            3.9192849428748016e-05,
+            1.9724814372545063e-05,
+            0.00010794657177399478
+          ]
+        ]
+      },
+      "right_crank1": {
+        "mass_kg": 0.03380747482103915,
+        "com_m": [
+          0.012449854750461202,
+          -0.03264955743949797,
+          -1.6786559173453692e-18
+        ],
+        "inertia_kg_m2": [
+          [
+            8.0954210143428e-06,
+            5.237023542892238e-06,
+            -6.478483997520224e-22
+          ],
+          [
+            5.237023542892238e-06,
+            1.3792884258971929e-05,
+            9.40655098841233e-22
+          ],
+          [
+            -6.478483997520224e-22,
+            9.40655098841233e-22,
+            1.9997380673687788e-05
+          ]
+        ]
+      },
+      "right_hipgear1": {
+        "mass_kg": 0.01263059524212464,
+        "com_m": [
+          -3.3243596457850698e-19,
+          -0.00962298600286649,
+          2.1915354211651703e-18
+        ],
+        "inertia_kg_m2": [
+          [
+            2.3730506630172296e-06,
+            -1.3613176897282667e-23,
+            -1.8705770320173821e-22
+          ],
+          [
+            -1.3613176897282667e-23,
+            4.613037194083165e-06,
+            5.0075155605979556e-23
+          ],
+          [
+            -1.8705770320173821e-22,
+            5.0075155605979556e-23,
+            2.3730506630172715e-06
+          ]
+        ]
+      },
+      "right_hiprotor1": {
+        "mass_kg": 0.03560788492793226,
+        "com_m": [
+          -1.0193070164560091e-18,
+          -0.018458871965073505,
+          -7.945172251036673e-18
+        ],
+        "inertia_kg_m2": [
+          [
+            6.342254792967421e-06,
+            -2.6020890727338324e-24,
+            2.3620066137683234e-23
+          ],
+          [
+            -2.6020890727338324e-24,
+            1.2625141519034098e-05,
+            4.573988108842385e-22
+          ],
+          [
+            2.3620066137683234e-23,
+            4.573988108842385e-22,
+            6.342254792967544e-06
+          ]
+        ]
+      },
+      "right_rod1": {
+        "mass_kg": 0.025878653336862026,
+        "com_m": [
+          0.04171990243738024,
+          -0.053163464709922274,
+          2.1816834554864277e-18
+        ],
+        "inertia_kg_m2": [
+          [
+            1.1427261109609283e-06,
+            1.172057492870773e-06,
+            -2.8512693852785614e-22
+          ],
+          [
+            1.172057492870773e-06,
+            3.592953868030021e-05,
+            1.8136154491864517e-22
+          ],
+          [
+            -2.8512693852785614e-22,
+            1.8136154491864517e-22,
+            3.530664419271411e-05
+          ]
+        ]
+      },
+      "right_rotor": {
+        "mass_kg": 0.03868038990184414,
+        "com_m": [
+          -3.419479668708166e-19,
+          -0.07001889637578097,
+          -1.1883060482650101e-17
+        ],
+        "inertia_kg_m2": [
+          [
+            6.709781953939954e-06,
+            -6.813976127279444e-23,
+            -1.0347152223856155e-21
+          ],
+          [
+            -6.813976127279444e-23,
+            1.2817757440416052e-05,
+            1.798743702557103e-21
+          ],
+          [
+            -1.0347152223856155e-21,
+            1.798743702557103e-21,
+            6.70978195394016e-06
+          ]
+        ]
+      },
+      "right_wheel": {
+        "mass_kg": 0.09049040777600208,
+        "com_m": [
+          -9.602002075415661e-18,
+          -0.07494054901286525,
+          -2.533368047058064e-17
+        ],
+        "inertia_kg_m2": [
+          [
+            5.393886805023143e-05,
+            -3.45612581826108e-21,
+            -1.770539759319717e-20
+          ],
+          [
+            -3.45612581826108e-21,
+            8.439994620291931e-05,
+            -4.2729417303842634e-20
+          ],
+          [
+            -1.770539759319717e-20,
+            -4.2729417303842634e-20,
+            5.393886805023264e-05
+          ]
+        ]
+      }
+    },
+    "nominal_world": {
+      "mass_kg": 1.7940856482928784,
+      "com_m": [
+        0.013455368475817917,
+        -1.137621925888099e-06,
+        0.14546782159331706
+      ],
+      "inertia_kg_m2": [
+        [
+          0.00821438307564725,
+          5.4580084252742287e-08,
+          -0.0005376677000269687
+        ],
+        [
+          5.4580084252742287e-08,
+          0.007593734422213176,
+          -7.754025935913332e-08
+        ],
+        [
+          -0.0005376677000269687,
+          -7.754025935913332e-08,
+          0.00646360638396545
+        ]
+      ]
+    },
+    "body_frame_convention": "Native App::Part local frames; X forward, Y left, Z up. Nominal chassis origin at wheel radius + hip height. Hip input gears are distinct from output cranks for later clutch slip.",
+    "pose_envelopes_m": {
+      "operating": {
+        "size_m": [
+          0.20419522167967422,
+          0.19950000000000004,
+          0.23225504331878966
+        ],
+        "min_m": [
+          -0.0804952216796742,
+          -0.09975000000000002,
+          0.0
+        ],
+        "max_m": [
+          0.1237,
+          0.09975000000000002,
+          0.23225504331878966
+        ]
+      },
+      "crouched": {
+        "size_m": [
+          0.20618290419101384,
+          0.19950000000000004,
+          0.20225504331878966
+        ],
+        "min_m": [
+          -0.08248290419101385,
+          -0.09975000000000002,
+          0.0
+        ],
+        "max_m": [
+          0.1237,
+          0.09975000000000002,
+          0.20225504331878966
+        ]
+      },
+      "folded": {
+        "size_m": [
+          0.21067760888010156,
+          0.19950000000000004,
+          0.17725504331878963
+        ],
+        "min_m": [
+          -0.08697760888010157,
+          -0.09975000000000002,
+          0.0
+        ],
+        "max_m": [
+          0.1237,
+          0.09975000000000002,
+          0.17725504331878963
+        ]
+      }
+    },
+    "sources": {
+      "native_cad": "artifacts/milestone-9/cad/five-bar-assembly.FCStd",
+      "cad_sha256": "f46c023297298ba265ac8d9ff8cb43c055b65774ad85873d5a03d63b8438d70c",
+      "mass_properties": "artifacts/milestone-9/cad/mass-properties.json",
+      "clearance": "artifacts/milestone-9/cad/clearance-sweep.json",
+      "load_screen": "artifacts/milestone-9/cad/load-screen.json"
+    },
+    "acceptance": {
+      "cad_mass_checkpoint_passed": true,
+      "sampled_clearance_passed": true,
+      "pose_count": 222,
+      "physical_acceptance_passed": false,
+      "fall_impact_acceptance_passed": false,
+      "fabrication_ready": false
+    }
+  },
+  "m9_physics": {
+    "status": "Finite free-base five-bar digital plant; physical acceptance and fall qualification pending. Assumptions require hardware measurement.",
+    "units": "SI",
+    "simulation": {
+      "physics_dt": 0.00025,
+      "control_dt": 0.005,
+      "joint_servo_dt": 0.001,
+      "log_dt": 0.01,
+      "noslip_iterations": 5
+    },
+    "motor": {
+      "model": "CubeMars RO40 KV140 Lite, six identical motors",
+      "ratio": 4.0,
+      "efficiency_screen": 0.9,
+      "peak_torque_motor_Nm": 0.6,
+      "continuous_torque_motor_Nm": 0.2,
+      "no_load_speed_motor_rad_s": 356.0471674068432,
+      "rated_speed_motor_rad_s": 256.56340004316644,
+      "rotor_core_inertia_kg_m2": 1.2211e-05,
+      "CAD_rotor_core_inertia_already_in_body_tensor_kg_m2": 1.2211e-05,
+      "torque_constant_Nm_A": 0.068,
+      "rated_current_A": 2.85,
+      "peak_current_A": 11.6,
+      "FOC_current_bandwidth_Hz": 200.0,
+      "FOC_time_constant_s": 0.0007957747154594767,
+      "viscous_motor_Nm_s_rad": 2e-05,
+      "coulomb_motor_Nm": 0.002,
+      "normal_hip_command_cap_Nm": 1.65,
+      "normal_wheel_command_cap_Nm": 2.16,
+      "basis": "Manufacturer torque/speed/inertia/current data; 200Hz calibrated FOC bandwidth represented by first-order lag, viscous/Coulomb motor friction are finite screening assumptions, not measured RO40 drag. Catalog rotor inertia is already included in exported CAD core tensor; no reflected armature added.",
+      "FOC_current_slew_limit_A_s": 10000.0,
+      "current_calibration_basis": "Piecewise manufacturer torque/current endpoints0.2Nm/2.85A and0.6Nm/11.6A;10000A/s current slew default screening limit."
+    },
+    "belts": {
+      "hip_stiffness_Nm_rad": 300.0,
+      "hip_stiffness_range_Nm_rad": [
+        101.91415234661821,
+        611.4849140797093
+      ],
+      "wheel_stiffness_Nm_rad": 500.0,
+      "wheel_stiffness_range_Nm_rad": [
+        182.80069121698364,
+        1096.8041473019016
+      ],
+      "hip_lash_deg": 0.25,
+      "hip_lash_range_deg": [
+        0.1125,
+        0.45
+      ],
+      "wheel_lash_deg": 0.15,
+      "wheel_lash_range_deg": [
+        0.075,
+        0.3
+      ],
+      "hip_damping_Nm_s_rad": 0.025,
+      "wheel_damping_Nm_s_rad": 0.035,
+      "basis": "Gates Table6 cordEA proxy with0.2..1.2 series tooth/assembly factor from adoptedCAD; lost-motion deadzone with unilateral elastic faces. Damping assumptions dissipative, unmeasured. Disturbance backlash_deg overrides wheel lash only; hip lash remains nonzero unless explicit hip_backlash_deg supplied."
+    },
+    "clutch": {
+      "release_torque_Nm": 1.85,
+      "selected_range_Nm": [
+        1.7,
+        2.0
+      ],
+      "basis": "Finite1.85Nm selectedcalibrationrequirement,not hardwarequalified. Independentinputgear andoutputcrank; no positionlock. Beltelasticityremainsfinite. Actualdissipation measuredbyfrictiontorque times relative displacement.",
+      "model": "MuJoCo fixed tendongear\u2212output Coulombfrictionloss,staticstick/dynamicslip jointlysolvedwithphysicalcontactsandloopjoints",
+      "numerical_friction_basis": "Five native NoSlip postsolver iterations remove regularization creep while retaining finite1.85Nm capacity. Applies also to journal/contact friction; material callback rebuilds islands before projection/reference. Not a base pose constraint or robot state clamp.",
+      "solver_source": "https://mujoco.readthedocs.io/en/stable/modeling.html#friction"
+    },
+    "friction": {
+      "journal_mu": 0.15,
+      "journal_radius_m": 0.006,
+      "hip_viscous_Nm_s_rad": 0.001,
+      "passive_rod_viscous_Nm_s_rad": 0.0001,
+      "passive_rod_coulomb_Nm": 0.001,
+      "wheel_viscous_Nm_s_rad": 0.0003,
+      "wheel_coulomb_Nm": 0.004,
+      "basis": "Worst dry mu=.15 iglidur screen; hip Coulomb journal load includes60N/span belt pretension and measured multibody proximal crank reaction, amplified by17.5mm journal span/15mm overhang."
+    },
+    "contact": {
+      "friction": [
+        0.8,
+        0.005,
+        0.0001
+      ],
+      "solref_s": [
+        0.003,
+        1.0
+      ],
+      "solimp": [
+        0.95,
+        0.99,
+        0.001
+      ],
+      "geometry": "SI CAD exterior convex hulls from existing native tessellation; convex hull fills concave machining cuts. Full round28mm tire cylinder. No base pose constraints. This compliance is a locomotion contact assumption, not a fall material qualification. Cover-to-robot hull contacts omitted because hull fills intentional fork clearance wells; cover-to-ground contact retained. Structural self-contact retained. Exact CAD222poses establishes operating workspace clearance, not fall self-contact.",
+      "material_source": "config/m9-impact-materials.json",
+      "basis": "DefaultMaterialContacts usesLD70foam+1mmTPUseries/tirepatchfoundation,PA12shell/coversandTPUpad; contactaccelerationnormalizationusescurrentphysicaleffectivemass. Statedmaterialanddampingassumptions,notqualification."
+    },
+    "posture_mapping": {
+      "command_deg": [
+        30,
+        40,
+        60,
+        65
+      ],
+      "hip_height_m": [
+        0.118,
+        0.1,
+        0.07,
+        0.045
+      ],
+      "interpolation": "Piecewise cubic smoothstep, zero derivative at knots"
+    },
+    "sources": {
+      "RO40": "https://www.cubemars.com/product/ro40-kv140-lite-without-hall-frameless-torque-motor.html",
+      "Gates": "https://www.gates.com/content/dam/documents-library/catalogs/light-power-and-precision-manual.pdf",
+      "moteus_current_bandwidth": "https://github.com/mjbots/moteus/blob/main/docs/reference/configuration.md#servopid_dq_hz",
+      "igus": "https://www.igus.com/ContentData/Products/Downloads/iglide_G300_FM_USen.pdf"
+    },
+    "protective_fall": {
+      "pitch_rad": 0.33161255787892263,
+      "hard_pitch_rad": 0.4363323129985824,
+      "roll_rad": 0.20943951023931956,
+      "outward_rate_rad_s": 0.2617993877991494,
+      "persist_s": 0.01,
+      "freefall_m_s2": 1.9620000000000002,
+      "freefall_persist_s": 0.02,
+      "posture_deg": 60,
+      "reference_rate_rad_s": 8,
+      "crouch_s": 0.25,
+      "ramp_s": 0.08,
+      "wheel_ramp_s": 0.05,
+      "joint_cap_Nm": 1.4,
+      "basis": "Estimator-only latched protective crouch: retain19deg outward pitch/25deg hard/12deg roll triggers above recovered envelope. Slew8rad/s into70mm crouch, hip cap1.4Nm below1.65Nm normal command and1.7Nm minimum clutch release; wheel fade50ms, legs decay250..330ms. Invalid health still inhibits immediately. Cross-slope crouch/contact timing is measured separately; hardware commissioning remains unqualified."
+    }
+  },
+  "m9_closure": {
+    "status": "Bumper-first preflight stopped before CAD adoption: evaluated tube-frame/foam/heat/width-only belt option2163.68g exceeds2150g even including native union/notch and optimistic drilling credits, before fairings/retention/residual reinforcement. Adopted CAD/control remains1794.09g/199.5mm and unchanged; no new dynamic tips or final107-case run.",
+    "allocated_mass_ceiling_kg": 2.15,
+    "required_reserve_kg": 0.15,
+    "maximum_reserve_draw_kg": 0.35,
+    "candidate_bumpers": [
+      {
+        "name": "ClosureBumperFrontLower",
+        "center_m": [
+          0.1375,
+          0,
+          -0.025
+        ],
+        "size_m": [
+          0.035,
+          0.06,
+          0.025
+        ],
+        "axis": 0
+      },
+      {
+        "name": "ClosureBumperFrontUpper",
+        "center_m": [
+          0.1375,
+          0,
+          0.06
+        ],
+        "size_m": [
+          0.035,
+          0.06,
+          0.025
+        ],
+        "axis": 0
+      },
+      {
+        "name": "ClosureBumperRearLower",
+        "center_m": [
+          -0.0975,
+          0,
+          -0.025
+        ],
+        "size_m": [
+          0.035,
+          0.06,
+          0.025
+        ],
+        "axis": 0
+      },
+      {
+        "name": "ClosureBumperRearUpper",
+        "center_m": [
+          -0.0975,
+          0,
+          0.06
+        ],
+        "size_m": [
+          0.035,
+          0.06,
+          0.025
+        ],
+        "axis": 0
+      },
+      {
+        "name": "ClosureBumperSideLeft",
+        "center_m": [
+          -0.086,
+          0.082,
+          -0.0025
+        ],
+        "size_m": [
+          0.042,
+          0.035,
+          0.065
+        ],
+        "axis": 1
+      },
+      {
+        "name": "ClosureBumperSideRight",
+        "center_m": [
+          -0.086,
+          -0.082,
+          -0.0025
+        ],
+        "size_m": [
+          0.042,
+          0.035,
+          0.065
+        ],
+        "axis": 1
+      }
+    ],
+    "belt_load_uncertainty": {
+      "hip_output_demand_Nm": 8.371118117187002,
+      "hip_rotor_speed_rpm": 841.1683140747999,
+      "basis": "Retain conservative measured endpoint-law/dt envelope, not independently resolved transmitted torque. Applied250/125us peaks1.312/1.693Nm; endpoint8.371/4.529Nm. Candidate bumper strong-side endpoint5.341Nm does not remove uncertainty. Replaced only by a converged isolated drive model/test, out of scope.",
+      "source": "artifacts/milestone-9/impact-final/belt-load-envelope.json"
+    },
+    "thermal_candidate": {
+      "status": "Unadopted stationary-stator end-turn to aluminium rear-cap / black exposed spreader design; not a bond to the rotating RO40 outer bell",
+      "plate_size_m": [
+        0.06,
+        0.08,
+        0.00025
+      ],
+      "plate_open_area_m2": 0.0004,
+      "stator_face_inner_radius_m": 0.0125,
+      "stator_face_outer_radius_m": 0.0195,
+      "contact_fraction": 0.6,
+      "enamel_thickness_m": 5e-05,
+      "enamel_conductivity_W_m_K_assumption": 0.2,
+      "potting_thickness_m": 0.0002,
+      "potting_density_kg_m3": 2290,
+      "potting_conductivity_W_m_K": 1.28,
+      "potting": "Henkel LOCTITE STYCAST2850FT CAT11",
+      "potting_source": "https://datasheets.tdx.henkel.com/LOCTITE-STYCAST-2850FT-CAT-11-en_GL.pdf",
+      "potting_density_source": "https://datasheets.tdx.henkel.com/LOCTITE-STYCAST-2850FT-en_GL.pdf",
+      "al_density_kg_m3": 2700,
+      "al_conductivity_W_m_K": 167,
+      "rear_cap_thickness_m": 0.001,
+      "spokes": 4,
+      "spoke_width_m": 0.004,
+      "spoke_thickness_m": 0.0015,
+      "spoke_length_m": 0.012,
+      "extra_rib_mass_kg": 0.0015,
+      "mounts_mass_kg_allowance": 0.002,
+      "housing_area_credit_m2": 0.0018,
+      "convection_W_m2_K": 5,
+      "air_C": 40,
+      "surface_C_for_radiation": 65,
+      "emissivity_assumption": 0.8,
+      "view_factor_assumption": 0.8,
+      "contact_spreading_K_W_assumption": 0.5,
+      "sources": {
+        "natural_convection_and_radiation": "https://ntrs.nasa.gov/api/citations/20230013900/downloads/NASA%20Thermal%20Control%20Engineering%20Guidebook%20v4.pdf?attachment=true",
+        "6061": "https://www.kaiseraluminum.com/wp-content/uploads/2016/02/6061-PDF.pdf"
+      },
+      "conditions": "Move existing cap inner stationary annulus to 0.2mm from endturns, leave rotating bell clearance. Four 4x1.5mm ribs reach external exposed plate. Credit only half bare housing area; plate must have room-air clearance and >=0.8 view factor, not trapped behind a fairing. Winding-endturn coverage/enamel resistance, black finish and mount layout require bench/CAD verification. Six individual plates overlap hip projections; shared/staggered layout remains unverified."
+    },
+    "bumper_first_candidate": {
+      "status": "STOP before CAD adoption and dynamic tipping: evaluated incomplete candidate2163.68g versus2150g; static hull coverage also fails lateral stroke. This is one candidate, not a global minimum. Canonical CAD/control unchanged.",
+      "units": "SI",
+      "design_cases": "Six passive tips only; all powered contacting falls including the40degree tumble are extreme containment cases.",
+      "foam": "Zotefoams Plastazote LD45",
+      "foam_source": "https://www.zotefoams.com/wp-content/uploads/2025/03/PIS-A013-Plastazote-LD45.pdf",
+      "foam_compression_strain": [
+        0,
+        0.25,
+        0.5
+      ],
+      "foam_compression_stress_Pa": [
+        0,
+        91000,
+        164000
+      ],
+      "foam_density_kg_m3": 47,
+      "useful_strain": 0.5,
+      "hull_sample_step_deg": 0.5,
+      "postures_deg": [
+        40,
+        60
+      ],
+      "pads": [
+        {
+          "name": "ClosureBumperFrontLeftLower",
+          "center_m": [
+            0.1512,
+            0.075,
+            -0.065
+          ],
+          "size_m": [
+            0.04,
+            0.032,
+            0.03
+          ],
+          "axis": 0
+        },
+        {
+          "name": "ClosureBumperFrontLeftUpper",
+          "center_m": [
+            0.1512,
+            0.075,
+            0.095
+          ],
+          "size_m": [
+            0.04,
+            0.032,
+            0.03
+          ],
+          "axis": 0
+        },
+        {
+          "name": "ClosureBumperFrontRightLower",
+          "center_m": [
+            0.1512,
+            -0.075,
+            -0.065
+          ],
+          "size_m": [
+            0.04,
+            0.032,
+            0.03
+          ],
+          "axis": 0
+        },
+        {
+          "name": "ClosureBumperFrontRightUpper",
+          "center_m": [
+            0.1512,
+            -0.075,
+            0.095
+          ],
+          "size_m": [
+            0.04,
+            0.032,
+            0.03
+          ],
+          "axis": 0
+        },
+        {
+          "name": "ClosureBumperRearLeftLower",
+          "center_m": [
+            -0.1212,
+            0.075,
+            -0.065
+          ],
+          "size_m": [
+            0.04,
+            0.032,
+            0.03
+          ],
+          "axis": 0
+        },
+        {
+          "name": "ClosureBumperRearLeftUpper",
+          "center_m": [
+            -0.1212,
+            0.075,
+            0.095
+          ],
+          "size_m": [
+            0.04,
+            0.032,
+            0.03
+          ],
+          "axis": 0
+        },
+        {
+          "name": "ClosureBumperRearRightLower",
+          "center_m": [
+            -0.1212,
+            -0.075,
+            -0.065
+          ],
+          "size_m": [
+            0.04,
+            0.032,
+            0.03
+          ],
+          "axis": 0
+        },
+        {
+          "name": "ClosureBumperRearRightUpper",
+          "center_m": [
+            -0.1212,
+            -0.075,
+            0.095
+          ],
+          "size_m": [
+            0.04,
+            0.032,
+            0.03
+          ],
+          "axis": 0
+        },
+        {
+          "name": "ClosureBumperSideFrontLeftLower",
+          "center_m": [
+            0.1306,
+            0.08,
+            -0.065
+          ],
+          "size_m": [
+            0.04,
+            0.04,
+            0.032
+          ],
+          "axis": 1
+        },
+        {
+          "name": "ClosureBumperSideFrontLeftUpper",
+          "center_m": [
+            0.1306,
+            0.08,
+            0.095
+          ],
+          "size_m": [
+            0.04,
+            0.04,
+            0.032
+          ],
+          "axis": 1
+        },
+        {
+          "name": "ClosureBumperSideFrontRightLower",
+          "center_m": [
+            0.1306,
+            -0.08,
+            -0.065
+          ],
+          "size_m": [
+            0.04,
+            0.04,
+            0.032
+          ],
+          "axis": 1
+        },
+        {
+          "name": "ClosureBumperSideFrontRightUpper",
+          "center_m": [
+            0.1306,
+            -0.08,
+            0.095
+          ],
+          "size_m": [
+            0.04,
+            0.04,
+            0.032
+          ],
+          "axis": 1
+        },
+        {
+          "name": "ClosureBumperSideRearLeftLower",
+          "center_m": [
+            -0.1006,
+            0.08,
+            -0.065
+          ],
+          "size_m": [
+            0.04,
+            0.04,
+            0.032
+          ],
+          "axis": 1
+        },
+        {
+          "name": "ClosureBumperSideRearLeftUpper",
+          "center_m": [
+            -0.1006,
+            0.08,
+            0.095
+          ],
+          "size_m": [
+            0.04,
+            0.04,
+            0.032
+          ],
+          "axis": 1
+        },
+        {
+          "name": "ClosureBumperSideRearRightLower",
+          "center_m": [
+            -0.1006,
+            -0.08,
+            -0.065
+          ],
+          "size_m": [
+            0.04,
+            0.04,
+            0.032
+          ],
+          "axis": 1
+        },
+        {
+          "name": "ClosureBumperSideRearRightUpper",
+          "center_m": [
+            -0.1006,
+            -0.08,
+            0.095
+          ],
+          "size_m": [
+            0.04,
+            0.04,
+            0.032
+          ],
+          "axis": 1
+        },
+        {
+          "name": "ClosureBumperTopFrontLeft",
+          "center_m": [
+            0.1306,
+            0.075,
+            0.1156
+          ],
+          "size_m": [
+            0.03,
+            0.032,
+            0.04
+          ],
+          "axis": 2
+        },
+        {
+          "name": "ClosureBumperTopFrontRight",
+          "center_m": [
+            0.1306,
+            -0.075,
+            0.1156
+          ],
+          "size_m": [
+            0.03,
+            0.032,
+            0.04
+          ],
+          "axis": 2
+        },
+        {
+          "name": "ClosureBumperTopRearLeft",
+          "center_m": [
+            -0.1006,
+            0.075,
+            0.1156
+          ],
+          "size_m": [
+            0.03,
+            0.032,
+            0.04
+          ],
+          "axis": 2
+        },
+        {
+          "name": "ClosureBumperTopRearRight",
+          "center_m": [
+            -0.1006,
+            -0.075,
+            0.1156
+          ],
+          "size_m": [
+            0.03,
+            0.032,
+            0.04
+          ],
+          "axis": 2
+        }
+      ],
+      "frame_members": [
+        {
+          "name": "BumperFrameLeftFrontPost",
+          "a_m": [
+            0.1306,
+            0.075,
+            -0.065
+          ],
+          "b_m": [
+            0.1306,
+            0.075,
+            0.095
+          ]
+        },
+        {
+          "name": "BumperFrameLeftFrontStandOff",
+          "a_m": [
+            0.068,
+            0.024,
+            0.025
+          ],
+          "b_m": [
+            0.1306,
+            0.075,
+            0.025
+          ]
+        },
+        {
+          "name": "BumperFrameLeftFrontLowerTie",
+          "a_m": [
+            0.1306,
+            0.0594,
+            -0.065
+          ],
+          "b_m": [
+            0.1306,
+            0.075,
+            -0.065
+          ]
+        },
+        {
+          "name": "BumperFrameLeftFrontUpperTie",
+          "a_m": [
+            0.1306,
+            0.0594,
+            0.095
+          ],
+          "b_m": [
+            0.1306,
+            0.075,
+            0.095
+          ]
+        },
+        {
+          "name": "BumperFrameLeftRearPost",
+          "a_m": [
+            -0.1006,
+            0.075,
+            -0.065
+          ],
+          "b_m": [
+            -0.1006,
+            0.075,
+            0.095
+          ]
+        },
+        {
+          "name": "BumperFrameLeftRearStandOff",
+          "a_m": [
+            -0.031,
+            0.024,
+            0.025
+          ],
+          "b_m": [
+            -0.1006,
+            0.075,
+            0.025
+          ]
+        },
+        {
+          "name": "BumperFrameLeftRearLowerTie",
+          "a_m": [
+            -0.1006,
+            0.0594,
+            -0.065
+          ],
+          "b_m": [
+            -0.1006,
+            0.075,
+            -0.065
+          ]
+        },
+        {
+          "name": "BumperFrameLeftRearUpperTie",
+          "a_m": [
+            -0.1006,
+            0.0594,
+            0.095
+          ],
+          "b_m": [
+            -0.1006,
+            0.075,
+            0.095
+          ]
+        },
+        {
+          "name": "BumperFrameLeftUpperRail",
+          "a_m": [
+            -0.1006,
+            0.075,
+            0.095
+          ],
+          "b_m": [
+            0.1306,
+            0.075,
+            0.095
+          ]
+        },
+        {
+          "name": "BumperFrameRightFrontPost",
+          "a_m": [
+            0.1306,
+            -0.075,
+            -0.065
+          ],
+          "b_m": [
+            0.1306,
+            -0.075,
+            0.095
+          ]
+        },
+        {
+          "name": "BumperFrameRightFrontStandOff",
+          "a_m": [
+            0.068,
+            -0.024,
+            0.025
+          ],
+          "b_m": [
+            0.1306,
+            -0.075,
+            0.025
+          ]
+        },
+        {
+          "name": "BumperFrameRightFrontLowerTie",
+          "a_m": [
+            0.1306,
+            -0.0594,
+            -0.065
+          ],
+          "b_m": [
+            0.1306,
+            -0.075,
+            -0.065
+          ]
+        },
+        {
+          "name": "BumperFrameRightFrontUpperTie",
+          "a_m": [
+            0.1306,
+            -0.0594,
+            0.095
+          ],
+          "b_m": [
+            0.1306,
+            -0.075,
+            0.095
+          ]
+        },
+        {
+          "name": "BumperFrameRightRearPost",
+          "a_m": [
+            -0.1006,
+            -0.075,
+            -0.065
+          ],
+          "b_m": [
+            -0.1006,
+            -0.075,
+            0.095
+          ]
+        },
+        {
+          "name": "BumperFrameRightRearStandOff",
+          "a_m": [
+            -0.031,
+            -0.024,
+            0.025
+          ],
+          "b_m": [
+            -0.1006,
+            -0.075,
+            0.025
+          ]
+        },
+        {
+          "name": "BumperFrameRightRearLowerTie",
+          "a_m": [
+            -0.1006,
+            -0.0594,
+            -0.065
+          ],
+          "b_m": [
+            -0.1006,
+            -0.075,
+            -0.065
+          ]
+        },
+        {
+          "name": "BumperFrameRightRearUpperTie",
+          "a_m": [
+            -0.1006,
+            -0.0594,
+            0.095
+          ],
+          "b_m": [
+            -0.1006,
+            -0.075,
+            0.095
+          ]
+        },
+        {
+          "name": "BumperFrameRightUpperRail",
+          "a_m": [
+            -0.1006,
+            -0.075,
+            0.095
+          ],
+          "b_m": [
+            0.1306,
+            -0.075,
+            0.095
+          ]
+        }
+      ],
+      "frame_square_outer_m": 0.008,
+      "frame_wall_m": 0.001,
+      "backing_plate_thickness_m": 0.0012,
+      "frame_material": "aluminium",
+      "frame_mount_bolts": {
+        "count": 16,
+        "thread": "M3",
+        "length_m": 0.012,
+        "washers_per_screw": 1,
+        "basis": "Positive frame attachment and pad retainers, not foam adhesive alone; native holes and occupancy not yet adopted.",
+        "clearance_diameter_m": 0.0032
+      },
+      "assumptions": "Linear interpolation of typical supplier foam values to50percent; no load or strain clipping; same0.5..4 stiffness uncertainty as prior screen. Enclosing boxes are optimistic for rounded-hull coverage. Frame backings and tube mass/tensors are included in candidate tip plant. Closed tube collision envelopes fill hollow centers. Nominal CAD/control remains the reference; no claim of passing retention until actual attachments and containment are verified. Upper rails and isolated posts replace intersecting lower rails/diagonal braces. Four standoffs terminate at existing spine edges; bolted tube/frame joints require explicit retention and strength checks. Only nominal and70mm crouch preliminary fit is checked before the mass gate; folded/all-pose fit is not implied.",
+      "foam_density_specification_source": "https://www.zotefoams.com/wp-content/uploads/2025/03/TIS-01-Product-Specification.pdf",
+      "native_mass_source": "artifacts/milestone-9/bumper-first/native-mass.json"
+    }
+  },
+  "m10": {
+    "status": "Phase A concept, blockout fidelity. Serial legs after the reference robot; not yet a plant or CAD acceptance.",
+    "frame": "Body frame: origin at the hip axis on the midplane, x forward, y left, z up. Ground poses are derived from hip height and leg kinematics.",
+    "reference": {
+      "name": "Mondo Robotics camera robot",
+      "mass_kg": 1.75,
+      "envelope_lwh_m": [
+        0.215,
+        0.18,
+        0.18
+      ],
+      "source": "mondorobotics.com listing; layout interpreted from product photos (newatlas.com gallery)"
+    },
+    "targets": {
+      "envelope_lwh_m": [
+        0.215,
+        0.18,
+        0.18
+      ],
+      "width_tolerance_m": 0.01,
+      "allocated_mass_ceiling_kg": 2.15,
+      "minimum_reserve_kg": 0.15,
+      "drive_envelope": {
+        "speed_m_s": 1.2,
+        "acceleration_m_s2": 1.25,
+        "yaw_rate_rad_s": 1.0,
+        "yaw_acceleration_rad_s2": 1.25,
+        "reverse_speed_m_s": 0.3,
+        "brake_deceleration_m_s2": 1.0,
+        "basis": "M12 phase A following envelope (artifacts/m12/requirements/requirements.json), signed off by the user on 20 October 2026. speed_m_s sets the M10 firmware command gate (sizing.drive_speed, BIPE_DRIVE_SPEED); the yaw gate is 1.0 rad/s in the firmware. Reverse and brake are follower limits (phase D)."
+      }
+    },
+    "body": {
+      "length": 0.15,
+      "width": 0.107,
+      "height": 0.08,
+      "hip_x": 0.01,
+      "hip_z_above_bottom": 0.042,
+      "edge_radius": 0.012,
+      "front_cameras": {
+        "diameter": 0.012,
+        "spacing_y": 0.052,
+        "z_above_bottom": 0.02
+      }
+    },
+    "head": {
+      "pod_width_y": 0.094,
+      "pod_depth_x": 0.06,
+      "pod_height": 0.044,
+      "eye_diameter": 0.035,
+      "eye_spacing_y": 0.05,
+      "eye_protrusion": 0.0,
+      "camera_window": [
+        0.014,
+        0.012
+      ],
+      "neck_height": 0.01,
+      "neck_diameter": 0.04,
+      "x": 0.045,
+      "ear": {
+        "length": 0.04,
+        "width": 0.03,
+        "thickness": 0.007,
+        "y": 0.042,
+        "tilt_deg": 30,
+        "face_yaw_deg": 25,
+        "splay_deg": 15
+      },
+      "pan_reserve_mass_kg": 0.04
+    },
+    "leg": {
+      "thigh_length": 0.07,
+      "shin_length": 0.062,
+      "thigh_width": 0.044,
+      "thigh_y": [
+        0.0565,
+        0.0795
+      ],
+      "shin_width": 0.022,
+      "shin_y": [
+        0.0795,
+        0.0855
+      ],
+      "hip_housing_diameter": 0.064,
+      "hip_housing_y": [
+        0.0515,
+        0.0565
+      ],
+      "knee_configuration": "Knee behind the hip-axle line, as on the reference robot: the thigh runs back and down from the hip and the short shin runs forward and down to the axle",
+      "drive": "Rear motor row (B2.1 option A): four RO40 Lite modules on one transverse axis 40 mm behind the hip, each with a 4:1 2GT belt to concentric output pulleys in the round hip housing; the knee output continues through a 1:1 belt inside the thigh",
+      "knee": "back"
+    },
+    "wheel": {
+      "diameter": 0.072,
+      "width": 0.028,
+      "y_center": 0.1,
+      "hub_motor_candidate": "CubeMars GL40 KV70",
+      "hub_motor_envelope": [
+        0.0465,
+        0.0215
+      ]
+    },
+    "poses": {
+      "nominal_hip_height": 0.103,
+      "crouched_hip_height": 0.072,
+      "extended_hip_height": 0.135
+    },
+    "mass_budget_kg": {
+      "battery_6S_850": 0.165,
+      "electronics_six_moteus_c1_carrier_power": 0.082,
+      "hip_modules_four_RO40_with_reductions_bearings": 0.52,
+      "thigh_shin_structure_and_knee_belts": 0.12,
+      "leg_covers": 0.03,
+      "hub_motors_two_GL40": 0.214,
+      "wheel_rims_tires_encoders": 0.06,
+      "body_shell_and_frame": 0.23,
+      "head_pod_eyes_ears_neck": 0.076,
+      "head_pan_reserve": 0.04,
+      "harness": 0.06,
+      "fasteners": 0.06
+    },
+    "mass_basis": "Concept allocation: M9 catalog masses where parts carry over (RO40, moteus-c1, pack); GL40 catalog 107 g; shells and structure are estimates to be replaced by CAD mass properties in phase B.",
+    "exterior": {
+      "status": "Phase B1 styling parameters; appearance only, internals pending B2",
+      "colors_srgb": {
+        "shell": [
+          0.88,
+          0.87,
+          0.85
+        ],
+        "shell_dark": [
+          0.78,
+          0.78,
+          0.76
+        ],
+        "panel": [
+          0.79,
+          0.79,
+          0.77
+        ],
+        "tire": [
+          0.42,
+          0.42,
+          0.42
+        ],
+        "hub": [
+          0.8,
+          0.8,
+          0.78
+        ],
+        "eye": [
+          0.86,
+          0.93,
+          1.0
+        ],
+        "lens": [
+          0.05,
+          0.06,
+          0.07
+        ],
+        "ear": [
+          0.08,
+          0.08,
+          0.09
+        ],
+        "bolt": [
+          0.62,
+          0.62,
+          0.6
+        ],
+        "stop_pad": [
+          0.2,
+          0.2,
+          0.21
+        ],
+        "camera": [
+          0.13,
+          0.13,
+          0.14
+        ]
+      },
+      "head": {
+        "base_flat_from_bottom": 0.0015,
+        "front_recess": 0.0015,
+        "eye_rim_recess": 0.0015,
+        "camera_bezel": [
+          0.011,
+          0.014
+        ],
+        "camera_lens_diameter": 0.007,
+        "camera_drop_z": 0.0035,
+        "web_height_ratio": 1.5,
+        "fillet": 0.002,
+        "rear_round": 0.009,
+        "camera_pitch_deg": 15,
+        "camera_bezel_basis": "Bezel narrowed from 16 mm so the separate bezel insert and its seat clear the eye lens recesses (inner eye edges at y = +/-7.0 mm) by a printable wall"
+      },
+      "thigh": {
+        "hip_radius": 0.025,
+        "knee_radius": 0.023,
+        "knee_radius_basis": "Phase D4 knee stop B (user decision 13 October 2026): 19 -> 23 mm so the arc-slot groove (m10.internals.knee_stop) sits inside the knee end with a 5.5 mm rim to the edge fillet",
+        "edge_fillet": 0.005,
+        "hip_cap_radius": 0.019,
+        "hip_cap_depth": 0.0014,
+        "panel_length": 0.026,
+        "panel_width": 0.022,
+        "panel_at": 0.5,
+        "knee_bolt_diameter": 0.007,
+        "knee_bolt_proud": 0.0012,
+        "panel_depth": 0.0014,
+        "panel_gap": 0.0007
+      },
+      "shin": {
+        "knee_radius": 0.012,
+        "axle_radius": 0.015,
+        "edge_fillet": 0.002
+      },
+      "hip_housing": {
+        "flange_proud": 0.001
+      },
+      "wheel": {
+        "tire_section": 0.01,
+        "shoulder_fillet": 0.007,
+        "hub_recess": 0.0015,
+        "blades": 3,
+        "blade_width": 0.002,
+        "blade_height": 0.0015,
+        "hub_cap_diameter": 0.01,
+        "tread_rows": 3,
+        "tread_per_row": 48,
+        "tread_knob": [
+          0.0025,
+          0.0025,
+          0.0008
+        ],
+        "tread_row_pitch": 0.0035
+      }
+    },
+    "layout": {
+      "basis": "B2.1 hip packaging study option A (user choice 12 October 2026); hip frame, SI",
+      "motor_row_x": -0.04153,
+      "motor_row_z": 0.0,
+      "hip_module_mass_at_hip_kg": 0.048,
+      "battery_x": 0.0435,
+      "battery_z": 0.0,
+      "electronics_x": -0.013,
+      "electronics_z": 0.0
+    },
+    "internals": {
+      "status": "Phase B2 internal parts, v1; envelopes from catalogs and manufacturer drawings, stated assumptions otherwise",
+      "units": "SI; hip frame (x forward, y left, z up), per side mirrored in y",
+      "wall": 0.002,
+      "inner_edge_radius": 0.01,
+      "y_stack": {
+        "bulkhead_half": 0.004,
+        "clearance": 0.0005,
+        "pulley_width": 0.007,
+        "motor_module_width": 0.0155,
+        "basis": "outward: bulkhead | knee 80T pulley | knee motor | thigh motor | thigh 80T pulley | side wall"
+      },
+      "motor_module": {
+        "model": "CubeMars RO40 KV140 Lite frameless + housing, bearings, AS5047P",
+        "diameter": 0.0493,
+        "shaft_diameter": 0.008,
+        "source": "M9 joint_drive housing_outer_radius and housing_y; RO40 2D drawing"
+      },
+      "hip_belt": {
+        "profile": "2GT (2MGT) 6 mm",
+        "pitch": 0.002,
+        "small_teeth": 20,
+        "large_teeth": 80,
+        "belt_teeth": 96,
+        "belt_pitch_length": 0.192,
+        "flange_proud": 0.001,
+        "belt_thickness": 0.00152,
+        "belt_thickness_basis": "Gates 2MGT overall belt thickness 0.060 in = 1.52 mm (ref), Light Power & Precision manual Table 15; the CAD draws the hip and knee belts with it. Was 1.1 mm, which is the 2MGT minimum flange height (Table 22), found by the Grok parts check and verified 17 October 2026",
+        "centre_distance": 0.04153
+      },
+      "knee_belt": {
+        "profile": "2GT (2MGT) 9 mm",
+        "pitch": 0.002,
+        "teeth": 40,
+        "belt_teeth": 110,
+        "belt_pitch_length": 0.22,
+        "pulley_width": 0.0105,
+        "belt_width": 0.009,
+        "tensioning": "eccentric knee bearing seats (assumption)",
+        "rating_screen": {
+          "source": "Gates Light Power & Precision manual p17, 2MGT rated torque, 6 mm base width (m9 sources.belt)",
+          "base_Nm_40T": {
+            "10_rpm": 2.98,
+            "100_rpm": 2.2
+          },
+          "base_basis": "linear between 38T (2.84, 2.10) and 45T (3.33, 2.46)",
+          "width_factor_9mm": 1.64,
+          "length_factor_110T": 0.95,
+          "corrected_Nm": {
+            "10_rpm": 4.64,
+            "100_rpm": 3.43
+          },
+          "peak_load_Nm": 2.16,
+          "service_factor_at_peak": {
+            "10_rpm": 2.15,
+            "100_rpm": 1.59
+          },
+          "teeth_in_mesh": 20,
+          "result": "Pass: peak within rating with service factor >= 1.5; continuous 0.72 N m has factor >= 4.7"
+        }
+      },
+      "inner_shaft": {
+        "diameter": 0.01,
+        "end_diameter": 0.008,
+        "material": "7075-T6",
+        "bulkhead_bearing": "688A 8x16x4 (m10.structure.bearings; MR128 before phase D4)",
+        "end_bearing": "688A 8x16x4 (m10.structure.bearings; MR128 before phase D4)",
+        "sleeve": "iglidur 10x12 in outer shaft"
+      },
+      "outer_shaft": {
+        "outer_diameter": 0.02,
+        "inner_diameter": 0.012,
+        "material": "7075-T6",
+        "bearings": "2x 6704 20x27x4: hip bracket and hip pod",
+        "inboard_y": 0.0365
+      },
+      "bearings": {
+        "MR128": [
+          0.008,
+          0.012,
+          0.0035
+        ],
+        "6704": [
+          0.02,
+          0.027,
+          0.004
+        ],
+        "6800": [
+          0.01,
+          0.019,
+          0.005
+        ],
+        "688A": [
+          0.008,
+          0.016,
+          0.004
+        ],
+        "6700": [
+          0.01,
+          0.015,
+          0.004
+        ]
+      },
+      "hip_bracket": {
+        "hub_diameter": 0.031,
+        "arm_x": [
+          0.0285,
+          0.0345
+        ],
+        "thickness": 0.005,
+        "material": "PA12-CF (assumption)"
+      },
+      "bulkhead": {
+        "x": [
+          -0.068,
+          0.0255
+        ],
+        "z": [
+          -0.024,
+          0.024
+        ],
+        "material": "6061-T6"
+      },
+      "knee": {
+        "shaft_diameter": 0.01,
+        "boss_diameter": 0.023,
+        "boss_proud": 0.002,
+        "boss_basis": "Phase D4: 2 mm PA12 wall around the 19 mm 6800 seat (B3: 19 mm boss on the 15 mm 6700)"
+      },
+      "hip_flange": {
+        "diameter": 0.036,
+        "thickness": 0.0015,
+        "material": "al7075",
+        "screws": 6,
+        "screw_circle_diameter": 0.026,
+        "screw_phase_deg": 30,
+        "screw_basis": "26 mm circle, first screw 30 deg from the thigh axis, 60 deg pitch: 1.9 mm ligament to the 20 mm bore, and the holes (local stress raisers in the closed cell) lie between the 8.4 and 14 mm thigh section stations",
+        "screw_clearance_diameter": 0.0022,
+        "countersink_diameter": 0.004,
+        "basis": "Phase D4 (user decision 13 October 2026): 7075 flange machined integral with the outer shaft's thigh end, on the cavity side of the thigh inner wall; six M2 countersunk screws from the inner wall's outer face into tapped holes in the flange. It bridges the 20 mm bore that opens the hip-end thigh section, so the section works as a closed cell in torsion"
+      },
+      "battery": {
+        "envelope_xyz": [
+          0.032,
+          0.047,
+          0.065
+        ],
+        "x_front_from_interior": 0.0035,
+        "model": "Tattu R-Line v5 850 mAh 6S, TA-RL5-150C-850-6S1P. Envelope is the catalog maximum: nominal 60 x 30 x 45 mm (L x W x H) with tolerances L +/-5, W +/-2, H +/-2 mm (GensTattu product page), so 65 x 32 x 47 mm"
+      },
+      "moteus": {
+        "envelope": [
+          0.038,
+          0.038,
+          0.009
+        ],
+        "count": 6
+      },
+      "electronics": {
+        "status": "M11 phase D step 5: the carrier and power board come from their KiCad layouts (artifacts/m11/boards/<board>/envelopes.json placed with m10.electronics.boards); the other parts are catalog envelopes at the probed placements (cad/m11/packaging_probe.py, body frame)",
+        "pi_zero_box_m": [-0.081, -0.075, -0.0325, 0.0325, -0.012, 0.018],
+        "pi_zero_basis": "Raspberry Pi Zero 2 W, 65 x 30 mm board standing in the y-z plane against the rear wall; 6 mm envelope (1 mm PCB, parts on both sides); reserved for vision, not wired to the controller",
+        "bec_box_m": [-0.0115, 0.0235, -0.02275, -0.01725, 0.007, 0.031],
+        "bec_basis": "Matek BEC12S-PRO, 35 x 24 x 5.5 mm (retailer listings), standing in the x-z plane mirrored from the carrier slot",
+        "switch": {
+          "model": "SS12D00G2-class miniature SPDT slide switch (8.6 x 3.6 x 3.5 mm body, 2 mm actuator, 3 mm travel; typical datasheet values, part to be chosen at order)",
+          "centre_yz_m": [0.0363, -0.0235],
+          "body_xyz_m": [0.0035, 0.0086, 0.0036],
+          "actuator_yz_m": [0.002, 0.0015],
+          "actuator_length_m": 0.002,
+          "travel_m": 0.003,
+          "slot_clearance_m": 0.00025,
+          "basis": "On the flat rear wall (user decision 18 October 2026): body against the wall's inner face, actuator through a slot in the 2 mm wall and flush with its outer face, so the rear fall surface is unchanged; switches only the LM5060 EN/UVLO divider"
+        }
+      },
+      "hub": {
+        "motor": "CubeMars GL40 KV70",
+        "motor_envelope": [
+          0.0465,
+          0.0215
+        ],
+        "mount": "stator base 4xM3 on 24 mm and 4xM2.5 on 40 mm; rotor face 4xM3 on 24 mm; 8 mm through bore",
+        "drawing": "https://www.cubemars.com/data/cms/202602/gl40-gimbal-motor-2d-drawing.pdf",
+        "axle_tube": [
+          0.008,
+          0.005
+        ],
+        "rotor_gap": 0.0005,
+        "encoder": "AS5047P on the fixed axle end reading a 6x1 mm diametric magnet in the hub wall",
+        "encoder_pcb": [
+          0.014,
+          0.0016
+        ],
+        "chip_height": 0.001,
+        "magnet": [
+          0.006,
+          0.001
+        ],
+        "air_gap": 0.0006,
+        "hub_wall": 0.0021,
+        "cavity_clearance": 0.0005
+      },
+      "head": {
+        "camera_module": [
+          0.025,
+          0.024,
+          0.0115
+        ],
+        "camera_model": "Raspberry Pi Camera Module 3 (envelope)",
+        "camera_board_stack": 0.0025,
+        "camera_lens_block": [
+          0.0085,
+          0.009
+        ],
+        "camera_lens_centre_from_bottom": 0.0095,
+        "camera_note": "lens block and lens offset are assumptions; verify against the official Camera Module 3 mechanical drawing",
+        "led_board": [
+          0.024,
+          0.0016
+        ],
+        "led_board_set_back": 0.006,
+        "shell_wall": 0.0016,
+        "eye_lens_ledge": 0.0015,
+        "camera_bezel_gap": 0.0002
+      },
+      "build": {
+        "status": "Phase B3 buildability features (envelope fidelity)",
+        "shell_split_z": 0.0,
+        "shell_split_basis": "Split at the hip axis so the pre-assembled drive module (bulkhead, motors, belts, shafts) drops into the tub; the hip pods are bolt-on bearing housings spanning the split",
+        "pod_spigot_radial": 0.003,
+        "screw_columns_xy": [
+          [
+            -0.07,
+            0.04
+          ],
+          [
+            0.049,
+            0.04
+          ]
+        ],
+        "screw_column_diameter": 0.008,
+        "screw": "M2.5 into brass heat-set inserts, SPIROL INS 19/M2.5 long (item 150989: overknurl 4.75 mm, length 5.74 mm, pilot 3.91 mm; recommended hole 3.99 +0.08/-0 mm, SPIROL shop item page), in a 3.99 x 6 mm hole, screwed from below. Was a 3.6 mm hole, the M2 insert's overknurl (Grok parts check, verified 17 October 2026)",
+        "screw_clearance_diameter": 0.0029,
+        "screw_counterbore": [
+          0.005,
+          0.003
+        ],
+        "insert_hole": [
+          0.00399,
+          0.006
+        ],
+        "battery_hatch_margin": [
+          0.001,
+          0.0015
+        ],
+        "battery_hatch_top_z": -0.03,
+        "hatch_gap": 0.0003,
+        "bulkhead_feet_x": [
+          [
+            -0.066,
+            -0.06
+          ],
+          [
+            0.016,
+            0.022
+          ]
+        ],
+        "bulkhead_holes_xzd": [
+          [
+            -0.025,
+            0.0,
+            0.014
+          ],
+          [
+            -0.025,
+            0.016,
+            0.01
+          ],
+          [
+            -0.025,
+            -0.016,
+            0.01
+          ],
+          [
+            -0.049,
+            0.0,
+            0.01
+          ],
+          [
+            -0.06,
+            0.014,
+            0.01
+          ],
+          [
+            -0.06,
+            -0.014,
+            0.01
+          ],
+          [
+            0.01,
+            0.015,
+            0.01
+          ],
+          [
+            0.01,
+            -0.015,
+            0.01
+          ]
+        ],
+        "motor_standoffs": {
+          "diameter": 0.005,
+          "radius": 0.0177,
+          "angles_deg": [
+            100,
+            180,
+            260
+          ],
+          "tension": "slotted bulkhead holes, +-0.7 mm along x as in M9",
+          "tension_half_travel": 0.0007
+        },
+        "motor_saddle": {
+          "half_angle_deg": 50,
+          "thickness": 0.003,
+          "tension": "saddle screws to the hip bracket through slots along x"
+        },
+        "head_split_x_from_centre": 0.005,
+        "neck_bore_diameter": 0.012,
+        "knee_belt_tension": "eccentric 6800 seats in the thigh, 0.5 mm eccentricity (assumption); 120 N per span",
+        "inner_shaft_end_inset": 0.0014,
+        "screw_columns_basis": "On the flat floor and ceiling, clear of the edge fillets, so the counterbore keeps the full wall; 1.5 mm ring around the counterbore",
+        "battery_hatch_front_cut_deg": 50,
+        "battery_hatch_front_basis": "Front edge on a radial plane through the shared centre of the inner and outer front-bottom fillets (square edges); 50 deg puts the inner-wall opening at x 60.7 mm, past the battery front at 59.5 mm",
+        "inner_shaft_end_basis": "End 688A seats up to the hip-cap pocket floor; the cap retains it"
+      },
+      "thigh_outer_wall": 0.003,
+      "thigh_outer_wall_basis": "Outer wall under the 1.4 mm panel and hip-cap pockets keeps a 1.6 mm floor",
+      "knee_stop": {
+        "type": "arc slot (phase D4 option B, user decision 13 October 2026)",
+        "pin": "ISO 8734 5 x 8 m6 hardened steel dowel, pressed into a blind hole in the shin's inner face",
+        "pin_diameter": 0.005,
+        "pin_length": 0.008,
+        "pin_press_depth": 0.0044,
+        "pin_circle_radius": 0.0145,
+        "pin_offset_deg": 22.0,
+        "pin_offset_basis": "Pin 22 deg off the shin axis (towards larger knee angle) so its 5 mm hole clears the 3.2 mm harness channel on the axis by about 1.3 mm",
+        "groove_radial_width": 0.006,
+        "groove_depth": 0.004,
+        "floor_clearance": 0.0004,
+        "boss_margin": 0.002,
+        "pad_length": 0.012,
+        "pad_top_recess": 0.0002,
+        "pad_material": "tpu",
+        "basis": "Groove in the thigh lid's outer face on the pin circle, from the 75 deg to the 176 deg stop (m10.physics.end_stops_deg.knee_angle) plus the pin and a 12 mm TPU 88A pad at each end; the pad face (6 x 4 mm, 24 mm2) and length match m10.physics.end_stop_pads.joints.knee_angle. The lid is solid behind the groove from the lid split to the outer wall, out to the groove radius plus boss_margin. Peak D4 fall stop torque 3.95 Nm (sideways_rest) = 272 N at 14.5 mm: pin shear about 14 MPa, bending about 51 MPa over 2.3 mm, PA12 groove-end bearing about 11 MPa."
+      },
+      "end_stops": {
+        "type": "hidden arc slots for thigh_a1 and knee_drive_a2 (phase D4 option A, user decision 18 October 2026)",
+        "pin": "ISO 8734 5 m6 hardened steel dowels. Hip: 5 x 10 pressed through the 7075 hip bracket arm into a groove in the inboard face of the thigh 80T pulley. Knee drive: one 5 x 16 through the bulkhead, its ends in grooves in the inboard faces of both knee 80T pulleys",
+        "pin_diameter": 0.005,
+        "hip_pin_length": 0.01,
+        "knee_drive_pin_length": 0.016,
+        "pin_circle_radius": 0.02,
+        "hip_pin_angle_deg": 0.0,
+        "knee_drive_pin_angle_deg": 180.0,
+        "pin_angle_basis": "Polar angle about the hip axis in the body x-z plane, from +x towards +z. The hip dowel sits in the bracket arm (x 8..34.5 mm, z +-6 mm) ahead of the hub; the knee-drive dowel sits behind the hip axis in the bulkhead, clear of the 688A seat and the standoff slots. The look study's hip dowel in the PA12 tub wall was moved here: rigid-pin seat pressure (F/dL)(4 + 6a/L) there was about 36 MPa, over the 25.2 MPa PA12 allowable",
+        "groove_radial_width": 0.006,
+        "groove_depth": 0.004,
+        "floor_clearance": 0.0005,
+        "pad_length": 0.008,
+        "pad_top_recess": 0.0002,
+        "pad_material": "tpu",
+        "basis": "Groove on the pin circle over the stop range (m10.physics.end_stops_deg) plus the pin's half angle and an 8 mm TPU 88A pad at each end; the pad face (6 x 3.8 mm, 22.8 mm2), length and radius match m10.physics.end_stop_pads.joints. Peak D4 fall stop torques 2.66 Nm (hip) and 3.66 Nm (knee drive) = 133 N and 183 N at 20 mm. Hip dowel: 7075 seat pressure (F/dL)(4 + 6a/L) about 43 MPa (L 5, a 3.35 mm), bending about 36 MPa. Knee-drive dowel, one end loaded: 6061 seat about 26 MPa (L 8, a 2.35 mm), bending about 35 MPa. Pad strain 0.08 / 0.11."
+      },
+      "harness": {
+        "route": "Hollow knee drive (user decision 12 October 2026): body -> port in the inner shaft at the hip axis -> inner-shaft bore -> port in the thigh wire gallery -> bundle along the gallery -> port in the knee shaft -> knee-shaft bore -> channel inside the shin -> axle-tube bore -> GL40 leads and encoder board",
+        "bundle_diameter": 0.0026,
+        "bundle_basis": "3 x AWG26 silicone phase leads (1.0 mm OD) and 6 x AWG30 encoder leads (0.6 mm OD), 0.75 packing (assumption)",
+        "shaft_bore_diameter": 0.005,
+        "port_diameter": 0.003,
+        "body_port_y": 0.024,
+        "gallery_basis": "Thigh 3 mm thicker (thigh_y outer 74.5 -> 77.5 mm) so the hip and knee shafts are exposed between the knee-belt pulleys and the outer bearings; the bundle runs midway between the hip pulley and the end bearing. Phase D4: the thigh grows another 2.0 mm (outer 79.5 mm) for the 1.5 mm hip flange and the 0.5 mm wider 688A end bearing, which keeps the 3.1 mm gallery",
+        "shin_channel_diameter": 0.0032,
+        "twist_deg": {
+          "inner_shaft_to_body": "shin angle a2 range",
+          "shaft_to_thigh": "knee angle range"
+        },
+        "gl40_leads": "Leads enter the axle tube through a slot inside the GL40 8 mm through-bore (assumption; check against the GL40 drawing)"
+      }
+    },
+    "mass_properties": {
+      "status": "Phase B3 CAD mass basis: densities and catalog masses from the M9 sourced catalog (m9_cad.parameters.materials, catalog, sources) unless noted; assumptions are marked",
+      "density_kg_m3": {
+        "pa12": 930,
+        "tpu": 1100,
+        "aluminium": 2700,
+        "al7075": 2810,
+        "steel": 7850,
+        "fr4": 1850,
+        "pmma": 1180,
+        "magnet": 7500,
+        "epoxy": 2000,
+        "belt": 1300,
+        "iglidur_g": 1460,
+        "ld45": 47
+      },
+      "part_material": {
+        "BodyShell": "pa12",
+        "BodyCover": "pa12",
+        "BodyTub": "pa12",
+        "BatteryHatch": "pa12",
+        "HeadFront": "pa12",
+        "HeadRear": "pa12",
+        "ThighLid": "pa12",
+        "MotorStandoff": "aluminium",
+        "HeadPod": "pa12",
+        "Neck": "pa12",
+        "Ear": "tpu",
+        "HipHousing": "pa12",
+        "Thigh": "pa12",
+        "ThighPanel": "pa12",
+        "HipCap": "pa12",
+        "Shin": "al7075",
+        "HubDisc": "pa12",
+        "HubBlade": "pa12",
+        "HubCap": "pa12",
+        "HipBracket": "al7075",
+        "KneeBoss": "pa12",
+        "FrontCameraBezel": "pa12",
+        "CameraBezel": "pa12",
+        "EyeLens": "pmma",
+        "FrontCameraLens": "pmma",
+        "CameraLens": "pmma",
+        "HeadScrew": "steel",
+        "KneeBolt": "steel",
+        "CameraRing": "aluminium",
+        "KneeMotorShaft": "steel",
+        "ThighMotorShaft": "steel",
+        "Tire": "tpu",
+        "Tread": "tpu",
+        "InnerShaft": "al7075",
+        "InnerShaftEnds": "al7075",
+        "OuterShaft": "al7075",
+        "HipFlange": "al7075",
+        "SkidPad": "ld45",
+        "SkidSkin": "tpu",
+        "KneeStopPad": "tpu",
+        "KneeStopPin": "steel",
+        "HipStopPad": "tpu",
+        "HipStopPin": "steel",
+        "KneeDriveStopPad": "tpu",
+        "KneeDriveStopPin": "steel",
+        "WheelRing": "ld45",
+        "WheelRingSkin": "tpu",
+        "WheelRingCarrier": "pa12",
+        "KneeShaft": "al7075",
+        "AxleTube": "al7075",
+        "Bulkhead": "aluminium",
+        "KneeMotorPulley": "aluminium",
+        "ThighMotorPulley": "aluminium",
+        "KneeHipPulley": "aluminium",
+        "KneeBeltHipPulley": "aluminium",
+        "ThighHipPulley": "aluminium",
+        "KneePulley": "aluminium",
+        "KneeHipBelt": "belt",
+        "ThighHipBelt": "belt",
+        "KneeBelt": "belt",
+        "Sleeve": "iglidur_g",
+        "EncoderPCB": "fr4",
+        "CarrierPCB": "fr4",
+        "PowerPCB": "fr4",
+        "EyeLEDBoard": "fr4",
+        "EncoderChip": "epoxy",
+        "EncoderMagnet": "magnet"
+      },
+      "bearing_parts": [
+        "BulkheadBearing",
+        "InnerShaftEndBearing",
+        "HipInnerBearing",
+        "HipPodBearing",
+        "KneeInnerBearing",
+        "KneeOuterBearing"
+      ],
+      "bearing_fill_factor": 0.67,
+      "bearing_fill_basis": "Catalog mass over solid steel ring volume for the M9 catalog 688 (0.68) and 6804 (0.67)",
+      "catalog_kg": {
+        "KneeMotor": 0.09,
+        "ThighMotor": 0.09,
+        "HubStatorBase": 0.055,
+        "HubRotor": 0.052,
+        "Battery": 0.165,
+        "Moteus": 0.0089,
+        "Teensy": 0.0051,
+        "CarrierParts": 0.0008,
+        "PowerParts": 0.001,
+        "BEC": 0.005,
+        "PiZero": 0.01,
+        "PowerSwitch": 0.001,
+        "CameraBoard": 0.0025,
+        "CameraLensBlock": 0.0015,
+        "HarnessThigh": 0.0,
+        "HarnessShin": 0.0,
+        "HarnessLoopBody": 0.0,
+        "HarnessLoopHip": 0.0,
+        "HarnessLoopKnee": 0.0
+      },
+      "catalog_basis": {
+        "KneeMotor": "RO40 KV140 Lite frameless 0.060 (catalog) + housing, two bearings, AS5047P board 0.030 (assumption)",
+        "HubStatorBase": "GL40 KV70 0.107 total (CubeMars); stator/rotor split 0.055/0.052 is an assumption",
+        "Battery": "Tattu R-Line v5 850 mAh 6S: catalog net weight 145 g +/-20 g (GensTattu product page); 0.165 kg is the upper tolerance, kept as the conservative mass",
+        "Moteus": "moteus-c1 (catalog)",
+        "Teensy": "PJRC Teensy 4.0 (no published mass; about 3 g assumed) with two 1x14 2.54 mm headers (about 0.075 g per pin)",
+        "CarrierParts": "Carrier SMD parts (MCP2562FD, LSM6DSO, AHCT125, BAT54S, 0603/0805 passives) and the B7B/B3B PH headers, about 0.8 g (assumption); the mated plugs are in the harness allowance",
+        "PowerParts": "Power board parts (AOD4184A TO-252, SMBJ30A, LM5060, 1206/0603 passives) and the B3B/B2B PH headers, about 1 g (assumption)",
+        "BEC": "Matek BEC12S-PRO, 5 g (retailer listings)",
+        "PiZero": "Raspberry Pi Zero 2 W, 10 g (reseller listing; no manufacturer mass); its camera cable is in the harness allowance",
+        "PowerSwitch": "Miniature SPDT slide switch, about 1 g (assumption)",
+        "CameraBoard": "Raspberry Pi Camera Module 3, about 4 g total (assumption)",
+        "HarnessThigh": "Harness bundles are envelopes only; their mass is in allowances_kg.harness"
+      },
+      "allowances_kg": {
+        "harness": 0.06,
+        "fasteners_and_inserts": 0.06,
+        "head_pan_reserve": 0.04
+      },
+      "gate": "CAD mass + allowances <= targets.allocated_mass_ceiling_kg, with targets.minimum_reserve_kg on top",
+      "rotating": {
+        "ro40_rotor_mass_kg": 0.026,
+        "ro40_rotor_inertia_axis_kg_m2": 1.2211e-05,
+        "catalog_inertia_axis_kg_m2": {
+          "HubRotor": 7.4e-06
+        },
+        "basis": "RO40 core rotor inertia from the M9 hip-motor data (m9 rotor_core_inertia_kg_m2); the 26 g rotor mass is an assumption and the rest of the module stays on the body. GL40 rotor (HubRotor) inertia about its axis is the m10.physics hub_motor value, an assumption pending the CubeMars datasheet."
+      }
+    },
+    "cad": {
+      "status": "Phase D4 CAD adoption (B3 assembly with the protection set): layout-study fidelity, not hardware-validated",
+      "source": {
+        "mass": "artifacts/m10/cad/mass.json (cad/m10/mass_properties.py)",
+        "sweep": "artifacts/m10/cad/sweep.json (cad/m10/sweep.py)"
+      },
+      "frames": "Link frames: origin at the joint, x along the link (thigh hip->knee, shin knee->axle), y the joint axis; body and wheel frames keep hip-frame axes. Inertia about the centre of mass in kg m2.",
+      "cad_mass_kg": 1.815,
+      "allocated_kg": 1.975,
+      "margin_to_ceiling_kg": 0.175,
+      "rigid_bodies": {
+        "body": {
+          "mass_kg": 0.89798,
+          "com_link_m": [
+            -0.007137,
+            0.000126,
+            0.004583
+          ],
+          "inertia_about_com_link_kg_m2": [
+            [
+              0.0014184,
+              2.3404e-06,
+              -0.0001963
+            ],
+            [
+              2.3404e-06,
+              0.0023164,
+              -2.2566e-07
+            ],
+            [
+              -0.0001963,
+              -2.2566e-07,
+              0.0023188
+            ]
+          ],
+          "frame": {
+            "origin_hip_m": [
+              0.0,
+              0.0
+            ],
+            "angle_deg": 0.0
+          }
+        },
+        "left_kneedrive": {
+          "mass_kg": 0.061,
+          "com_link_m": [
+            0.000585,
+            0.026348,
+            0.000364
+          ],
+          "inertia_about_com_link_kg_m2": [
+            [
+              4.6286e-05,
+              7.0435e-07,
+              2.1859e-07
+            ],
+            [
+              7.0435e-07,
+              1.3093e-05,
+              4.2705e-07
+            ],
+            [
+              2.1859e-07,
+              4.2705e-07,
+              4.6064e-05
+            ]
+          ],
+          "frame": {
+            "origin_hip_m": [
+              0.0,
+              0.0
+            ],
+            "angle_deg": -35.472
+          }
+        },
+        "left_kneerotor": {
+          "mass_kg": 0.03053,
+          "com_link_m": [
+            0.0,
+            0.01803,
+            0.0
+          ],
+          "inertia_about_com_link_kg_m2": [
+            [
+              6.6799e-06,
+              4.3198e-22,
+              6.57e-24
+            ],
+            [
+              4.3198e-22,
+              1.2281e-05,
+              -1.5097e-22
+            ],
+            [
+              6.57e-24,
+              -1.5097e-22,
+              6.6799e-06
+            ]
+          ],
+          "frame": {
+            "origin_hip_m": [
+              -0.04153,
+              0.0
+            ],
+            "angle_deg": 0.0
+          }
+        },
+        "left_shin": {
+          "mass_kg": 0.11135,
+          "com_link_m": [
+            0.042893,
+            0.081952,
+            4.7e-05
+          ],
+          "inertia_about_com_link_kg_m2": [
+            [
+              1.6791e-05,
+              -1.6874e-05,
+              1.5166e-07
+            ],
+            [
+              -1.6874e-05,
+              9.5636e-05,
+              1.1871e-08
+            ],
+            [
+              1.5166e-07,
+              1.1871e-08,
+              9.2262e-05
+            ]
+          ],
+          "frame": {
+            "origin_hip_m": [
+              -0.062751,
+              -0.031021
+            ],
+            "angle_deg": -35.472
+          }
+        },
+        "left_thigh": {
+          "mass_kg": 0.0971,
+          "com_link_m": [
+            0.021079,
+            0.058982,
+            -0.000218
+          ],
+          "inertia_about_com_link_kg_m2": [
+            [
+              2.9988e-05,
+              -1.8153e-05,
+              -3.2515e-07
+            ],
+            [
+              -1.8153e-05,
+              0.00011353,
+              -1.3637e-07
+            ],
+            [
+              -3.2515e-07,
+              -1.3637e-07,
+              0.0001138
+            ]
+          ],
+          "frame": {
+            "origin_hip_m": [
+              0.0,
+              0.0
+            ],
+            "angle_deg": -153.694
+          }
+        },
+        "left_thighrotor": {
+          "mass_kg": 0.03053,
+          "com_link_m": [
+            0.0,
+            0.03747,
+            0.0
+          ],
+          "inertia_about_com_link_kg_m2": [
+            [
+              6.6799e-06,
+              5.9611e-22,
+              6.57e-24
+            ],
+            [
+              5.9611e-22,
+              1.2281e-05,
+              1.4638e-22
+            ],
+            [
+              6.57e-24,
+              1.4638e-22,
+              6.6799e-06
+            ]
+          ],
+          "frame": {
+            "origin_hip_m": [
+              -0.04153,
+              0.0
+            ],
+            "angle_deg": 0.0
+          }
+        },
+        "left_wheel": {
+          "mass_kg": 0.128,
+          "com_link_m": [
+            0.0,
+            0.100314,
+            0.0
+          ],
+          "inertia_about_com_link_kg_m2": [
+            [
+              4.2869e-05,
+              -1.3337e-20,
+              2.4859e-20
+            ],
+            [
+              -1.3337e-20,
+              6.9263e-05,
+              -3.3948e-20
+            ],
+            [
+              2.4859e-20,
+              -3.3948e-20,
+              4.2869e-05
+            ]
+          ],
+          "frame": {
+            "origin_hip_m": [
+              -0.012258,
+              -0.067
+            ],
+            "angle_deg": 0.0
+          }
+        },
+        "right_kneedrive": {
+          "mass_kg": 0.061,
+          "com_link_m": [
+            0.000585,
+            -0.026348,
+            0.000364
+          ],
+          "inertia_about_com_link_kg_m2": [
+            [
+              4.6286e-05,
+              -7.0435e-07,
+              2.1859e-07
+            ],
+            [
+              -7.0435e-07,
+              1.3093e-05,
+              -4.2705e-07
+            ],
+            [
+              2.1859e-07,
+              -4.2705e-07,
+              4.6064e-05
+            ]
+          ],
+          "frame": {
+            "origin_hip_m": [
+              0.0,
+              0.0
+            ],
+            "angle_deg": -35.472
+          }
+        },
+        "right_kneerotor": {
+          "mass_kg": 0.03053,
+          "com_link_m": [
+            0.0,
+            -0.01803,
+            0.0
+          ],
+          "inertia_about_com_link_kg_m2": [
+            [
+              6.6799e-06,
+              -8.1547e-22,
+              1.3099e-24
+            ],
+            [
+              -8.1547e-22,
+              1.2281e-05,
+              1.3255e-22
+            ],
+            [
+              1.3099e-24,
+              1.3255e-22,
+              6.6799e-06
+            ]
+          ],
+          "frame": {
+            "origin_hip_m": [
+              -0.04153,
+              0.0
+            ],
+            "angle_deg": 0.0
+          }
+        },
+        "right_shin": {
+          "mass_kg": 0.11135,
+          "com_link_m": [
+            0.042893,
+            -0.081952,
+            4.7e-05
+          ],
+          "inertia_about_com_link_kg_m2": [
+            [
+              1.6791e-05,
+              1.6874e-05,
+              1.5166e-07
+            ],
+            [
+              1.6874e-05,
+              9.5636e-05,
+              -1.1871e-08
+            ],
+            [
+              1.5166e-07,
+              -1.1871e-08,
+              9.2262e-05
+            ]
+          ],
+          "frame": {
+            "origin_hip_m": [
+              -0.062751,
+              -0.031021
+            ],
+            "angle_deg": -35.472
+          }
+        },
+        "right_thigh": {
+          "mass_kg": 0.0971,
+          "com_link_m": [
+            0.021079,
+            -0.058982,
+            -0.000218
+          ],
+          "inertia_about_com_link_kg_m2": [
+            [
+              2.9988e-05,
+              1.8153e-05,
+              -3.2515e-07
+            ],
+            [
+              1.8153e-05,
+              0.00011353,
+              1.3637e-07
+            ],
+            [
+              -3.2515e-07,
+              1.3637e-07,
+              0.0001138
+            ]
+          ],
+          "frame": {
+            "origin_hip_m": [
+              0.0,
+              0.0
+            ],
+            "angle_deg": -153.694
+          }
+        },
+        "right_thighrotor": {
+          "mass_kg": 0.03053,
+          "com_link_m": [
+            0.0,
+            -0.03747,
+            0.0
+          ],
+          "inertia_about_com_link_kg_m2": [
+            [
+              6.6799e-06,
+              -1.4561e-21,
+              1.3099e-24
+            ],
+            [
+              -1.4561e-21,
+              1.2281e-05,
+              -1.4522e-22
+            ],
+            [
+              1.3099e-24,
+              -1.4522e-22,
+              6.6799e-06
+            ]
+          ],
+          "frame": {
+            "origin_hip_m": [
+              -0.04153,
+              0.0
+            ],
+            "angle_deg": 0.0
+          }
+        },
+        "right_wheel": {
+          "mass_kg": 0.128,
+          "com_link_m": [
+            0.0,
+            -0.100314,
+            0.0
+          ],
+          "inertia_about_com_link_kg_m2": [
+            [
+              4.2869e-05,
+              7.1204e-21,
+              3.5333e-21
+            ],
+            [
+              7.1204e-21,
+              6.9263e-05,
+              7.7581e-20
+            ],
+            [
+              3.5333e-21,
+              7.7581e-20,
+              4.2869e-05
+            ]
+          ],
+          "frame": {
+            "origin_hip_m": [
+              -0.012258,
+              -0.067
+            ],
+            "angle_deg": 0.0
+          }
+        }
+      },
+      "knee_drive_train": {
+        "treatment": "separate rigid bodies (rigid_bodies {side}_kneedrive, and {side}_thighrotor / {side}_kneerotor for the RO40 rotors); this entry repeats the knee drive train for reference",
+        "per_side": {
+          "mass_kg": 0.061,
+          "inertia_hip_axis_kg_m2": 1.3122e-05
+        }
+      },
+      "joint_ranges_covered_deg": {
+        "a1_deg": [
+          -192.77,
+          -129.1
+        ],
+        "a2_deg": [
+          -59.14,
+          -7.58
+        ],
+        "knee_angle_deg": [
+          80.02,
+          166.47
+        ]
+      },
+      "sit_pose_hip_height_m": 0.054,
+      "sweep_grid": {
+        "heights_m": [
+          0.072,
+          0.081,
+          0.09,
+          0.099,
+          0.108,
+          0.117,
+          0.126,
+          0.135
+        ],
+        "axle_offsets_m": [
+          -0.01,
+          -0.005,
+          0.0,
+          0.005,
+          0.01
+        ],
+        "clean": true
+      }
+    },
+    "physics": {
+      "status": "Phase C free-base serial-leg digital plant (bipe/m10/plant.py). Validated-simulation target under the stated assumptions; nothing here is hardware-validated.",
+      "units": "SI",
+      "simulation": {
+        "physics_dt": 0.00025,
+        "control_dt": 0.005,
+        "joint_servo_dt": 0.001,
+        "log_dt": 0.01,
+        "noslip_iterations": 5,
+        "basis": "M9 plant timing (m9_physics.simulation)"
+      },
+      "hip_motor": {
+        "model": "CubeMars RO40 KV140 Lite, four per robot, each through a 4:1 2GT belt (20T to 80T)",
+        "ratio": 4.0,
+        "efficiency_screen": 0.9,
+        "peak_torque_motor_Nm": 0.6,
+        "continuous_torque_motor_Nm": 0.2,
+        "no_load_speed_motor_rad_s": 356.0471674068432,
+        "rotor_core_inertia_kg_m2": 1.2211e-05,
+        "rotor_mass_kg_assumption": 0.026,
+        "torque_constant_Nm_A": 0.068,
+        "rated_current_A": 2.85,
+        "peak_current_A": 11.6,
+        "FOC_time_constant_s": 0.0007957747154594767,
+        "FOC_current_slew_limit_A_s": 10000.0,
+        "viscous_motor_Nm_s_rad": 2e-05,
+        "coulomb_motor_Nm": 0.002,
+        "normal_command_cap_Nm": 1.65,
+        "basis": "Same motor, belt reduction, current curve, FOC lag and command cap as m9_physics.motor (manufacturer data; friction values are M9 screening assumptions). Rotor mass is the M9 assumption (m9_cad rotor_mass_kg_assumption)."
+      },
+      "hub_motor": {
+        "model": "CubeMars GL40 KV70 gimbal motor, direct drive in each wheel hub",
+        "torque_constant_Nm_A": 0.15,
+        "rated_torque_Nm": 0.25,
+        "peak_torque_Nm": 0.5,
+        "rated_current_A": 1.62,
+        "peak_current_A": 3.3,
+        "phase_to_phase_resistance_ohm": 4.5,
+        "phase_to_phase_inductance_H": 0.0018,
+        "rated_voltage_V": 16.0,
+        "no_load_speed_rpm_at_rated_voltage": 1015,
+        "back_emf_V_s_rad": 0.15053078361400937,
+        "back_emf_basis": "Rated voltage over the no-load speed (16 V / 1015 rpm); the catalog Ke of 15 V/krpm gives 0.143",
+        "rotor_inertia_kg_m2": 7.4e-06,
+        "drive_voltage_limit_V": 18.24,
+        "drive_voltage_basis": "M11 phase D (user decision 18 October 2026): bus limit at the low pack, 0.95 x 19.2 V (the 0.95 modulation limit is an assumption to check against the moteus firmware). moteus has no output-voltage cap (servo.max_voltage is an input over-voltage fault) and CubeMars lists 16 V as the GL40 rated voltage with no maximum. Motoring current is limited to (V - Ke w) / R_hot and to the peak current; braking current to the peak current.",
+        "voltage_limit_winding_temperature_C": 80.0,
+        "copper_resistance_tempco_per_C": 0.00393,
+        "lead_resistance_ohm": 0.09,
+        "voltage_limit_resistance_basis": "R_hot = R_20C (1 + 0.00393 (80 - 20)) + leads. 80 C bounds the hubs' duty (mean copper loss at most 0.64 W in the phase A cases); leads are the thin-wall PTFE 26 AWG phase pair over about 0.32 m (docs/milestones/11-electronics-plan.md, phase D harness findings)",
+        "FOC_time_constant_s": 0.0007957747154594767,
+        "FOC_current_slew_limit_A_s": 10000.0,
+        "basis": "CubeMars GL40 KV70 product data; FOC lag and slew as for the RO40 (moteus 200 Hz current bandwidth)"
+      },
+      "belts": {
+        "hip_stiffness_Nm_rad": 349.969332521916,
+        "hip_stiffness_range_Nm_rad": [
+          118.88772316024904,
+          713.3263389614942
+        ],
+        "knee_stiffness_Nm_rad": 69.14013424161588,
+        "knee_stiffness_range_Nm_rad": [
+          23.487860581218918,
+          140.9271634873135
+        ],
+        "hip_lash_deg": 0.25,
+        "hip_lash_range_deg": [
+          0.1125,
+          0.45
+        ],
+        "knee_lash_deg": 0.5,
+        "knee_lash_range_deg": [
+          0.225,
+          0.9
+        ],
+        "hip_damping_Nm_s_rad": 0.029164111043492997,
+        "knee_damping_Nm_s_rad": 0.005761677853467823,
+        "hip_pretension_per_span_N": 62.5,
+        "hip_pretension_basis": "Phase D4 (user decisions 13 October 2026): 60 -> 62.5 N per span. At 60 N the forward_0p3 thigh hip-belt slack path fell to factor 1.98 at dt/2 with the knee stop B thigh; 65 N was tried first and dipped the hip pod bearing to 1.68 at dt/2 (the skid strike peak is trajectory sensitive, 250-469 N), so 62.5 N was adopted after it kept factor 2 in all five forward_0p3 ensemble runs (slack 2.06-2.33). Gates Light Power & Precision manual p65: Formula 1 (1.21 Q/d) gives 57 N; Table 8 general static tension for 2MGT GT3 6 mm is 10 lb (44 N) per span, and registration (positioning) drives start at 1.5-2.0 x Table 8 (67-89 N); Table 6 rated working tension at 20 grooves 39 lb (173 N), breaking strength 125 lb. The extra pull raises the hip bearings' pretension load by 4 percent (in the plant's bearing friction and the falls screen).",
+        "basis": "M9 Gates basis: Table 6 2MGT 6 mm cord EA proxy 16903 N (9 mm: x1.5), two spans, k = 2 EA r^2 / span at the output pulley. Hip (20T:80T, 2MR-192 96T belt, 41.53 mm centres, 36.9 mm span; phase D4 14 October 2026, was 95T at 40.5 mm): cord 594.4 N m/rad. Knee (40T:40T, 70 mm centres): cord 117.4 N m/rad. Range 0.2..1.2 x cord and nominal 0.589 x cord, both as adopted in M9. Lash: the M9 tangential lash 0.05..0.2 mm (nominal 0.11 mm) at each output pulley radius. Damping keeps the M9 hip belt time constant (0.025 / 300 s). Pretension per span is the M9 value. All assumptions until a drive is measured.",
+        "source": "https://www.gates.com/content/dam/documents-library/catalogs/light-power-and-precision-manual.pdf"
+      },
+      "friction": {
+        "ball_bearing_mu": 0.0015,
+        "ball_bearing_basis": "SKF simplified frictional moment M = 0.5 mu P d for deep groove ball bearings (mu 0.0015); hip 6704 at its 20 mm bore; the knee-drive joint's 688A inner-shaft bearings (8 mm bore) are lumped at the same 20 mm bore, which overstates their small moment (about 2 vs 0.8 mN m at the pretension load); knee 6800 at 10 mm",
+        "hip_bearing_bore_m": 0.02,
+        "knee_bearing_bore_m": 0.01,
+        "hip_viscous_Nm_s_rad": 0.001,
+        "knee_viscous_Nm_s_rad": 0.0005,
+        "knee_bearing_coulomb_Nm": 0.001,
+        "wheel_viscous_Nm_s_rad": 0.0003,
+        "wheel_coulomb_Nm": 0.004,
+        "basis": "Viscous and constant Coulomb terms are M9 screening assumptions (GL40 drag and cogging unmeasured). Belt loss (1 - 0.9) x |belt torque| acts on each belt's driven member."
+      },
+      "contact": {
+        "solref_s": [
+          0.003,
+          1.0
+        ],
+        "solimp": [
+          0.95,
+          0.99,
+          0.001
+        ],
+        "material_source": "config/m9-impact-materials.json",
+        "geometry": "Convex hulls of the B3 printed exterior parts in their link frames (artifacts/m10/assembly/render-mesh.json.gz, nominal pose); the tire is a 72 x 28 mm cylinder. Hulls fill concave pockets.",
+        "basis": "M9 material-contact machinery and Coulomb friction rows (config/m9-impact-materials.json contacts). Tire: solid SLS TPU 88A as a Winkler layer of the 10 mm tire section with the tensile modulus as a compliance proxy; knob relief neglected. Exterior: the M9 PA12 shell strip law. Locomotion contact assumptions, not a fall qualification.",
+        "shell_backing": {
+          "basis": "Measured interior clearance (phase D4, user decision 17 October 2026). The M9 shell strip law puts a metal backing at its 4 mm travel assumption (config/m9-impact-materials.json contacts.shell_maximum_travel_m_assumption). At the two sideways strike spots the backing is placed at the gap measured in the CAD instead: a FreeCAD ray-cast from the struck outer surface along the inward contact normal, a 5 x 5 grid at +/-6 mm, against every other part at the nominal pose (cad/m10/shell_clearance.py, artifacts/m10/cad/shell_clearance.json). Spots and inward normals are in the struck part's link frame, from the sideways falls run without the backing; the thighs' second spot is where the M11 plant's sideways_rest strike landed outside the first (phase D step 6, user decision 19 October 2026). Each value is the smallest thin-wall gap on the grid, rounded down to 0.1 mm, so it holds only within radius_m of a listed spot; the falls fail a strike past the default travel outside it.",
+          "radius_m": 0.006,
+          "parts": {
+            "BodyTub": {
+              "travel_m": 0.0076,
+              "spots_m": [
+                [
+                  0.0614,
+                  0.0466,
+                  -0.0307
+                ],
+                [
+                  0.0614,
+                  -0.0466,
+                  -0.0307
+                ]
+              ],
+              "inward_normals": [
+                [
+                  -0.852,
+                  -0.518,
+                  0.078
+                ],
+                [
+                  -0.852,
+                  0.518,
+                  0.078
+                ]
+              ],
+              "obstacle": "the tub's own screw column (7.6 mm); battery about 32 mm",
+              "strike": "front-lower vertical edge, sideways_0p3"
+            },
+            "left_Thigh": {
+              "travel_m": 0.0063,
+              "spots_m": [
+                [
+                  0.08456,
+                  0.06127,
+                  0.01485
+                ],
+                [
+                  0.08924,
+                  0.06125,
+                  0.00805
+                ]
+              ],
+              "inward_normals": [
+                [
+                  -0.69,
+                  0.117,
+                  -0.714
+                ],
+                [
+                  -0.91,
+                  0.112,
+                  -0.399
+                ]
+              ],
+              "obstacle": "the thigh's far wall at the knee-stop boss edge (6.65 mm) and the knee belt (7.2 mm) at the first spot; the knee belt (6.34 mm) at the second; rays through the solid boss itself are excluded",
+              "strike": "knee end, sideways_rest; the second spot is the M11 plant's strike (phase D step 6, user decision 19 October 2026)"
+            },
+            "right_Thigh": {
+              "travel_m": 0.0063,
+              "spots_m": [
+                [
+                  0.08456,
+                  -0.06127,
+                  0.01485
+                ],
+                [
+                  0.08924,
+                  -0.06125,
+                  0.00805
+                ]
+              ],
+              "inward_normals": [
+                [
+                  -0.69,
+                  -0.117,
+                  -0.714
+                ],
+                [
+                  -0.91,
+                  -0.112,
+                  -0.399
+                ]
+              ],
+              "obstacle": "mirror of left_Thigh",
+              "strike": "knee end, mirror of sideways_rest"
+            }
+          }
+        }
+      },
+      "end_stops_deg": {
+        "thigh_a1": [
+          -195.0,
+          -120.0
+        ],
+        "knee_drive_a2": [
+          -65.0,
+          2.0
+        ],
+        "knee_angle": [
+          75.0,
+          176.0
+        ],
+        "basis": "Modelled end stops at the B3 swept ranges (a1 -188.2..-127.9, a2 -57.7..-3.4, knee 80.6..170.4 deg) plus about 5..7 deg; the knee_angle stop is in the CAD (D4 arc slot, m10.internals.knee_stop), the thigh_a1 and knee_drive_a2 stops too (D4 hidden arc slots, m10.internals.end_stops)"
+      },
+      "bumpers": {
+        "enabled": true,
+        "status": "Phase D4 adopted (user decisions 13 October 2026), in the D4 CAD: LD45 foam behind a 1 mm TPU 88A wear skin, mounted on the chassis frame (skid, screwed through the tub floor into the bulkhead feet; it also retains the battery hatch, so it comes off for a battery swap) or the wheel hub (rings, on a PA12 carrier in the hub recess), so the load bypasses the printed shells; flexible TPU 88A ears with a three-screw root retention",
+        "foam": "ld45_upper",
+        "stiffness_scale": 1.0,
+        "stiffness_scale_range": [0.5, 4.0],
+        "skin_thickness_m": 0.0012,
+        "skin_basis": "TPU 88A cup over the ground face and sides of each pad, 1.2 mm: above the 1.0 mm printed-wall screen (cad/m10/manufacturability.py). The plant neglects the skin in series with the foam",
+        "max_strain": 0.5,
+        "max_strain_basis": "End of the supplier compression curve (Zotefoams LD45 25 and 50 percent values); beyond it the densification term is an assumption, so a peak strain above 0.5 is reported as bottoming",
+        "skid": {
+          "size_m": [0.13, 0.08, 0.01],
+          "center_x_m": -0.01,
+          "end_bevel_deg": 12.5,
+          "flat_length_m": 0.07,
+          "basis": "Keel under the tub centreline, 10 mm proud of the tub floor; long enough that the tub ends stay clear at the 12-13 deg belly-strike pitch"
+        },
+        "wheel_ring": {
+          "outer_radius_m": 0.031,
+          "inner_radius_m": 0.021,
+          "thickness_m": 0.01,
+          "dome_deg": 12.0,
+          "basis": "Annulus on each wheel's outer face, outboard of the tire; 5 mm inside the 36 mm tire radius so it clears the floor below about 27 deg of roll"
+        },
+        "ear": {
+          "material": "tpu",
+          "elongation_at_break_Z": 1.3,
+          "strain_knockdown": 0.6,
+          "source": "https://forward-am.com/wp-content/uploads/2021/04/BASF_3DPS_TDS_Ultrasint-TPU-88A.pdf",
+          "basis": "BASF Ultrasint TPU 88A TDS 2.2 (08/2021): elongation at break 130 percent (Z), 270 percent (XY); flexural modulus 70 MPa. The ear is a root-fixed cantilever of the CAD length, width and thickness; root bending strain 3 t d / (2 L^2) at tip deflection d",
+          "retention": {
+            "name": "ear_root_screws",
+            "count": 6,
+            "thread": "M2",
+            "length_m": 0.006,
+            "washers_per_screw": 1,
+            "parent_material": "pa12",
+            "thread_engagement_m": 0.004,
+            "edge_center_distance_m": 0.003,
+            "member_thickness_m": 0.003,
+            "tab_thickness_m": 0.003,
+            "per_interface": 3,
+            "bolt_spacing_m": 0.024,
+            "fit": "Three M2 x 6 per ear, 12 mm pitch (outer pair 24 mm apart), through a 3 mm TPU root tab into SPIROL M2 heat-set inserts in a 3 mm local boss inside the head pod side wall (D4 CAD: the boss; the screws and inserts are in the fastener allowance). Phase D4: two screws in the 2 mm wall gave shear factor 1.04 (PA12 bearing 101 N)"
+          }
+        },
+        "mass_estimate_kg": {
+          "wheel_rings": 0.0052,
+          "skid": 0.0057,
+          "tpu_ears_increase": 0.0021,
+          "ear_screws_and_inserts": 0.0033,
+          "ear_root_bosses": 0.0004,
+          "basis": "LD45 47 kg/m3 foam volumes plus 1 mm TPU 88A (1100 kg/m3) skins; TPU ears at the CAD ear volume (PA12 11.6 g at 930 kg/m3); M2 x 6 screws and SPIROL inserts"
+        }
+      },
+      "end_stop_pads": {
+        "status": "Phase D stop features: a TPU pad on one member strikes the other at each end of each range. The knee_angle stop is in the CAD as the D4 arc slot (m10.internals.knee_stop: shin steel pin in a thigh-lid groove with a TPU pad at each end, 14.5 mm radius); the thigh_a1 and knee_drive_a2 stops are in the CAD as the D4 hidden arc slots (m10.internals.end_stops: steel dowels on the body in padded grooves in the 80T hip pulleys, 20 mm radius; were plant-only pads at 10 mm, 48 mm2, 4 mm before 18 October 2026)",
+        "basis": "Winkler pad M = E A r^2 theta / t over the overtravel theta, the TPU 88A tensile modulus as the compliance proxy (contact materials); beyond max_strain the pad bottoms onto the PA12 backing (E A r^2 / backing_thickness added). Damping from the contact restitution with the joint's exact effective inertia. Mapped through the solver row diagonal like the material contacts; exceeding max_strain is reported, never clipped.",
+        "material": "tpu",
+        "backing_material": "pa12",
+        "backing_thickness_m": 0.002,
+        "max_strain": 0.5,
+        "pad_station_basis": "y_m: left-side station of the pad on its shaft (sections.json stations): thigh_a1 at the groove mid-depth in the thigh 80T pulley's inboard face (0.046), knee_drive_a2 at the groove mid-depth in the knee 80T pulley's inboard face (0.0065), knee_angle at the arc-slot groove mid-depth (0.0775, phase D4 option B). The pad force |M|/r passes through the shaft's bearing pair.",
+        "joints": {
+          "thigh_a1": {
+            "radius_m": 0.02,
+            "area_m2": 2.28e-05,
+            "thickness_m": 0.008,
+            "y_m": 0.046
+          },
+          "knee_drive_a2": {
+            "radius_m": 0.02,
+            "area_m2": 2.28e-05,
+            "thickness_m": 0.008,
+            "y_m": 0.0065
+          },
+          "knee_angle": {
+            "radius_m": 0.0145,
+            "area_m2": 2.4e-05,
+            "thickness_m": 0.012,
+            "y_m": 0.0775
+          }
+        }
+      },
+      "imu_position_m": [
+        0.005,
+        0.0159,
+        0.0255
+      ],
+      "imu_basis": "M11 phase D: LSM6DSO (carrier U3) package centre from the carrier layout and its placement (bipe.m11.boards.imu_position); the chip lies in the carrier's x-z plane facing body +y, so the firmware maps its axes to the body frame",
+      "posture_mapping": {
+        "command_deg": [
+          30,
+          40,
+          60,
+          65
+        ],
+        "hip_height_m": [
+          0.135,
+          0.103,
+          0.072,
+          0.06
+        ],
+        "interpolation": "Piecewise cubic smoothstep, zero derivative at knots; the axle x at each knot is the level-body balance point (computed by bipe.m10.kinematics.balance_x)",
+        "basis": "30/40/60 are the M10 extended, nominal and crouched poses; 60 (72 mm hip height) is the lowest operating posture (user decision 13 October 2026: with the 10 mm skid candidate the body keeps about 20 mm clearance). 65 (60 mm, 18 mm body clearance without the skid) and the 45 mm sit (3 mm) are resting poses, not operating postures; the B3 sit search is clean down to 45 mm."
+      },
+      "sources": {
+        "RO40": "https://www.cubemars.com/product/ro40-kv140-lite-without-hall-frameless-torque-motor.html",
+        "GL40": "https://www.cubemars.com/product/gl40-kv70-gimbal-motor.html",
+        "Gates": "https://www.gates.com/content/dam/documents-library/catalogs/light-power-and-precision-manual.pdf",
+        "SKF_friction": "SKF rolling bearings catalogue, 'Estimating the frictional moment', simplified method (URL not recorded)",
+        "moteus_current_bandwidth": "https://github.com/mjbots/moteus/blob/main/docs/reference/configuration.md#servopid_dq_hz"
+      }
+    },
+    "structure": {
+      "status": "Phase D load-path inventory; screen inputs, not hardware qualification",
+      "units": "SI",
+      "materials_source": "config/m9-impact-materials.json",
+      "sections_source": "artifacts/m10/cad/sections.json (cad/m10/sections.py, D4 CAD at the nominal pose)",
+      "required_factor": 2.0,
+      "shafts": {
+        "hip_outer": {
+          "material": "al7075",
+          "od": 0.02,
+          "bore": 0.012,
+          "bearings": [
+            "HipInnerBearing",
+            "HipPodBearing"
+          ],
+          "carries": "thigh (chassis -> thigh wrench) and the thigh hip-belt pull"
+        },
+        "hip_inner": {
+          "material": "al7075",
+          "od": 0.008,
+          "bore": 0.005,
+          "bearings": [
+            "BulkheadBearing",
+            "InnerShaftEndBearing"
+          ],
+          "carries": "knee drive (wrench on the knee drive body), the knee-drive hip-belt pull and the knee-belt pull",
+          "basis": "Checked at the 8 mm ends with the 5 mm harness bore; the iglidur sleeve in the outer shaft gets no support credit (conservative)"
+        },
+        "knee": {
+          "material": "al7075",
+          "od": 0.01,
+          "bore": 0.005,
+          "bearings": [
+            "KneeInnerBearing",
+            "KneeOuterBearing"
+          ],
+          "carries": "shin (thigh -> shin wrench) overhung at the shin, and the knee-belt pull",
+          "basis": "Hollow knee shaft; harness bore 5 mm (m10.internals.harness.shaft_bore_diameter)"
+        },
+        "axle": {
+          "material": "al7075",
+          "od": 0.008,
+          "bore": 0.005,
+          "root": "Shin outer face",
+          "carries": "wheel (shin -> wheel wrench) cantilevered from the shin face"
+        }
+      },
+      "bearings": {
+        "HipInnerBearing": "6704",
+        "HipPodBearing": "6704",
+        "BulkheadBearing": "688A",
+        "InnerShaftEndBearing": "688A",
+        "KneeInnerBearing": "6800",
+        "KneeOuterBearing": "6800"
+      },
+      "bearing_catalog": {
+        "6704": {
+          "d": 0.02,
+          "D": 0.027,
+          "B": 0.004,
+          "C0_N": 730,
+          "source": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6704",
+          "basis": "NTN 6704 open, static load rating 0.73 kN"
+        },
+        "6700": {
+          "d": 0.01,
+          "D": 0.015,
+          "B": 0.003,
+          "C0_N": 435,
+          "source": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6700",
+          "basis": "NTN 6700 open (10x15x3), 0.435 kN; the B2 CAD seat is 4 mm (shielded width), rating of the open bearing used"
+        },
+        "MR128": {
+          "d": 0.008,
+          "D": 0.012,
+          "B": 0.0035,
+          "C0_N": 252,
+          "source": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/flaw678azz",
+          "basis": "NTN FLAW678AZZ (8x12x3.5, flanged, shielded) 0.252 kN; same rings and balls as the unflanged size (assumption)"
+        },
+        "6800": {
+          "d": 0.01,
+          "D": 0.019,
+          "B": 0.005,
+          "C0_N": 925,
+          "source": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6800",
+          "basis": "NTN 6800 open (10x19x5), 0.925 kN; phase D upsize candidate"
+        },
+        "6900": {
+          "d": 0.01,
+          "D": 0.022,
+          "B": 0.006,
+          "C0_N": 1270,
+          "source": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6900",
+          "basis": "NTN 6900 open (10x22x6), 1.27 kN; phase D upsize candidate"
+        },
+        "6804": {
+          "d": 0.02,
+          "D": 0.032,
+          "B": 0.007,
+          "C0_N": 2470,
+          "source": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/6804",
+          "basis": "NTN 6804 open (20x32x7), 2.47 kN; phase D upsize candidate"
+        },
+        "688A": {
+          "d": 0.008,
+          "D": 0.016,
+          "B": 0.004,
+          "C0_N": 715,
+          "source": "https://bearingfinder.ntnamericas.com/item/deep-groove-ball-bearings/single-row-radial-ball-bearings/688a",
+          "basis": "NTN 688A open (8x16x4), 0.715 kN; phase D upsize candidate"
+        }
+      },
+      "static_equivalent": "P0 = max(Fr, 0.6 Fr + 0.5 Fa), axial load on either locating bearing (M9 basis)",
+      "hub_bearings": {
+        "status": "unpublished",
+        "basis": "CubeMars publishes no GL40 bearing designation or rating (2D drawing: 46.5 x 21.5 mm envelope, 8 mm through bore). The screen reports the static rating each bearing would need (factor 2) for confirmation with CubeMars.",
+        "span_m_assumption": 0.012,
+        "source": "https://www.cubemars.com/data/cms/202602/gl40-gimbal-motor-2d-drawing.pdf"
+      },
+      "belts": {
+        "hip": {
+          "pretension_per_span_N": 62.5,
+          "pretension_basis": "m10.physics.belts.hip_pretension_basis",
+          "large_pulley_teeth": 80,
+          "small_pulley_teeth": 20,
+          "pitch": 0.002,
+          "rating": "m9 belt hip_input_rating_lb_in (2MGT 6 mm, 20T small pulley) x length factor",
+          "length_factor": 0.9,
+          "length_basis": "Gates 2MR-192-06 (96T, 192 mm, a stock length; Light Power & Precision manual printed p. 15). Length correction factor 0.90 for 170-196 mm / 85-98 teeth (printed p. 18); 0.95 starts at 198 mm. Phase D4 (14 October 2026): the 190 mm (95T) belt was not a stock length and had carried the M9 202 mm belt's 0.95, overstating the rating by 5.6 percent (found by the Grok parts check, verified against the manual)."
+        },
+        "knee": {
+          "pretension_per_span_N_assumption": 120.0,
+          "pulley_teeth": 40,
+          "pitch": 0.002,
+          "corrected_rating_Nm": {
+            "10": 4.64,
+            "100": 3.43
+          },
+          "rating_basis": "m10.internals.knee_belt.rating_screen (Gates p17, 9 mm, 110T)",
+          "pretension_basis": "Eccentric-seat tensioning target equal to the hip belts (assumption)"
+        },
+        "slack_check": "Slack-side tension T0 - tau/(2 r) >= 0; the factor is 2 T0 r / |tau|",
+        "pull_model": "Radial pull on each pulley max(2 T0, |tau|/r) along the belt centre line"
+      },
+      "printed": {
+        "material": "pa12",
+        "basis": "EOS PA2200 weakest-Z 42 MPa x 0.6 (M9 knockdown). Thigh is an open C channel (lid not credited); shin is a 6 mm plate with the harness channel. Normal stress N/A + |M_sag|/Z_sag + |M_lat|/Z_lat; torsion of the open sections uses J = A t^2 / 3 with the wall t below; von Mises with transverse shear 1.5 V/A.",
+        "thigh_wall_m": 0.002,
+        "shin_thickness_m": 0.006,
+        "thigh_sections": "thigh_closed",
+        "thigh_hip_flange": "cad",
+        "hip_bracket_material": "al7075",
+        "shin_material": "al7075",
+        "d4_basis": "Phase D4 adopted set: the lid is fastened along the rim (closed thigh), the 7075 hip flange is in the CAD (sections thigh_torsion rows), and the hip bracket and shin are machined 7075",
+        "hip_bracket_basis": "HipInnerBearing reaction carried by the HipBracket arm (x > 0, forward of the hub) to the side-wall web: each x section in axial load plus bending with the reaction lever x from the hip axis",
+        "hip_bracket_material_note": "B2 lists PA12-CF as an assumption; the screen uses PA12 (conservative)"
+      },
+      "head": {
+        "geoms": [
+          "HeadFront",
+          "HeadRear",
+          "Ear",
+          "Ear_1"
+        ],
+        "neck_material": "pa12",
+        "basis": "Neck sections carry the solved contact wrench on the head geoms plus the head inertial load; head mass from the CAD part masses plus the pan reserve"
+      },
+      "cosmetic": {
+        "parts": [
+          "Ear",
+          "Ear_1",
+          "FrontCameraBezel",
+          "FrontCameraBezel_1",
+          "HipCap",
+          "BatteryHatch",
+          "ThighLid"
+        ],
+        "check": "Attachment and containment only: peak contact force and depth reported"
+      },
+      "candidates": {
+        "basis": "Phase D remedy candidates, merged into m10 by bipe.m10.falls --candidate. Mass deltas are estimates (bearings: ring volume x 7.85 g/cm3 x 0.6 fill; printed and machined parts: CAD volume x density) for the whole robot, not CAD results.",
+        "structural_lid": {
+          "patch": {"structure": {"printed": {"thigh_sections": "thigh_closed"}}},
+          "visible": false,
+          "mass_delta_kg_estimate": 0.004,
+          "description": "ThighLid screwed along the rim (M2 at about 12 mm pitch, 8 per thigh) so the thigh is a closed cell (Bredt torsion)"
+        },
+        "bracket_7075": {
+          "patch": {"structure": {"printed": {"hip_bracket_material": "al7075"}}},
+          "visible": false,
+          "mass_delta_kg_estimate": 0.022,
+          "description": "Machined 7075 HipBracket of the B3 geometry (2 x 6.1 g PA12 -> 2 x 17 g)"
+        },
+        "knee_6900": {
+          "patch": {"structure": {"bearings": {"KneeInnerBearing": "6900", "KneeOuterBearing": "6900"}}},
+          "visible": false,
+          "mass_delta_kg_estimate": 0.03,
+          "description": "Knee 6700 -> 6900 (10x22x6), four bearings; seats grow from 15 to 22 mm inside the thigh knee boss"
+        },
+        "knee_6800": {
+          "patch": {"structure": {"bearings": {"KneeInnerBearing": "6800", "KneeOuterBearing": "6800"}}},
+          "visible": false,
+          "mass_delta_kg_estimate": 0.014,
+          "description": "Knee 6700 -> 6800 (10x19x5), four bearings"
+        },
+        "hip_pod_6804": {
+          "patch": {"structure": {"bearings": {"HipPodBearing": "6804"}}},
+          "visible": true,
+          "mass_delta_kg_estimate": 0.03,
+          "description": "Hip pod 6704 -> 6804 (20x32x7); the pod housing grows from 27 to 32 mm bearing OD"
+        },
+        "inner_688a": {
+          "patch": {"structure": {"bearings": {"BulkheadBearing": "688A", "InnerShaftEndBearing": "688A"}}},
+          "visible": false,
+          "mass_delta_kg_estimate": 0.007,
+          "description": "Inner shaft MR128 -> 688A (8x16x4), four bearings"
+        },
+        "soft_pads": {
+          "patch": {"physics": {"end_stop_pads": {"joints": {
+            "thigh_a1": {"thickness_m": 0.008},
+            "knee_drive_a2": {"thickness_m": 0.008},
+            "knee_angle": {"thickness_m": 0.008}
+          }}}},
+          "visible": false,
+          "mass_delta_kg_estimate": 0.002,
+          "description": "End-stop pads 4 -> 8 mm TPU (half the stiffness, twice the stroke)"
+        },
+        "internal_set": {
+          "patch": {"structure": {
+            "printed": {"thigh_sections": "thigh_closed", "hip_bracket_material": "al7075"},
+            "bearings": {"KneeInnerBearing": "6800", "KneeOuterBearing": "6800", "BulkheadBearing": "688A", "InnerShaftEndBearing": "688A"},
+            "belts": {"knee": {"pretension_per_span_N_assumption": 120.0}}
+          }},
+          "visible": false,
+          "mass_delta_kg_estimate": 0.047,
+          "description": "structural_lid + bracket_7075 + knee_6800 + inner_688a + knee_pretension_120: the invisible changes together"
+        },
+        "protection_ring8": {
+          "patch": {
+            "physics": {"bumpers": {"enabled": true, "wheel_ring": {"thickness_m": 0.008}}},
+            "structure": {
+              "printed": {"thigh_sections": "thigh_closed", "hip_bracket_material": "al7075", "shin_material": "al7075"},
+              "bearings": {"KneeInnerBearing": "6900", "KneeOuterBearing": "6900", "BulkheadBearing": "688A", "InnerShaftEndBearing": "688A"},
+              "belts": {"knee": {"pretension_per_span_N_assumption": 120.0}}
+            }
+          },
+          "visible": true,
+          "mass_delta_kg_estimate": 0.1220,
+          "description": "internal_set with 6900 knees and a 7075 shin, plus the skid pad, 8 mm wheel-face rings and TPU ears"
+        },
+        "protection_ring10": {
+          "patch": {
+            "physics": {"bumpers": {"enabled": true, "wheel_ring": {"thickness_m": 0.01}}},
+            "structure": {
+              "printed": {"thigh_sections": "thigh_closed", "hip_bracket_material": "al7075", "shin_material": "al7075"},
+              "bearings": {"KneeInnerBearing": "6900", "KneeOuterBearing": "6900", "BulkheadBearing": "688A", "InnerShaftEndBearing": "688A"},
+              "belts": {"knee": {"pretension_per_span_N_assumption": 120.0}}
+            }
+          },
+          "visible": true,
+          "mass_delta_kg_estimate": 0.1230,
+          "description": "internal_set with 6900 knees and a 7075 shin, plus the skid pad, 10 mm wheel-face rings and TPU ears"
+        },
+        "protection_ring12": {
+          "patch": {
+            "physics": {"bumpers": {"enabled": true, "wheel_ring": {"thickness_m": 0.012}}},
+            "structure": {
+              "printed": {"thigh_sections": "thigh_closed", "hip_bracket_material": "al7075", "shin_material": "al7075"},
+              "bearings": {"KneeInnerBearing": "6900", "KneeOuterBearing": "6900", "BulkheadBearing": "688A", "InnerShaftEndBearing": "688A"},
+              "belts": {"knee": {"pretension_per_span_N_assumption": 120.0}}
+            }
+          },
+          "visible": true,
+          "mass_delta_kg_estimate": 0.1240,
+          "description": "internal_set with 6900 knees and a 7075 shin, plus the skid pad, 12 mm wheel-face rings and TPU ears"
+        },
+        "protection_ring10_flange": {
+          "patch": {
+            "physics": {"bumpers": {"enabled": true}},
+            "structure": {
+              "printed": {"thigh_sections": "thigh_closed", "thigh_hip_flange": true, "hip_bracket_material": "al7075", "shin_material": "al7075"},
+              "bearings": {"KneeInnerBearing": "6900", "KneeOuterBearing": "6900", "BulkheadBearing": "688A", "InnerShaftEndBearing": "688A"},
+              "belts": {"knee": {"pretension_per_span_N_assumption": 120.0}}
+            }
+          },
+          "visible": true,
+          "mass_delta_kg_estimate": 0.137,
+          "description": "protection_ring10 plus the 7075 thigh hip flange (screen assumption before the CAD: about 7 g per side with the 1.5 mm thicker thigh)"
+        },
+        "protection_v2": {
+          "patch": {
+            "physics": {
+              "bumpers": {
+                "enabled": true,
+                "skid": {"size_m": [0.13, 0.08, 0.01], "center_x_m": -0.01, "end_bevel_deg": 12.5, "flat_length_m": 0.07},
+                "wheel_ring": {"dome_deg": 12.0}
+              },
+              "end_stop_pads": {"joints": {"knee_angle": {"radius_m": 0.016, "area_m2": 2.4e-05, "thickness_m": 0.012}}}
+            },
+            "structure": {
+              "printed": {"thigh_sections": "thigh_closed", "thigh_hip_flange": true, "hip_bracket_material": "al7075", "shin_material": "al7075"},
+              "bearings": {"KneeInnerBearing": "6900", "KneeOuterBearing": "6900", "BulkheadBearing": "688A", "InnerShaftEndBearing": "688A"},
+              "belts": {"knee": {"pretension_per_span_N_assumption": 120.0}}
+            }
+          },
+          "visible": true,
+          "mass_delta_kg_estimate": 0.143,
+          "description": "Phase D4 set: internal_set, 6900 knees, 7075 shin, thigh hip flange (screen assumption), 130 x 80 x 10 mm skid with 12.5 deg end bevels, 12 deg coned wheel rings, three-screw TPU ear roots in 3 mm bosses, and a softer knee-angle stop pad (TPU 12 mm long, 24 mm2, at 16 mm radius)"
+        },
+        "knee_pretension_120": {
+          "patch": {"structure": {"belts": {"knee": {"pretension_per_span_N_assumption": 120.0}}}},
+          "visible": false,
+          "mass_delta_kg_estimate": 0.0,
+          "description": "Knee belt pretension 60 -> 120 N per span (eccentric seat)"
+        }
+      }
+    },
+    "electronics": {
+      "status": "M11 phase C electrical design (18 October 2026): parts signed off in phase B; calculations in bipe/m11/power.py. Digital design only, not hardware-validated",
+      "drivers": {
+        "model": "mjbots moteus-c1", "count": 6,
+        "input_V": [10.0, 51.0], "peak_phase_current_A": 20.0, "continuous_phase_current_A_uncooled": 5.0,
+        "peak_power_W_at_28V": 250.0,
+        "bulk_capacitance_F_each": 5.64e-05,
+        "bulk_capacitance_basis": "12 x 4.7 uF 100 V MLCC (mjbots/moteus hw/c1/bulk_capacitance.kicad_sch); nominal, no DC-bias derating",
+        "mlcc_dc_bias_retained_fraction_assumption": 0.5,
+        "logic_power_W_each_assumption": 0.4,
+        "logic_power_basis": "Not published; STM32G4, gate driver and MAX15062 buck. Assumption to be measured on the bench",
+        "aux_3V3_A": 0.05,
+        "settings": {"servo.max_voltage": 30.0, "servo.flux_brake_margin_voltage": 3.0, "servo.max_regen_power_W": 10.0},
+        "settings_basis": "max_voltage at least 5 V above the 25.2 V full pack (mjbots electrical setup guide); regen limit above the 5.7 W phase A driver peak",
+        "can": {"arbitration_bit_s": 1000000, "data_bit_s": 5000000, "sample_point": 0.666, "termination": "split 2 x 60 ohm with 4.7 nF to ground at both bus ends"},
+        "source": "https://mjbots.com/products/moteus-c1; https://github.com/mjbots/moteus/blob/main/docs/guides/electrical-setup.md"
+      },
+      "host": {"model": "PJRC Teensy 4.0 on a custom 2-layer carrier", "input_A_at_5V": 0.1, "basis": "about 100 mA at 600 MHz (pjrc.com/store/teensy40.html); CAN3 (FD) on bottom pads 30/31"},
+      "can_transceiver": {"model": "Microchip MCP2562FD-E/SN (SOIC-8)", "lcsc": "C124016", "data_rate_bit_s": 8000000, "supply_A_5V_dominant_max": 0.07, "supply_A_5V_recessive_max": 0.01, "vio_V": 3.3, "basis": "Phase D: replaces the TCAN330G, which LCSC does not stock (MCP2562FD: about 1.5k in stock, $1.71). Datasheet DS20005284A: CAN FD to 8 Mbps; VDD 4.5-5.5 V; IDD 45 mA typ / 70 mA max dominant, 10 mA max recessive; VIO 1.8-5.5 V; STBY high = standby"},
+      "imu": {"model": "ST LSM6DSO", "supply_A_3V3": 0.00055, "basis": "high-performance mode, both sensors on (assumed from the LSM6DSO family datasheet)"},
+      "eye_leds": {"model": "Adafruit NeoPixel Jewel (7 x 5050)", "count": 2, "leds_each": 7, "channel_current_A": 0.018, "channels": 3, "firmware_brightness_cap": 0.25, "source": "https://www.adafruit.com/product/2226"},
+      "vision_reservation": {"model": "Raspberry Pi Zero 2 W with the head Camera Module 3", "typical_A_at_5V": 0.35, "supply_A_at_5V": 2.0, "camera_A_at_5V_assumption": 0.25, "mass_kg_assumption": 0.012, "board_xy_m": [0.065, 0.03], "basis": "Zero 2 W: 350 mA typical bare-board active, 2 A recommended supply (raspberrypi.com documentation power table); reserved, not wired to the controller"},
+      "regulator_5V": {
+        "model": "Matek BEC12S-PRO",
+        "input_V": [9.0, 55.0], "output_V": 5.2, "continuous_A": 5.0, "peak_A": 9.0,
+        "efficiency_assumption": 0.85, "mass_kg": 0.005, "size_m": [0.035, 0.024, 0.0055],
+        "basis": "Retailer specifications (e.g. racedayquads.com); chosen over the Pololu D36V28F5 (3.2 A, 17.8 x 20.3 x 8.8 mm) for the 5 V peak with the vision reservation"
+      },
+      "soft_start": {
+        "controller": "TI LM5060 high-side protection controller with an external N-channel MOSFET",
+        "gate_charge_current_A": [1.7e-05, 2.4e-05, 3.1e-05],
+        "gate_discharge_current_A_off": 0.0022, "gate_discharge_current_A_fault": 0.08,
+        "gate_capacitor_F": 2.2e-08,
+        "uvlo_threshold_V": 1.6, "enable": "EN from the shell power switch (microamp signal current)",
+        "timer_capacitor_F": 3.3e-07,
+        "timer": {"start_up_charge_A": [4.0e-06, 6.0e-06, 7.0e-06], "fault_charge_A": [8.5e-06, 1.1e-05, 1.3e-05], "fault_threshold_V": 2.0, "fault_threshold_tolerance_assumption": 0.06, "reset_V": 0.3, "vgs_status_threshold_V": [3.5, 5.0, 6.5]},
+        "sense": {"resistor_ohm": 10000.0, "current_A": [1.36e-05, 1.6e-05, 1.8e-05], "offset_V": 0.007},
+        "gate_clamp_V": 16.8,
+        "ovp": "OVP pin to GND (not used, as the datasheet allows; the pack is the only source)",
+        "timer_basis": "LM5060 SNVS628H: ITIMERL 4/6/7 uA, ITIMERH 8.5/11/13 uA, VTMRH 2.0 V typ (no limits given; +/-6% assumed), VTMRL 0.3 V, VGATE-TH 3.5/5/6.5 V; ISENSE 13.6/16/18 uA, VOFFSET +/-7 mV",
+        "mosfet": {"model": "AOS AOD4184A (TO-252)", "lcsc": "C99124", "vds_V": 40.0, "vgs_max_V": 20.0, "rds_on_ohm_max_25C": 0.007, "rds_on_ohm_max_125C": 0.012, "ciss_F_max": 1.8e-09, "crss_F_max": 1.9e-10, "plateau_V_assumption": 3.5, "single_pulse_power_W_10ms": 50.0, "rth_jc_K_W": 3.0, "rth_ja_K_W": 55.0, "source": "https://www.aosmd.com/res/datasheets/AOD4184A.pdf (Rev 1.0, September 2023); SOA and single-pulse power are rated at a 25 C case. LCSC C99124: about 6k in stock, $0.30"},
+        "basis": "LM5060 datasheet SNVS628H: IGATE 17/24/31 uA, IGATE-OFF 2.2 mA, IGATE-FLT 80 mA, UVLO 1.6 V; output rise time set by a GATE-to-GND capacitor",
+        "mosfet_requirements": {"vds_V": 40.0, "rds_on_ohm_max_hot": 0.02, "vgs_max_V": 20.0, "linear_mode_energy_J": 0.25, "linear_mode_time_s": 0.035, "basis": "Ramp energy 0.16-0.21 J over 18-33 ms (bipe/m11/power.py); the part is chosen in phase D from stocked 40 V N-channel MOSFETs against its single-pulse SOA"}
+      },
+      "fuse": {"model": "Littelfuse MINI 297 series 10 A (0297010.WXNV) in a PCB holder", "rating_A": 10.0, "voltage_V": 32.0, "interrupting_A": 1000.0, "basis": "Littelfuse MINI blade fuse datasheet: 32 VDC, 1000 A interrupting; the 0451 Nano2 10 A interrupts only 400 A at 32 V"},
+      "pack": {"cells": 6, "full_V": 25.2, "nominal_V": 22.2, "arm_minimum_V": 19.2, "cutoff_V": 18.0, "internal_resistance_ohm_per_cell_assumption": 0.008, "basis": "3.2 V/cell arm minimum and 3.0 V/cell cutoff (M4 config/electronics.json limits); internal resistance is an assumption for 850 mAh packs"},
+      "wiring": {
+        "trunk": {"awg": 20, "ohm_per_m": 0.0333, "length_m": 0.25},
+        "branch": {"awg": 22, "ohm_per_m": 0.053, "length_m": 0.15},
+        "connector_ohm_each_assumption": 0.001,
+        "basis": "Annealed copper AWG resistance at 20 C; lengths are layout estimates for phase D"
+      },
+      "battery_monitor": {"upper_ohm": 180000.0, "lower_ohm": 10000.0, "adc_bits": 12, "adc_reference_V": 3.3, "basis": "M4 divider (config/electronics.json adc); Teensy 4.0 ADC"},
+      "firmware": {
+        "status": "M11 phase E firmware hardware layer: digital design, values marked assumption or commissioning are measured on hardware",
+        "host_can_source": 0,
+        "driver_ids": {"left_hip": 1, "left_knee": 2, "right_hip": 3, "right_knee": 4, "left_wheel_joint": 5, "right_wheel_joint": 6},
+        "driver_ids_basis": "moteus id.id per driver, keyed by the plant's JOINTS and WHEELS names",
+        "watchdog_timeout_s": 0.02,
+        "timeout_mode_joints": 12,
+        "timeout_mode_wheels": 0,
+        "timeout_max_torque_Nm": 0.5,
+        "timeout_basis": "User decision 19 October 2026: after 20 ms (4 control periods) without a command the joints damp in moteus zero-velocity mode (12) and the wheels stop (0, limp). The 0.5 N*m damping cap is about a third of the 1.65 N*m joint command cap, to tune on the bench",
+        "imu": {"spi_rate_hz": 8000000, "spi_mode": 3, "who_am_i": 108, "ctrl3_c": 68, "ctrl1_xl": 136, "ctrl2_g": 132, "int1_ctrl": 2, "odr_hz": 1660.0, "accel_mg_per_lsb": 0.122, "gyro_mdps_per_lsb": 17.5, "first_output_register": 34, "gravity_check_deg": 30.0, "standard_gravity_m_s2": 9.80665, "basis": "ST DS12140 Rev 3 (June 2024): WHO_AM_I 6Ch; CTRL3_C BDU + IF_INC (44h); CTRL1_XL 1.66 kHz, +-4 g (88h); CTRL2_G 1.66 kHz, +-500 dps (84h); INT1_CTRL INT1_DRDY_G (02h); outputs OUTX_L_G (22h) to OUTZ_H_A (2Dh); typical sensitivities 0.122 mg/LSB and 17.50 mdps/LSB; SPI mode 3, clock at most 10 MHz. Axes from Figure 3 (top view: pin 1 top left, X right, Y up, Z out of the top face)"},
+        "timing": {"driver_turnaround_s_assumption": 0.00025, "compute_s_assumption": 0.0005, "spi_overhead_s_assumption": 0.00002, "basis": "Driver turnaround (CAN receive to reply start) and Teensy compute time are assumptions for the bench check with the DWT cycle counter; the compute bound is at least 10 x the host-measured estimator and controller step (artifacts/m11/firmware/timing.json)"}
+      },
+      "boards": {
+        "carrier": {"size_m": [0.04, 0.03], "thickness_m": 0.0016, "copper_layers": 2, "origin_body_m": [-0.014, 0.0139, 0.0055], "board_x_axis_body": [1, 0, 0], "board_y_axis_body": [0, 0, 1], "front_normal_body": [0, 1, 0], "basis": "Teensy carrier in the probed host slot (x -14 to 26, y 13.9 to 23.9 mm), at z 5.5 to 35.5 mm: 0.5 mm below the cover and 0.5 mm above the inner shaft (cad/m11/adoption_check.py); KiCad origin at the bottom -x corner (KiCad y runs up the body), front facing +y so the top-entry PH plugs exit into the clear space at y 23.9-36 mm (the -y side holds the knee pulley and belt, the edges the knee shaft and cover); Teensy USB at the +x edge facing the battery bay"},
+        "power": {"size_m": [0.06, 0.02], "thickness_m": 0.0016, "copper_layers": 2, "origin_body_m": [-0.082, -0.03, -0.0135], "board_x_axis_body": [0, 1, 0], "board_y_axis_body": [0, 0, -1], "front_normal_body": [1, 0, 0], "basis": "Power board in the probed rear-low slot (x -82 to -73, y -30 to 30, z -33.5 to -13.5 mm); PCB back at x -82, components face the body interior; the top-entry PH plugs and soldered leads exit +x into the clear gap at x -73 to -66 mm (the tub floor sits 2.5 mm below the board)"},
+        "frame": "origin_body_m is the KiCad (0, 0) corner on the board's back face; board points map as origin + x board_x_axis + y board_y_axis + height front_normal, the height measured from the back face",
+        "component_heights_m": {
+          "C_0603_1608Metric": 0.0009, "R_0603_1608Metric": 0.00055, "C_0805_2012Metric": 0.00145, "C_1206_3216Metric": 0.0018,
+          "LGA-14_3x2.5mm_P0.5mm_LayoutBorder3x4y": 0.00086, "SOIC-8_3.9x4.9mm_P1.27mm": 0.00175, "SOT-23-5": 0.00145, "SOT-23": 0.00112,
+          "TO-252-2": 0.0024, "D_SMB": 0.00244, "VSSOP-10_3x3mm_P0.5mm": 0.0011,
+          "JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical": 0.008, "JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical": 0.008, "JST_PH_B7B-PH-K_1x07_P2.00mm_Vertical": 0.008,
+          "PinHeader_1x14_P2.54mm": 0.0025,
+          "Teensy40_Carrier": [0.0025, 0.0065],
+          "basis": "Package maximum heights above the board front from the datasheets (LSM6DSO 0.86, SOIC-8 1.75, SOT-23-5 1.45, SOT-23 1.12, TO-252 2.39, SMB 2.44, VSSOP-10 1.1 mm; MLCC and resistor maxima by size). PH headers carry the mated plug: JST ePH catalog, 8.0 mm high after mounting. Teensy 4.0 on 2.5 mm header spacers, 4.0 mm for its board, parts and micro-USB above them (assumption)"
+        }
+      },
+      "harness": {
+        "hub_conductors": {"phase": 3, "encoder": 6, "encoder_signals": ["3V3", "GND", "CS", "SCK", "MISO", "MOSI"]},
+        "assignment": "Hub c1s are the two boards beside the battery (nearest the body ports at y +/-24 mm); the four motor-row boards drive the RO40s",
+        "wires": {
+          "phase": {"model": "Alpha Wire 2843/7, 26 AWG 7/34 thin-wall PTFE", "od_m": 0.00079, "strands": 7, "strand_d_m": 0.00016},
+          "encoder": {"model": "Alpha Wire 2841/7, 30 AWG 7/38 thin-wall PTFE", "od_m": 0.00061, "strands": 7, "strand_d_m": 0.0001016},
+          "rejected": {"model": "Silicone hook-up wire (Adafruit 1970 26 AWG; 30 AWG)", "phase_od_m": 0.0014, "encoder_od_m": 0.0008},
+          "basis": "User decision 18 October 2026 (thin-wall PTFE). ODs from distributor listings of the Alpha Wire parts (2843/7 0.79 mm, 2841/7 0.61 mm) and Adafruit 1970 (1.4 +/- 0.1 mm); strand diameters from the AWG stranding codes"
+        },
+        "copper_resistivity_ohm_m_20C": 1.724e-08,
+        "lay_factor": 1.02,
+        "packing_fraction": [0.6, 0.75],
+        "restrictions_m": {"shaft_port": 0.003, "thigh_gallery": 0.0031, "shin_channel": 0.0032, "shaft_bore": 0.005},
+        "route_m": {"body": 0.06, "inner_shaft_bore": 0.0485, "thigh_gallery": 0.059, "knee_shaft": 0.01, "shin_channel": 0.052, "axle_tube": 0.0265},
+        "slack_fraction": 0.15,
+        "route_basis": "Gallery, shin channel and axle tube from the CAD envelopes (artifacts/m11/harness/geometry_0.103.json); body run 1.5 x the 41 mm straight line from the side board to the body port; inner-shaft bore from the body port (y 24 mm) to the gallery (y 72.5 mm)",
+        "crossings": {
+          "body_port": {"range": "knee_drive_a2", "shaft_radius_m": 0.005},
+          "hip_gallery_port": {"range": "knee_angle", "shaft_radius_m": 0.005},
+          "knee_shaft_port": {"range": "knee_angle", "shaft_radius_m": 0.005}
+        },
+        "service_loop_radius_m": 0.01,
+        "service_loop_basis": "User decision 18 October 2026: service loops of radius 10 mm or more at the rotating crossings; strand strain is reported, fatigue life is a bench cycle test",
+        "encoder": {"supply_A": 0.015, "supply_basis": "AS5047P supply current, distributor catalog attribute (RS 2009463); the ams datasheet download is restricted", "spi_rate_hz": 2000000, "spi_rate_basis": "moteus aux[12].spi.rate_hz defaults to 12 MHz, above the AS5047P 10 MHz maximum; 2 MHz for the 0.32 m hub runs (a 16-bit frame takes 8 us)", "line_capacitance_F_per_m_assumption": 1e-10, "driver_resistance_ohm_assumption": 50.0, "series_resistor_ohm": 33.0}
+      }
+    }
+  },
+  "m12": {
+    "status": "M12 camera following, phase A: requirements and scenarios",
+    "camera": {
+      "module": "Raspberry Pi Camera Module 3",
+      "sensor": "Sony IMX708, 1.4 um pixels, 1/2.43 inch optical size",
+      "video_modes": [
+        [2304, 1296, 56],
+        [1536, 864, 120]
+      ],
+      "lenses": {
+        "standard": {
+          "horizontal_fov_deg": 66,
+          "vertical_fov_deg": 41,
+          "focal_length_m": 0.00474,
+          "f_number": 1.8,
+          "focus_minimum_m": 0.1,
+          "module_depth_m": 0.0115
+        },
+        "wide": {
+          "horizontal_fov_deg": 102,
+          "vertical_fov_deg": 67,
+          "focal_length_m": 0.00275,
+          "f_number": 2.2,
+          "focus_minimum_m": 0.05,
+          "module_depth_m": 0.0124
+        }
+      },
+      "source": "Raspberry Pi camera documentation, hardware specification table (https://www.raspberrypi.com/documentation/accessories/camera.html), read 20 October 2026",
+      "optical_centre_assumption": "The pinhole sits on the pitched lens axis at the front face of the lens block (m10.internals.head; the lens block and its offset are assumptions until checked against the Camera Module 3 mechanical drawing)",
+      "fit_note": "The Wide module is 12.4 mm deep against the 11.5 mm head envelope; phase C checks the fit if the Wide lens is chosen"
+    },
+    "camera_sensor": {
+      "pixel_size_m": 1.4e-6,
+      "active_pixels": [4608, 2592],
+      "diagonal_fov_wide_deg": 120,
+      "source": "Raspberry Pi camera documentation, hardware specification table (pixel size, sensor resolution; https://www.raspberrypi.com/documentation/accessories/camera.html, read 21 October 2026); the 120 degree diagonal angle of view of the Wide is from the Raspberry Pi product page (https://www.raspberrypi.com/products/camera-module-3/) and resellers, not the documentation table",
+      "note": "Phase C (perception) inputs; kept beside m12.camera so the phase A record stays current"
+    }
+  }
+}

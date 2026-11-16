@@ -1,0 +1,164 @@
+{
+  "description": "M12 phase F: closed-loop following with the head camera rendered in the loop (bipe.m12.rendered_link)",
+  "status": "Phase F plan approved (22 October 2026); 5 ms exposure with the phase C tracker chosen by the user (22 October 2026, 18:45 UTC); 74 deg view gate and side-light losses accepted for phase E, signed off by the user (24 October 2026)",
+  "layout": "waist_tag",
+  "output_dir": "artifacts/m12/following_rendered_5ms",
+  "output_dir_basis": "The 5 ms matrix; the 10 ms runs (retry_and_grow seed-0 check and nominal seeds) stay in artifacts/m12/following_rendered and the 10 ms phase_c check in artifacts/m12/following_rendered_phase_c",
+  "exposure_s": 0.005,
+  "exposure_basis": "User decision (22 October 2026): 5 ms instead of the phase C 10 ms. The phase F check found the rendered misses follow the body pitch rate (vertical motion blur from the balance core's ~10 Hz oscillation: under 20 deg/s 0 % missed, 60-100 deg/s 51 %), which the phase C and D models did not include; at 5 ms, straight_0.6, approach and corner_90 (seed 0) detected 1589 of 1590 possible frames with no losses. The noise budget follows the exposure (half the light per frame); the dim variant tests 50 lx at 5 ms",
+  "check_repeat": true,
+  "pose_conversion": "plant_camera",
+  "pose_conversion_basis": "As phase C: the tag pose is turned into range and bearing with the plant's own camera pose (lean and pitch included), as if the Pi knew it. 'fixed_mount' (the camera of the robot standing level at the nominal posture) is the diagnostic for a Pi that is not told the lean",
+  "tracker": "phase_c",
+  "tracker_policies": {
+    "phase_c": {
+      "region_retries": 0,
+      "growth_rad_s": 0.0,
+      "basis": "The phase C pipeline: after a region-of-interest miss the next frame is a full-frame search; the window is the last detection's box x2 plus 24 px"
+    },
+    "retry_and_grow": {
+      "region_retries": 1,
+      "growth_rad_s": 1.5,
+      "basis": "Proposed after the phase F check (22 October 2026): about 4 % of ordinary frames cannot be decoded with the tag well inside the window (single-frame image misses), so one region miss is retried on the next frame before a full search; and the window's margin grows with the detection's age at 1.5 rad/s (the 1.0 rad/s yaw envelope plus the target's crossing rate), so the window after a full search (about 0.27 s old) still covers the tag in turns. A larger window costs more detector time on the Pi; the phase C timing is not rescaled (an estimate gap). Not chosen: the user picked 5 ms with the phase C tracker (22 October 2026)"
+    }
+  },
+  "view_gate_deg": 74,
+  "view_gate_basis": "User decision (24 October 2026): the Pi drops a tag pose whose fitted 3-D view angle (tag normal against the line of sight) is past 74 deg, about 69-70 deg of yaw view angle, and sends the frame as an empty report (detected false, which the follower counts as BIPE_FOLLOW_EMPTY); the tracker keeps the tag. The gate is bipe.pi.gate, the Pi's code, which the simulator runs. Past 70 deg of yaw the fitted range reads 1.4-2.0 cm short (+1.3 cm below 30 deg), and the last such reading before the corner_90 miss made the coast predict the person approaching and the robot reverse. A 65 deg gate dropped good frames and the coast ran out. Only the 12 matrix runs with a detection past 60 deg of yaw view angle are rerun with the gate; the others have no frame it can act on",
+  "kept_frames_per_run": 6,
+  "lighting": {
+    "nominal": {
+      "headlight": {
+        "ambient": [
+          0.35,
+          0.35,
+          0.35
+        ],
+        "diffuse": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "lights": [
+        {
+          "dir": [
+            0.3,
+            0.3,
+            -1.0
+          ],
+          "diffuse": [
+            0.7,
+            0.7,
+            0.7
+          ]
+        },
+        {
+          "dir": [
+            0.2,
+            0.1,
+            -1.0
+          ],
+          "diffuse": [
+            0.6,
+            0.6,
+            0.6
+          ]
+        }
+      ],
+      "illuminance_lux": 200,
+      "basis": "The phase C scene as rendered: the M10 plant's spot light (bipe.m10.plant) and the M12 directional light (bipe.m12.scenarios.world_xml), with the 200 lx noise budget (config/perception-m12.json camera.noise)"
+    },
+    "dim": {
+      "headlight": {
+        "ambient": [
+          0.35,
+          0.35,
+          0.35
+        ],
+        "diffuse": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "lights": [
+        {
+          "dir": [
+            0.3,
+            0.3,
+            -1.0
+          ],
+          "diffuse": [
+            0.7,
+            0.7,
+            0.7
+          ]
+        },
+        {
+          "dir": [
+            0.2,
+            0.1,
+            -1.0
+          ],
+          "diffuse": [
+            0.6,
+            0.6,
+            0.6
+          ]
+        }
+      ],
+      "illuminance_lux": 50,
+      "basis": "The phase C dim comparison, 50 lx (camera.noise.low_light_lux). Auto exposure and gain bring white to the same level under the 10 ms exposure cap, so dim light shows as sensor noise, not a darker image"
+    },
+    "side_light": {
+      "headlight": {
+        "ambient": [
+          0.15,
+          0.15,
+          0.15
+        ],
+        "diffuse": [
+          0.15,
+          0.15,
+          0.15
+        ]
+      },
+      "lights": [
+        {
+          "dir": [
+            0.3,
+            0.3,
+            -1.0
+          ],
+          "diffuse": [
+            0.1,
+            0.1,
+            0.1
+          ]
+        },
+        {
+          "dir": [
+            0.3,
+            -1.0,
+            -0.35
+          ],
+          "diffuse": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "illuminance_lux": 200,
+      "basis": "Assumption: a strong low light from one side (a window), about 20 degrees above the horizon, with the spot and headlight turned down to little fill; the tag face is lit unevenly and the floor brightly. Matte paper and ink, no specular glare (the phase C materials)"
+    }
+  },
+  "lighting_scenarios": [
+    "straight_1.0",
+    "curve_r1",
+    "corner_90"
+  ],
+  "nominal_seeds": 5,
+  "basis": "User decisions (22 October 2026, phase F plan approved as recommended): run phase F before phase E with the phase C camera pose and timing estimate; latency drawn from the phase C Pi Zero 2 W estimate by tracker mode; 5 nominal seeds (the renders are deterministic, so seeds vary only latency and sensor noise); dim and strong side light on three scenarios",
+  "lights_order": "The scene's lights in model order: the M10 plant's spot light, then the M12 directional light"
+}

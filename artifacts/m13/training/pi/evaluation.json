@@ -1,0 +1,132 @@
+{
+  "tracking": {
+    "episodes": 1000,
+    "terminations": 116,
+    "steady_samples": 586552,
+    "speed_rms_m_s": 0.06433253126398053,
+    "yaw_rate_rms_rad_s": 0.41224873543195545,
+    "yaw_rate_rms_no_turn_rad_s": 0.3857777596097116,
+    "posture_p95_mm": 4.135383293032646,
+    "including_terminated": {
+      "speed_rms_m_s": 0.07376585537622896,
+      "yaw_rate_rms_rad_s": 0.4501505091692649,
+      "posture_p95_mm": 4.26863506436348
+    },
+    "termination_rate_by": {
+      "transport_delay_ms": {
+        "5-10": {
+          "episodes": 325,
+          "terminated": 0.092
+        },
+        "10-15": {
+          "episodes": 308,
+          "terminated": 0.094
+        },
+        "15-21": {
+          "episodes": 367,
+          "terminated": 0.155
+        }
+      },
+      "slope_deg": {
+        "0-0.01": {
+          "episodes": 297,
+          "terminated": 0.088
+        },
+        "0.01-5": {
+          "episodes": 352,
+          "terminated": 0.08
+        },
+        "5-10.01": {
+          "episodes": 351,
+          "terminated": 0.177
+        }
+      },
+      "noise_scale": {
+        "0.5-1": {
+          "episodes": 349,
+          "terminated": 0.123
+        },
+        "1-1.5": {
+          "episodes": 346,
+          "terminated": 0.113
+        },
+        "1.5-2.01": {
+          "episodes": 305,
+          "terminated": 0.111
+        }
+      },
+      "hub_lag_ms": {
+        "0.8-3": {
+          "episodes": 370,
+          "terminated": 0.116
+        },
+        "3-10": {
+          "episodes": 352,
+          "terminated": 0.094
+        },
+        "10-25.1": {
+          "episodes": 278,
+          "terminated": 0.144
+        }
+      }
+    },
+    "yaw_rate_rms_by": {
+      "transport_delay_ms": {
+        "5-10": 0.397,
+        "10-15": 0.406,
+        "15-21": 0.432
+      },
+      "slope_deg": {
+        "0-0.01": 0.424,
+        "0.01-5": 0.401,
+        "5-10.01": 0.413
+      },
+      "noise_scale": {
+        "0.5-1": 0.413,
+        "1-1.5": 0.4,
+        "1.5-2.01": 0.425
+      },
+      "hub_lag_ms": {
+        "0.8-3": 0.356,
+        "3-10": 0.51,
+        "10-25.1": 0.329
+      }
+    }
+  },
+  "pushes": {
+    "hold_+2": {
+      "fell": 0.1171875,
+      "recovered": 0.66796875,
+      "recovery_s_mean": 0.8952046036720276
+    },
+    "hold_-2": {
+      "fell": 0.078125,
+      "recovered": 0.6875,
+      "recovery_s_mean": 0.9248864054679871
+    },
+    "drive_0.5_+2": {
+      "fell": 0.1328125,
+      "recovered": 0.640625,
+      "recovery_s_mean": 0.8652438521385193
+    },
+    "drive_0.5_-2": {
+      "fell": 0.0546875,
+      "recovered": 0.69921875,
+      "recovery_s_mean": 0.8649161458015442
+    }
+  },
+  "exit": {
+    "terminations": 0,
+    "speed_rms_m_s": 0.1,
+    "yaw_rate_rms_rad_s": 0.15,
+    "posture_p95_mm": 5.0,
+    "push_recovered": 1.0
+  },
+  "passed": {
+    "terminations": false,
+    "speed_rms_m_s": true,
+    "yaw_rate_rms_rad_s": false,
+    "posture_p95_mm": true,
+    "push_recovered": false
+  }
+}

@@ -1,0 +1,647 @@
+{
+ "runs": {
+  "loss_fov_seed0_lat0.15": {
+   "rendered": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 0.7247706422018348,
+    "detected_when_possible": 1.0,
+    "detected_not_possible": 4,
+    "miss_runs": 1,
+    "miss_run_max": 1,
+    "losses_to_hold": 1,
+    "events": [
+     "engaged",
+     "coasting",
+     "lost",
+     "holding"
+    ],
+    "coasts": 1,
+    "estimate": {
+     "range_mean_m": 0.0030272542647976127,
+     "range_rms_m": 0.0462925294593535,
+     "range_max_abs_m": 0.1645060266759204,
+     "bearing_rms_deg": 2.5957790335169926,
+     "bearing_max_abs_deg": 8.758439128947575
+    },
+    "range_error_mean_m": 0.011960808017962229,
+    "range_error_std_m": 0.002601620394411748,
+    "bearing_error_mean_deg": -0.07736347705158186,
+    "bearing_error_std_deg": 0.008369141454413453,
+    "repeat_mismatches": 0,
+    "wall_s": 753.1854457855225
+   },
+   "model": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 0.7087378640776699,
+    "detected_when_possible": 1.0,
+    "losses_to_hold": 1,
+    "events": [
+     "engaged",
+     "coasting",
+     "lost",
+     "holding"
+    ],
+    "coasts": 1,
+    "estimate": {
+     "range_mean_m": 0.041204821733253384,
+     "range_rms_m": 0.0563284181358884,
+     "range_max_abs_m": 0.13262645027891895,
+     "bearing_rms_deg": 6.319555020683202,
+     "bearing_max_abs_deg": 17.322672954259275
+    }
+   },
+   "same_events": true,
+   "same_pass": true
+  },
+  "lateral_crossing_seed0_lat0.15": {
+   "rendered": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 1.0,
+    "detected_when_possible": 1.0,
+    "detected_not_possible": 0,
+    "miss_runs": 0,
+    "miss_run_max": 0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged"
+    ],
+    "coasts": 0,
+    "estimate": {
+     "range_mean_m": 0.012546563841483588,
+     "range_rms_m": 0.014555130369043835,
+     "range_max_abs_m": 0.04549971215641535,
+     "bearing_rms_deg": 0.3858526039341498,
+     "bearing_max_abs_deg": 1.9160041680299384
+    },
+    "range_error_mean_m": 0.013115903751416016,
+    "range_error_std_m": 0.0028472361260196816,
+    "bearing_error_mean_deg": -0.07436912594855144,
+    "bearing_error_std_deg": 0.0033737695382805343,
+    "repeat_mismatches": 0,
+    "wall_s": 1269.3920249938965
+   },
+   "model": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 1.0,
+    "detected_when_possible": 1.0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged"
+    ],
+    "coasts": 0,
+    "estimate": {
+     "range_mean_m": 0.01261162589217746,
+     "range_rms_m": 0.015316458196099824,
+     "range_max_abs_m": 0.05819393865617373,
+     "bearing_rms_deg": 0.40083298559995173,
+     "bearing_max_abs_deg": 1.937979101662218
+    }
+   },
+   "same_events": true,
+   "same_pass": true
+  },
+  "approach_seed0_lat0.15": {
+   "rendered": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 1.0,
+    "detected_when_possible": 1.0,
+    "detected_not_possible": 0,
+    "miss_runs": 0,
+    "miss_run_max": 0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged"
+    ],
+    "coasts": 0,
+    "estimate": {
+     "range_mean_m": 0.008641208973782476,
+     "range_rms_m": 0.013564385517668046,
+     "range_max_abs_m": 0.04200454302712253,
+     "bearing_rms_deg": 0.08192982712061878,
+     "bearing_max_abs_deg": 0.1755132426026956
+    },
+    "range_error_mean_m": 0.011841544680732457,
+    "range_error_std_m": 0.002714786270332064,
+    "bearing_error_mean_deg": -0.07700961477156887,
+    "bearing_error_std_deg": 0.007645447224143082,
+    "repeat_mismatches": 0,
+    "wall_s": 1595.0693895816803
+   },
+   "model": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 1.0,
+    "detected_when_possible": 1.0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged"
+    ],
+    "coasts": 0,
+    "estimate": {
+     "range_mean_m": 0.009675825021583621,
+     "range_rms_m": 0.014942500377989184,
+     "range_max_abs_m": 0.05058861172763596,
+     "bearing_rms_deg": 0.09003271677339185,
+     "bearing_max_abs_deg": 0.2431609971137647
+    }
+   },
+   "same_events": true,
+   "same_pass": true
+  },
+  "occlusion_short_seed0_lat0.15": {
+   "rendered": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 0.9961089494163424,
+    "detected_when_possible": 1.0,
+    "detected_not_possible": 3,
+    "miss_runs": 1,
+    "miss_run_max": 2,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged",
+     "coasting",
+     "lost",
+     "reacquired",
+     "coasting",
+     "reacquired"
+    ],
+    "coasts": 2,
+    "estimate": {
+     "range_mean_m": 0.010410454431658583,
+     "range_rms_m": 0.01244275389286602,
+     "range_max_abs_m": 0.04228751636975847,
+     "bearing_rms_deg": 0.07782678799932949,
+     "bearing_max_abs_deg": 0.17050813148726005
+    },
+    "range_error_mean_m": 0.012900215288850032,
+    "range_error_std_m": 0.0013874486852277414,
+    "bearing_error_mean_deg": -0.07368655783972747,
+    "bearing_error_std_deg": 0.0028269801995446458,
+    "repeat_mismatches": 0,
+    "wall_s": 1873.9375312328339
+   },
+   "model": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 0.9961240310077519,
+    "detected_when_possible": 1.0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged",
+     "coasting",
+     "lost",
+     "reacquired",
+     "coasting",
+     "reacquired"
+    ],
+    "coasts": 2,
+    "estimate": {
+     "range_mean_m": 0.010651340853755208,
+     "range_rms_m": 0.0136681809183535,
+     "range_max_abs_m": 0.04701632104710318,
+     "bearing_rms_deg": 0.08661318454553889,
+     "bearing_max_abs_deg": 0.22841125059103431
+    }
+   },
+   "same_events": true,
+   "same_pass": true
+  },
+  "straight_1.0_seed0_lat0.15": {
+   "rendered": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 1.0,
+    "detected_when_possible": 1.0,
+    "detected_not_possible": 0,
+    "miss_runs": 0,
+    "miss_run_max": 0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged"
+    ],
+    "coasts": 0,
+    "estimate": {
+     "range_mean_m": 0.010621750287124447,
+     "range_rms_m": 0.013572434821381266,
+     "range_max_abs_m": 0.04725474946334518,
+     "bearing_rms_deg": 0.07682077782901268,
+     "bearing_max_abs_deg": 0.15358833188112062
+    },
+    "range_error_mean_m": 0.012847439466372481,
+    "range_error_std_m": 0.0021306859938427397,
+    "bearing_error_mean_deg": -0.07397296944074545,
+    "bearing_error_std_deg": 0.003767365697668585,
+    "repeat_mismatches": 0,
+    "wall_s": 1897.315686225891
+   },
+   "model": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 1.0,
+    "detected_when_possible": 1.0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged"
+    ],
+    "coasts": 0,
+    "estimate": {
+     "range_mean_m": 0.010925957699382911,
+     "range_rms_m": 0.01477988199351456,
+     "range_max_abs_m": 0.055803619049352826,
+     "bearing_rms_deg": 0.08183173952728677,
+     "bearing_max_abs_deg": 0.20069596522547722
+    }
+   },
+   "same_events": true,
+   "same_pass": true
+  },
+  "curve_r2_seed0_lat0.15": {
+   "rendered": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 1.0,
+    "detected_when_possible": 1.0,
+    "detected_not_possible": 0,
+    "miss_runs": 0,
+    "miss_run_max": 0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged"
+    ],
+    "coasts": 0,
+    "estimate": {
+     "range_mean_m": 0.013035748286800387,
+     "range_rms_m": 0.016715955547127077,
+     "range_max_abs_m": 0.04643583957512332,
+     "bearing_rms_deg": 0.4439609318154267,
+     "bearing_max_abs_deg": 1.664244786001508
+    },
+    "range_error_mean_m": 0.013580262718416959,
+    "range_error_std_m": 0.002655678371900027,
+    "bearing_error_mean_deg": -0.07260658188873234,
+    "bearing_error_std_deg": 0.004449087051363682,
+    "repeat_mismatches": 0,
+    "wall_s": 1900.563142299652
+   },
+   "model": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 1.0,
+    "detected_when_possible": 1.0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged"
+    ],
+    "coasts": 0,
+    "estimate": {
+     "range_mean_m": 0.012454344253761955,
+     "range_rms_m": 0.01589712077964613,
+     "range_max_abs_m": 0.048409174539193134,
+     "bearing_rms_deg": 0.4160659069488676,
+     "bearing_max_abs_deg": 1.4856022277419365
+    }
+   },
+   "same_events": true,
+   "same_pass": true
+  },
+  "curve_r1_seed0_lat0.15": {
+   "rendered": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 1.0,
+    "detected_when_possible": 1.0,
+    "detected_not_possible": 0,
+    "miss_runs": 0,
+    "miss_run_max": 0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged"
+    ],
+    "coasts": 0,
+    "estimate": {
+     "range_mean_m": 0.014096667791476827,
+     "range_rms_m": 0.017916546166322787,
+     "range_max_abs_m": 0.06501277375584269,
+     "bearing_rms_deg": 0.3901935979924562,
+     "bearing_max_abs_deg": 1.5988884036678526
+    },
+    "range_error_mean_m": 0.014260770676333853,
+    "range_error_std_m": 0.003150127745197339,
+    "bearing_error_mean_deg": -0.07140490786741086,
+    "bearing_error_std_deg": 0.004204900223661159,
+    "repeat_mismatches": 0,
+    "wall_s": 1908.9571843147278
+   },
+   "model": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 0.9901380670611439,
+    "detected_when_possible": 0.9901380670611439,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged",
+     "coasting",
+     "reacquired",
+     "coasting",
+     "reacquired",
+     "coasting",
+     "reacquired",
+     "coasting",
+     "reacquired",
+     "coasting",
+     "reacquired",
+     "coasting",
+     "lost",
+     "reacquired",
+     "coasting",
+     "reacquired"
+    ],
+    "coasts": 7,
+    "estimate": {
+     "range_mean_m": 0.01376236595229619,
+     "range_rms_m": 0.01759886239410897,
+     "range_max_abs_m": 0.06669322100512898,
+     "bearing_rms_deg": 0.46942146019276226,
+     "bearing_max_abs_deg": 2.5535054146579195
+    }
+   },
+   "same_events": false,
+   "same_pass": true
+  },
+  "start_stop_seed0_lat0.15": {
+   "rendered": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 1.0,
+    "detected_when_possible": 1.0,
+    "detected_not_possible": 0,
+    "miss_runs": 0,
+    "miss_run_max": 0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged"
+    ],
+    "coasts": 0,
+    "estimate": {
+     "range_mean_m": 0.010858534064489537,
+     "range_rms_m": 0.01505988521674207,
+     "range_max_abs_m": 0.04618075236155006,
+     "bearing_rms_deg": 0.07826169120520704,
+     "bearing_max_abs_deg": 0.1660205093650872
+    },
+    "range_error_mean_m": 0.013020043251276096,
+    "range_error_std_m": 0.0029776694318527502,
+    "bearing_error_mean_deg": -0.0744898708809727,
+    "bearing_error_std_deg": 0.004961594130039478,
+    "repeat_mismatches": 0,
+    "wall_s": 1937.893513917923
+   },
+   "model": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 1.0,
+    "detected_when_possible": 1.0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged"
+    ],
+    "coasts": 0,
+    "estimate": {
+     "range_mean_m": 0.010995936777078297,
+     "range_rms_m": 0.016299843938783348,
+     "range_max_abs_m": 0.05107652301531973,
+     "bearing_rms_deg": 0.08207087000941,
+     "bearing_max_abs_deg": 0.2048728008708945
+    }
+   },
+   "same_events": true,
+   "same_pass": true
+  },
+  "straight_0.6_seed0_lat0.15": {
+   "rendered": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 1.0,
+    "detected_when_possible": 1.0,
+    "detected_not_possible": 0,
+    "miss_runs": 0,
+    "miss_run_max": 0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged"
+    ],
+    "coasts": 0,
+    "estimate": {
+     "range_mean_m": 0.010727274137094034,
+     "range_rms_m": 0.012526309308648672,
+     "range_max_abs_m": 0.04413665422718516,
+     "bearing_rms_deg": 0.0769818314394431,
+     "bearing_max_abs_deg": 0.15691770606416253
+    },
+    "range_error_mean_m": 0.012832423110719887,
+    "range_error_std_m": 0.0012806530493141182,
+    "bearing_error_mean_deg": -0.07385840831839291,
+    "bearing_error_std_deg": 0.002732489306083783,
+    "repeat_mismatches": 0,
+    "wall_s": 2023.79913687706
+   },
+   "model": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 1.0,
+    "detected_when_possible": 1.0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged"
+    ],
+    "coasts": 0,
+    "estimate": {
+     "range_mean_m": 0.010939583258983364,
+     "range_rms_m": 0.013683918892956299,
+     "range_max_abs_m": 0.04610995694864961,
+     "bearing_rms_deg": 0.08114670199840185,
+     "bearing_max_abs_deg": 0.1994423033980262
+    }
+   },
+   "same_events": true,
+   "same_pass": true
+  },
+  "occlusion_long_seed0_lat0.15": {
+   "rendered": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 0.9781879194630873,
+    "detected_when_possible": 1.0,
+    "detected_not_possible": 3,
+    "miss_runs": 1,
+    "miss_run_max": 13,
+    "losses_to_hold": 1,
+    "events": [
+     "engaged",
+     "coasting",
+     "lost",
+     "holding",
+     "engaged"
+    ],
+    "coasts": 1,
+    "estimate": {
+     "range_mean_m": 0.010718232363863552,
+     "range_rms_m": 0.013146052406055831,
+     "range_max_abs_m": 0.04355711585445321,
+     "bearing_rms_deg": 0.08034320722283336,
+     "bearing_max_abs_deg": 0.2243325032221362
+    },
+    "range_error_mean_m": 0.013168491640248853,
+    "range_error_std_m": 0.001574462533020354,
+    "bearing_error_mean_deg": -0.07349148468973826,
+    "bearing_error_std_deg": 0.003206263940848217,
+    "repeat_mismatches": 0,
+    "wall_s": 2037.0367798805237
+   },
+   "model": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 0.9761904761904762,
+    "detected_when_possible": 1.0,
+    "losses_to_hold": 1,
+    "events": [
+     "engaged",
+     "coasting",
+     "lost",
+     "holding",
+     "engaged"
+    ],
+    "coasts": 1,
+    "estimate": {
+     "range_mean_m": 0.011169525863656668,
+     "range_rms_m": 0.01446175807554372,
+     "range_max_abs_m": 0.04478603229262046,
+     "bearing_rms_deg": 0.08117877224307392,
+     "bearing_max_abs_deg": 0.2037692965933962
+    }
+   },
+   "same_events": true,
+   "same_pass": true
+  },
+  "straight_0.3_seed0_lat0.15": {
+   "rendered": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 1.0,
+    "detected_when_possible": 1.0,
+    "detected_not_possible": 0,
+    "miss_runs": 0,
+    "miss_run_max": 0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged"
+    ],
+    "coasts": 0,
+    "estimate": {
+     "range_mean_m": 0.010325002024732202,
+     "range_rms_m": 0.01120610158960612,
+     "range_max_abs_m": 0.0409416116557445,
+     "bearing_rms_deg": 0.07593217807252886,
+     "bearing_max_abs_deg": 0.1438543619239597
+    },
+    "range_error_mean_m": 0.012856594768282081,
+    "range_error_std_m": 0.0006611725648951283,
+    "bearing_error_mean_deg": -0.07358560475123715,
+    "bearing_error_std_deg": 0.002225513316313308,
+    "repeat_mismatches": 0,
+    "wall_s": 2273.406624317169
+   },
+   "model": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 1.0,
+    "detected_when_possible": 1.0,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged"
+    ],
+    "coasts": 0,
+    "estimate": {
+     "range_mean_m": 0.010921676896845577,
+     "range_rms_m": 0.012904882273921033,
+     "range_max_abs_m": 0.04355139429602206,
+     "bearing_rms_deg": 0.08146681428825112,
+     "bearing_max_abs_deg": 0.2381988446029413
+    }
+   },
+   "same_events": true,
+   "same_pass": true
+  },
+  "corner_90_seed0_lat0.15": {
+   "rendered": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 0.9960159362549801,
+    "detected_when_possible": 0.9960159362549801,
+    "detected_not_possible": 0,
+    "miss_runs": 1,
+    "miss_run_max": 2,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged",
+     "coasting",
+     "lost",
+     "reacquired",
+     "coasting",
+     "reacquired"
+    ],
+    "coasts": 2,
+    "estimate": {
+     "range_mean_m": 0.011347316717282362,
+     "range_rms_m": 0.018563527673833652,
+     "range_max_abs_m": 0.09434967127473781,
+     "bearing_rms_deg": 0.9371709015697351,
+     "bearing_max_abs_deg": 9.293029260747076
+    },
+    "range_error_mean_m": 0.013759004901178574,
+    "range_error_std_m": 0.004380396861009296,
+    "bearing_error_mean_deg": -0.07301437073448543,
+    "bearing_error_std_deg": 0.00592000546404096,
+    "repeat_mismatches": 0,
+    "wall_s": 435.2947521209717
+   },
+   "model": {
+    "passed": true,
+    "fell": false,
+    "detection_rate": 0.9939271255060729,
+    "detected_when_possible": 0.9939271255060729,
+    "losses_to_hold": 0,
+    "events": [
+     "engaged",
+     "coasting",
+     "lost",
+     "reacquired",
+     "coasting",
+     "reacquired"
+    ],
+    "coasts": 2,
+    "estimate": {
+     "range_mean_m": 0.0147216385082498,
+     "range_rms_m": 0.022719159305312202,
+     "range_max_abs_m": 0.09302294506764497,
+     "bearing_rms_deg": 0.8060226414279287,
+     "bearing_max_abs_deg": 8.590940614358523
+    }
+   },
+   "same_events": true,
+   "same_pass": true
+  }
+ },
+ "same_pass": 12,
+ "same_events": 11,
+ "compared": 12,
+ "repeat_mismatches": 0,
+ "wall_s_mean": 1658.8209342956543,
+ "wall_s_max": 2273.406624317169
+}

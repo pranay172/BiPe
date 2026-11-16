@@ -1,0 +1,135 @@
+{
+  "reference": "artifacts/m13/phase_c/settle_acceptance/summary.json",
+  "c_forward_pass": "artifacts/m13/phase_d/settle_c_acceptance/summary.json",
+  "complete": true,
+  "cases": 99,
+  "same_verdicts": 96,
+  "flipped": {
+    "backlash_drive_0": {
+      "recovered": [
+        false,
+        true
+      ]
+    },
+    "belt_hold_h0.1125_n0.225_k1": {
+      "recovered": [
+        true,
+        false
+      ]
+    },
+    "mismatch_body_mass_scale_0.85_combined": {
+      "recovered": [
+        false,
+        true
+      ]
+    }
+  },
+  "flipped_late_rest": {
+    "backlash_drive_0": {
+      "late_pitch_peak_deg": [
+        1.024407699818124,
+        0.6902127473294504
+      ],
+      "late_speed_peak_m_s": [
+        0.03005406671008134,
+        0.02372978905585653
+      ]
+    },
+    "belt_hold_h0.1125_n0.225_k1": {
+      "late_pitch_peak_deg": [
+        0.5015008934118568,
+        0.2944380564212333
+      ],
+      "late_speed_peak_m_s": [
+        0.016260256276159152,
+        0.03865532656798913
+      ]
+    },
+    "mismatch_body_mass_scale_0.85_combined": {
+      "late_pitch_peak_deg": [
+        1.351882140618959,
+        0.8686993932821828
+      ],
+      "late_speed_peak_m_s": [
+        0.030222350653376428,
+        0.023588484083528725
+      ]
+    }
+  },
+  "within_bands": 95,
+  "out_of_band": {
+    "belt_hold_h0.1125_n0.225_k0": {
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "belt_hold_h0.45_n0.225_k0": {
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": true,
+      "rollback_m": true,
+      "max_travel_m": false,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "mismatch_body_com_x_m_-0.005_hold": {
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    },
+    "slope_down_4": {
+      "peak_pitch_deg": true,
+      "late_pitch_pp_deg": false,
+      "rollback_m": true,
+      "max_travel_m": true,
+      "peak_wheel_Nm": true,
+      "peak_motor_Nm": true
+    }
+  },
+  "bands": {
+    "peak_pitch_deg": [
+      0.5,
+      0.25
+    ],
+    "late_pitch_pp_deg": [
+      0.5,
+      0.25
+    ],
+    "rollback_m": [
+      0.02,
+      0.25
+    ],
+    "max_travel_m": [
+      0.02,
+      0.25
+    ],
+    "peak_wheel_Nm": [
+      0.02,
+      0.25
+    ],
+    "peak_motor_Nm": [
+      0.05,
+      0.25
+    ]
+  },
+  "numpy_rerun_reproduces_phase_c": {
+    "backlash_drive_0": true,
+    "mismatch_body_mass_scale_0.85_combined": true,
+    "belt_hold_h0.1125_n0.225_k1": true
+  },
+  "max_abs_difference": {
+    "peak_pitch_deg": 0.6270501104090727,
+    "late_pitch_pp_deg": 2.1089758064423805,
+    "rollback_m": 0.015354824511655707,
+    "max_travel_m": 0.044012783583262716,
+    "peak_wheel_Nm": 0.029275479784261926,
+    "peak_motor_Nm": 0.045962186368033286,
+    "late_pitch_peak_deg": 1.5125051250970056,
+    "late_speed_peak_m_s": 0.03129757739063682
+  }
+}

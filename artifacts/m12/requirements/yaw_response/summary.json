@@ -1,0 +1,29 @@
+{
+  "case": "moving_experiment turn: 0.4 rad/s 2-5 s, -0.4 rad/s 7-10 s, 12 s, nominal posture, Python controller, sensor model",
+  "steps": [
+    {
+      "command_rad_s": 0.4,
+      "dead_time_s": 0.16000000000016268,
+      "rise_10_90_s": 0.10999999999993904,
+      "peak_yaw_acceleration_rad_s2": 3.454478653559225,
+      "steady_heading_lag_s": 0.20491156316919384
+    },
+    {
+      "command_rad_s": -0.4,
+      "dead_time_s": 0.30000000000317595,
+      "rise_10_90_s": 0.12000000000014666,
+      "peak_yaw_acceleration_rad_s2": 3.1578736385699515,
+      "steady_heading_lag_s": 0.19565445703544312
+    }
+  ],
+  "heading_lag_s": 0.20491156316919384,
+  "yaw_acceleration_rad_s2": 3.1578736385699515,
+  "dead_time_s": 0.30000000000317595,
+  "peak_pitch_error_deg": 0.8693018020687561,
+  "inputs": {
+    "controller_sha256": "d10a99a848db7d20973d573d438af81cb6e1f77d1e949a85c5d2027187c1d90f",
+    "sensors_sha256": "198b04693dc6bf85900f93c27b4e1f4f45701bfa24e594d8439fe79789361c9b",
+    "plant_geometry_source_sha256": "760c9202ec08fbc142fd47fac24a84d8e9e06cd00ff0fbca780d9dc8f74f6c85",
+    "seed": 20260930
+  }
+}

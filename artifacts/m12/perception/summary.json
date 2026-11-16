@@ -1,0 +1,343 @@
+{
+ "evidence": "perception measured on rendered frames under the stated assumptions (config/perception-m12.json); no real footage; the Pi timing is an estimate",
+ "perception_inputs_sha256": "59a5b780e67325cf581e0f917cf2837ba4b06e8364142caa35eb30d6cce77e21",
+ "view_angle_limit_deg_at_90pct": {
+  "waist_tag": {
+   "dec1": {
+    "0.5": 60.0,
+    "0.7": 45.0,
+    "1": 45.0,
+    "1.25": 45.0,
+    "1.5": 45.0,
+    "1.75": 45.0,
+    "2": 60.0
+   },
+   "dec1.5": {
+    "0.5": 45.0,
+    "0.7": 45.0,
+    "1": 45.0,
+    "1.25": 60.0,
+    "1.5": 60.0,
+    "1.75": 60.0,
+    "2": 60.0
+   },
+   "dec2": {
+    "0.5": 45.0,
+    "0.7": 45.0,
+    "1": 45.0,
+    "1.25": 45.0,
+    "1.5": 45.0,
+    "1.75": 60.0,
+    "2": 45.0
+   }
+  },
+  "low_tag": {
+   "dec1": {
+    "0.5": 70.0,
+    "0.7": 60.0,
+    "1": 60.0,
+    "1.25": 45.0,
+    "1.5": 45.0,
+    "1.75": 45.0,
+    "2": 45.0
+   },
+   "dec1.5": {
+    "0.5": 60.0,
+    "0.7": 60.0,
+    "1": 45.0,
+    "1.25": 45.0,
+    "1.5": 45.0,
+    "1.75": 45.0,
+    "2": 45.0
+   },
+   "dec2": {
+    "0.5": 60.0,
+    "0.7": 45.0,
+    "1": 45.0,
+    "1.25": 45.0,
+    "1.5": 45.0,
+    "1.75": 45.0,
+    "2": 45.0
+   }
+  }
+ },
+ "replay_dropouts_waist_tag": {
+  "straight_0.3": {
+   "roi_detection_rate": 1.0,
+   "roi_longest_miss_frames": 0,
+   "dec2_detection_rate": 1.0
+  },
+  "straight_0.6": {
+   "roi_detection_rate": 1.0,
+   "roi_longest_miss_frames": 0,
+   "dec2_detection_rate": 1.0
+  },
+  "straight_1.0": {
+   "roi_detection_rate": 1.0,
+   "roi_longest_miss_frames": 0,
+   "dec2_detection_rate": 1.0
+  },
+  "start_stop": {
+   "roi_detection_rate": 1.0,
+   "roi_longest_miss_frames": 0,
+   "dec2_detection_rate": 1.0
+  },
+  "curve_r1": {
+   "roi_detection_rate": 0.9980582524271845,
+   "roi_longest_miss_frames": 1,
+   "dec2_detection_rate": 0.9980582524271845
+  },
+  "curve_r2": {
+   "roi_detection_rate": 1.0,
+   "roi_longest_miss_frames": 0,
+   "dec2_detection_rate": 1.0
+  },
+  "corner_90": {
+   "roi_detection_rate": 1.0,
+   "roi_longest_miss_frames": 0,
+   "dec2_detection_rate": 1.0
+  },
+  "lateral_crossing": {
+   "roi_detection_rate": 1.0,
+   "roi_longest_miss_frames": 0,
+   "dec2_detection_rate": 1.0
+  },
+  "approach": {
+   "roi_detection_rate": 1.0,
+   "roi_longest_miss_frames": 0,
+   "dec2_detection_rate": 1.0
+  },
+  "loss_fov": {
+   "roi_detection_rate": 0.9883720930232558,
+   "roi_longest_miss_frames": 1,
+   "dec2_detection_rate": 0.9883720930232558
+  },
+  "occlusion_short": {
+   "roi_detection_rate": 1.0,
+   "roi_longest_miss_frames": 0,
+   "dec2_detection_rate": 1.0
+  },
+  "occlusion_long": {
+   "roi_detection_rate": 0.9964285714285714,
+   "roi_longest_miss_frames": 2,
+   "dec2_detection_rate": 0.9964285714285714
+  }
+ },
+ "pooled_replays": {
+  "pooled_roi": {
+   "frames": 5945,
+   "detection_rate": 0.99932716568545,
+   "miss_runs": 3,
+   "longest_miss_frames": 2,
+   "range_error_m": {
+    "n": 5941,
+    "mean": 0.013983344048140044,
+    "std": 0.0031661310031747478,
+    "p95_abs": 0.0191773,
+    "max_abs": 0.0548451
+   },
+   "bearing_error_deg": {
+    "n": 5941,
+    "mean": -0.07366771282612355,
+    "std": 0.005588261088746699,
+    "p95_abs": 0.0810906,
+    "max_abs": 0.144522
+   }
+  },
+  "pooled_dec2": {
+   "frames": 5945,
+   "detection_rate": 0.99932716568545,
+   "miss_runs": 3,
+   "longest_miss_frames": 2,
+   "range_error_m": {
+    "n": 5941,
+    "mean": 0.013965630021881838,
+    "std": 0.0030744256499399695,
+    "p95_abs": 0.0190894,
+    "max_abs": 0.0505096
+   },
+   "bearing_error_deg": {
+    "n": 5941,
+    "mean": -0.07395952863154351,
+    "std": 0.006461499710095347,
+    "p95_abs": 0.0817278,
+    "max_abs": 0.14889
+   }
+  },
+  "p_miss_after_miss_roi": 0.3333333333333333,
+  "basis": "Frames of the waist-tag replays where the tag is in frame, unoccluded, within the 60 degree view angle and 2 m"
+ },
+ "timing": {
+  "host_roi_ms": 1.4138229998934548,
+  "host_full_frame_ms": {
+   "dec1_t1": 75.08466349827358,
+   "dec1_t2": 41.49277650139993,
+   "dec1_t4": 23.464694997528568,
+   "dec1.5_t1": 19.936830998631194,
+   "dec1.5_t2": 11.505663500429364,
+   "dec1.5_t4": 7.509136496082647,
+   "dec2_t1": 18.936382497486193,
+   "dec2_t2": 10.99654300196562,
+   "dec2_t4": 6.441646502935328
+  },
+  "pi_estimate_ms": {
+   "dec1_t1": {
+    "median_ms": [
+     2190.8632170746255,
+     3016.926397283091
+    ],
+    "p95_ms": [
+     2234.3875980099515,
+     3076.8616103743593
+    ]
+   },
+   "dec1_t2": {
+    "median_ms": [
+     1210.699942915848,
+     1667.193364015266
+    ],
+    "p95_ms": [
+     1254.2181613171383,
+     1727.1200909940922
+    ]
+   },
+   "dec1_t4": {
+    "median_ms": [
+     684.66627903503,
+     942.81913834332
+    ],
+    "p95_ms": [
+     710.0997225239033,
+     977.8422408525881
+    ]
+   },
+   "dec1.5_t1": {
+    "median_ms": [
+     581.7282473529173,
+     801.0684061909026
+    ],
+    "p95_ms": [
+     624.6166522366495,
+     860.1278489816158
+    ]
+   },
+   "dec1.5_t2": {
+    "median_ms": [
+     335.7188242803854,
+     462.3013317959405
+    ],
+    "p95_ms": [
+     371.02956576996536,
+     510.92595942093595
+    ]
+   },
+   "dec1.5_t4": {
+    "median_ms": [
+     219.10587561784007,
+     301.71956642456666
+    ],
+    "p95_ms": [
+     244.05337935459102,
+     336.073505996486
+    ]
+   },
+   "dec2_t1": {
+    "median_ms": [
+     552.5365893016507,
+     760.8700573989944
+    ],
+    "p95_ms": [
+     571.1887446350504,
+     786.5549926122006
+    ]
+   },
+   "dec2_t2": {
+    "median_ms": [
+     320.8634154502111,
+     441.8447032429137
+    ],
+    "p95_ms": [
+     329.71679210126496,
+     454.0362383033813
+    ]
+   },
+   "dec2_t4": {
+    "median_ms": [
+     187.9580426035058,
+     258.8274685031883
+    ],
+    "p95_ms": [
+     196.63026417720175,
+     270.769544112868
+    ]
+   },
+   "roi_t1": {
+    "median_ms": [
+     41.25333538974831,
+     56.80787168424357
+    ],
+    "p95_ms": [
+     58.67442486313458,
+     80.79756866398861
+    ]
+   },
+   "pose_fit": {
+    "median_ms": [
+     7.099846732411866,
+     9.776838123321259
+    ]
+   }
+  },
+  "latency_budget_s": {
+   "roi tracking": {
+    "exposure_half_s": 0.005,
+    "readout_s": 0.0179,
+    "isp_s": 0.0333,
+    "detection_s": [
+     0.05867442486313458,
+     0.08079756866398861
+    ],
+    "pose_s": [
+     0.0070998467324118655,
+     0.009776838123321259
+    ],
+    "link_s": 0.002,
+    "total_s": [
+     0.12397427159554644,
+     0.14877440678730985
+    ]
+   },
+   "full frame dec2, 4 threads": {
+    "exposure_half_s": 0.005,
+    "readout_s": 0.0179,
+    "isp_s": 0.0333,
+    "detection_s": [
+     0.19663026417720175,
+     0.270769544112868
+    ],
+    "pose_s": [
+     0.0070998467324118655,
+     0.009776838123321259
+    ],
+    "link_s": 0.002,
+    "total_s": [
+     0.26193011090961366,
+     0.3387463822361893
+    ]
+   }
+  }
+ },
+ "model_check": {
+  "grid_held_out": {
+   "checks": 209,
+   "passed": 208,
+   "all_passed": false
+  },
+  "replays_roi": {
+   "checks": 55,
+   "passed": 48,
+   "all_passed": false
+  }
+ },
+ "build_times_s": {}
+}

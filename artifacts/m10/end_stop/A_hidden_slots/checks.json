@@ -1,0 +1,122 @@
+{
+  "status": "Phase D4 hip and knee-drive end stop look study (not adopted)",
+  "checks": {
+    "nominal": {
+      "stops": {
+        "left_HipStopPad": {
+          "striker": "left_HipStopPin",
+          "gap_mm": 10.54,
+          "overlap_mm3": 0.0
+        },
+        "left_KneeDriveStopPad": {
+          "striker": "KneeDriveStopPin",
+          "gap_mm": 9.72,
+          "overlap_mm3": 0.0
+        }
+      },
+      "new_part_overlaps_mm3": [
+        [
+          "left_HipStopPad",
+          "left_ThighHipPulley",
+          0.06
+        ],
+        [
+          "right_HipStopPad",
+          "right_ThighHipPulley",
+          0.06
+        ]
+      ],
+      "dowel_seats": {
+        "left_HipStopPin": [
+          "BodyTub",
+          "left_HipHousing"
+        ],
+        "KneeDriveStopPin": [
+          "Bulkhead"
+        ],
+        "right_HipStopPin": [
+          "BodyTub",
+          "right_HipHousing"
+        ]
+      }
+    },
+    "low_stops": {
+      "stops": {
+        "left_HipStopPad": {
+          "striker": "left_HipStopPin",
+          "gap_mm": 0.0,
+          "overlap_mm3": 0.0
+        },
+        "left_KneeDriveStopPad": {
+          "striker": "KneeDriveStopPin",
+          "gap_mm": 0.0,
+          "overlap_mm3": 0.0
+        }
+      },
+      "new_part_overlaps_mm3": [
+        [
+          "left_HipStopPad",
+          "left_ThighHipPulley",
+          0.06
+        ],
+        [
+          "right_HipStopPad",
+          "right_ThighHipPulley",
+          0.06
+        ]
+      ],
+      "dowel_seats": {
+        "left_HipStopPin": [
+          "BodyTub",
+          "left_HipHousing"
+        ],
+        "KneeDriveStopPin": [
+          "Bulkhead"
+        ],
+        "right_HipStopPin": [
+          "BodyTub",
+          "right_HipHousing"
+        ]
+      }
+    },
+    "high_stops": {
+      "stops": {
+        "left_HipStopPad": {
+          "striker": "left_HipStopPin",
+          "gap_mm": 0.0,
+          "overlap_mm3": 0.0
+        },
+        "left_KneeDriveStopPad": {
+          "striker": "KneeDriveStopPin",
+          "gap_mm": 0.0,
+          "overlap_mm3": 0.0
+        }
+      },
+      "new_part_overlaps_mm3": [
+        [
+          "left_HipStopPad",
+          "left_ThighHipPulley",
+          0.06
+        ],
+        [
+          "right_HipStopPad",
+          "right_ThighHipPulley",
+          0.06
+        ]
+      ],
+      "dowel_seats": {
+        "left_HipStopPin": [
+          "BodyTub",
+          "left_HipHousing"
+        ],
+        "KneeDriveStopPin": [
+          "Bulkhead"
+        ],
+        "right_HipStopPin": [
+          "BodyTub",
+          "right_HipHousing"
+        ]
+      }
+    }
+  }
+}

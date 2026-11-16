@@ -1,0 +1,265 @@
+{
+ "evidence": "Detector times measured on this machine on rendered frames; the Pi Zero 2 W figures are an estimate scaled by published single-core benchmarks, not a measurement",
+ "host": {
+  "cpu": "AMD Ryzen 7 260 (Zen 4, up to 5.1 GHz)",
+  "full_frame": {
+   "dec1_t1": {
+    "median_ms": 75.08466349827358,
+    "p95_ms": 76.57631914844387,
+    "frames": 30
+   },
+   "dec1_t2": {
+    "median_ms": 41.49277650139993,
+    "p95_ms": 42.98422095089336,
+    "frames": 30
+   },
+   "dec1_t4": {
+    "median_ms": 23.464694997528568,
+    "p95_ms": 24.336342999595217,
+    "frames": 30
+   },
+   "dec1.5_t1": {
+    "median_ms": 19.936830998631194,
+    "p95_ms": 21.40669065192924,
+    "frames": 30
+   },
+   "dec1.5_t2": {
+    "median_ms": 11.505663500429364,
+    "p95_ms": 12.715823551479842,
+    "frames": 30
+   },
+   "dec1.5_t4": {
+    "median_ms": 7.509136496082647,
+    "p95_ms": 8.36413050419651,
+    "frames": 30
+   },
+   "dec2_t1": {
+    "median_ms": 18.936382497486193,
+    "p95_ms": 19.57562405114004,
+    "frames": 30
+   },
+   "dec2_t2": {
+    "median_ms": 10.99654300196562,
+    "p95_ms": 11.29996349918656,
+    "frames": 30
+   },
+   "dec2_t4": {
+    "median_ms": 6.441646502935328,
+    "p95_ms": 6.738858503013034,
+    "frames": 30
+   }
+  },
+  "roi": {
+   "median_ms": 1.4138229998934548,
+   "p95_ms": 2.010873801918933,
+   "frames": 118,
+   "basis": "Frames from consecutive replay sequences where the region of interest held the tag (one thread)"
+  },
+  "pose_c_library_ms": 0.2433240006212145
+ },
+ "host_to_pi_ratio": [
+  29.178571428571427,
+  40.18032786885246
+ ],
+ "ratio_basis": "Geekbench 6 single-core: Ryzen 7 260 2451 (CPU-Monkey listing). No Zero 2 W Geekbench 6 entry was found; its RP3A0 is the Pi 3's BCM2837 Cortex-A53 at 1.0 GHz, so the Pi 3 Model B results (73 and 87 at 1.2 GHz, Geekbench browser 447040 and 8846649) and the Pi 3 B+ (118 at 1.4 GHz, 1252369) are scaled by clock to 61-84. The host-to-Pi ratio is then 29-40. Geekbench mixes in floating-point and vector work where the A53 falls further behind, while the detector is integer and memory bound, so the ratio is taken as an upper-to-lower bracket, not a point. Cross-check: PhotonVision users report 13-15 fps at 640 x 480 on a Pi 3B+ (Chief Delphi, 2023)",
+ "pi_zero_2w_estimate_ms": {
+  "dec1_t1": {
+   "median_ms": [
+    2190.8632170746255,
+    3016.926397283091
+   ],
+   "p95_ms": [
+    2234.3875980099515,
+    3076.8616103743593
+   ]
+  },
+  "dec1_t2": {
+   "median_ms": [
+    1210.699942915848,
+    1667.193364015266
+   ],
+   "p95_ms": [
+    1254.2181613171383,
+    1727.1200909940922
+   ]
+  },
+  "dec1_t4": {
+   "median_ms": [
+    684.66627903503,
+    942.81913834332
+   ],
+   "p95_ms": [
+    710.0997225239033,
+    977.8422408525881
+   ]
+  },
+  "dec1.5_t1": {
+   "median_ms": [
+    581.7282473529173,
+    801.0684061909026
+   ],
+   "p95_ms": [
+    624.6166522366495,
+    860.1278489816158
+   ]
+  },
+  "dec1.5_t2": {
+   "median_ms": [
+    335.7188242803854,
+    462.3013317959405
+   ],
+   "p95_ms": [
+    371.02956576996536,
+    510.92595942093595
+   ]
+  },
+  "dec1.5_t4": {
+   "median_ms": [
+    219.10587561784007,
+    301.71956642456666
+   ],
+   "p95_ms": [
+    244.05337935459102,
+    336.073505996486
+   ]
+  },
+  "dec2_t1": {
+   "median_ms": [
+    552.5365893016507,
+    760.8700573989944
+   ],
+   "p95_ms": [
+    571.1887446350504,
+    786.5549926122006
+   ]
+  },
+  "dec2_t2": {
+   "median_ms": [
+    320.8634154502111,
+    441.8447032429137
+   ],
+   "p95_ms": [
+    329.71679210126496,
+    454.0362383033813
+   ]
+  },
+  "dec2_t4": {
+   "median_ms": [
+    187.9580426035058,
+    258.8274685031883
+   ],
+   "p95_ms": [
+    196.63026417720175,
+    270.769544112868
+   ]
+  },
+  "roi_t1": {
+   "median_ms": [
+    41.25333538974831,
+    56.80787168424357
+   ],
+   "p95_ms": [
+    58.67442486313458,
+    80.79756866398861
+   ]
+  },
+  "pose_fit": {
+   "median_ms": [
+    7.099846732411866,
+    9.776838123321259
+   ]
+  }
+ },
+ "pi_zero_2w_rate_hz": {
+  "roi_t1": {
+   "one_core_hz": [
+    17.60319424671147,
+    24.24046420858629
+   ],
+   "frames_on_parallel_cores_hz": [
+    56.0,
+    56.0
+   ]
+  },
+  "dec2_t1": {
+   "one_core_hz": [
+    1.3142848641178788,
+    1.8098348948508496
+   ],
+   "frames_on_parallel_cores_hz": [
+    5.257139456471515,
+    7.239339579403398
+   ]
+  },
+  "dec2_t4": {
+   "one_core_hz": [
+    3.8635775630115616,
+    5.320336316278216
+   ],
+   "frames_on_parallel_cores_hz": [
+    null,
+    null
+   ]
+  },
+  "dec1.5_t4": {
+   "one_core_hz": [
+    3.314335930712705,
+    4.564003576719135
+   ],
+   "frames_on_parallel_cores_hz": [
+    null,
+    null
+   ]
+  },
+  "dec1_t4": {
+   "one_core_hz": [
+    1.0606488130450509,
+    1.4605655786194143
+   ],
+   "frames_on_parallel_cores_hz": [
+    null,
+    null
+   ]
+  }
+ },
+ "rate_basis": "One core: 1 / median detection time. Parallel cores: frames handed to the four cores in turn (throughput up to four times one core, capped at the 56 fps sensor mode); latency stays that of one frame on one core. Thread scaling inside one frame is taken from this machine (an assumption; the Zero 2 W's memory bandwidth may scale worse)",
+ "latency_budget_s": {
+  "roi tracking": {
+   "exposure_half_s": 0.005,
+   "readout_s": 0.0179,
+   "isp_s": 0.0333,
+   "detection_s": [
+    0.05867442486313458,
+    0.08079756866398861
+   ],
+   "pose_s": [
+    0.0070998467324118655,
+    0.009776838123321259
+   ],
+   "link_s": 0.002,
+   "total_s": [
+    0.12397427159554644,
+    0.14877440678730985
+   ]
+  },
+  "full frame dec2, 4 threads": {
+   "exposure_half_s": 0.005,
+   "readout_s": 0.0179,
+   "isp_s": 0.0333,
+   "detection_s": [
+    0.19663026417720175,
+    0.270769544112868
+   ],
+   "pose_s": [
+    0.0070998467324118655,
+    0.009776838123321259
+   ],
+   "link_s": 0.002,
+   "total_s": [
+    0.26193011090961366,
+    0.3387463822361893
+   ]
+  }
+ },
+ "latency_basis": "Readout: the 2304 x 1296 mode runs at up to 56 fps, so a frame reads out in at most 1/56 s (rolling shutter; the frame's centre is half that after its first row). ISP and transfer to the ARM: one frame period at 30 Hz, an assumption (libcamera delivers a completed buffer after the ISP pass). Link: a 1 Mbaud UART message of about 40 bytes is 0.4 ms; 2 ms allows for scheduling, an assumption until phase E. Latency is counted from the middle of the exposure to the measurement arriving at the Teensy"
+}

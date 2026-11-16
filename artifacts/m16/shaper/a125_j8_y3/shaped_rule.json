@@ -1,0 +1,252 @@
+{
+ "shaper": {
+  "acceleration": 1.25,
+  "jerk": 8.0,
+  "yaw_acceleration": 3.0
+ },
+ "added_lag_s": 0.0800000000000004,
+ "lag_ok": true,
+ "passed_raw": [
+  35,
+  43
+ ],
+ "passed_shaped": [
+  35,
+  43
+ ],
+ "cases": {
+  "arc_r1": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "arc_r2": {
+   "raw": true,
+   "shaped": false,
+   "failing_shaped": [
+    "yaw_rate"
+   ]
+  },
+  "delay_15ms_noise_x2_drive_step": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "delay_15ms_noise_x2_replay_corner_90": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "delay_15ms_noise_x2_weave": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "drive_ramp": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "drive_step": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "drive_step_half_timestep": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "friction_0p5_drive_step": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "friction_0p5_replay_corner_90": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "friction_0p5_weave": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "mass_plus_15pct_drive_step": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "mass_plus_15pct_replay_corner_90": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "mass_plus_15pct_weave": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "push_fast_+2": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "push_fast_-2": {
+   "raw": false,
+   "shaped": false,
+   "failing_shaped": [
+    "axle_depth_p95"
+   ]
+  },
+  "replay_corner_90": {
+   "raw": false,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "replay_curve_r1": {
+   "raw": false,
+   "shaped": false,
+   "failing_shaped": [
+    "path"
+   ]
+  },
+  "replay_lateral_crossing": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "replay_loss_fov": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "replay_start_stop": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "replay_straight_1.0": {
+   "raw": false,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "reverse": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "seed_plus_1_drive_step": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "seed_plus_1_replay_corner_90": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "seed_plus_1_weave": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "seed_plus_2_drive_step": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "seed_plus_2_replay_corner_90": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "seed_plus_2_weave": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "slope_down_10": {
+   "raw": false,
+   "shaped": false,
+   "failing_shaped": [
+    "survives_and_holds",
+    "axle_depth_p95"
+   ]
+  },
+  "slope_down_4": {
+   "raw": false,
+   "shaped": false,
+   "failing_shaped": [
+    "axle_depth_p95"
+   ]
+  },
+  "slope_down_8": {
+   "raw": false,
+   "shaped": false,
+   "failing_shaped": [
+    "survives_and_holds",
+    "axle_depth_p95"
+   ]
+  },
+  "slope_up_10": {
+   "raw": false,
+   "shaped": false,
+   "failing_shaped": [
+    "survives_and_holds"
+   ]
+  },
+  "slope_up_4": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "slope_up_8": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "spin": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "weave": {
+   "raw": true,
+   "shaped": false,
+   "failing_shaped": [
+    "yaw_rate"
+   ]
+  },
+  "wheel_lag_10ms_drive_step": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "wheel_lag_10ms_replay_corner_90": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "wheel_lag_10ms_weave": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "wheel_lag_25ms_drive_step": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "wheel_lag_25ms_replay_corner_90": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  },
+  "wheel_lag_25ms_weave": {
+   "raw": true,
+   "shaped": true,
+   "failing_shaped": []
+  }
+ }
+}

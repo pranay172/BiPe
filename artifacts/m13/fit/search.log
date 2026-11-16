@@ -1,0 +1,17 @@
+start 1.1304
+hip_loss 0.005375 1.0705
+tire_b -371.546609 1.0543
+friction_tc 0.00218 1.0458
+hip_loss 0.00425 1.0281
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/claude/BiPe/bipe/m13/fit.py", line 488, in <module>
+    main()
+  File "/home/claude/BiPe/bipe/m13/fit.py", line 482, in main
+    result["validation"] = [closed_loop((result["training"], n, args.output)) for n in val_names]
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/BiPe/bipe/m13/fit.py", line 310, in closed_loop
+    training, name, output, core = payload
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: not enough values to unpack (expected 4, got 3)

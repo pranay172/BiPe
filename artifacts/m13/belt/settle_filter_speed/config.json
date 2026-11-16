@@ -1,0 +1,781 @@
+{
+  "scope": "M10 C/sensor simulation under stated assumptions; not hardware-validated",
+  "envelope": {
+    "speed_m_s": 1.2,
+    "acceleration_m_s2": 1.25,
+    "yaw_rate_rad_s": 1.0,
+    "yaw_acceleration_rad_s2": 1.25,
+    "reverse_speed_m_s": 0.3,
+    "brake_deceleration_m_s2": 1.0,
+    "basis": "M12 phase A following envelope (artifacts/m12/requirements/requirements.json), signed off by the user on 20 October 2026. speed_m_s sets the M10 firmware command gate (sizing.drive_speed, BIPE_DRIVE_SPEED); the yaw gate is 1.0 rad/s in the firmware. Reverse and brake are follower limits (phase D)."
+  },
+  "drive_speed_gate_m_s": 1.2,
+  "speed_config": {
+    "description": "M12 phase B speed-envelope gates for the M10 balance controller. Commands are piecewise-linear knots [t_s, velocity_m_s, yaw_rate_rad_s] (linear between knots), or replays of the phase A ideal-follower commands. Every case runs on the C core with the sensor model, a free base, finite motor limits and physical contact. The envelope itself is config/robot.json m10.targets.drive_envelope.",
+    "status": "Criteria signed off by the user on 21 October 2026 at the phase B exit",
+    "criteria": {
+      "peak_pitch_max_deg": 15.0,
+      "overshoot_max_m_s": 0.15,
+      "hold_speed_max_m_s": 0.03,
+      "plateau_speed_error_max_m_s": 0.05,
+      "yaw_rate_error_max_rad_s": 0.08,
+      "heading_error_max_deg": 8.0,
+      "stop_excess_max_m": 0.15,
+      "replay_path_error_max_m": 0.2,
+      "basis": "Physical failure stays the acceptance limit (20 deg pitch, 10 deg roll, forbidden contact, joint limits, saturation at most 0.5 s). Gated cases also keep 5 deg of pitch margin to it. Speed overshoot above the largest command at most 0.15 m/s, an absolute bound because the overshoot comes from the lean transient of a start and is about 0.1 m/s from 0.3 to 1.2 m/s (the recorded M10 acceptance drive overshoots 0.3 m/s by 0.13 m/s); 0.15 m/s for the half second of the transient is under 0.08 m of range. Plateau speed error at most 0.05 m/s (4 % of 1.2 m/s; the 0.3 m/s acceptance allows 0.03 m/s, 10 %). Yaw-rate error and final heading error are the acceptance turn limits. A stop may run past the stopping distance of the shaped reference by at most 0.15 m: the loss rule (following-m12.json loss) brings the robot to rest 0.8 m after the last detection from 1.0 m/s, so 0.15 m keeps the robot 0.05 m short of the 1.0 m nominal range. In a replay the robot's path stays within 0.2 m of the ideal follower's path, inside the 0.3 m between the nominal range and the lower edge of the range band. A case recovers when the last 2 s have pitch within 2 deg and speed within 0.03 m/s (the acceptance recovery rule). A slope case holds instead when the last 2 s have speed within 0.03 m/s: on a slope the held pitch includes the slope lean, so the M10 suite judges slopes by survival and rollback, not by the pitch recovery rule."
+    },
+    "cases": {
+      "drive_step": {
+        "purpose": "Step to the 1.2 m/s envelope speed and a step stop; the controller's shaping sets the profile",
+        "knots": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1.2,
+            0
+          ],
+          [
+            9,
+            1.2,
+            0
+          ],
+          [
+            9,
+            0,
+            0
+          ],
+          [
+            16,
+            0,
+            0
+          ]
+        ],
+        "plateaus": [
+          [
+            4,
+            9
+          ]
+        ],
+        "stops": [
+          9
+        ]
+      },
+      "drive_ramp": {
+        "purpose": "Follower-like ramp at 1.25 m/s^2 to 1.2 m/s and a 1.0 m/s^2 brake",
+        "knots": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1.96,
+            1.2,
+            0
+          ],
+          [
+            9,
+            1.2,
+            0
+          ],
+          [
+            10.2,
+            0,
+            0
+          ],
+          [
+            16,
+            0,
+            0
+          ]
+        ],
+        "plateaus": [
+          [
+            4,
+            9
+          ]
+        ],
+        "stops": [
+          10.2
+        ]
+      },
+      "reverse": {
+        "purpose": "The 0.3 m/s reverse limit",
+        "knots": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            -0.3,
+            0
+          ],
+          [
+            7,
+            -0.3,
+            0
+          ],
+          [
+            7,
+            0,
+            0
+          ],
+          [
+            12,
+            0,
+            0
+          ]
+        ],
+        "plateaus": [
+          [
+            3,
+            7
+          ]
+        ],
+        "stops": [
+          7
+        ]
+      },
+      "spin": {
+        "purpose": "Spin at the 1.0 rad/s envelope yaw rate both ways, at rest",
+        "knots": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1.0
+          ],
+          [
+            5,
+            0,
+            1.0
+          ],
+          [
+            5,
+            0,
+            0
+          ],
+          [
+            7,
+            0,
+            0
+          ],
+          [
+            7,
+            0,
+            -1.0
+          ],
+          [
+            11,
+            0,
+            -1.0
+          ],
+          [
+            11,
+            0,
+            0
+          ],
+          [
+            15,
+            0,
+            0
+          ]
+        ],
+        "yaw_windows": [
+          [
+            2,
+            5
+          ],
+          [
+            8,
+            11
+          ]
+        ]
+      },
+      "arc_r2": {
+        "purpose": "2 m radius at 1.0 m/s (0.5 m/s^2 lateral, the target curve limit)",
+        "knots": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1.8,
+            1.0,
+            0
+          ],
+          [
+            3,
+            1.0,
+            0
+          ],
+          [
+            3,
+            1.0,
+            0.5
+          ],
+          [
+            10,
+            1.0,
+            0.5
+          ],
+          [
+            10,
+            1.0,
+            0
+          ],
+          [
+            11,
+            0,
+            0
+          ],
+          [
+            16,
+            0,
+            0
+          ]
+        ],
+        "plateaus": [
+          [
+            4,
+            10
+          ]
+        ],
+        "yaw_windows": [
+          [
+            4,
+            10
+          ]
+        ],
+        "stops": [
+          11
+        ]
+      },
+      "arc_r1": {
+        "purpose": "1 m radius at 0.7 m/s (0.5 m/s^2 lateral)",
+        "knots": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1.56,
+            0.7,
+            0
+          ],
+          [
+            3,
+            0.7,
+            0
+          ],
+          [
+            3,
+            0.7,
+            0.7
+          ],
+          [
+            10,
+            0.7,
+            0.7
+          ],
+          [
+            10,
+            0.7,
+            0
+          ],
+          [
+            10.7,
+            0,
+            0
+          ],
+          [
+            16,
+            0,
+            0
+          ]
+        ],
+        "plateaus": [
+          [
+            4,
+            10
+          ]
+        ],
+        "yaw_windows": [
+          [
+            4,
+            10
+          ]
+        ],
+        "stops": [
+          10.7
+        ]
+      },
+      "weave": {
+        "purpose": "Alternating turns at 0.8 rad/s while driving at 1.0 m/s, reversing the yaw rate at the yaw acceleration limit",
+        "knots": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1.8,
+            1.0,
+            0
+          ],
+          [
+            3,
+            1.0,
+            0
+          ],
+          [
+            3.64,
+            1.0,
+            0.8
+          ],
+          [
+            4.5,
+            1.0,
+            0.8
+          ],
+          [
+            5.78,
+            1.0,
+            -0.8
+          ],
+          [
+            6.5,
+            1.0,
+            -0.8
+          ],
+          [
+            7.78,
+            1.0,
+            0.8
+          ],
+          [
+            8.5,
+            1.0,
+            0.8
+          ],
+          [
+            9.14,
+            1.0,
+            0
+          ],
+          [
+            10,
+            1.0,
+            0
+          ],
+          [
+            11,
+            0,
+            0
+          ],
+          [
+            16,
+            0,
+            0
+          ]
+        ],
+        "plateaus": [
+          [
+            4,
+            10
+          ]
+        ],
+        "yaw_windows": [
+          [
+            4,
+            9.5
+          ]
+        ],
+        "stops": [
+          11
+        ]
+      },
+      "push_fast_+2": {
+        "purpose": "2 N s forward push at 4 s while driving at 1.2 m/s",
+        "knots": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1.96,
+            1.2,
+            0
+          ],
+          [
+            9,
+            1.2,
+            0
+          ],
+          [
+            10.2,
+            0,
+            0
+          ],
+          [
+            16,
+            0,
+            0
+          ]
+        ],
+        "disturbance": {
+          "push_Ns": 2.0
+        },
+        "gate": "survive"
+      },
+      "push_fast_-2": {
+        "purpose": "2 N s backward push at 4 s while driving at 1.2 m/s",
+        "knots": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1.96,
+            1.2,
+            0
+          ],
+          [
+            9,
+            1.2,
+            0
+          ],
+          [
+            10.2,
+            0,
+            0
+          ],
+          [
+            16,
+            0,
+            0
+          ]
+        ],
+        "disturbance": {
+          "push_Ns": -2.0
+        },
+        "gate": "survive"
+      }
+    },
+    "slopes": {
+      "degrees": [
+        4,
+        8,
+        10
+      ],
+      "speed_m_s": 1.0,
+      "knots_unit_speed": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1.8,
+          1.0,
+          0
+        ],
+        [
+          9,
+          1.0,
+          0
+        ],
+        [
+          10,
+          0,
+          0
+        ],
+        [
+          16,
+          0,
+          0
+        ]
+      ],
+      "plateaus": [
+        [
+          4,
+          9
+        ]
+      ],
+      "stops": [
+        10
+      ],
+      "gate": "slope",
+      "basis": "Up and down the M10 acceptance slopes at 1.0 m/s, driving forward (downhill is a negative ground slope); the robot must survive, stop and hold"
+    },
+    "replays": {
+      "layout": "waist_tag",
+      "scenarios": [
+        "straight_1.0",
+        "start_stop",
+        "curve_r1",
+        "corner_90",
+        "lateral_crossing",
+        "loss_fov"
+      ],
+      "start_s": 1.0,
+      "settle_s": 4.0,
+      "basis": "The ideal follower's speed and yaw rate (artifacts/m12/requirements/follower_traces.npz) as the balance controller's commands, zero while the follower waits or holds"
+    },
+    "variants": {
+      "names": [
+        "mass_plus_15pct",
+        "friction_0p5",
+        "wheel_lag_10ms",
+        "wheel_lag_25ms",
+        "delay_15ms_noise_x2",
+        "seed_plus_1",
+        "seed_plus_2"
+      ],
+      "cases": [
+        "drive_step",
+        "weave",
+        "replay_corner_90"
+      ],
+      "gate": "survive",
+      "basis": "The M10 acceptance variants. A wheel lag is applied to physics.hub_motor.FOC_time_constant_s, the constant the M10 hub drives use (the inherited acceptance job sets motor.torque_time_constant, which the M10 drives do not read, so on M10 it never applied). The modelled moteus FOC lag is 0.8 ms; 10 ms is added as the largest lag both the pre-phase-B and the phase B controllers survive in the 0.3 m/s acceptance cases (artifacts/m12/speed/lag_check)."
+    },
+    "recorded_shortfalls": {
+      "cases": [
+        "wheel_lag_25ms_drive_step",
+        "wheel_lag_25ms_weave",
+        "wheel_lag_25ms_replay_corner_90",
+        "slope_up_4",
+        "slope_up_8"
+      ],
+      "status": "Accepted by the user at the phase B sign-off, 21 October 2026",
+      "basis": "Wheel lag: a real 25 ms hub torque lag also fails the 0.3 m/s M10 acceptance drive and combined cases with the controller before phase B (artifacts/m12/speed/lag_check/before_phase_b.json), so this is an inherited M10 gap, hidden because the inherited variant did not apply on M10; it is not a phase B regression. The phase B controller survives a 10 ms lag at speed. slope_up_4 and slope_up_8: after the stop the robot creeps back to its hold point, peaking at 0.041 and 0.032 m/s in the last 2 s (0.016 and 0.009 m/s at the end), over the 0.03 m/s hold speed proposed here; the M10 suite judges slope holds by rollback (at most 0.1 m; these cases roll back 0.029 and 0.042 m as they first settle on the slope), which they meet. slope_up_8 passed (0.024 m/s) while the estimator's acceleration compensation also ran during the hold; it is now off while holding, so a push at rest is not taken for a drive acceleration (artifacts/m12/speed/regression/push_low.json). The hold keeps its pre-phase-B rate limit (controller_m10.json hold_command_acceleration); shaping the hold reference with the lean feedforward held this case to 0.029 m/s but lost the push recovery at rest under a 25 ms hub lag (artifacts/m12/speed/lag_check/attribution.json)."
+    },
+    "convergence": {
+      "case": "drive_step",
+      "physics_dt_scale": 0.5,
+      "pitch_peak_difference_max_deg": 0.5,
+      "speed_peak_difference_max_m_s": 0.02
+    },
+    "information": {
+      "low_posture_drive_ramp": {
+        "base": "drive_ramp",
+        "posture_deg": 60
+      }
+    }
+  },
+  "speed_config_sha256": "63027f9427699ccff36c67577f553062b471940246f735c0bc0fd000dcd9eede",
+  "controller": {
+    "description": "M10 serial-leg cascade: the M9 sensor-only cascade with the pitch-rate gains lowered from 0.15 / 0.13 (hold / drive) to 0.07. With the 5 ms sensor transport delay, the M9 rate gains drive a ~19 Hz oscillation through the knee-belt compliance (wheel torque reacts on the shin, which the 1:1 knee belt holds): the tires hop, the airborne wheels spin up and corrupt the velocity estimate. Physical limits and acceptance thresholds are not changed by tuning. Phase C6: a whole-robot momentum observer (slope_observer_tau_s) compares the wheel torque before friction compensation with the CoM momentum (axle velocity plus the rate of the CoM's horizontal offset) and adds the static slope lean, bounded by slope_feedforward_limit_rad and slew limited by slope_lean_rate_limit_rad_s so a push cannot step it. The hold integral limit rises from 0.3 to 1.0 so the integral can trim the remaining slope error. M12 phase B (speed envelope to 1.2 m/s): the velocity reference is jerk limited (command_jerk_m_s3) at the 1.25 m/s^2 envelope acceleration (max_command_acceleration, was 3) and the lean reference adds atan(a/g) of the reference acceleration (acceleration_feedforward); a stop brakes the reference to rest and holds there. The hold reference, the position loop's output, keeps the earlier 3 m/s^2 rate limit without the jerk limit and the feedforward (hold_command_acceleration): shaping the feedback loop's output cost the push recovery at rest under a 25 ms hub lag (artifacts/m12/speed/lag_check/attribution.json). Tuning: artifacts/m12/speed/tuning/tuning.json.",
+    "pitch_kp": 1.3,
+    "pitch_kd": 0.07,
+    "speed_kp": 0.3,
+    "speed_ki": 0.2,
+    "hold_speed_kp": 0.4,
+    "hold_speed_ki": 0.1,
+    "speed_integral_limit": 1.0,
+    "hold_kp": 0.8,
+    "max_hold_speed": 0.1,
+    "max_pitch_offset": 0.22,
+    "max_command_acceleration": 1.25,
+    "heading_kp": 0.5,
+    "yaw_rate_kd": 0.035,
+    "joint_kp": 8.0,
+    "joint_kd": 0.05,
+    "posture_gain_schedule": true,
+    "wheel_friction_compensation": 0.005,
+    "friction_compensation_scale": 0.01,
+    "friction_velocity_threshold_rad_s": 1.0,
+    "drive_pitch_kd": 0.07,
+    "slope_observer_tau_s": 0.2,
+    "slope_feedforward_limit_rad": 0.2,
+    "slope_lean_rate_limit_rad_s": 0.1,
+    "command_jerk_m_s3": 10,
+    "hold_command_acceleration": 3,
+    "acceleration_feedforward": 1.0,
+    "tuning_record": "artifacts/m10/tuning/summary.json"
+  },
+  "controller_sha256": "4def3a8e89b4abd638c306d417f364af4a6ce4cb899ac8ffc5ee69091a5efdac",
+  "sensors": {
+    "description": "M10 LSM6DSO IMU (M9 assumptions); AS5047P on each RO40 rotor, so the joint angles include both belt deflections; AS5047P on each axle end reading the hub magnet, so the wheel angle is relative to the shin. Catalog INL is a deterministic periodic term, not quantization. Noise, bias, delay and filter values are the M9 assumptions.",
+    "gyro_noise_std_rad_s": 0.003,
+    "gyro_residual_bias_rad_s": [
+      0.0003,
+      -0.0003,
+      0.0003
+    ],
+    "accel_noise_std_m_s2": 0.06,
+    "accel_bias_m_s2": [
+      0.01,
+      -0.01,
+      0.01
+    ],
+    "wheel_encoder_counts_per_rev": 16384,
+    "joint_encoder_counts_per_rev": 65536,
+    "transport_delay_s": 0.005,
+    "velocity_filter_tau_s": 0.005,
+    "gyro_anti_alias_tau_s": 0.003,
+    "accel_anti_alias_tau_s": 0.005,
+    "posture_filter_tau_s": 0.02,
+    "joint_velocity_filter_tau_s": 0.002,
+    "local_joint_velocity_filter_tau_s": 0.002,
+    "attitude_correction_tau_s": 3.0,
+    "accel_norm_gate_m_s2": 1.5,
+    "imu_velocity_fusion_tau_s": 0.2,
+    "imu_velocity_innovation_limit_m_s": 0.05,
+    "imu_accel_bias_tau_s": 3.0,
+    "seed": 20260930,
+    "local_joint_encoder_counts_per_rev": 65536,
+    "joint_encoder_bias_rad": [
+      0.0001,
+      -0.0001,
+      0.0001,
+      -0.0001
+    ],
+    "joint_encoder_periodic_error_rad": 0.005235987755982988,
+    "wheel_encoder_periodic_error_rad": 0.020943951023931952,
+    "parts": {
+      "joint": "AS5047P 14 bit on the RO40 rotor; 16384 counts per rotor revolution are 65536 per output revolution through the 4:1 belt. The output ranges (a1 60 deg, a2 54 deg) stay within one rotor turn, so the reading is absolute.",
+      "wheel": "AS5047P 14 bit on the fixed axle end, reading a 6 x 1 mm diametric magnet in the hub wall (m10.internals.hub): wheel angle relative to the shin.",
+      "imu": "LSM6DSO retained",
+      "references": [
+        "https://look.ams-osram.com/m/d05ee39221f9857/original/AS5047P-DS000324.pdf"
+      ],
+      "error_basis": "AS5047P displaced/full-temperature INL bound 1.2 deg. Joint: divided by the 4:1 belt and modelled as sin(2 x output angle), so the amplitude is right but the rotor-side harmonic is not reproduced. Wheel: modelled as sin(angle). Transport 5 ms is a host assumption including device readout.",
+      "fusion_basis": "Phase C6: the velocity estimate is the IMU point's forward velocity, predicted with the horizontal specific force and corrected towards wheel odometry moved to the IMU point (innovation clipped at 0.05 m/s, so tire hops and airborne wheel spin cannot drag it). A second state estimates the forward accelerometer bias (sensor bias plus pitch error x g) with a 3 s time constant, so a constant bias leaves no steady velocity error."
+    }
+  },
+  "electrical_model": {
+    "screen": "config/m10-screen-assumptions.json",
+    "phase_to_phase_resistance_ohm_20C": [
+      1.7,
+      1.7,
+      1.7,
+      1.7,
+      4.5,
+      4.5
+    ],
+    "back_emf_V_s_rad": [
+      0.06820926132509801,
+      0.06820926132509801,
+      0.06820926132509801,
+      0.06820926132509801,
+      0.15053078361400937,
+      0.15053078361400937
+    ],
+    "back_emf_basis": "RO40 KV140: 1/KV = 60/(2 pi 140) V s/rad (model name in physics.hip_motor); GL40: physics.hub_motor.back_emf_V_s_rad (16 V at the catalog no-load speed)",
+    "peak_phase_current_A": [
+      11.6,
+      11.6,
+      11.6,
+      11.6,
+      3.3,
+      3.3
+    ],
+    "drive_voltage_limit_V": [
+      19.2,
+      19.2,
+      19.2,
+      19.2,
+      18.24,
+      18.24
+    ],
+    "drive_voltage_limit_basis": "RO40: the low pack voltage (DC-equivalent; no driver voltage cap is set); GL40: physics.hub_motor.drive_voltage_limit_V",
+    "auxiliary_power_W": 6,
+    "auxiliary_basis": "M10 screen assumption (host, IMU, LEDs); phase C replaces it with catalog figures",
+    "pack_capacity_Ah": 0.85,
+    "pack_nominal_V": 22.2,
+    "pack_full_V": 25.2,
+    "pack_low_V": 19.2,
+    "pack_low_basis": "3.2 V per cell, the M4 arm minimum (config/electronics.json limits.bus_minimum_arm_V)",
+    "usable_depth_of_discharge": 0.8,
+    "scenarios": {
+      "draw": {
+        "inverter_efficiency": 0.85,
+        "copper_C": 125,
+        "basis": "Conservative for bus draw: low inverter efficiency, hot copper"
+      },
+      "regen": {
+        "inverter_efficiency": 0.95,
+        "copper_C": 20,
+        "basis": "Conservative for regeneration into the bus: high efficiency, cold copper"
+      }
+    },
+    "windows_s": [
+      0.01,
+      0.1,
+      1.0
+    ],
+    "copper_alpha_per_K": 0.00393
+  },
+  "equivalence": {
+    "samples": 1000,
+    "max_error": 7.771561172376096e-16,
+    "passed": true
+  },
+  "library_sha256": "8b76c482c0970f5231abbe402a08d8446cf86549f06b4c82dda6afd6b1ca14f6"
+}

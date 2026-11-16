@@ -1,0 +1,47 @@
+{
+  "description": "M9 LSM6DSO inherited IMU assumptions; AS5047P SPI on actual output after clutch; RLC2ICA10BB00A00 + MR026C ID12 wheel incremental output. Catalog INL/system errors are deterministic periodic terms, not quantization. Noise/bias/delay/filter assumptions remain conditional.",
+  "gyro_noise_std_rad_s": 0.003,
+  "gyro_residual_bias_rad_s": [
+    0.0003,
+    -0.0003,
+    0.0003
+  ],
+  "accel_noise_std_m_s2": 0.06,
+  "accel_bias_m_s2": [
+    0.01,
+    -0.01,
+    0.01
+  ],
+  "wheel_encoder_counts_per_rev": 36864,
+  "joint_encoder_counts_per_rev": 16384,
+  "transport_delay_s": 0.005,
+  "velocity_filter_tau_s": 0.005,
+  "gyro_anti_alias_tau_s": 0.003,
+  "accel_anti_alias_tau_s": 0.005,
+  "posture_filter_tau_s": 0.02,
+  "joint_velocity_filter_tau_s": 0.002,
+  "local_joint_velocity_filter_tau_s": 0.002,
+  "attitude_correction_tau_s": 3.0,
+  "accel_norm_gate_m_s2": 1.5,
+  "seed": 20260930,
+  "local_joint_encoder_counts_per_rev": 16384,
+  "joint_encoder_bias_rad": [
+    0.0001,
+    -0.0001,
+    0.0001,
+    -0.0001
+  ],
+  "joint_encoder_periodic_error_rad": 0.020943951023931952,
+  "wheel_encoder_periodic_error_rad": 0.004014257279586958,
+  "parts": {
+    "joint": "AS5047P output SPI 14 bit, after clutch",
+    "wheel": "RLC2ICA10BB00A00 through-hole 1024 interpolation, 0.5us edge separation, unique reference; MR026C ID12 36 poles; 36864 quadrature edge counts/rev",
+    "imu": "LSM6DSO retained",
+    "references": [
+      "https://look.ams-osram.com/m/d05ee39221f9857/original/AS5047P-DS000324.pdf",
+      "https://www.rls.si/eng/fileuploader/download/download/?d=0&file=custom/upload/RLCD02_09_RLC2IC.pdf",
+      "https://www.rls.si/media/wysiwyg/data_sheets/MR01D01_02_bookmarks.pdf"
+    ],
+    "error_basis": "AS5047P displaced/full-temperature INL bound1.2deg modeled sin(2angle); RLS system error0.23deg modeled sin(angle), not measured harmonic shapes. Incremental wheel zero is relative; absolute startup crank outputs are known. Transport5ms is host assumption including device readout."
+  }
+}

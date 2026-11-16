@@ -1,0 +1,46 @@
+{
+  "scores": {
+    "name": "settle",
+    "checkpoint": "artifacts/m13/training/settle/model_10493.pt",
+    "checkpoint_sha256": "bfccb81281711676d361d18f049190ed2d39fecb7f6abc8235b2ba896d222f91",
+    "acceptance": null,
+    "speed": null,
+    "stress": null,
+    "hardware": null,
+    "training": {
+      "episodes": 1000,
+      "falls": 225,
+      "fall_rate": 0.225,
+      "interval_95": [
+        0.20019851963259613,
+        0.25190627458991877
+      ],
+      "episode_s": 10.0,
+      "complete": true,
+      "causes": {
+        "tipped": 71,
+        "shell_contact": 26,
+        "rolled": 35,
+        "joint_limit": 20,
+        "nan": 0,
+        "leaned": 118
+      }
+    },
+    "stages": {
+      "training": {
+        "exit": 0,
+        "commit": "9e3392d39026911cbec2e322cbf6907d4016cf9e",
+        "dirty": false
+      }
+    },
+    "gates": {
+      "5_training_fall_rate": {
+        "value": 0.225,
+        "mark": 0.05,
+        "complete": true,
+        "passed": false
+      }
+    }
+  },
+  "baseline": null
+}

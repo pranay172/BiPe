@@ -1,0 +1,46 @@
+{
+  "scores": {
+    "name": "ft2_r1",
+    "checkpoint": "local/m14/runs/bipe_m13/2026-11-02_18-55-07_finetune2_s1/model_10997.pt",
+    "checkpoint_sha256": "2c2a0c97e8568d9c51f5e5af322619b0b7acdd153567f5c40310d02c1476242a",
+    "acceptance": null,
+    "speed": null,
+    "stress": null,
+    "hardware": null,
+    "training": {
+      "episodes": 1000,
+      "falls": 58,
+      "fall_rate": 0.058,
+      "interval_95": [
+        0.045133070071593756,
+        0.07424990827877548
+      ],
+      "episode_s": 10.0,
+      "complete": true,
+      "causes": {
+        "tipped": 12,
+        "shell_contact": 12,
+        "rolled": 16,
+        "joint_limit": 4,
+        "nan": 0,
+        "leaned": 15
+      }
+    },
+    "stages": {
+      "training": {
+        "exit": 0,
+        "commit": "8d0ca371b2610edcae1ee7109b507dbc325f4d38",
+        "dirty": false
+      }
+    },
+    "gates": {
+      "5_training_fall_rate": {
+        "value": 0.058,
+        "mark": 0.05,
+        "complete": true,
+        "passed": false
+      }
+    }
+  },
+  "baseline": null
+}

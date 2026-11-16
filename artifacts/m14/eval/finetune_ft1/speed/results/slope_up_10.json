@@ -1,0 +1,183 @@
+{
+  "case": {
+    "name": "slope_up_10",
+    "purpose": "Drive up a 10 deg slope at 1 m/s",
+    "knots": [
+      [
+        0,
+        0.0,
+        0
+      ],
+      [
+        1,
+        0.0,
+        0
+      ],
+      [
+        1.8,
+        1.0,
+        0
+      ],
+      [
+        9,
+        1.0,
+        0
+      ],
+      [
+        10,
+        0.0,
+        0
+      ],
+      [
+        16,
+        0.0,
+        0
+      ]
+    ],
+    "duration": 16,
+    "plateaus": [
+      [
+        4,
+        9
+      ]
+    ],
+    "stops": [
+      10
+    ],
+    "disturbance": {
+      "slope_deg": 10
+    },
+    "gate": "slope"
+  },
+  "failure": null,
+  "warnings": {},
+  "general_passed": false,
+  "longest_saturation_s": 0.0,
+  "max_joint_error_deg": 29.32051145986413,
+  "general_passed_without_joint_error": true,
+  "axle_depth_error": {
+    "p95_mm": 5.358676879389456,
+    "peak_mm": 5.810958837355288,
+    "steady_p95_mm": 1.664766601411627,
+    "steady_fraction": 0.7026858213616489
+  },
+  "physical": {
+    "physical_pass": true,
+    "recovered": false,
+    "duration_s": 15.999999999985386,
+    "failure": null,
+    "warnings": {},
+    "peak_pitch_deg": 13.646590886888209,
+    "late_pitch_pp_deg": 2.310115829446862,
+    "max_travel_m": 7.453861731998153,
+    "rollback_m": 0.03482176804413562,
+    "late_speed_peak_m_s": 0.028723636921287987,
+    "max_joint_error_deg": 29.32051145986413,
+    "peak_motor_Nm": 0.8380952233990272,
+    "peak_wheel_Nm": 0.1841597586681826,
+    "rms_wheel_Nm": 0.08268566971886206,
+    "push_impulse_Ns": 0.0,
+    "positive_motor_work_J": 34.30575931133082,
+    "negative_motor_work_J": 3.1898949646875865,
+    "peak_conditional_dc_input_A": 1.8330143729790864,
+    "peak_regen_mechanical_W": 6.680539287430987,
+    "backlash": {
+      "physics_substeps": 64000,
+      "belt_peak_transmitted_Nm": [
+        0.9040577566379373,
+        0.9354985438637511,
+        0.7471399366233316,
+        0.7187609397486154,
+        0.8470374638541001,
+        0.6461720479489138
+      ],
+      "phase_current_peak_A": [
+        2.8703402002439913,
+        3.5675925032927,
+        2.640312655806328,
+        2.631964593046106,
+        1.2277317244545507,
+        1.0597494991461496
+      ],
+      "hub_voltage_limited": [
+        1.0,
+        1.0
+      ],
+      "last_belt_transmitted_Nm": [
+        0.5312926945836508,
+        -0.4550337794872613,
+        0.41101540488918176,
+        -0.3644932764416876,
+        -0.40804685533217233,
+        -0.4031968359997092
+      ],
+      "state_projection_count": 0,
+      "rotor_inertia_basis": "RO40 rotor bodies carry the manufacturer core inertia; GL40 rotor inertia is in the wheel body"
+    },
+    "late_pitch_peak_deg": 6.557251691537968,
+    "phase_current_peak_A": [
+      2.8703402002439913,
+      3.5675925032927,
+      2.640312655806328,
+      2.631964593046106,
+      1.2277317244545507,
+      1.0597494991461496
+    ],
+    "phase_current_rms_A": [
+      1.911931972737774,
+      1.4162627858129058,
+      1.3993239065161849,
+      1.5631093998867778,
+      0.5512377981257441,
+      0.3948652267763113
+    ],
+    "estimated_dc_input_work_J": 362.21866686988193,
+    "negative_motor_work_each_J": [
+      0.33475418753637115,
+      0.46084416862048866,
+      0.5231156873126959,
+      0.7739741058624162,
+      0.8563187364968547,
+      0.2408880788587682
+    ],
+    "peak_net_regen_estimate_W": 0.0,
+    "net_regen_estimate_J": 0.0,
+    "policy_steps": 801
+  },
+  "speed": {
+    "peak_pitch_deg": 13.645201708234238,
+    "peak_roll_deg": 2.575654944498099,
+    "peak_speed_m_s": 1.0083849105847906,
+    "peak_command_m_s": 1.0,
+    "peak_yaw_rate_rad_s": 0.9341594000199263,
+    "final_heading_error_deg": 0.2212532503315856,
+    "peak_wheel_Nm": 0.1459018651587388,
+    "overshoot_m_s": 0.008384910584790628,
+    "overshoot_fraction": 0.008384910584790628,
+    "plateau_speed_error_m_s": [
+      0.04324264557438415
+    ],
+    "yaw_rate_error_rad_s": [],
+    "stops": [
+      {
+        "t_s": 10,
+        "speed_m_s": 0.015267252219887778,
+        "travel_m": 0.1607023868504357,
+        "reference_m": 9.459100169784289e-15,
+        "excess_m": 0.16070238685042623
+      }
+    ]
+  },
+  "electrical": {
+    "hub_phase_current_peak_A": 1.2277317244545507,
+    "hub_time_at_current_limit_fraction": 0.0,
+    "hub_time_at_voltage_limit_fraction": 0.0,
+    "hub_phase_voltage_demand_peak_V": 10.945001795031754,
+    "hub_rotor_speed_peak_rad_s": 37.538384412484646,
+    "leg_phase_current_peak_A": 3.5675925032927,
+    "bus_current_peak_A_pack_low": 3.03834332052948,
+    "bus_current_rms_A_pack_low": 1.6875256241961878,
+    "bus_power_mean_W": 32.191810739442744,
+    "runtime_at_this_load_min": 28.136348319488132
+  }
+}

@@ -1,0 +1,941 @@
+{
+  "what": "M13 belt range follow-up diagnosis: settle policy, full plant, 20 s hold (or the named matrix case), one runtime change at a time. kd: leg servo rate gain per joint [lh, lk, rh, rk] (trained 0.05); leg_tau: unbanded leg target filter at 1 kHz, s; band (with tau 0.03): banded filter at the 5 ms tick. Belt stiffness in N m/rad, lash in degrees. Script: tools/m13_belt_diagnosis.py with the job lists in diagnosis_jobs/. kd and leg_tau runs replace the leg servo in Python with a 1 kHz unbanded filter (the 'tau30' rows are that, not the 5 ms tick filter of the code); band runs use the code's 5 ms tick filter (commit 9b3e108 plus the band clamp).",
+  "runs": [
+    {
+      "name": "band0.03_belt_hold_h0.1125_n0.225_k1",
+      "case": "belt_hold_h0.1125_n0.225_k1",
+      "runtime_change": {
+        "band": 0.03
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.315,
+      "late_speed_peak_m_s": 0.0266
+    },
+    {
+      "name": "band0.03_belt_hold_h0.45_n0.225_k0",
+      "case": "belt_hold_h0.45_n0.225_k0",
+      "runtime_change": {
+        "band": 0.03
+      },
+      "recovered": false,
+      "late_pitch_pp_deg": 9.054,
+      "late_speed_peak_m_s": 0.1692
+    },
+    {
+      "name": "band0.03_push_drive_+2.5",
+      "case": "push_drive_+2.5",
+      "runtime_change": {
+        "band": 0.03
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 0.93,
+      "late_speed_peak_m_s": 0.0238
+    },
+    {
+      "name": "band0.03_push_hold_+2.5",
+      "case": "push_hold_+2.5",
+      "runtime_change": {
+        "band": 0.03
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.021,
+      "late_speed_peak_m_s": 0.0224
+    },
+    {
+      "name": "band0.06_belt_hold_h0.1125_n0.225_k1",
+      "case": "belt_hold_h0.1125_n0.225_k1",
+      "runtime_change": {
+        "band": 0.06
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.096,
+      "late_speed_peak_m_s": 0.0188
+    },
+    {
+      "name": "band0.06_belt_hold_h0.45_n0.225_k0",
+      "case": "belt_hold_h0.45_n0.225_k0",
+      "runtime_change": {
+        "band": 0.06
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 0.925,
+      "late_speed_peak_m_s": 0.0235
+    },
+    {
+      "name": "band0.06_push_drive_+2.5",
+      "case": "push_drive_+2.5",
+      "runtime_change": {
+        "band": 0.06
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 0.89,
+      "late_speed_peak_m_s": 0.0265
+    },
+    {
+      "name": "band0.06_push_hold_+2.5",
+      "case": "push_hold_+2.5",
+      "runtime_change": {
+        "band": 0.06
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 0.948,
+      "late_speed_peak_m_s": 0.022
+    },
+    {
+      "name": "bothsoft",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {},
+      "recovered": false,
+      "late_pitch_pp_deg": 9.011,
+      "late_speed_peak_m_s": 0.215
+    },
+    {
+      "name": "hipsoft",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 69.14013424161588
+      },
+      "runtime_change": {},
+      "recovered": true,
+      "late_pitch_pp_deg": 1.014,
+      "late_speed_peak_m_s": 0.0227
+    },
+    {
+      "name": "k0_kd075_tau10",
+      "case": {
+        "hip_backlash_deg": 0.45,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.075,
+          0.05,
+          0.075
+        ],
+        "leg_tau": 0.01
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.187,
+      "late_speed_peak_m_s": 0.023
+    },
+    {
+      "name": "k0_kd075_tau20",
+      "case": {
+        "hip_backlash_deg": 0.45,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.075,
+          0.05,
+          0.075
+        ],
+        "leg_tau": 0.02
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.082,
+      "late_speed_peak_m_s": 0.0216
+    },
+    {
+      "name": "k0_tau30",
+      "case": {
+        "hip_backlash_deg": 0.45,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "leg_tau": 0.03
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 0.969,
+      "late_speed_peak_m_s": 0.0261
+    },
+    {
+      "name": "k1_kd0.075",
+      "case": {
+        "hip_backlash_deg": 0.45,
+        "knee_backlash_deg": 0.9,
+        "hip_belt_stiffness_Nm_rad": 713.3263389614942,
+        "knee_belt_stiffness_Nm_rad": 140.9271634873135
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.075,
+          0.05,
+          0.075
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.048,
+      "late_speed_peak_m_s": 0.0208
+    },
+    {
+      "name": "k1_kd0.1",
+      "case": {
+        "hip_backlash_deg": 0.45,
+        "knee_backlash_deg": 0.9,
+        "hip_belt_stiffness_Nm_rad": 713.3263389614942,
+        "knee_belt_stiffness_Nm_rad": 140.9271634873135
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "recovered": false,
+      "late_pitch_pp_deg": 0.653,
+      "late_speed_peak_m_s": 0.0385
+    },
+    {
+      "name": "k1_kd075_tau10",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 713.3263389614942,
+        "knee_belt_stiffness_Nm_rad": 140.9271634873135
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.075,
+          0.05,
+          0.075
+        ],
+        "leg_tau": 0.01
+      },
+      "recovered": false,
+      "late_pitch_pp_deg": 0.665,
+      "late_speed_peak_m_s": 0.0371
+    },
+    {
+      "name": "k1_kd075_tau20",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 713.3263389614942,
+        "knee_belt_stiffness_Nm_rad": 140.9271634873135
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.075,
+          0.05,
+          0.075
+        ],
+        "leg_tau": 0.02
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 0.952,
+      "late_speed_peak_m_s": 0.0285
+    },
+    {
+      "name": "k1_tau15",
+      "case": {
+        "hip_backlash_deg": 0.45,
+        "knee_backlash_deg": 0.9,
+        "hip_belt_stiffness_Nm_rad": 713.3263389614942,
+        "knee_belt_stiffness_Nm_rad": 140.9271634873135
+      },
+      "runtime_change": {
+        "leg_tau": 0.015
+      },
+      "recovered": false,
+      "late_pitch_pp_deg": 0.633,
+      "late_speed_peak_m_s": 0.0383
+    },
+    {
+      "name": "k1_tau30",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 713.3263389614942,
+        "knee_belt_stiffness_Nm_rad": 140.9271634873135
+      },
+      "runtime_change": {
+        "leg_tau": 0.03
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.06,
+      "late_speed_peak_m_s": 0.0216
+    },
+    {
+      "name": "kd0.075_h0.1125_n0.225_k0",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.075,
+          0.05,
+          0.075
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.138,
+      "late_speed_peak_m_s": 0.0216
+    },
+    {
+      "name": "kd0.075_h0.1125_n0.225_k1",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 713.3263389614942,
+        "knee_belt_stiffness_Nm_rad": 140.9271634873135
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.075,
+          0.05,
+          0.075
+        ]
+      },
+      "recovered": false,
+      "late_pitch_pp_deg": 0.662,
+      "late_speed_peak_m_s": 0.0391
+    },
+    {
+      "name": "kd0.075_h0.1125_n0.9_k0",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.9,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.075,
+          0.05,
+          0.075
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 0.805,
+      "late_speed_peak_m_s": 0.0175
+    },
+    {
+      "name": "kd0.075_h0.1125_n0.9_k1",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.9,
+        "hip_belt_stiffness_Nm_rad": 713.3263389614942,
+        "knee_belt_stiffness_Nm_rad": 140.9271634873135
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.075,
+          0.05,
+          0.075
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.226,
+      "late_speed_peak_m_s": 0.0239
+    },
+    {
+      "name": "kd0.075_h0.45_n0.225_k0",
+      "case": {
+        "hip_backlash_deg": 0.45,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.075,
+          0.05,
+          0.075
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.171,
+      "late_speed_peak_m_s": 0.0262
+    },
+    {
+      "name": "kd0.075_h0.45_n0.225_k1",
+      "case": {
+        "hip_backlash_deg": 0.45,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 713.3263389614942,
+        "knee_belt_stiffness_Nm_rad": 140.9271634873135
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.075,
+          0.05,
+          0.075
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 0.992,
+      "late_speed_peak_m_s": 0.0218
+    },
+    {
+      "name": "kd0.075_h0.45_n0.9_k0",
+      "case": {
+        "hip_backlash_deg": 0.45,
+        "knee_backlash_deg": 0.9,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.075,
+          0.05,
+          0.075
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 0.87,
+      "late_speed_peak_m_s": 0.0139
+    },
+    {
+      "name": "kd0.075_nominal",
+      "case": {},
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.075,
+          0.05,
+          0.075
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 0.967,
+      "late_speed_peak_m_s": 0.0204
+    },
+    {
+      "name": "kd0.15_h0.1125_n0.225_k0",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.15,
+          0.05,
+          0.15
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.207,
+      "late_speed_peak_m_s": 0.0203
+    },
+    {
+      "name": "kd0.15_h0.1125_n0.9_k0",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.9,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.15,
+          0.05,
+          0.15
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.549,
+      "late_speed_peak_m_s": 0.0188
+    },
+    {
+      "name": "kd0.15_h0.45_n0.225_k0",
+      "case": {
+        "hip_backlash_deg": 0.45,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.15,
+          0.05,
+          0.15
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.241,
+      "late_speed_peak_m_s": 0.017
+    },
+    {
+      "name": "kd0.15_h0.45_n0.9_k0",
+      "case": {
+        "hip_backlash_deg": 0.45,
+        "knee_backlash_deg": 0.9,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.15,
+          0.05,
+          0.15
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.152,
+      "late_speed_peak_m_s": 0.021
+    },
+    {
+      "name": "kd0.1_h0.1125_n0.225_k0",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 0.932,
+      "late_speed_peak_m_s": 0.0157
+    },
+    {
+      "name": "kd0.1_h0.1125_n0.9_k0",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.9,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.055,
+      "late_speed_peak_m_s": 0.0201
+    },
+    {
+      "name": "kd0.1_h0.45_n0.225_k0",
+      "case": {
+        "hip_backlash_deg": 0.45,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.237,
+      "late_speed_peak_m_s": 0.0275
+    },
+    {
+      "name": "kd0.1_h0.45_n0.9_k0",
+      "case": {
+        "hip_backlash_deg": 0.45,
+        "knee_backlash_deg": 0.9,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.1,
+          0.05,
+          0.1
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 0.796,
+      "late_speed_peak_m_s": 0.0193
+    },
+    {
+      "name": "kd2x",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 0.917,
+      "late_speed_peak_m_s": 0.0223
+    },
+    {
+      "name": "knee40",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 349.969332521916,
+        "knee_belt_stiffness_Nm_rad": 40.0
+      },
+      "runtime_change": {},
+      "recovered": true,
+      "late_pitch_pp_deg": 1.025,
+      "late_speed_peak_m_s": 0.0233
+    },
+    {
+      "name": "kneekd3x",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kd": [
+          0.05,
+          0.15,
+          0.05,
+          0.15
+        ]
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 1.207,
+      "late_speed_peak_m_s": 0.0203
+    },
+    {
+      "name": "kneesoft",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 349.969332521916,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {},
+      "recovered": false,
+      "late_pitch_pp_deg": 6.579,
+      "late_speed_peak_m_s": 0.1804
+    },
+    {
+      "name": "kp12",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "kp": [
+          8,
+          12,
+          8,
+          12
+        ]
+      },
+      "recovered": false,
+      "late_pitch_pp_deg": 10.507,
+      "late_speed_peak_m_s": 0.3071
+    },
+    {
+      "name": "tau30",
+      "case": {
+        "hip_backlash_deg": 0.1125,
+        "knee_backlash_deg": 0.225,
+        "hip_belt_stiffness_Nm_rad": 118.88772316024904,
+        "knee_belt_stiffness_Nm_rad": 23.487860581218918
+      },
+      "runtime_change": {
+        "leg_tau": 0.03
+      },
+      "recovered": true,
+      "late_pitch_pp_deg": 0.835,
+      "late_speed_peak_m_s": 0.0251
+    }
+  ],
+  "spectra": {
+    "what": "t > 10 s of each run: the two largest FFT peaks of the 100 Hz trace (pitch deg, speed m/s, right knee deg); over the second half, per action (leg hip/knee left/right, wheels), the share of 20 ms policy steps whose change reverses the previous step's, and the RMS step change. A 25 Hz speed peak with large step changes is the period-2 chatter at the 50 Hz policy rate (k1_kd0.1); a high reversal share alone is not, since small steps reverse often at rest.",
+    "runs": {
+      "bothsoft": {
+        "pitch_deg": [
+          {
+            "Hz": 0.2,
+            "amplitude": 0.5471
+          },
+          {
+            "Hz": 2.3,
+            "amplitude": 0.3937
+          }
+        ],
+        "velocity": [
+          {
+            "Hz": 4.6,
+            "amplitude": 0.0528
+          },
+          {
+            "Hz": 4.5,
+            "amplitude": 0.0481
+          }
+        ],
+        "right_knee_deg": [
+          {
+            "Hz": 2.3,
+            "amplitude": 4.3406
+          },
+          {
+            "Hz": 4.6,
+            "amplitude": 2.8029
+          }
+        ],
+        "action_reversal_share": [
+          0.18,
+          0.24,
+          0.2,
+          0.18,
+          0.41,
+          0.26
+        ],
+        "action_step_change_rms": [
+          0.0499,
+          0.0201,
+          0.0634,
+          0.0962,
+          0.041,
+          0.0757
+        ]
+      },
+      "kneesoft": {
+        "pitch_deg": [
+          {
+            "Hz": 4.6,
+            "amplitude": 0.382
+          },
+          {
+            "Hz": 9.2,
+            "amplitude": 0.1753
+          }
+        ],
+        "velocity": [
+          {
+            "Hz": 4.6,
+            "amplitude": 0.0628
+          },
+          {
+            "Hz": 4.7,
+            "amplitude": 0.0207
+          }
+        ],
+        "right_knee_deg": [
+          {
+            "Hz": 4.6,
+            "amplitude": 3.2955
+          },
+          {
+            "Hz": 2.1,
+            "amplitude": 1.2692
+          }
+        ],
+        "action_reversal_share": [
+          0.2,
+          0.26,
+          0.21,
+          0.18,
+          0.41,
+          0.34
+        ],
+        "action_step_change_rms": [
+          0.0438,
+          0.0173,
+          0.0389,
+          0.0701,
+          0.0361,
+          0.0615
+        ]
+      },
+      "knee40": {
+        "pitch_deg": [
+          {
+            "Hz": 0.5,
+            "amplitude": 0.0478
+          },
+          {
+            "Hz": 0.3,
+            "amplitude": 0.0459
+          }
+        ],
+        "velocity": [
+          {
+            "Hz": 2.4,
+            "amplitude": 0.0031
+          },
+          {
+            "Hz": 1.9,
+            "amplitude": 0.0027
+          }
+        ],
+        "right_knee_deg": [
+          {
+            "Hz": 2.4,
+            "amplitude": 0.331
+          },
+          {
+            "Hz": 1.9,
+            "amplitude": 0.2772
+          }
+        ],
+        "action_reversal_share": [
+          0.52,
+          0.55,
+          0.35,
+          0.25,
+          0.85,
+          0.73
+        ],
+        "action_step_change_rms": [
+          0.0026,
+          0.0033,
+          0.0042,
+          0.0076,
+          0.0092,
+          0.0128
+        ]
+      },
+      "k1_kd0.1": {
+        "pitch_deg": [
+          {
+            "Hz": 0.8,
+            "amplitude": 0.0916
+          },
+          {
+            "Hz": 0.4,
+            "amplitude": 0.0662
+          }
+        ],
+        "velocity": [
+          {
+            "Hz": 25.0,
+            "amplitude": 0.0167
+          },
+          {
+            "Hz": 25.1,
+            "amplitude": 0.0099
+          }
+        ],
+        "right_knee_deg": [
+          {
+            "Hz": 0.8,
+            "amplitude": 0.4767
+          },
+          {
+            "Hz": 1.0,
+            "amplitude": 0.3945
+          }
+        ],
+        "action_reversal_share": [
+          0.68,
+          0.79,
+          0.63,
+          0.28,
+          0.92,
+          0.88
+        ],
+        "action_step_change_rms": [
+          0.003,
+          0.0094,
+          0.0051,
+          0.0058,
+          0.0396,
+          0.0531
+        ]
+      },
+      "k1_kd0.075": {
+        "pitch_deg": [
+          {
+            "Hz": 1.2,
+            "amplitude": 0.0828
+          },
+          {
+            "Hz": 0.9,
+            "amplitude": 0.0432
+          }
+        ],
+        "velocity": [
+          {
+            "Hz": 1.2,
+            "amplitude": 0.0058
+          },
+          {
+            "Hz": 1.5,
+            "amplitude": 0.0025
+          }
+        ],
+        "right_knee_deg": [
+          {
+            "Hz": 1.2,
+            "amplitude": 0.847
+          },
+          {
+            "Hz": 1.5,
+            "amplitude": 0.2955
+          }
+        ],
+        "action_reversal_share": [
+          0.62,
+          0.61,
+          0.33,
+          0.23,
+          0.86,
+          0.79
+        ],
+        "action_step_change_rms": [
+          0.0021,
+          0.0026,
+          0.0036,
+          0.0059,
+          0.0078,
+          0.0104
+        ]
+      }
+    }
+  }
+}

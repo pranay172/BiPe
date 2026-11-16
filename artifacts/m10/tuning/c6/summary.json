@@ -1,0 +1,144 @@
+{
+  "status": "Phase C6 probes of the IMU-fused velocity and slope feedforward, Python implementation with the configured M10 sensor model; simulation under stated assumptions, not hardware-validated",
+  "baseline": "commit 90f2ea8 (acceptance 88/107)",
+  "scripts": {
+    "jobrun.py": "one moving_validate locomotion job: jobrun.py job sensors-override-json gains-override-json (TRACE=path.npy saves the trace)",
+    "case.py": "one robustness case: SENS=sensors-override-json case.py case duration python gains-override-json",
+    "observer_probe.py": "logs the slope observer against MuJoCo's true horizontal momentum (subtree_linvel) in one robustness case"
+  },
+  "gains_override": {
+    "slope_observer_tau_s": 0.2,
+    "slope_feedforward_limit_rad": 0.2,
+    "speed_integral_limit": 1.0
+  },
+  "probes": [
+    {
+      "fusion": {
+        "imu_velocity_fusion_tau_s": 0.2,
+        "imu_velocity_innovation_limit_m_s": 0.05
+      },
+      "note": "first-order fusion, no bias state",
+      "results": {
+        "push_hold_-2": "recovered",
+        "push_hold_-1.5": "recovered",
+        "push_hold_+2.5": "recovered",
+        "slope_hold_10_rollback_m": 0.04,
+        "sensors_hold": "FAIL travel 0.151 m over 60 s, final velocity -0.0106 m/s (accelerometer/pitch bias becomes tau x bias velocity)",
+        "delay_15ms_noise_x2_drive": "FAIL plateau MAE 0.0308 m/s",
+        "delay_15ms_noise_x2_combined": "FAIL fall at 3.20 s"
+      }
+    },
+    {
+      "fusion": {
+        "imu_velocity_fusion_tau_s": 0.2,
+        "imu_velocity_innovation_limit_m_s": 0.05,
+        "imu_accel_bias_tau_s": 2
+      },
+      "results": {
+        "sensors_hold": "pass, travel 0.025 m, final velocity 0.026 m/s",
+        "sensors_tilt_positive": "pass",
+        "delay_15ms_noise_x2_drive": "pass, MAE 0.0266 m/s"
+      }
+    },
+    {
+      "fusion": {
+        "imu_velocity_fusion_tau_s": 0.2,
+        "imu_velocity_innovation_limit_m_s": 0.05,
+        "imu_accel_bias_tau_s": 3
+      },
+      "results": {
+        "push_hold_-2": "recovered, peak 18.7 deg",
+        "push_hold_+2": "recovered, peak 19.4 deg",
+        "slope_hold_10_rollback_m": 0.0396,
+        "slope_down_10": "survives",
+        "backlash_crouch_0.6": "recovered, peak 1.27 deg",
+        "sensors_combined": "pass",
+        "delay_15ms_noise_x2_drive": "pass, MAE 0.0281 m/s",
+        "delay_15ms_noise_x2_combined": "FAIL fall at 3.17 s"
+      }
+    },
+    {
+      "fusion": {
+        "imu_velocity_fusion_tau_s": 0.2,
+        "imu_velocity_innovation_limit_m_s": 0.05,
+        "imu_accel_bias_tau_s": 5
+      },
+      "results": {
+        "sensors_hold": "pass, travel 0.030 m",
+        "sensors_tilt_positive": "pass",
+        "push_hold_-2": "recovered",
+        "push_hold_+2": "recovered",
+        "slope_hold_10_rollback_m": 0.0396,
+        "backlash_crouch_0.6": "recovered",
+        "sensors_combined": "pass",
+        "delay_15ms_noise_x2_drive": "pass, MAE 0.0294 m/s",
+        "delay_15ms_noise_x2_combined": "FAIL fall at 7.64 s (trace saved)"
+      }
+    },
+    {
+      "fusion": {
+        "imu_velocity_fusion_tau_s": 0.2,
+        "imu_velocity_innovation_limit_m_s": 0.05,
+        "imu_accel_bias_tau_s": 5
+      },
+      "rate_gain_sweep_on": "delay_15ms_noise_x2_combined",
+      "results": {
+        "pitch_kd 0.07 / drive 0.07": "fall 7.64 s",
+        "drive_pitch_kd 0.06": "fall 11.08 s",
+        "pitch_kd 0.06 / drive 0.06": "fall 17.21 s",
+        "drive_pitch_kd 0.05": "fall 5.66 s",
+        "pitch_kd 0.05 / drive 0.05": "fall 5.66 s"
+      }
+    }
+  ],
+  "diagnosis": "delay_15ms_noise_x2_combined: with 15 ms transport plus 3 ms anti-alias lag, an ~11 Hz pitch oscillation (10 ms trace sampling) grows within 0.3 s while the legs extend from the crouch towards the tall posture (hip -151 to -144 deg), the tires lose contact and pitch passes 20 deg. Lower rate gains move the fall time non-monotonically, so no rate gain gives a robust margin; the case sets an absolute 15 ms delay, so an on-target latency requirement (option 2) does not change it either.",
+  "adopted": {
+    "sensors-m10": {
+      "imu_velocity_fusion_tau_s": 0.2,
+      "imu_velocity_innovation_limit_m_s": 0.05,
+      "imu_accel_bias_tau_s": 3
+    },
+    "controller_m10": {
+      "slope_observer_tau_s": 0.2,
+      "slope_feedforward_limit_rad": 0.2,
+      "slope_lean_rate_limit_rad_s": 0.1,
+      "speed_integral_limit": 1.0
+    },
+    "rate_gains": "unchanged at 0.07"
+  },
+  "observer_revision": {
+    "first_acceptance": "Commit 435db6e observer (M v, requested wheel torque, no slew): targets met except all_27, but 60/70 survive (all ten push_low cases fall at 0.85 s), hold backlash pp 0.9-1.25 deg, inherited 23/27 (ideal_crouch, ideal_combined, sensors_push also fail). Not committed as the acceptance record.",
+    "fixes": [
+      {
+        "change": "observe CoM momentum M (v + dd/dt), d = CoM horizontal offset from the axle",
+        "why": "pitching and leg motion move the CoM relative to the axle; read as an external force at the 65 deg posture",
+        "effect": "ideal_crouch, ideal_combined, sensors_push pass; push_low falls later (4.1 s)"
+      },
+      {
+        "change": "wheel torque before friction compensation",
+        "why": "the 0.005 N m per wheel compensation is absorbed by hub friction; 0.28 N of phantom force, about 0.9 deg phantom slope",
+        "effect": "hold limit cycle settles (backlash_hold_0.6 late pp 0.29 deg)"
+      },
+      {
+        "change": "slew-limit the slope lean at slope_lean_rate_limit_rad_s = 0.1",
+        "why": "a push is an impulsive external force; the observer jumps by impulse/tau and stepped the lean by up to 12 deg at the low posture (CoM 24.5 mm above the axle, lean per slope ~1.3)",
+        "effect": "all push_low cases survive",
+        "alternatives": {
+          "sine slew 0.1/s": "all survive, slope_hold_10 rollback 0.088 m",
+          "sine slew 0.2/s": "push_low +-2.5 fall",
+          "sine slew 0.4/s": "push_low -1, +-2.5 fall",
+          "observer tau 0.5 s": "push_low_+2.5 falls (delay_15ms drive passes)",
+          "observer tau 1.0 s, no slew": "push_low +-2.5 fall, rollback 0.077 m"
+        }
+      }
+    ],
+    "residual": "At standstill the tire's rolling friction holds a small static wheel torque that the observer reads as about 0.15 N; with the lean slew limit the result is a slow lean oscillation of 0.5-0.6 deg pp at hold and up to 1.8 deg late pp after low-posture pushes.",
+    "delay_15ms_noise_x2_drive": "knife edge: passes with the first observer (MAE 0.0255) and with tau 0.5 s (0.0262), falls at 3.1-3.5 s with the adopted observer, with fusion only (observer off) and with lean slew 0.05; lean slew 0.2 falls at 10.3 s.",
+    "adopted": {
+      "slope_observer_tau_s": 0.2,
+      "slope_feedforward_limit_rad": 0.2,
+      "slope_lean_rate_limit_rad_s": 0.1,
+      "speed_integral_limit": 1.0
+    }
+  }
+}

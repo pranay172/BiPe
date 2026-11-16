@@ -1,0 +1,222 @@
+{
+  "scope": "M11 phase D harness calculations from config/robot.json m10.electronics.harness, the end stops and the phase A requirements; a digital design check, not a hardware measurement",
+  "harness_config": {
+    "hub_conductors": {
+      "phase": 3,
+      "encoder": 6,
+      "encoder_signals": [
+        "3V3",
+        "GND",
+        "CS",
+        "SCK",
+        "MISO",
+        "MOSI"
+      ]
+    },
+    "assignment": "Hub c1s are the two boards beside the battery (nearest the body ports at y +/-24 mm); the four motor-row boards drive the RO40s",
+    "wires": {
+      "phase": {
+        "model": "Alpha Wire 2843/7, 26 AWG 7/34 thin-wall PTFE",
+        "od_m": 0.00079,
+        "strands": 7,
+        "strand_d_m": 0.00016
+      },
+      "encoder": {
+        "model": "Alpha Wire 2841/7, 30 AWG 7/38 thin-wall PTFE",
+        "od_m": 0.00061,
+        "strands": 7,
+        "strand_d_m": 0.0001016
+      },
+      "rejected": {
+        "model": "Silicone hook-up wire (Adafruit 1970 26 AWG; 30 AWG)",
+        "phase_od_m": 0.0014,
+        "encoder_od_m": 0.0008
+      },
+      "basis": "User decision 18 October 2026 (thin-wall PTFE). ODs from distributor listings of the Alpha Wire parts (2843/7 0.79 mm, 2841/7 0.61 mm) and Adafruit 1970 (1.4 +/- 0.1 mm); strand diameters from the AWG stranding codes"
+    },
+    "copper_resistivity_ohm_m_20C": 1.724e-08,
+    "lay_factor": 1.02,
+    "packing_fraction": [
+      0.6,
+      0.75
+    ],
+    "restrictions_m": {
+      "shaft_port": 0.003,
+      "thigh_gallery": 0.0031,
+      "shin_channel": 0.0032,
+      "shaft_bore": 0.005
+    },
+    "route_m": {
+      "body": 0.06,
+      "inner_shaft_bore": 0.0485,
+      "thigh_gallery": 0.059,
+      "knee_shaft": 0.01,
+      "shin_channel": 0.052,
+      "axle_tube": 0.0265
+    },
+    "slack_fraction": 0.15,
+    "route_basis": "Gallery, shin channel and axle tube from the CAD envelopes (artifacts/m11/harness/geometry_0.103.json); body run 1.5 x the 41 mm straight line from the side board to the body port; inner-shaft bore from the body port (y 24 mm) to the gallery (y 72.5 mm)",
+    "crossings": {
+      "body_port": {
+        "range": "knee_drive_a2",
+        "shaft_radius_m": 0.005
+      },
+      "hip_gallery_port": {
+        "range": "knee_angle",
+        "shaft_radius_m": 0.005
+      },
+      "knee_shaft_port": {
+        "range": "knee_angle",
+        "shaft_radius_m": 0.005
+      }
+    },
+    "service_loop_radius_m": 0.01,
+    "service_loop_basis": "User decision 18 October 2026: service loops of radius 10 mm or more at the rotating crossings; strand strain is reported, fatigue life is a bench cycle test",
+    "encoder": {
+      "supply_A": 0.015,
+      "supply_basis": "AS5047P supply current, distributor catalog attribute (RS 2009463); the ams datasheet download is restricted",
+      "spi_rate_hz": 2000000,
+      "spi_rate_basis": "moteus aux[12].spi.rate_hz defaults to 12 MHz, above the AS5047P 10 MHz maximum; 2 MHz for the 0.32 m hub runs (a 16-bit frame takes 8 us)",
+      "line_capacitance_F_per_m_assumption": 1e-10,
+      "driver_resistance_ohm_assumption": 50.0,
+      "series_resistor_ohm": 33.0
+    }
+  },
+  "hub_currents": {
+    "peak_A": 2.809473498384923,
+    "rms_A": 0.4351102126924281
+  },
+  "bundle": {
+    "wire_area_fill": {
+      "shaft_port": 0.45609999999999995,
+      "thigh_gallery": 0.4271488033298647,
+      "shin_channel": 0.40086914062499995,
+      "shaft_bore": 0.16419599999999998
+    },
+    "packings": {
+      "packing_0.6": {
+        "bundle_diameter_m": 0.0026156261200714448,
+        "fits": {
+          "shaft_port": true,
+          "thigh_gallery": true,
+          "shin_channel": true,
+          "shaft_bore": true
+        }
+      },
+      "packing_0.75": {
+        "bundle_diameter_m": 0.0023394871232815108,
+        "fits": {
+          "shaft_port": true,
+          "thigh_gallery": true,
+          "shin_channel": true,
+          "shaft_bore": true
+        }
+      }
+    },
+    "fits_everywhere": true
+  },
+  "rejected_bundle": {
+    "wire_area_fill": {
+      "shaft_port": 1.08,
+      "thigh_gallery": 1.0114464099895943,
+      "shin_channel": 0.94921875,
+      "shaft_bore": 0.3888
+    },
+    "packings": {
+      "packing_0.6": {
+        "bundle_diameter_m": 0.004024922359499621,
+        "fits": {
+          "shaft_port": false,
+          "thigh_gallery": false,
+          "shin_channel": false,
+          "shaft_bore": true
+        }
+      },
+      "packing_0.75": {
+        "bundle_diameter_m": 0.0036,
+        "fits": {
+          "shaft_port": false,
+          "thigh_gallery": false,
+          "shin_channel": false,
+          "shaft_bore": true
+        }
+      }
+    },
+    "fits_everywhere": false
+  },
+  "phase_leads": {
+    "route_length_m": 0.2944,
+    "ohm_per_m": 0.12494231443224825,
+    "line_to_line_ohm": 0.07356603473770777,
+    "plant_allowance_ohm": 0.09,
+    "within_plant_allowance": true,
+    "drop_at_peak_V": 0.20668182497685464,
+    "lead_copper_loss_rms_W": 0.010445690774398777,
+    "current_density_rms_A_mm2": 3.091515229453833,
+    "current_density_limit_A_mm2": 5.0,
+    "current_density_passes": true
+  },
+  "encoder": {
+    "supply_drop_V": 0.00273666196556666,
+    "supply_drop_passes": true,
+    "line_capacitance_F": 2.9440000000000004e-11,
+    "rise_time_s": 5.3757440000000016e-09,
+    "half_period_s": 2.5e-07,
+    "rise_within_20pct_of_half_period": true,
+    "round_trip_delay_s": 2.805750560752456e-09,
+    "spi_rate_hz": 2000000,
+    "note": "Single-ended over the hub run beside the PWM phase leads: capacitive pickup is the open risk. Twist the phase leads, group the encoder leads with GND, fit the series resistors at the drivers and check on the bench with the real harness."
+  },
+  "crossings": {
+    "body_port": {
+      "range_deg": 67.0,
+      "loop_arc_change_m": 0.011693705988362009,
+      "strand_strain": {
+        "phase": {
+          "direct_wrap": 0.014828544949026877,
+          "service_loop": 0.008328995314940135
+        },
+        "encoder": {
+          "direct_wrap": 0.009575871819038644,
+          "service_loop": 0.005239814337287261
+        }
+      }
+    },
+    "hip_gallery_port": {
+      "range_deg": 101.0,
+      "loop_arc_change_m": 0.017627825445142728,
+      "strand_strain": {
+        "phase": {
+          "direct_wrap": 0.014828544949026877,
+          "service_loop": 0.008328995314940135
+        },
+        "encoder": {
+          "direct_wrap": 0.009575871819038644,
+          "service_loop": 0.005239814337287261
+        }
+      }
+    },
+    "knee_shaft_port": {
+      "range_deg": 101.0,
+      "loop_arc_change_m": 0.017627825445142728,
+      "strand_strain": {
+        "phase": {
+          "direct_wrap": 0.014828544949026877,
+          "service_loop": 0.008328995314940135
+        },
+        "encoder": {
+          "direct_wrap": 0.009575871819038644,
+          "service_loop": 0.005239814337287261
+        }
+      }
+    }
+  },
+  "checks": {
+    "bundle_fits": true,
+    "lead_resistance_within_plant": true,
+    "lead_current_density": true,
+    "encoder_supply": true,
+    "spi_edges": true
+  },
+  "passed": true
+}

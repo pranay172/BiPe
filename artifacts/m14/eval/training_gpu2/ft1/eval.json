@@ -1,0 +1,30 @@
+{
+  "checkpoint": "artifacts/m14/checkpoints/finetune_s1/model_9998.pt",
+  "checkpoint_sha256": "8cfe26ae6f50f3627a83ba25fea85638920e2ad82a811b07938247ff445da304",
+  "stages": {
+    "training": {
+      "exit": 0,
+      "minutes": 0.6,
+      "log": "training.log",
+      "finished": "2026-11-02T12:36:31+00:00",
+      "commit": "9e3392d39026911cbec2e322cbf6907d4016cf9e",
+      "dirty": false,
+      "environment": {
+        "python": "3.11.15",
+        "machine": "x86_64",
+        "cpus": 16,
+        "node": "laptop",
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "mujoco": "3.11.0",
+        "torch": "2.14.1",
+        "mjlab": "1.6.0",
+        "rsl-rl-lib": "5.4.2"
+      },
+      "device": "cuda:0",
+      "worlds": 1000,
+      "episodes": 1000,
+      "episode_s": 10.0
+    }
+  }
+}

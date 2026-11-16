@@ -1,0 +1,26 @@
+{
+  "checkpoint": "artifacts/m13/training/settle/model_10493.pt",
+  "checkpoint_sha256": "bfccb81281711676d361d18f049190ed2d39fecb7f6abc8235b2ba896d222f91",
+  "runtime": "firmware/src/locomotion/learned.c",
+  "variant": "fault_inline",
+  "deferred": false,
+  "wheel_tick": false,
+  "fault_s": 5.0,
+  "leg_filter": {
+    "tau_s": 0.0,
+    "band_rad": 0.06
+  },
+  "suite": "acceptance",
+  "cases": [
+    "push_hold_+2",
+    "push_hold_-2",
+    "push_drive_+2.5",
+    "push_low_-2.5",
+    "sensors_combined",
+    "backlash_turn_0.6",
+    "belt_hold_h0.45_n0.9_k1",
+    "slope_up_8",
+    "delay_15ms_noise_x2_drive",
+    "wheel_lag_25ms_drive"
+  ]
+}

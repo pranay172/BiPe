@@ -1,0 +1,567 @@
+{
+  "scores": {
+    "name": "ft2",
+    "checkpoint": "artifacts/m14/checkpoints/finetune2_s1/model_10997.pt",
+    "checkpoint_sha256": "2c2a0c97e8568d9c51f5e5af322619b0b7acdd153567f5c40310d02c1476242a",
+    "acceptance": {
+      "cases": 98,
+      "complete": true,
+      "recovered_98": 86,
+      "survived_98": 98,
+      "recovered_79": 70,
+      "matrix_cases": 79,
+      "belt_recovered": 8,
+      "belt_cases": 8,
+      "pushes_survived": 30,
+      "pushes_recovered": 30,
+      "push_cases": 30,
+      "physical_failures": [],
+      "not_recovered": [
+        "sensors_hold",
+        "sensors_tilt_negative",
+        "sensors_tilt_positive",
+        "slope_down_10",
+        "slope_down_4",
+        "slope_down_8",
+        "slope_hold_10",
+        "slope_hold_4",
+        "slope_hold_8",
+        "slope_up_10",
+        "slope_up_4",
+        "slope_up_8"
+      ],
+      "at_margin": [
+        "slope_down_10",
+        "slope_hold_10",
+        "slope_up_10"
+      ],
+      "verdicts": {
+        "backlash_crouch_0": true,
+        "backlash_crouch_0.3": true,
+        "backlash_crouch_0.6": true,
+        "backlash_drive_0": true,
+        "backlash_drive_0.3": true,
+        "backlash_drive_0.6": true,
+        "backlash_hold_0": true,
+        "backlash_hold_0.3": true,
+        "backlash_hold_0.6": true,
+        "backlash_hold_0.6_half_timestep": true,
+        "backlash_turn_0": true,
+        "backlash_turn_0.3": true,
+        "backlash_turn_0.6": true,
+        "belt_hold_h0.1125_n0.225_k0": true,
+        "belt_hold_h0.1125_n0.225_k1": true,
+        "belt_hold_h0.1125_n0.9_k0": true,
+        "belt_hold_h0.1125_n0.9_k1": true,
+        "belt_hold_h0.45_n0.225_k0": true,
+        "belt_hold_h0.45_n0.225_k1": true,
+        "belt_hold_h0.45_n0.9_k0": true,
+        "belt_hold_h0.45_n0.9_k1": true,
+        "combined_half_timestep": true,
+        "combined_seed_20260931": true,
+        "combined_seed_20260932": true,
+        "delay_15ms_noise_x2_combined": true,
+        "delay_15ms_noise_x2_drive": true,
+        "friction_0p5_combined": true,
+        "friction_0p5_drive": true,
+        "mass_plus_15pct_combined": true,
+        "mass_plus_15pct_drive": true,
+        "mismatch_body_com_x_m_-0.005_combined": true,
+        "mismatch_body_com_x_m_-0.005_hold": true,
+        "mismatch_body_com_x_m_0.005_combined": true,
+        "mismatch_body_com_x_m_0.005_hold": true,
+        "mismatch_body_com_z_m_-0.003_combined": true,
+        "mismatch_body_com_z_m_-0.003_hold": true,
+        "mismatch_body_com_z_m_0.003_combined": true,
+        "mismatch_body_com_z_m_0.003_hold": true,
+        "mismatch_body_mass_scale_0.85_combined": true,
+        "mismatch_body_mass_scale_0.85_hold": true,
+        "mismatch_body_mass_scale_1.15_combined": true,
+        "mismatch_body_mass_scale_1.15_hold": true,
+        "mismatch_friction_0.5_combined": true,
+        "mismatch_friction_0.5_hold": true,
+        "mismatch_friction_1_combined": true,
+        "mismatch_friction_1_hold": true,
+        "push_drive_+0.5": true,
+        "push_drive_+1": true,
+        "push_drive_+1.5": true,
+        "push_drive_+2": true,
+        "push_drive_+2.5": true,
+        "push_drive_-0.5": true,
+        "push_drive_-1": true,
+        "push_drive_-1.5": true,
+        "push_drive_-2": true,
+        "push_drive_-2.5": true,
+        "push_hold_+0.5": true,
+        "push_hold_+1": true,
+        "push_hold_+1.5": true,
+        "push_hold_+2": true,
+        "push_hold_+2.5": true,
+        "push_hold_-0.5": true,
+        "push_hold_-1": true,
+        "push_hold_-1.5": true,
+        "push_hold_-2": true,
+        "push_hold_-2.5": true,
+        "push_low_+0.5": true,
+        "push_low_+1": true,
+        "push_low_+1.5": true,
+        "push_low_+2": true,
+        "push_low_+2.5": true,
+        "push_low_-0.5": true,
+        "push_low_-1": true,
+        "push_low_-1.5": true,
+        "push_low_-2": true,
+        "push_low_-2.5": true,
+        "sensors_combined": true,
+        "sensors_crouch": true,
+        "sensors_drive": true,
+        "sensors_hold": false,
+        "sensors_push": true,
+        "sensors_tilt_negative": false,
+        "sensors_tilt_positive": false,
+        "sensors_turn": true,
+        "slope_down_0": true,
+        "slope_down_10": false,
+        "slope_down_4": false,
+        "slope_down_8": false,
+        "slope_hold_0": true,
+        "slope_hold_10": false,
+        "slope_hold_4": false,
+        "slope_hold_8": false,
+        "slope_up_0": true,
+        "slope_up_10": false,
+        "slope_up_4": false,
+        "slope_up_8": false,
+        "wheel_lag_25ms_combined": true,
+        "wheel_lag_25ms_drive": true
+      }
+    },
+    "speed": {
+      "cases": 44,
+      "judged": 43,
+      "complete": true,
+      "survived_recovered": 38,
+      "classical_rule": 0,
+      "policy_rule": 33,
+      "policy_rule_variants": {
+        "case 10 mm": 35,
+        "case 5 mm": 6
+      },
+      "policy_rule_failing": {
+        "push_fast_-2": [
+          "axle_depth_p95"
+        ],
+        "replay_corner_90": [
+          "path"
+        ],
+        "replay_curve_r1": [
+          "path"
+        ],
+        "replay_start_stop": [
+          "path"
+        ],
+        "replay_straight_1.0": [
+          "path"
+        ],
+        "reverse": [
+          "overshoot"
+        ],
+        "slope_down_10": [
+          "axle_depth_p95",
+          "survives_and_holds"
+        ],
+        "slope_down_8": [
+          "axle_depth_p95"
+        ],
+        "spin": [
+          "yaw_rate"
+        ],
+        "weave": [
+          "yaw_rate"
+        ]
+      },
+      "axle_steady_p95_mm_worst": [
+        6.808465602076685,
+        "push_fast_-2"
+      ],
+      "axle_case_p95_mm_worst": [
+        7.314410210362125,
+        "mass_plus_15pct_replay_corner_90"
+      ],
+      "axle_unchecked": [],
+      "physical_failures": [],
+      "verdicts": {
+        "arc_r1": true,
+        "arc_r2": true,
+        "delay_15ms_noise_x2_drive_step": true,
+        "delay_15ms_noise_x2_replay_corner_90": true,
+        "delay_15ms_noise_x2_weave": true,
+        "drive_ramp": true,
+        "drive_step": true,
+        "drive_step_half_timestep": true,
+        "friction_0p5_drive_step": true,
+        "friction_0p5_replay_corner_90": true,
+        "friction_0p5_weave": true,
+        "mass_plus_15pct_drive_step": true,
+        "mass_plus_15pct_replay_corner_90": true,
+        "mass_plus_15pct_weave": true,
+        "push_fast_+2": true,
+        "push_fast_-2": false,
+        "replay_corner_90": false,
+        "replay_curve_r1": false,
+        "replay_lateral_crossing": true,
+        "replay_loss_fov": true,
+        "replay_start_stop": false,
+        "replay_straight_1.0": false,
+        "reverse": false,
+        "seed_plus_1_drive_step": true,
+        "seed_plus_1_replay_corner_90": true,
+        "seed_plus_1_weave": true,
+        "seed_plus_2_drive_step": true,
+        "seed_plus_2_replay_corner_90": true,
+        "seed_plus_2_weave": true,
+        "slope_down_10": false,
+        "slope_down_4": true,
+        "slope_down_8": false,
+        "slope_up_10": true,
+        "slope_up_4": true,
+        "slope_up_8": true,
+        "spin": false,
+        "weave": false,
+        "wheel_lag_10ms_drive_step": true,
+        "wheel_lag_10ms_replay_corner_90": true,
+        "wheel_lag_10ms_weave": true,
+        "wheel_lag_25ms_drive_step": true,
+        "wheel_lag_25ms_replay_corner_90": true,
+        "wheel_lag_25ms_weave": true
+      }
+    },
+    "stress": {
+      "cases": 26,
+      "complete": true,
+      "survived": 26,
+      "recovered": 9,
+      "physical_failures": []
+    },
+    "hardware": {
+      "complete": true,
+      "belt_recovered": 8,
+      "belt_cases": 8,
+      "handover_recovered": 8,
+      "handover_cases": 10,
+      "physical_failures": [],
+      "at_margin": [
+        "slope_up_8"
+      ],
+      "verdicts": {
+        "backlash_turn_0.6": true,
+        "belt_hold_h0.1125_n0.225_k0": true,
+        "belt_hold_h0.1125_n0.225_k1": true,
+        "belt_hold_h0.1125_n0.9_k0": true,
+        "belt_hold_h0.1125_n0.9_k1": true,
+        "belt_hold_h0.45_n0.225_k0": true,
+        "belt_hold_h0.45_n0.225_k1": true,
+        "belt_hold_h0.45_n0.9_k0": true,
+        "belt_hold_h0.45_n0.9_k1": true,
+        "delay_15ms_noise_x2_drive": true,
+        "push_drive_+2.5": true,
+        "push_hold_+2": true,
+        "push_hold_-2": true,
+        "push_low_-2.5": true,
+        "sensors_combined": true,
+        "slope_up_8": false,
+        "wheel_lag_25ms_drive": false
+      }
+    },
+    "training": null,
+    "stages": {
+      "hardware": {
+        "exit": 0,
+        "commit": "3d17bcd7c980acb34c14432864f86b8779d88946",
+        "dirty": false
+      },
+      "stress": {
+        "exit": 0,
+        "commit": "3d17bcd7c980acb34c14432864f86b8779d88946",
+        "dirty": false
+      },
+      "acceptance": {
+        "exit": 0,
+        "commit": "3d17bcd7c980acb34c14432864f86b8779d88946",
+        "dirty": false
+      },
+      "speed": {
+        "exit": 0,
+        "commit": "3d17bcd7c980acb34c14432864f86b8779d88946",
+        "dirty": false
+      }
+    },
+    "gates": {
+      "2_recovered_98": {
+        "value": 86,
+        "mark": 83,
+        "complete": true,
+        "passed": true
+      },
+      "2_belt": {
+        "value": 8,
+        "mark": 6,
+        "complete": true,
+        "passed": true
+      },
+      "2_pushes": {
+        "value": 30,
+        "mark": 30,
+        "complete": true,
+        "passed": true
+      },
+      "2_physical_failures": {
+        "value": 0,
+        "mark": 0,
+        "complete": true,
+        "passed": true
+      },
+      "3_speed_policy_rule": {
+        "value": 33,
+        "mark": 40,
+        "complete": true,
+        "passed": false
+      },
+      "5_stress_physical_failures": {
+        "value": 0,
+        "mark": 0,
+        "complete": true,
+        "passed": true
+      }
+    }
+  },
+  "baseline": {
+    "name": "settle",
+    "checkpoint": "artifacts/m13/training/settle/model_10493.pt",
+    "checkpoint_sha256": "bfccb81281711676d361d18f049190ed2d39fecb7f6abc8235b2ba896d222f91",
+    "acceptance": {
+      "cases": 98,
+      "complete": true,
+      "recovered_98": 74,
+      "survived_98": 98,
+      "recovered_79": 60,
+      "matrix_cases": 79,
+      "belt_recovered": 2,
+      "belt_cases": 8,
+      "pushes_survived": 30,
+      "pushes_recovered": 30,
+      "push_cases": 30,
+      "physical_failures": [],
+      "not_recovered": [
+        "backlash_hold_0.6_half_timestep",
+        "belt_hold_h0.1125_n0.225_k0",
+        "belt_hold_h0.1125_n0.9_k0",
+        "belt_hold_h0.45_n0.225_k0",
+        "belt_hold_h0.45_n0.225_k1",
+        "belt_hold_h0.45_n0.9_k0",
+        "belt_hold_h0.45_n0.9_k1",
+        "mass_plus_15pct_drive",
+        "mismatch_body_com_x_m_0.005_combined",
+        "mismatch_body_com_x_m_0.005_hold",
+        "mismatch_body_mass_scale_0.85_hold",
+        "sensors_hold",
+        "sensors_tilt_negative",
+        "sensors_tilt_positive",
+        "slope_down_10",
+        "slope_down_4",
+        "slope_down_8",
+        "slope_hold_10",
+        "slope_hold_4",
+        "slope_hold_8",
+        "slope_up_10",
+        "slope_up_4",
+        "slope_up_8",
+        "wheel_lag_25ms_drive"
+      ],
+      "at_margin": [
+        "backlash_drive_0.6",
+        "belt_hold_h0.45_n0.225_k1",
+        "mismatch_body_com_x_m_0.005_combined",
+        "mismatch_body_com_z_m_0.003_hold",
+        "mismatch_body_mass_scale_0.85_hold",
+        "mismatch_body_mass_scale_1.15_hold",
+        "push_drive_+1",
+        "push_drive_+2",
+        "push_hold_-2",
+        "slope_down_0",
+        "slope_down_4",
+        "slope_down_8",
+        "slope_hold_4",
+        "slope_hold_8",
+        "slope_up_4",
+        "slope_up_8"
+      ]
+    },
+    "speed": {
+      "cases": 44,
+      "judged": 43,
+      "complete": true,
+      "survived_recovered": 37,
+      "classical_rule": 0,
+      "policy_rule": 31,
+      "policy_rule_variants": {
+        "case 10 mm": 31,
+        "case 5 mm": 4
+      },
+      "policy_rule_failing": {
+        "drive_ramp": [
+          "overshoot"
+        ],
+        "drive_step": [
+          "overshoot"
+        ],
+        "drive_step_half_timestep": [
+          "survives_and_recovers"
+        ],
+        "push_fast_-2": [
+          "axle_depth_p95"
+        ],
+        "replay_corner_90": [
+          "path"
+        ],
+        "replay_curve_r1": [
+          "path"
+        ],
+        "replay_start_stop": [
+          "path"
+        ],
+        "replay_straight_1.0": [
+          "path"
+        ],
+        "slope_down_4": [
+          "survives_and_holds"
+        ],
+        "slope_up_10": [
+          "survives_and_holds"
+        ],
+        "slope_up_8": [
+          "survives_and_holds"
+        ],
+        "spin": [
+          "yaw_rate"
+        ]
+      },
+      "axle_steady_p95_mm_worst": [
+        9.806694830834298,
+        "push_fast_-2"
+      ],
+      "axle_case_p95_mm_worst": [
+        10.55771136494478,
+        "push_fast_-2"
+      ],
+      "axle_unchecked": [],
+      "physical_failures": []
+    },
+    "stress": {
+      "cases": 24,
+      "complete": false,
+      "survived": 12,
+      "recovered": 2,
+      "physical_failures": [
+        "push_back_c0",
+        "push_back_c2",
+        "push_back_c3",
+        "push_back_c4",
+        "push_back_c5",
+        "push_back_c6",
+        "push_back_c7",
+        "push_fwd_c0",
+        "push_fwd_c2",
+        "push_fwd_c3",
+        "push_fwd_c6",
+        "push_fwd_c7"
+      ]
+    },
+    "hardware": {
+      "complete": true,
+      "belt_recovered": 8,
+      "belt_cases": 8,
+      "handover_recovered": 8,
+      "handover_cases": 10,
+      "physical_failures": [],
+      "at_margin": [
+        "belt_hold_h0.45_n0.225_k0",
+        "slope_up_8"
+      ]
+    },
+    "training": {
+      "episodes": 64,
+      "falls": 13,
+      "fall_rate": 0.203125,
+      "interval_95": [
+        0.12273302562695812,
+        0.3171386755121659
+      ],
+      "episode_s": 10.0,
+      "complete": true,
+      "causes": {
+        "tipped": 4,
+        "shell_contact": 3,
+        "rolled": 4,
+        "joint_limit": 1,
+        "leaned": 6
+      }
+    },
+    "stages": {
+      "acceptance": {
+        "exit": 0,
+        "commit": null,
+        "dirty": null
+      },
+      "speed": {
+        "exit": 0,
+        "commit": "a6b6cbaeeda1cd6e7844f0fe4b52cc0751d682bd",
+        "dirty": false
+      }
+    },
+    "gates": {
+      "2_recovered_98": {
+        "value": 74,
+        "mark": 83,
+        "complete": true,
+        "passed": false
+      },
+      "2_belt": {
+        "value": 2,
+        "mark": 6,
+        "complete": true,
+        "passed": false
+      },
+      "2_pushes": {
+        "value": 30,
+        "mark": 30,
+        "complete": true,
+        "passed": true
+      },
+      "2_physical_failures": {
+        "value": 0,
+        "mark": 0,
+        "complete": true,
+        "passed": true
+      },
+      "3_speed_policy_rule": {
+        "value": 31,
+        "mark": 40,
+        "complete": true,
+        "passed": false
+      },
+      "5_training_fall_rate": {
+        "value": 0.203125,
+        "mark": 0.05,
+        "complete": true,
+        "passed": false
+      },
+      "5_stress_physical_failures": {
+        "value": 12,
+        "mark": 0,
+        "complete": false,
+        "passed": null
+      }
+    }
+  }
+}

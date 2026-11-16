@@ -1,0 +1,47 @@
+# Milestone 4 results
+
+Recorded 1 October 2026. The [detailed plan](04-electronics-and-firmware.md) was written and committed before implementation (`d1e5b8f`). The first implementation checkpoint is `dfcc5c6`; the final verification checkpoint is recorded in Git history.
+
+**Status: implemented and verified digital carrier, portable firmware core, diagnostic target and conditional circuit studies. Milestone 4 remains open for exact actuator qualification, the complete power assembly and operational firmware integration.** No parts were purchased, fabricated, connected or flashed. M3 CAD/mass/inertia/controller and its saved evidence are preserved.
+
+The remaining work has since progressed through the [M4 continuation](04-continuation-results.md): full C sensing/control passes all 27 physical cases, a conditional power circuit is saved, and the separate fit study rejects the stacked packaging. The initial-checkpoint measurements below are retained as historical evidence.
+
+## Delivered implementation
+
+- [Native KiCad project](../../../electronics/bipe-controller.kicad_pro), [schematic preview](../../../artifacts/milestone-4/electrical/schematic.png), [assembly layout](../../../artifacts/milestone-4/electrical/pcb-assembly.png), [top copper](../../../artifacts/milestone-4/electrical/pcb-top.png), [bottom copper](../../../artifacts/milestone-4/electrical/pcb-bottom.png), [BOM](../../../electronics/bom.csv) and self-contained symbol/footprint libraries.
+- [Electrical configuration](../../../config/electronics.json), [inhibited exact actuator profile](../../../config/actuator-profile.json), [M4 sensor assumptions](../../../config/sensors-m4.json), generated firmware constants and saved manufacturer sources.
+- Portable C protocol, supervisor and wheel controller, host/ARM builds, synthetic unit tests and saved fault traces. Real Teensy [diagnostic ELF](../../../artifacts/milestone-4/firmware/teensy40-diagnostic.elf) / [HEX](../../../artifacts/milestone-4/firmware/teensy40-diagnostic.hex) build successfully with CAN listen-only, transceiver silent and hardware RUN low. This is not complete MCU locomotion firmware.
+- ngspice ADC, precharge and regenerative-energy input decks, raw traces and plots; C-supervised free-base shutdown experiments; full sensor-resolution acceptance and fixed-height regression in separate M4 output paths.
+- [Engineering decisions and remaining interfaces](../electronics-and-firmware.md), [reproducible tooling](../electronics-tooling.md), and [delivery verification](../../../artifacts/milestone-4/delivery-check.json).
+
+## Measured digital checks
+
+| Check | Achieved result | Practical limit |
+| --- | --- | --- |
+| Native electrical rules | ERC 0; DRC 0; unconnected 0; schematic parity 0, all severities included | Does not validate a manufacturer's physical part or fabrication process |
+| Pin/net audit | 85 populated-component pin mappings match native pads and exported schematic; 260 tracks/vias, two ground zones | Manufacturer documents reviewed separately; virtual power flags are omitted by KiCad netlist export |
+| Carrier envelope | 66 × 60 × 1 mm edge-center dimensions; 27 footprints including four mount holes and termination jumper | Native edge bounding box includes the 0.05 mm drawing stroke. 9.32 mm buck stack and connector/USB fit are layout studies, not final housing fit |
+| Mass | Carrier allowance estimate 42 g, leaving 48 g of the existing 90 g electronics allocation | No weighing or complete power-stage mass proof. Robot remains modeled at 2.49223 kg with a 7.8 g ceiling margin |
+| C builds/protocol | Host and Cortex-M7 builds pass warnings-as-errors; golden bytes, signed units, endpoint/invalid range, malformed frame, disable and bounded unwrap tests pass; host UBSan passes | Exact MIT ranges/current-to-torque/gain mappings remain null. Synthetic test ranges never enable hardware |
+| Target | Pinned Teensy/Arduino build succeeds; diagnostic ELF/HEX and logs saved | No hardware execution or measured deadline, SPI/CAN latency, fault cutoff or calibration |
+| C wheel port | 10,000 samples, maximum difference from clipped Python wheel output 6.835e−16 Nm; nonfinite observation rejected | Python supplies kinematics/estimator/local leg servo in physics; this is not a full six-motor MCU port |
+| Startup/fault streams | 19 checks pass, including 15 injected fault/host-loss scenarios, profile inhibit, uint32 rollover, explicit startup/arm and frozen calibration sequence | Virtual stationary calibration; no physical supported-startup/zero/bias procedure completed |
+| Fault timing | Stale IMU inhibits 10 ms after the first missing sample; motor feedback 20 ms; operator stop/invalid measurements inhibit on the detection tick. Host loss requests stop at 250 ms and inhibits at 750 ms | Limits use strict age comparison; these latencies start at the next expected sample. They measure C permission, not actual power cutoff |
+| CAN capacity | Six command + six feedback at 200 Hz require at most 38.4% of 1 Mbps using 160-bit frames | 1 kHz both ways would need 192%; local motor servo rate/mapping still needs exact-variant evidence |
+| ADC | Nominal full-pack input 2.291 V; modeled 30 V worst 1% divider errors give 2.777 V. Cutoff 1.751 kHz analytic / 1.738 kHz SPICE | Sample-and-hold acquisition, ADC/reference errors and transient protection are not modeled |
+| Startup bus | Unloaded precharge reaches 99% in 0.461 s; resistor peak 6.33 W and pulse energy 0.317 J | Conditional 100 Ω / 1 mF study, no real actuator startup load or selected switch/resistor pulse qualification |
+| Regen | Open-battery behavioral clamp peaks at 26.052 V and dissipates 2.056 J; unclamped negative control breaches the ceiling | Conditional 28 V ceiling, not an AK40 rating; physical chopper/BMS/SOA/thermal/EMC still unresolved |
+| Free-base shutdown | Healthy 6 s run passes; four shutdown runs inhibit as specified and fall into additional contacts. CAN-loss inhibit at 3.016 s, invalid IMU/operator stop at 3.000 s, host loss at 3.750 s after injection at 3 s | nv=12, zero equality constraints, physical contact, finite effort. Existing 20 ms lag models remaining torque. No powered-off balance claim |
+| Locomotion acceptance | All 27 cases and half-timestep convergence pass with coarser 0.1° host CAN position quantization and 16-bit local feedback. Nominal stopping travel 88.18 mm | Full suite uses the existing Python controller. Actual driver feedback wrap/calibration, IMU noise and local PD remain assumptions |
+| Regression and source checks | Fixed-height five cases + two half-timestep runs pass; 22 Python tests and Ruff pass | Mechanical uncertainty evidence remains the saved M3 study; no new physical hardware evidence |
+
+Reports: [firmware](../../../artifacts/milestone-4/firmware/report.json), [fault traces](../../../artifacts/milestone-4/firmware/faults.png), [free-base faults](../../../artifacts/milestone-4/physics-faults/report.json), [physics plot](../../../artifacts/milestone-4/physics-faults/faults.png), [power analysis](../../../artifacts/milestone-4/power/report.json), [acceptance](../../../artifacts/milestone-4/acceptance/acceptance.json), [regression](../../../artifacts/milestone-4/fixed-height-regression/acceptance.json), [native check](../../../artifacts/milestone-4/electrical/native-check.json). Configurations, raw traces and poses are saved alongside each experiment.
+
+## Acceptance gates still open
+
+1. **Exact AK40-10 V3.0 / AK48-2405-2D-A2 data.** The product page's installation-guide link has an empty href, and the generic V3.2 manual omits this variant from its scaling table. Required evidence: working/absolute/regen voltage limits, MIT position/velocity/Iq ranges and output torque constant, Kp/Kd units, update/timeout behavior, absolute-zero persistence, multi-turn/wheel feedback convention, boot/disable behavior and connector/termination details. Other variants' specifications are not substituted.
+2. **Complete actuator power assembly.** Choose and verify BMS, fuses, reverse-polarity/disconnect/watchdog, precharge/bypass, bus capacitor, braking comparator/gate driver/MOSFET/resistor and transient protection. Complete its electrical CAD and full power/mass/thermal qualification. The carrier's protected input is an interface, not evidence that this assembly exists.
+3. **Operational MCU integration.** After exact motor qualification, integrate the body estimator/axes/bias, joint zeros/signs/limits, local PD/effort conversion, live CAN error handling and physical heartbeat/transmit path. The present target deliberately remains diagnostic-only. Startup admission and C wheel equivalence are already testable evidence, rather than a claim that this integration is complete.
+4. **Final packaging and hardware verification.** Complete 3D board/harness/connector/insulation fit, actual assembled masses and mechanical mounting details. Qualify real timing, regen/fault cutoff, current, thermal, friction, backlash and manufacturing tolerances during future hardware work.
+
+All available software tools are operational. KiCad/ngspice/compiler packages are project-local; PlatformIO is isolated inside `.venv/platformio` to preserve FreeCAD MCP dependencies. No additional MCP or administrator installation is needed for the current digital work. The remaining gates are engineering/evidence dependencies. M5 remains an overview and has no detailed implementation plan yet.

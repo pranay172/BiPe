@@ -1,0 +1,25 @@
+{
+  "model": "CubeMars AK40-10 V3.0 KV170 / AK48-2405-2D-A2",
+  "hardware_qualified": false,
+  "protocol_family": "CubeMars V3.2 extended CAN, MIT mode 8",
+  "command_ranges": null,
+  "minimum_bus_voltage_V": null,
+  "maximum_bus_voltage_V": null,
+  "output_torque_per_iq_Nm_A": null,
+  "calibration_and_startup_verified": false,
+  "local_pd_mapping_verified": false,
+  "command_timeout_verified": false,
+  "feedback_position_convention_verified": false,
+  "joint_mapping_verified": false,
+  "evidence": [
+    "artifacts/milestone-3/component-sources/ak-v3-manual.pdf",
+    "artifacts/milestone-4/component-sources/ak40-v3-product.html"
+  ],
+  "qualification_gaps": [
+    "Exact working voltage and overvoltage trip/absolute limit including regen",
+    "Exact MIT position/velocity/current ranges and output torque constant",
+    "Kp/Kd dimensional mapping, local update rate and command timeout behavior",
+    "Output encoder zero, power-cycle persistence and continuous wheel feedback wrap",
+    "Physical power/CAN connector pin order and termination configuration"
+  ]
+}

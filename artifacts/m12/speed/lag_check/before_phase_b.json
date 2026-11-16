@@ -1,0 +1,65 @@
+{
+  "source": "Commit 0663c7a (before phase B: M10 controller and estimator), exported with git archive and run with lag_check.py's procedure on 20 October 2026",
+  "rows": [
+    {
+      "scenario": "drive",
+      "hub_lag_s": 0.025,
+      "passed": false,
+      "failure": "physical limit at 7.165s: pitch=-20.04, roll=-0.00, contact=False, joint_limit=False",
+      "max_pitch_error_deg": 20.0411266396046,
+      "plateau_speed_mae_m_s": 0.505501128365626,
+      "max_stopping_travel_m": 0.0991447394298425,
+      "peak_speed_m_s": 1.4098474973304123
+    },
+    {
+      "scenario": "drive",
+      "hub_lag_s": 0.01,
+      "passed": true,
+      "failure": null,
+      "max_pitch_error_deg": 9.707735754285395,
+      "plateau_speed_mae_m_s": 0.025814993095214636,
+      "max_stopping_travel_m": 0.084237134813585,
+      "peak_speed_m_s": 0.4298087647157648
+    },
+    {
+      "scenario": "combined",
+      "hub_lag_s": 0.025,
+      "passed": false,
+      "failure": "physical limit at 15.879s: pitch=-20.00, roll=0.00, contact=False, joint_limit=False",
+      "max_pitch_error_deg": 20.001775864286127,
+      "plateau_speed_mae_m_s": null,
+      "max_stopping_travel_m": null,
+      "peak_speed_m_s": 0.5978394502918853
+    },
+    {
+      "scenario": "combined",
+      "hub_lag_s": 0.01,
+      "passed": true,
+      "failure": null,
+      "max_pitch_error_deg": 6.255965400580117,
+      "plateau_speed_mae_m_s": null,
+      "max_stopping_travel_m": null,
+      "peak_speed_m_s": 0.264376337755819
+    },
+    {
+      "scenario": "push",
+      "hub_lag_s": 0.025,
+      "passed": true,
+      "failure": null,
+      "max_pitch_error_deg": 3.7118574947470053,
+      "plateau_speed_mae_m_s": null,
+      "max_stopping_travel_m": null,
+      "peak_speed_m_s": 0.12235580211112494
+    },
+    {
+      "scenario": "push",
+      "hub_lag_s": 0.01,
+      "passed": true,
+      "failure": null,
+      "max_pitch_error_deg": 2.514853359383138,
+      "plateau_speed_mae_m_s": null,
+      "max_stopping_travel_m": null,
+      "peak_speed_m_s": 0.09801367818155485
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "controller": "classical",
+  "commit": null,
+  "mujoco": "3.14.0",
+  "note": "committed in 95805b8, before summaries recorded the commit and MuJoCo version; MuJoCo 3.14 confirmed by bit-identical reruns of 4 cases (PR #21 and its review)",
+  "measured": null,
+  "cases": 92,
+  "survived": 88,
+  "recovered": 74,
+  "fallen": [
+    "combined0__push_back",
+    "combined3__push_back",
+    "imu_pitch_fwd__push_fwd",
+    "payload__push_back"
+  ],
+  "by_model": {
+    "nominal": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 4
+    },
+    "cogging": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 0
+    },
+    "stiction": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 4
+    },
+    "hot": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 4
+    },
+    "radius": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 4
+    },
+    "imu_pitch_fwd": {
+      "cases": 4,
+      "survived": 3,
+      "recovered": 3
+    },
+    "imu_pitch_back": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 4
+    },
+    "imu_roll": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 4
+    },
+    "accel": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 4
+    },
+    "gyro_walk": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 4
+    },
+    "encoders": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 4
+    },
+    "timing": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 4
+    },
+    "slippery": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 4
+    },
+    "soft": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 4
+    },
+    "payload": {
+      "cases": 4,
+      "survived": 3,
+      "recovered": 3
+    },
+    "combined0": {
+      "cases": 4,
+      "survived": 3,
+      "recovered": 1
+    },
+    "combined1": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 3
+    },
+    "combined2": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 2
+    },
+    "combined3": {
+      "cases": 4,
+      "survived": 3,
+      "recovered": 3
+    },
+    "combined4": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 1
+    },
+    "combined5": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 2
+    },
+    "combined6": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 4
+    },
+    "combined7": {
+      "cases": 4,
+      "survived": 4,
+      "recovered": 4
+    }
+  }
+}

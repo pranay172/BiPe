@@ -61,6 +61,11 @@ LEG_FILTER_BAND_RAD = 0.06
 # yaw-rate commands pass through a jerk-limited second-order limiter at the policy step,
 # before the training rate limit (bipe.m16.shaper). Set by ``full_plant --shaper``.
 SHAPER = None
+# M18 fidelity settings for the policy's own firmware path (bipe.m18.fidelity.apply):
+# ``command_loss`` (probability that a policy step's new targets reach the moteus one
+# 5 ms tick late), ``wheel_encoder_scale`` (the hub speed loop reads its encoder with
+# the wheel radius scale) and ``seed``. None: off.
+FIDELITY = None
 # The C classes, kept here because policy_in_loop() swaps the module's names.
 Classical, ClassicalEstimator = fc.FirmwareController, fc.FirmwareEstimator
 
@@ -163,6 +168,11 @@ class PolicyController:
         self.ticks = 0
         self.observations = []
         self.shaper = None
+        fid = FIDELITY or {}
+        self.command_loss = fid.get("command_loss", 0.0)
+        self.wheel_scale = np.asarray(fid.get("wheel_encoder_scale", [1.0, 1.0]), float)
+        self.loss_rng = np.random.default_rng(fid.get("seed", 0) + 7919)
+        self.pending = None
         if SHAPER:
             from ..m16.shaper import Shaper
 
@@ -215,6 +225,7 @@ class PolicyController:
             if self.classical.protection.latched:
                 return protective, s["pitch"], self.value[0], s["yaw"]
         if self.ticks % self.policy_ticks == 0:
+            previous = (self.leg_target, self.wheel_target)
             step_dt = self.policy_ticks * dt
             # The training command: rate limited at the policy step, then observed.
             if self.shaper is not None:
@@ -232,6 +243,13 @@ class PolicyController:
             turn = self.value[1] * self.wheel_track / (2 * self.wheel_radius)
             rolling = np.array([forward - turn, forward + turn]) if cfg.wheel_feedforward else 0.0
             self.wheel_target = cfg.wheel_scale * self.action[4:] + rolling
+            if self.command_loss and self.loss_rng.random() < self.command_loss:
+                # The command frame is lost: the moteus keeps the old targets a tick.
+                self.pending = (self.leg_target, self.wheel_target)
+                self.leg_target, self.wheel_target = previous
+        elif self.pending is not None:
+            self.leg_target, self.wheel_target = self.pending
+            self.pending = None
         self.filter_legs(dt)
         self.ticks += 1
         return np.r_[np.zeros(4), self.wheel_request], s["pitch"], self.value[0], s["yaw"]
@@ -253,7 +271,7 @@ class PolicyController:
     def wheel_torques(self, d, dt):
         if self.classical.protection.latched:
             return self.classical.previous_request[4:]
-        speed = np.array([d.joint(w).qvel[0] for w in WHEELS])
+        speed = np.array([d.joint(w).qvel[0] for w in WHEELS]) * self.wheel_scale
         error = self.wheel_target - speed
         cfg = self.cfg
         self.wheel_integral = np.clip(

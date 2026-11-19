@@ -19,15 +19,23 @@ export PYTHONPATH=.
 pupil-apriltags, ONNX Runtime and pytest. That is enough for the classical
 controller, `bipe sim`, the test suites and the renders.
 
-To run the learned policy in the full plant, add PyTorch and mjlab to the
-same environment (ONNX Runtime is already in `requirements.lock`). The policy's action path is shared with the
-training environment, so it imports them even when it runs from the ONNX
-graph. mjlab pins an older MuJoCo; the override keeps 3.14:
+To run the learned policy in the full plant, use `requirements-eval.lock` instead:
+the same MuJoCo 3.14 with PyTorch and mjlab added. The policy's action path is
+shared with the training environment, so it imports them even when it runs from
+the ONNX graph. Install it with `pip sync` (exactly the listed packages) and check
+the MuJoCo version afterwards. A plain `uv pip install mjlab` pulls mjviser's
+`mujoco-core`, which overwrites MuJoCo 3.14's libraries: `import mujoco` then fails
+while `uv pip list` still shows 3.14.
 
 ```bash
-echo "mujoco==3.14.0" > /tmp/mujoco-override.txt
-uv pip install torch==2.14.1 mjlab==1.6.0 --override /tmp/mujoco-override.txt --python .venv/bin/python
+uv pip sync requirements-eval.lock --python .venv/bin/python
+.venv/bin/python -c "import mujoco, mjlab; assert mujoco.__version__ == '3.14.0'"
 ```
+
+Every full-plant result (evaluators, the fidelity suite, the get-up checks) is judged
+in this environment. Do not run them in the training environment below: outcomes
+depend on the MuJoCo version (M18: the same 40 get-up trials gave different verdicts
+under 3.11 and 3.14).
 
 Training uses its own environment instead (section 6).
 
@@ -157,7 +165,8 @@ nice -n 10 .venv/bin/python -m bipe.robustness --profile m10 --controllers curre
 .venv/bin/python -m bipe.m14.evaluate run artifacts/m14/checkpoints/finetune_s1/model_9998.pt
 
 # M15: get-up from 60 randomised falls, the three moves, following with the policy
-.venv/bin/python -m bipe.m15.getup_eval --getup artifacts/m15/checkpoints/getup_s1/model_12997.pt
+# (M18's default get-up and its checks: artifacts/m18/getup_fid_eval.sh)
+.venv/bin/python -m bipe.m15.getup_eval --getup artifacts/m18/checkpoints/getup_fid_s1/model_14996.pt
 .venv/bin/python -m bipe.m15.moves --checkpoint artifacts/m14/checkpoints/finetune_s1/model_9998.pt
 .venv/bin/python -m bipe.m15.following --checkpoint artifacts/m14/checkpoints/finetune_s1/model_9998.pt \
     --link rendered --limit acceleration_m_s2=1.1

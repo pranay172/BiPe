@@ -913,6 +913,14 @@ class MechanicalDrives:
         self.step_count = 0
         self.contacts = Contacts(p)
         self.contacts.configure(m)
+        # M18 fidelity models (bipe.m18.fidelity), absent on the nominal plant.
+        fid = phys.get("fidelity", {})
+        self.cogging = np.asarray(fid.get("cogging_Nm", np.zeros(6)), float)
+        self.cogging_phase = np.asarray(fid.get("cogging_phase", np.zeros(6)), float)
+        self.stiction_ratio = float(fid.get("stiction_ratio", 1.0))
+        if "floor_stiffness" in fid:
+            self.contacts.scale = self.contacts.scale * fid["floor_stiffness"]
+        self.wq = np.array([_qadr(m, n) for n in WHEELS])
         self._thigh_ids = [m.body(f"{s}_thigh").id for s in SIDES]
         self._drive_ids = [m.body(f"{s}_kneedrive").id for s in SIDES]
         self._shin_ids = [m.body(f"{s}_shin").id for s in SIDES]
@@ -991,6 +999,11 @@ class MechanicalDrives:
         hip_t, hip_out, hip_sat = self._hip_motor(requested[:4], d.qvel[self.rv[:4]], dt)
         hub_t, hub_out, hub_sat = self._hub_motor(requested[4:], d.qvel[self.wv], dt)
         self.motor_torque = np.r_[hip_t, hub_t]
+        if self.cogging.any():
+            from ..m18.fidelity import cogging
+
+            angle = np.r_[d.qpos[self.rq], d.qpos[self.wq]]
+            self.motor_torque = self.motor_torque + cogging(np, angle, self.cogging, self.cogging_phase)
         d.ctrl[:] = self.motor_torque
         # Remove this object's previous belt force before refreshing the predictor.
         d.qfrc_applied[:] += self.J.T @ self.last_forces
@@ -1039,6 +1052,12 @@ class MechanicalDrives:
         fr = self.p["physics"]["friction"]
         loss = (1 - self.p["physics"]["hip_motor"]["efficiency_screen"]) * abs(force)
         base = hip_pretension_friction(self.p)
+        if self.stiction_ratio != 1.0:
+            from ..m18.fidelity import stiction
+
+            stick = stiction(np, d.qvel[np.r_[self.ov, self.sv]], self.stiction_ratio)
+        else:
+            stick = np.ones(6)
 
         def radial(body, joint):
             load = d.cfrc_int[body, 3:]
@@ -1052,14 +1071,18 @@ class MechanicalDrives:
                 bearing = (
                     0.5 * fr["ball_bearing_mu"] * fr["hip_bearing_bore_m"] * radial(body, joint)
                 )
-                m.dof_frictionloss[self.ov[2 * i + j]] = base + bearing + loss[2 * i + j]
+                m.dof_frictionloss[self.ov[2 * i + j]] = (base + bearing) * stick[
+                    2 * i + j
+                ] + loss[2 * i + j]
             knee = (
                 0.5
                 * fr["ball_bearing_mu"]
                 * fr["knee_bearing_bore_m"]
                 * radial(self._shin_ids[i], f"{side}_shin_joint")
             )
-            m.dof_frictionloss[self.sv[i]] = fr["knee_bearing_coulomb_Nm"] + knee + loss[4 + i]
+            m.dof_frictionloss[self.sv[i]] = (fr["knee_bearing_coulomb_Nm"] + knee) * stick[
+                4 + i
+            ] + loss[4 + i]
 
     def integrate(self, m, d, contact_callback=None):
         mujoco.mj_step1(m, d)

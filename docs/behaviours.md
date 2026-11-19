@@ -48,7 +48,9 @@ Gets back onto the wheels from a sit, a front lean or a back lean, then hands ov
 drive.
 
 - Intent: `get_up()`; the supervisor also starts it after a fall.
-- Policy: M15 getup_s1 (`artifacts/m15/export/getup`).
+- Policy: M18 getup_fid_s1 (`artifacts/m18/export/getup`): M15's getup_s1 fine-tuned
+  for 2000 iterations under the M18 fidelity models (motor, sensor, timing and floor
+  effects drawn per robot).
 - Flat starts (M17): when the get-up begins with the robot past 70 degrees (flat on the
   face or back), both legs first go to their upper stops for 0.5 s, then the policy
   starts. The firmware fallen mode hands back to the balance estimator only after 100 ms
@@ -56,11 +58,15 @@ drive.
 - Results on 60 held-out fallen states (C fallen mode, quiet handover, flat pre-pose): sit
   20 of 20, front lean 20 of 20, back lean 19 of 20 (M16 without the pre-pose: 53 of 60).
   On a fresh set of 40 lean starts: 40 of 40, all 23 flat starts included.
+  M18's policy: held out 60 of 60, fresh 40 of 40, and 39 of 40 fresh starts on robots
+  drawn from the fidelity ranges (getup_s1: 59, 40 and 35), and 38 of 40 on a second,
+  unseen fidelity set (getup_s1: 39).
 - Handover rule: control passes back to drive only once the onboard estimate itself is
   level and still, and the accelerometer reads 1 g.
 - Limits: the supervisor's physical-limit checks are off until the handover, and no
-  falls screen has been run. The one held-out miss starts flat on the back on a low-grip
-  floor and stops in a back lean. The pre-pose runs in the evaluator's get-up controller;
+  falls screen has been run. M18's policy misses no held-out start; its three misses on
+  fidelity robots all start almost flat (pitch 88 to 90 degrees), two on the back and one
+  on the face. The pre-pose runs in the evaluator's get-up controller;
   on the robot it still has to be added to the supervisor's get-up mode, and `bipe sim`
   does not run it yet.
 

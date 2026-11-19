@@ -197,17 +197,39 @@ Speed stays at 35/43: fine-tune 3, fine-tune 4 and a command shaper each failed
 to beat fine-tune 1 without losing pushes or recovery, and the gap is accepted as
 a known limit.
 
+## M18: a simulation closer to the real robot
+
+What the plants still left out about the real motors, sensors, timing and floor,
+modelled in both the training environment and the full plant (off by default):
+cogging, stiction, winding temperature, tyre radius, IMU mounting tilt and scale,
+gyro bias drift, encoder offsets, timing jitter and lost CAN frames, floor grip
+and softness, and a head payload. A new fidelity suite runs each model alone at
+the wide end of its range, plus eight combined draws, under a hold, two pushes and
+a drive. Plan and results:
+[18-sim-to-real-plan.md](milestones/18-sim-to-real-plan.md).
+
+| Check | Result |
+|---|---|
+| Fidelity suite, 92 cases | Locomotion fine-tune 1: 92/92 survive, 91 recover. Classical: 88/92, 74 |
+| Drive retrained under the models | Four fine-tunes (two plain, two anchored to fine-tune 1) all lose to fine-tune 1 on the full plant (acceptance 83 to 86 against 89, speed 20 to 33 against 35); the plain ones drift more while holding still. Fine-tune 1 stays |
+| Get-up retrained under the models | 60/60 held out (59), 40/40 fresh (40), 39/40 on robots drawn from the models (35), and 38/40 against 39/40 on a second, unseen fidelity set: no worse in total, a small margin; the new default |
+| Timing | Jitter of whole 5 ms ticks makes the policy fall within a second; the firmware loop must stay synchronous, so a late reply counts as a lost one |
+| Measured values | `config/hardware-measured.json` and ten bench tests ([bench-tests.md](hardware/bench-tests.md)) replace the assumed ranges once the robot is built; the suites run on the measured robot with `--measured` |
+
 ## Open gaps
 
 - **Speed and stress.** 35/43 speed cases against a mark of 40 (accepted as a
   known limit), and 5.9 % stress falls against 5 %.
-- **Get-up.** The flattest starts on the face or back (all seven held-out misses), a
-  robot on its side, physical-limit checks before the handover, and a falls
+- **Get-up.** The flattest starts on the face or back (all three misses of M18's
+  get-up, on robots drawn from the fidelity models; it passes all 60 held-out
+  starts), a robot on its side, physical-limit checks before the handover, and a falls
   screen. The sit lands the shell at up to 0.51 m/s with no structural screen
   on that load yet.
 - **Firmware.** The supervisor's switch between the three networks in C, and a
   memory plan for them: three networks do not all fit the Teensy's fast memory.
 - **Everything physical.** Timing on the real Pi and Teensy, motor and belt
   parameters, friction and the camera's auto exposure all come from data
-  sheets and models. The [hardware build plan](hardware/build-plan.md) lists
-  what each build stage measures.
+  sheets and models; M18 widened the models and wrote the bench tests that will
+  replace them ([bench-tests.md](hardware/bench-tests.md)). The
+  [hardware build plan](hardware/build-plan.md) lists what each build stage
+  measures.

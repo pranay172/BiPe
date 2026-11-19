@@ -1,0 +1,441 @@
+{
+  "scope": "learned locomotion policy for the M10 robot; validated in simulation under stated assumptions, not on hardware",
+  "graph": {
+    "file": "policy.onnx",
+    "sha256": "17619ccb5adc42ee52beeea40ecc33dbf56eede4e5771e743bfeffbf8afee47c",
+    "input": {
+      "name": "observation",
+      "shape": [
+        1,
+        25
+      ],
+      "dtype": "float32"
+    },
+    "output": {
+      "name": "action",
+      "shape": [
+        1,
+        6
+      ],
+      "dtype": "float32"
+    },
+    "contains": "observation normaliser (x - mean) / (std + 0.01), then Linear-ELU 256, 128, 64, Linear 6; deterministic mean action",
+    "multiply_accumulates": 47744,
+    "parameters": 48248
+  },
+  "observation": [
+    {
+      "name": "gyro",
+      "index": [
+        0,
+        3
+      ],
+      "unit": "rad/s",
+      "meaning": "body rates from the latest delayed IMU packet"
+    },
+    {
+      "name": "accelerometer",
+      "index": [
+        3,
+        6
+      ],
+      "unit": "m/s^2",
+      "meaning": "specific force from the latest delayed IMU packet"
+    },
+    {
+      "name": "leg_encoders",
+      "index": [
+        6,
+        10
+      ],
+      "unit": "rad",
+      "meaning": "[hip, knee] x [left, right] encoder angles less nominal(posture)"
+    },
+    {
+      "name": "leg_speeds",
+      "index": [
+        10,
+        14
+      ],
+      "unit": "rad/s",
+      "meaning": "estimator's encoder-derived leg joint speeds"
+    },
+    {
+      "name": "wheel_speeds",
+      "index": [
+        14,
+        16
+      ],
+      "unit": "rad/s",
+      "meaning": "estimator's wheel speeds [left, right]"
+    },
+    {
+      "name": "last_action",
+      "index": [
+        16,
+        22
+      ],
+      "unit": "1",
+      "meaning": "the previous policy output"
+    },
+    {
+      "name": "command",
+      "index": [
+        22,
+        25
+      ],
+      "unit": "m/s, rad/s, 1",
+      "meaning": "rate-limited forward speed, yaw rate, (label - 47.5) / 17.5"
+    }
+  ],
+  "action": {
+    "legs": {
+      "index": [
+        0,
+        4
+      ],
+      "law": "leg target [hip, knee] x [left, right] = nominal(posture) + leg_scale * action[0:4], rad",
+      "leg_scale_rad": 0.5,
+      "target_filter": {
+        "rate_Hz": 200,
+        "law": "every control tick, output += dt / (tau + dt) * (target - output), then output clamped to target +- band; the servo follows output",
+        "tau_s": 0.0,
+        "band_rad": 0.06,
+        "basis": "M13 belt range follow-up: tau 0 is off (as trained); 0.03 s recovers the soft knee belt corners but loses speed cases, so it is off"
+      },
+      "servo": {
+        "rate_Hz": 1000,
+        "law": "torque = kp * (target - q) - kd * qd on the local encoder and its filtered rate",
+        "kp_Nm_per_rad": 8.0,
+        "kd_Nm_s_per_rad": 0.05
+      }
+    },
+    "wheels": {
+      "index": [
+        4,
+        6
+      ],
+      "law": "wheel speed target = wheel_scale * action[4:6] + rolling feedforward [v/r - w*t/(2r), v/r + w*t/(2r)], rad/s",
+      "wheel_scale_rad_s": 40.0,
+      "wheel_radius_m": 0.036,
+      "wheel_track_m": 0.2,
+      "speed_loop": {
+        "rate_Hz": 1000,
+        "law": "torque = kv * e + ki * integral(e), integral clamped to +-peak_torque / ki; e on the hub's own speed",
+        "kv_Nm_s_per_rad": 0.05,
+        "ki_Nm_per_rad": 0.5,
+        "peak_torque_Nm": 0.49499999999999994
+      }
+    }
+  },
+  "timing": {
+    "policy_period_s": 0.02,
+    "control_tick_s": 0.005,
+    "policy_every_ticks": 4,
+    "hold": "the action is held for the policy period"
+  },
+  "command": {
+    "rate_limit_per_s": {
+      "speed_m_s": 1.25,
+      "yaw_rate_rad_s": null,
+      "posture_label": 20.0
+    },
+    "trained_range": {
+      "speed_m_s": [
+        -0.5,
+        1.2
+      ],
+      "yaw_rate_rad_s": [
+        -1.0,
+        1.0
+      ],
+      "posture_label": [
+        30.0,
+        65.0
+      ]
+    }
+  },
+  "posture_table": {
+    "labels": [
+      30.0,
+      31.0,
+      32.0,
+      33.0,
+      34.0,
+      35.0,
+      36.0,
+      37.0,
+      38.0,
+      39.0,
+      40.0,
+      41.0,
+      42.0,
+      43.0,
+      44.0,
+      45.0,
+      46.0,
+      47.0,
+      48.0,
+      49.0,
+      50.0,
+      51.0,
+      52.0,
+      53.0,
+      54.0,
+      55.0,
+      56.0,
+      57.0,
+      58.0,
+      59.0,
+      60.0,
+      61.0,
+      62.0,
+      63.0,
+      64.0,
+      65.0
+    ],
+    "nominal_rad": [
+      [
+        -2.347331072,
+        -0.91306834,
+        -2.347331072,
+        -0.91306834
+      ],
+      [
+        -2.357776342,
+        -0.903083762,
+        -2.357776342,
+        -0.903083762
+      ],
+      [
+        -2.385636092,
+        -0.876646074,
+        -2.385636092,
+        -0.876646074
+      ],
+      [
+        -2.425537527,
+        -0.839303425,
+        -2.425537527,
+        -0.839303425
+      ],
+      [
+        -2.47245528,
+        -0.796262598,
+        -2.47245528,
+        -0.796262598
+      ],
+      [
+        -2.521999576,
+        -0.751966368,
+        -2.521999576,
+        -0.751966368
+      ],
+      [
+        -2.570346345,
+        -0.710056221,
+        -2.570346345,
+        -0.710056221
+      ],
+      [
+        -2.614010088,
+        -0.673495659,
+        -2.614010088,
+        -0.673495659
+      ],
+      [
+        -2.649598476,
+        -0.644733259,
+        -2.649598476,
+        -0.644733259
+      ],
+      [
+        -2.673630848,
+        -0.625899226,
+        -2.673630848,
+        -0.625899226
+      ],
+      [
+        -2.682471118,
+        -0.619099882,
+        -2.682471118,
+        -0.619099882
+      ],
+      [
+        -2.684635134,
+        -0.617340668,
+        -2.684635134,
+        -0.617340668
+      ],
+      [
+        -2.690825635,
+        -0.612329665,
+        -2.690825635,
+        -0.612329665
+      ],
+      [
+        -2.700588409,
+        -0.604493223,
+        -2.700588409,
+        -0.604493223
+      ],
+      [
+        -2.713471065,
+        -0.594280951,
+        -2.713471065,
+        -0.594280951
+      ],
+      [
+        -2.729028151,
+        -0.582152817,
+        -2.729028151,
+        -0.582152817
+      ],
+      [
+        -2.746825015,
+        -0.568568669,
+        -2.746825015,
+        -0.568568669
+      ],
+      [
+        -2.76643979,
+        -0.553979933,
+        -2.76643979,
+        -0.553979933
+      ],
+      [
+        -2.787463186,
+        -0.538823042,
+        -2.787463186,
+        -0.538823042
+      ],
+      [
+        -2.80949603,
+        -0.523513914,
+        -2.80949603,
+        -0.523513914
+      ],
+      [
+        -2.832144548,
+        -0.508442755,
+        -2.832144548,
+        -0.508442755
+      ],
+      [
+        -2.855013468,
+        -0.493968482,
+        -2.855013468,
+        -0.493968482
+      ],
+      [
+        -2.877697114,
+        -0.480412218,
+        -2.877697114,
+        -0.480412218
+      ],
+      [
+        -2.899768892,
+        -0.468049709,
+        -2.899768892,
+        -0.468049709
+      ],
+      [
+        -2.920769981,
+        -0.457103156,
+        -2.920769981,
+        -0.457103156
+      ],
+      [
+        -2.940198811,
+        -0.447733963,
+        -2.940198811,
+        -0.447733963
+      ],
+      [
+        -2.957503869,
+        -0.440039181,
+        -2.957503869,
+        -0.440039181
+      ],
+      [
+        -2.972083357,
+        -0.434055736,
+        -2.972083357,
+        -0.434055736
+      ],
+      [
+        -2.98329564,
+        -0.429777112,
+        -2.98329564,
+        -0.429777112
+      ],
+      [
+        -2.990483371,
+        -0.427186126,
+        -2.990483371,
+        -0.427186126
+      ],
+      [
+        -2.993010917,
+        -0.42630369,
+        -2.993010917,
+        -0.42630369
+      ],
+      [
+        -3.006842978,
+        -0.421181939,
+        -3.006842978,
+        -0.421181939
+      ],
+      [
+        -3.040991086,
+        -0.410562565,
+        -3.040991086,
+        -0.410562565
+      ],
+      [
+        -3.084484452,
+        -0.401482999,
+        -3.084484452,
+        -0.401482999
+      ],
+      [
+        -3.124029522,
+        -0.39780696,
+        -3.124029522,
+        -0.39780696
+      ],
+      [
+        -3.141700669,
+        -0.397613071,
+        -3.141700669,
+        -0.397613071
+      ]
+    ],
+    "basis": "M10 kinematics (bipe.m10.kinematics.posture) on the m10 parameters, as phase C ran; interpolated linearly between labels"
+  },
+  "supervision": "runs inside the C supervisor's gate and protective fall, which act on the classical estimator's state (phase C)",
+  "identity": {
+    "checkpoint": "artifacts/m18/checkpoints/getup_fid_s1/model_14996.pt",
+    "checkpoint_sha256": "4a4e14d53eed1cecd733d64ddd9b96507be4b723a9a8ade0a12c7fdbf9b3f2ac",
+    "checkpoint_commit": "06662056b1f6118c52f271e78081da4bafe69f1c",
+    "variant": "getup (3000 iterations from locomotion fine-tune 1) + getup_fid (2000)",
+    "training_config": [
+      "artifacts/m18/checkpoints/getup_fid_s1/params/env.yaml",
+      "artifacts/m18/checkpoints/getup_fid_s1/params/agent.yaml"
+    ],
+    "base_training_config": [
+      "artifacts/m15/checkpoints/getup_s1/params/env.yaml",
+      "artifacts/m15/checkpoints/getup_s1/params/agent.yaml"
+    ],
+    "training_plant": "config/training-plant-m13.json",
+    "training_plant_sha256": "79e22b0ee5472de79cac1a8fa79efa2d4f2323658f5d3e17d4b9a6fbc66836d4",
+    "sensors": "config/sensors-m10.json",
+    "sensors_sha256": "198b04693dc6bf85900f93c27b4e1f4f45701bfa24e594d8439fe79789361c9b",
+    "full_plant_records": [
+      "artifacts/m18/getup_fid_heldout",
+      "artifacts/m18/getup_fid_fresh",
+      "artifacts/m18/getup_fid_fresh_fidelity"
+    ]
+  }
+}

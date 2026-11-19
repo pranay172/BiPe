@@ -53,15 +53,19 @@ POLICIES = {
                         "artifacts/m14/checkpoints/locomotion_s1/agent.yaml"],
         "training_plant": "config/training-plant-m13.json",
     },
-    # M15 get-up policy: runs from a fallen state until the handover to "locomotion"
-    # (same observation and action law). Not in the firmware image yet.
+    # Get-up policy: runs from a fallen state until the handover to "locomotion"
+    # (same observation and action law). Not in the firmware image yet. M18 (17 November
+    # 2026): the getup-fidelity fine-tune replaces M15's getup_s1 (held out 60/60
+    # against 59/60, fresh 40/40, fresh on a fidelity robot 39/40 against 35/40).
     "getup": {
-        "checkpoint": "artifacts/m15/checkpoints/getup_s1/model_12997.pt",
-        "export": "artifacts/m15/export/getup",
-        "variant": "getup (3000 iterations from locomotion fine-tune 1)",
-        "records": ["artifacts/m15/results/getup_eval_s1_v2"],
-        "base_config": ["artifacts/m14/checkpoints/locomotion_s1/env.yaml",
-                        "artifacts/m14/checkpoints/locomotion_s1/agent.yaml"],
+        "checkpoint": "artifacts/m18/checkpoints/getup_fid_s1/model_14996.pt",
+        "export": "artifacts/m18/export/getup",
+        "variant": "getup (3000 iterations from locomotion fine-tune 1) + getup_fid (2000)",
+        "records": ["artifacts/m18/getup_fid_heldout", "artifacts/m18/getup_fid_fresh",
+                    "artifacts/m18/getup_fid_fresh_fidelity"],
+        # The fine-tune's own params/ are found beside the checkpoint.
+        "base_config": ["artifacts/m15/checkpoints/getup_s1/params/env.yaml",
+                        "artifacts/m15/checkpoints/getup_s1/params/agent.yaml"],
         "training_plant": "config/training-plant-m13.json",
     },
     # M16 sit/stand: sits on the shell and stands again on the posture slot's request

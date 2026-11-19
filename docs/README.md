@@ -14,14 +14,16 @@ Design records:
   following), [M13](milestones/13-learned-locomotion-plan.md) (learned
   locomotion), [M14](milestones/14-release-grade-locomotion-plan.md)
   (release-grade locomotion), [M15](milestones/15-behaviours-plan.md)
-  (get-up, moves, following with the policy) and
+  (get-up, moves, following with the policy),
   [M16](milestones/16-behaviour-set-plan.md) (the behaviour set, sit and
-  stand, `bipe sim`) and [M17](milestones/17-flat-getup.md) (get-up from flat
-  on the face or back).
+  stand, `bipe sim`), [M17](milestones/17-flat-getup.md) (get-up from flat
+  on the face or back) and [M18](milestones/18-sim-to-real-plan.md) (a
+  simulation closer to the real robot).
 - [Behaviours](behaviours.md), the [policy contract](policy-contract.md) and
   the [training playbook](training-playbook.md).
 - [Hardware build plan](hardware/build-plan.md) and
-  [bill of materials](hardware/bom.csv).
+  [bill of materials](hardware/bom.csv), and the
+  [bench tests](hardware/bench-tests.md) that will measure the real robot.
 - [Get-up feasibility study](studies/getup-feasibility.md).
 - [Release audit](release/audit-2026-10-29.md) and
   [readiness pass](release/readiness-2026-11-14.md).

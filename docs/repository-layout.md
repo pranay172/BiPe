@@ -11,6 +11,8 @@
 | `bipe/m13/rl/` | The mjlab training environment: observations, actions, rewards, domain randomisation, training and evaluation |
 | `bipe/m14/` | The policy evaluator, the stress suite and the feasibility studies |
 | `bipe/m15/` | Fallen states, the get-up evaluation, moves, following with the policy, the roll-fault study |
+| `bipe/m16/` | The behaviour catalogue and policy contract check, the sit-and-stand evaluation, the flat get-up study, margin reruns and the speed command shaper |
+| `bipe/m18/` | The fidelity models (motor, sensor, timing, floor), the fidelity suite, measured-value overrides and the bench-test fitters |
 | `bipe/demo/` | Demo scenes, recording, rendering and video editing |
 | [`firmware/`](../firmware/) | The C core that runs on the Teensy 4.0 and in every simulation: estimator, balance, supervisor, follower, the policy forward pass and runtime (`src/locomotion/`), the M11 hardware layer, and the Teensy images. Tests in `firmware/tests/`. |
 | [`config/`](../config/) | The robot in SI units (`robot.json`: dimensions, masses, limits), controller gains, sensor models, speed, following and training-plant settings |

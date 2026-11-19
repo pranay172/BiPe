@@ -50,26 +50,48 @@ class SensorMeasurements:
         self.delay_steps = round(config["transport_delay_s"] / self.dt)
         self.queue = deque()
         self.encoder_names = [n + "_encoder" for n in JOINTS + WHEELS]
-        self.gyro_bias = np.array(config["gyro_residual_bias_rad_s"])
+        self.gyro_bias = np.array(config["gyro_residual_bias_rad_s"], float)
+        # M18 fidelity (bipe.m18.fidelity), absent from the nominal configs: the IMU
+        # board's mounting tilt and the accelerometer's scale and cross-axis errors, the
+        # gyro bias random walk, the hub encoders' scale (wheel radius), per-packet
+        # transport jitter and lost packets.
+        self.imu_matrix = np.eye(3)
+        if "imu_mount_deg" in config:
+            from .m18.fidelity import mount_matrix
+
+            self.imu_matrix = mount_matrix(*config["imu_mount_deg"])
+        self.accel_matrix = np.asarray(config.get("accel_matrix", np.eye(3)), float)
+        self.gyro_walk = config.get("gyro_bias_walk_rad_s_sqrt_s", 0.0)
+        self.wheel_scale = np.asarray(config.get("wheel_encoder_scale", [1.0, 1.0]), float)
+        self.jitter_steps = round(config.get("transport_jitter_s", 0.0) / self.dt)
+        self.packet_loss = config.get("packet_loss", 0.0)
+        self.tick = 0
+        self.delivered = None
         # Simulate a stationary pre-release gravity calibration. This synthesizes
         # a measurement, with the same bias/noise as the operating accelerometer.
         R = data.xmat[model.body("chassis").id].reshape(3, 3)
-        calibration = R.T @ np.array([0, 0, p["sizing"]["gravity"]])
+        calibration = self.accel_matrix @ self.imu_matrix @ R.T @ np.array(
+            [0, 0, p["sizing"]["gravity"]]
+        )
         calibration += self.accel_error()
         self.calibration = calibration.copy()
-        self.gyro_filtered = data.sensor("gyro").data.copy()
+        self.gyro_filtered = self.imu_matrix @ data.sensor("gyro").data
         self.accel_filtered = calibration.copy()
         self.initial_packet = self.packet(data)
 
     def preprocess(self, data, dt):
         # Device bandwidth before 200 Hz downsampling reduces mechanical
         # vibration that could alias into the sampled attitude channels.
+        board = {
+            "gyro": self.imu_matrix @ data.sensor("gyro").data,
+            "accelerometer": self.accel_matrix @ self.imu_matrix @ data.sensor("accelerometer").data,
+        }
         for attribute, channel, key in [
             ("gyro_filtered", "gyro", "gyro_anti_alias_tau_s"),
             ("accel_filtered", "accelerometer", "accel_anti_alias_tau_s"),
         ]:
             filtered = getattr(self, attribute)
-            filtered += -math.expm1(-dt / self.c[key]) * (data.sensor(channel).data - filtered)
+            filtered += -math.expm1(-dt / self.c[key]) * (board[channel] - filtered)
 
     def accel_error(self):
         return np.array(self.c["accel_bias_m_s2"]) + self.rng.normal(
@@ -80,6 +102,7 @@ class SensorMeasurements:
         raw = np.array([data.sensor(name).data[0] for name in self.encoder_names])
         raw[:4] += self.c.get("joint_encoder_bias_rad", [0, 0, 0, 0])
         raw[:4] += self.c.get("joint_encoder_periodic_error_rad", 0.0) * np.sin(2 * raw[:4])
+        raw[4:] *= self.wheel_scale
         raw[4:] += self.c.get("wheel_encoder_periodic_error_rad", 0.0) * np.sin(raw[4:])
         increments = np.r_[
             np.full(4, 2 * math.pi / self.c["joint_encoder_counts_per_rev"]),
@@ -88,6 +111,10 @@ class SensorMeasurements:
         return np.round(raw / increments) * increments
 
     def packet(self, data):
+        if self.gyro_walk:
+            self.gyro_bias = self.gyro_bias + self.rng.normal(
+                0, self.gyro_walk * math.sqrt(self.dt), 3
+            )
         gyro = (
             self.gyro_filtered.copy()
             + self.gyro_bias
@@ -97,8 +124,24 @@ class SensorMeasurements:
         return gyro, accel, self.encoders(data)
 
     def next_packet(self, data):
-        self.queue.append(self.packet(data))
-        return self.queue.popleft() if len(self.queue) > self.delay_steps else self.initial_packet
+        if not (self.jitter_steps or self.packet_loss):
+            self.queue.append(self.packet(data))
+            return self.queue.popleft() if len(self.queue) > self.delay_steps else self.initial_packet
+        # M18: each packet arrives after the nominal delay plus 0..jitter ticks, or never;
+        # the firmware uses the newest packet that has arrived and keeps it until a newer
+        # one does. Random draws come after the packet's own, from the same stream.
+        packet = self.packet(data)
+        delay = self.delay_steps + int(self.rng.integers(0, self.jitter_steps + 1))
+        if self.rng.random() >= self.packet_loss:
+            self.queue.append((self.tick, self.tick + delay, packet))
+        arrived = [q for q in self.queue if q[1] <= self.tick]
+        self.queue = deque(q for q in self.queue if q[1] > self.tick)
+        newest = max(arrived, key=lambda q: q[0], default=None)
+        newest = None if newest is None else (newest[0], newest[2])
+        self.tick += 1
+        if newest is not None and (self.delivered is None or newest[0] > self.delivered[0]):
+            self.delivered = newest
+        return self.initial_packet if self.delivered is None else self.delivered[1]
 
 
 class SensorEstimator(SensorMeasurements):

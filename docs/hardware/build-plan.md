@@ -117,6 +117,12 @@ Each stage tests one group of model assumptions, so a sim-to-real gap is
 found on a bench rather than on a falling robot. A stage starts when the
 previous one meets its exit.
 
+The M18 bench tests ([bench-tests.md](bench-tests.md), B1 to B10) fit into these
+stages as their parts arrive: B2 to B4 with the first calibrated drive, B6 to B9 once
+the Teensy and IMU are on the chassis, B1, B5 and B10 on the assembled robot. Their
+results go into `config/hardware-measured.json`, and the fidelity suite rerun with
+`--measured` before the first balance.
+
 | Stage | Content | Exit |
 |---|---|---|
 | 0. Long lead and bench timing | Order the actuators, drivers, adapter, Pi Zero 2 W and Camera Module 3 Wide. On the Zero 2 W: pupil-apriltags at 1152 × 648 with region-of-interest tracking over 2 cores, the full-frame re-acquisition, the 74° view gate, and the board temperature after 30 min. Record real footage of a person walking and turning with the waist tag, in normal, dim and side light, with auto exposure on. Spin one moteus-c1 with one GL40 from the bench supply: `moteus_tool --calibrate`, no load | Zero 2 W rate and latency against the 30 Hz, 0.12–0.15 s tracking and 0.25–0.33 s re-acquisition design values; the gate checked on the footage; one drive calibrated |

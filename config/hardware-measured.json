@@ -1,0 +1,29 @@
+{
+  "description": "M18 phase F: values measured on the built robot, read by bipe.m18.measured in place of the data-sheet and screening values. Every value starts null (not measured: the simulation keeps its nominal). Fill a value with the bench test named beside it (docs/hardware/bench-tests.md, fitters in bipe.m18.bench) and record where it came from. Nothing reads this file unless a run asks for it (--measured).",
+  "values": {
+    "chassis_mass_kg": {"value": null, "test": "B1 scale", "source": null},
+    "chassis_com_m": {"value": null, "test": "B1 balance points", "source": null},
+    "payload_kg": {"value": null, "test": "B1 scale (anything carried at the head)", "source": null},
+    "hip_torque_constant_Nm_A": {"value": null, "test": "B2 torque constant", "source": null},
+    "hub_torque_constant_Nm_A": {"value": null, "test": "B2 torque constant", "source": null},
+    "hip_coulomb_motor_Nm": {"value": null, "test": "B3 friction sweep", "source": null},
+    "hip_viscous_motor_Nm_s_rad": {"value": null, "test": "B3 friction sweep", "source": null},
+    "wheel_coulomb_Nm": {"value": null, "test": "B3 friction sweep", "source": null},
+    "wheel_viscous_Nm_s_rad": {"value": null, "test": "B3 friction sweep", "source": null},
+    "stiction_ratio": {"value": null, "test": "B3 breakaway", "source": null},
+    "cogging_fraction": {"value": null, "test": "B4 slow turn", "source": null},
+    "wheel_radius_ratio": {"value": null, "test": "B5 roll-out, [left, right] true over nominal", "source": null},
+    "imu_mount_deg": {"value": null, "test": "B6 still capture, [roll, pitch]", "source": null},
+    "gyro_residual_bias_rad_s": {"value": null, "test": "B6 still capture", "source": null},
+    "gyro_noise_std_rad_s": {"value": null, "test": "B6 still capture", "source": null},
+    "gyro_walk": {"value": null, "test": "B6 still capture (Allan deviation)", "source": null},
+    "accel_noise_std_m_s2": {"value": null, "test": "B6 still capture", "source": null},
+    "accel_scale": {"value": null, "test": "B7 six-face accelerometer, [x, y, z]", "source": null},
+    "encoder_offset_deg": {"value": null, "test": "B8 end-stop check, [left hip, left knee, right hip, right knee]", "source": null},
+    "transport_delay_ms": {"value": null, "test": "B9 loop timing", "source": null},
+    "jitter_ms": {"value": null, "test": "B9 loop timing", "source": null},
+    "packet_loss": {"value": null, "test": "B9 loop timing", "source": null},
+    "command_loss": {"value": null, "test": "B9 loop timing", "source": null},
+    "floor_friction": {"value": null, "test": "B10 incline slip, the test floor", "source": null}
+  }
+}

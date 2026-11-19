@@ -14,6 +14,8 @@ milestone's full plan, decisions and results are in its own document here.
 | M14 release-grade locomotion | [14-release-grade-locomotion-plan.md](14-release-grade-locomotion-plan.md) |
 | M15 behaviours: get-up, moves, following with the policy | [15-behaviours-plan.md](15-behaviours-plan.md) |
 | M16 a complete behaviour set in simulation | [16-behaviour-set-plan.md](16-behaviour-set-plan.md) |
+| M17 get-up from flat on the face or back | [17-flat-getup.md](17-flat-getup.md) |
+| M18 a simulation closer to the real robot | [18-sim-to-real-plan.md](18-sim-to-real-plan.md) |
 | M0–M9 | [../history/](../history/README.md) |
 
 ## M10 (18 October 2026)

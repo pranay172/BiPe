@@ -43,6 +43,7 @@ builds them for the full plant:
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass, field
 
 import numpy as np
@@ -91,6 +92,11 @@ class DriveActionCfg(ActionTermCfg):
     """M14 phase B: per-world RO40 FOC lag, joint friction and damping, IMU bias and
     pack voltage with sag (the GL40 voltage limit and RO40 speed follow the bus),
     drawn by mdp.randomise_drive."""
+    fidelity: bool = False
+    """M18 (bipe.m18.fidelity): per-world cogging, stiction, winding temperature,
+    wheel radius (as a hub encoder scale), IMU mounting tilt and accelerometer
+    scale and cross-axis errors, gyro bias walk, packet jitter and loss and lost
+    commands, drawn by mdp.randomise_drive (``fidelity_ranges``)."""
 
     def build(self, env):
         return DriveAction(self, env)
@@ -184,6 +190,10 @@ class DriveAction(ActionTerm):
         )
         if cfg.actuator_dr:
             self._actuator_dr(env, n)
+        if cfg.fidelity:
+            if not cfg.actuator_dr:
+                raise ValueError("fidelity builds on actuator_dr (per-world friction)")
+            self._fidelity(env, n)
         # A push as the full plant applies it: a force on the chassis for a while
         # (mdp.push_force), not a step in the base velocity.
         self.chassis = robot.find_bodies(("chassis",))[0]
@@ -213,6 +223,41 @@ class DriveAction(ActionTerm):
         self.bus_V = self.pack_V.clone()
         self.hub_R = drives.hub_resistance(gl)
         self.full_pack_V = 25.2
+
+    def _fidelity(self, env, n):
+        """M18 per-world fidelity state, nominal (off) until randomise_drive draws it."""
+        dev, hm, gl = self.device, self.phys["hip_motor"], self.phys["hub_motor"]
+        # Rated torque per driven column, in the units the columns are applied in
+        # (hip motor torque x ratio, hub torque).
+        self.cog_rated = torch.tensor(
+            [hm["continuous_torque_motor_Nm"] * self.ratio] * 4 + [gl["rated_torque_Nm"]] * 2,
+            device=dev,
+        )
+        self.cog_amp = torch.zeros(n, 6, device=dev)
+        self.cog_phase = torch.zeros(n, 6, device=dev)
+        self.stiction_ratio = torch.ones(n, 1, device=dev)
+        self.winding_C = torch.full((n, 1), gl["voltage_limit_winding_temperature_C"], device=dev)
+        self.wheel_enc_scale = torch.ones(n, 2, device=dev)
+        eye = torch.eye(3, device=dev).expand(n, 3, 3)
+        self.imu_mount = eye.clone()
+        self.imu_accel = eye.clone()
+        self.gyro_walk_std = torch.zeros(n, 1, device=dev)
+        self.gyro_walk = torch.zeros(n, 3, device=dev)
+        self.jitter_steps = torch.zeros(n, dtype=torch.long, device=dev)
+        self.packet_loss = torch.zeros(n, device=dev)
+        self.command_loss = torch.zeros(n, device=dev)
+        self.hold_steps = torch.zeros(n, dtype=torch.long, device=dev)
+        self.leg_applied = torch.zeros(n, 4, device=dev)
+        self.wheel_applied = torch.zeros(n, 2, device=dev)
+        env.sim.expand_model_fields(("pair_solref",))  # mdp.floor_softness
+
+    def _board(self, gyro, accel):
+        """Body-frame gyro and accelerometer as the tilted, mis-scaled board reads them."""
+        if not self.cfg.fidelity:
+            return gyro, accel
+        gyro = (self.imu_mount @ gyro.unsqueeze(-1)).squeeze(-1)
+        accel = (self.imu_accel @ (self.imu_mount @ accel.unsqueeze(-1))).squeeze(-1)
+        return gyro, accel
 
     def _robot_sensing(self, c, n, dt):
         dev = self.device
@@ -298,6 +343,11 @@ class DriveAction(ActionTerm):
         self.wheel_target[:] = self.cfg.wheel_scale * actions[:, 4:]
         if self.cfg.wheel_feedforward:
             self.wheel_target += self.rolling_speeds()
+        if self.cfg.fidelity:
+            # A lost command frame leaves the moteus on its old targets for one more
+            # 5 ms control tick (5 physics steps).
+            lost = torch.rand(self.num_envs, device=self.device) < self.command_loss
+            self.hold_steps[:] = torch.where(lost, getattr(self, "packet_steps", 5), 0)
 
     def rolling_speeds(self) -> torch.Tensor:
         """Wheel speeds (left, right) that roll at the commanded speed and yaw rate.
@@ -321,6 +371,11 @@ class DriveAction(ActionTerm):
         self.push_steps[env_ids] = 0
         if self.cfg.actuator_dr:
             self.bus_V[env_ids] = self.pack_V[env_ids]
+        if self.cfg.fidelity:
+            self.gyro_walk[env_ids] = 0.0
+            self.hold_steps[env_ids] = 0
+            self.leg_applied[env_ids] = self.leg_target[env_ids]
+            self.wheel_applied[env_ids] = self.wheel_target[env_ids]
 
     # Sensors.
 
@@ -344,6 +399,7 @@ class DriveAction(ActionTerm):
         legsd = torch.stack([hipd[:, 0], a2d[:, 0], hipd[:, 1], a2d[:, 1]], dim=-1)
         n = legs.shape[0]
         s = self.noise_scale
+        gyro, accel = self._board(gyro, accel)
         gyro = gyro + s * self.gyro_std * torch.randn(n, 3, device=self.device)
         accel = accel + s * self.accel_std * torch.randn(n, 3, device=self.device)
         if self.cfg.actuator_dr:
@@ -356,14 +412,15 @@ class DriveAction(ActionTerm):
         sensordata = self._env.sim.data.sensordata
         gyro = sensordata[:, self.gyro_adr : self.gyro_adr + 3]
         accel = sensordata[:, self.accel_adr : self.accel_adr + 3]
-        return torch.cat([gyro, accel], dim=-1)
+        return torch.cat(self._board(gyro, accel), dim=-1)
 
     def _encoders(self) -> torch.Tensor:
         """Joint encoders (hip, knee drive) x 2 with the calibration offset and wheel
         encoders (relative to the shin), quantised with their periodic error."""
         q = self._entity.data.joint_pos
         leg = q[:, self.motor] * (self.motor_scale / self.ratio) if self.spring else q[:, self.leg]
-        raw = torch.cat([leg + self.encoder_offset, q[:, self.wheel]], dim=-1)
+        wheel = q[:, self.wheel] * self.wheel_enc_scale if self.cfg.fidelity else q[:, self.wheel]
+        raw = torch.cat([leg + self.encoder_offset, wheel], dim=-1)
         harmonic = torch.cat([2 * raw[:, :4], raw[:, 4:]], dim=-1)
         raw = raw + self.periodic * torch.sin(harmonic)
         return torch.round(raw / self.increment) * self.increment
@@ -374,6 +431,10 @@ class DriveAction(ActionTerm):
         accel = self.imu[:, 3:] + self.accel_bias + s * self.accel_std * torch.randn(n, 3, device=dev)
         if self.cfg.actuator_dr:
             gyro, accel = gyro + self.imu_bias[:, :3], accel + self.imu_bias[:, 3:]
+        if self.cfg.fidelity:
+            step = math.sqrt(self.packet_dt)
+            self.gyro_walk += self.gyro_walk_std * step * torch.randn(n, 3, device=dev)
+            gyro = gyro + self.gyro_walk
         return torch.cat([gyro, accel, encoders[:, :4], self.rates], dim=-1)
 
     def _start(self, fresh) -> None:
@@ -435,8 +496,16 @@ class DriveAction(ActionTerm):
         # The hub drive closes its speed loop on its own encoder: no leg encoder lag.
         wheel_speed = self._entity.data.joint_vel[:, self.wheel]
         cfg = self.cfg
-        legs = cfg.joint_kp * (self.leg_target - q) - cfg.joint_kd * qd
-        error = self.wheel_target - wheel_speed
+        leg_target, wheel_target = self.leg_target, self.wheel_target
+        if cfg.fidelity:
+            wheel_speed = wheel_speed * self.wheel_enc_scale
+            held = (self.hold_steps > 0)[:, None]
+            self.leg_applied[:] = torch.where(held, self.leg_applied, self.leg_target)
+            self.wheel_applied[:] = torch.where(held, self.wheel_applied, self.wheel_target)
+            self.hold_steps.sub_(1).clamp_(min=0)
+            leg_target, wheel_target = self.leg_applied, self.wheel_applied
+        legs = cfg.joint_kp * (leg_target - q) - cfg.joint_kd * qd
+        error = wheel_target - wheel_speed
         dt = self._env.physics_dt
         if cfg.wheel_ki > 0:
             limit = self.hub_peak / cfg.wheel_ki
@@ -454,6 +523,8 @@ class DriveAction(ActionTerm):
                 self.bus_V / self.full_pack_V
             )
             gl["drive_voltage_limit_V"] = 0.95 * self.bus_V
+        if cfg.fidelity:
+            gl["voltage_limit_winding_temperature_C"] = self.winding_C
         hip_t, hip_out, _, self.current[:, :4] = drives.hip_motor(
             torch, hm, self.ratio, legs, self.motor_scale * joint_qd[:, self.motor], self.current[:, :4], dt
         )
@@ -462,6 +533,10 @@ class DriveAction(ActionTerm):
         )
         belt = hip_t * self.ratio
         torque = torch.cat([belt, hub_t], dim=-1) * self.torque_scale
+        if cfg.fidelity:
+            q_all = self._entity.data.joint_pos
+            angle = torch.cat([self.motor_scale * q_all[:, self.motor], q_all[:, self.wheel]], dim=-1)
+            torque = torque + self.cog_amp * torch.sin(84 * angle + self.cog_phase)
         if cfg.actuator_dr:
             # Bus current from the motors' mechanical power and the hubs' copper loss
             # (motoring only; regeneration is not credited), for the next step's sag.
@@ -497,8 +572,13 @@ class DriveAction(ActionTerm):
         base = self.base_friction
         if cfg.actuator_dr:
             base = base * self.friction_scale
-            friction[:, self.leg_dof] = base[:, self.leg_dof] + self.loss * belt.abs()
-            friction[:, self.shin_dof] = base[:, self.shin_dof] + self.loss * knee.abs()
-        else:
-            friction[:, self.leg_dof] = base[self.leg_dof] + self.loss * belt.abs()
-            friction[:, self.shin_dof] = base[self.shin_dof] + self.loss * knee.abs()
+        if cfg.fidelity:
+            base = base.clone()
+            v = self._entity.data.joint_vel
+            for dofs, joints in ((self.leg_dof, self.leg), (self.shin_dof, self.shin)):
+                stick = 1 + (self.stiction_ratio - 1) * torch.exp(-((v[:, joints] / 0.02) ** 2))
+                base = base.expand_as(friction).clone() if base.dim() == 1 else base
+                base[:, dofs] = base[:, dofs] * stick
+        # base is (nv,) without actuator DR and (worlds, nv) with it.
+        friction[:, self.leg_dof] = base[..., self.leg_dof] + self.loss * belt.abs()
+        friction[:, self.shin_dof] = base[..., self.shin_dof] + self.loss * knee.abs()

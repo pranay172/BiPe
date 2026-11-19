@@ -1,0 +1,39 @@
+{
+ "sit": {
+  "trials": 0,
+  "passed": 0
+ },
+ "front_lean": {
+  "trials": 20,
+  "passed": 19
+ },
+ "back_lean": {
+  "trials": 20,
+  "passed": 19
+ },
+ "all": {
+  "trials": 40,
+  "passed": 38
+ },
+ "flat_over_70deg": {
+  "trials": 14,
+  "passed": 12
+ },
+ "gate_80pct": true,
+ "settings": {
+  "getup": "artifacts/m18/checkpoints/getup_fid_s1/model_14996.pt",
+  "locomotion": "artifacts/m14/checkpoints/finetune_s1/model_9998.pt",
+  "fallen": "c",
+  "quiet_handover": true,
+  "flat_prepose": [
+   "back",
+   "front"
+  ],
+  "prepose_s": 0.5,
+  "flat_deg": 70.0,
+  "commit": "e14adef",
+  "mujoco": "3.14.0",
+  "fidelity": true,
+  "measured": null
+ }
+}

@@ -157,11 +157,24 @@ VARIANTS = {
         "belts": True, "actuators": True, "push_Ns": (0.5, 3.75), "yaw_weight": 2.0,
         "posture_fine": 0.5, "still_slope": 2.0, "corner_fraction": 0.10,
     },
+    # M18 fidelity fine-tune from fine-tune 1 (phase C): fine-tune 1's task and command
+    # mix unchanged, with the bipe.m18.fidelity models drawn per world, the wider tyre
+    # friction and COM ranges and the soft floor.
+    "locomotion_fid": lambda: {
+        "robot": True, "still": True, "lean": True, "full_push": True, "still_weight": 2.0,
+        "belts": True, "actuators": True, "push_Ns": (0.5, 3.75), "yaw_weight": 2.0,
+        "fidelity": True,
+    },
     # M15 get-up (phase E): episodes start in the fallen-state library
     # (artifacts/m15/fallen_states.npz), stand-still commands at the 40 posture, rewards
     # for the get-up study's handover test. Trained from the locomotion policy's weights.
     "getup": lambda: {
         "robot": True, "belts": True, "actuators": True, "getup": True,
+    },
+    # M18: the get-up task under the bipe.m18.fidelity models, fine-tuned from getup_s1
+    # (the fidelity get-up check lost 5 of 40 fresh starts, 4 of them flat on the back).
+    "getup_fid": lambda: {
+        "robot": True, "belts": True, "actuators": True, "getup": True, "fidelity": True,
     },
     # Second get-up round: classes drawn equally, back leans (9/20 on the full plant in
     # the first round) half as often again.
@@ -202,6 +215,8 @@ VARIANTS = {
 FALLEN_STATES = ROOT / "artifacts/m15/fallen_states.npz"
 GETUP_EPISODE_S = 6.0
 RAMP_ITERATIONS = 2000
+FIDELITY_FRICTION = (0.3, 1.2)
+"""M18 tyre friction range (bipe.m18.fidelity.RANGES["floor_friction"])."""
 """M14 recipe: iterations (24 env steps each) over which the belt and actuator DR ramps in."""
 
 
@@ -233,6 +248,7 @@ def env_cfg(
     getup_episode_s: float = GETUP_EPISODE_S,
     sit_stand: bool = False,
     getup_hold_s: float = 0.0,
+    fidelity: bool = False,
 ) -> ManagerBasedRlEnvCfg:
     """The task. ``hard`` is the training mix: steep slopes more often and larger
     pushes than the evaluation draws (bipe.m13.rl.evaluate uses the default).
@@ -265,7 +281,11 @@ def env_cfg(
     (M16) adds sit requests to the drive commands (40 % of resamples), starts half the
     episodes sitting, counts the drive rewards and failures only while standing (the
     failures from 3 s after a stand request), and adds the sit rewards: seated, a soft
-    landing and low leg torque once down."""
+    landing and low leg torque once down. ``fidelity`` (M18, needs ``actuators``) adds
+    the bipe.m18.fidelity models to the robot's firmware path (drawn per world by
+    mdp.randomise_drive), widens the tyre friction to FIDELITY_FRICTION and the COM
+    offset to bipe.m18.fidelity.RANGES["com_m"], and softens the floor per world
+    (mdp.floor_softness)."""
     p = load_parameters(profile="m13")
     if belts:
         p["training"]["drives"].update(hip_belt="spring", knee_lash="deadband")
@@ -300,7 +320,8 @@ def env_cfg(
     falls = robot if falls is None else falls
     actions = {
         mdp.ACTION: DriveActionCfg(
-            entity_name=mdp.ROBOT, parameters=p, sensors=sensors, actuator_dr=actuators
+            entity_name=mdp.ROBOT, parameters=p, sensors=sensors, actuator_dr=actuators,
+            fidelity=fidelity,
         )
     }
     if stress:
@@ -309,6 +330,11 @@ def env_cfg(
     along = stress and STRESS.get("slope_along_heading", False)
 
     entity = SceneEntityCfg(mdp.ROBOT)
+    com = 0.005
+    if fidelity:
+        from ...m18.fidelity import RANGES as FIDELITY_RANGES
+
+        com = FIDELITY_RANGES["com_m"]
     events = {
         "reset_base": EventTermCfg(
             func=base.reset_root_state_uniform,
@@ -340,13 +366,14 @@ def env_cfg(
             mode="startup",
             params={
                 "asset_cfg": SceneEntityCfg(mdp.ROBOT, body_names=("chassis",)),
-                "ranges": {0: (-0.005, 0.005), 2: (-0.005, 0.005) if actuators else (-0.003, 0.003)},
+                "ranges": {0: (-com, com), 2: (-com, com) if actuators else (-0.003, 0.003)},
             },
         ),
         "tire_friction": EventTermCfg(
             func=dr.pair_friction,
             mode="startup",
-            params={"asset_cfg": entity, "ranges": (0.5, 1.0), "isotropic": True,
+            params={"asset_cfg": entity, "ranges": FIDELITY_FRICTION if fidelity else (0.5, 1.0),
+                    "isotropic": True,
                     "shared_random": True},
         ),  # fmt: skip
         "push": EventTermCfg(
@@ -357,6 +384,8 @@ def env_cfg(
         ),  # fmt: skip
     }
 
+    if fidelity:
+        events["floor"] = EventTermCfg(func=mdp.floor_softness, mode="reset")
     if getup:
         events.pop("push")
         events.pop("slope")

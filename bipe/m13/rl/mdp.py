@@ -178,7 +178,15 @@ def sensors_delayed(env) -> torch.Tensor:
     wheel speeds, at the per-world transport delay."""
     drive = _drive(env)
     drive.refill()
-    row = drive.sample(drive.transport_delay)
+    delay = drive.transport_delay
+    if drive.cfg.fidelity:
+        # M18: per-observation jitter, and a lost newest packet leaves the one before.
+        n = delay.shape[0]
+        jitter = (torch.rand(n, device=env.device) * (drive.jitter_steps + 1)).long()
+        lost = torch.rand(n, device=env.device) < drive.packet_loss
+        step = getattr(drive, "packet_steps", 5)
+        delay = (delay + jitter + lost.long() * step).clamp(max=39)  # firmware.HISTORY - 1
+    row = drive.sample(delay)
     q = row[:, 6:10] - drive.nominal_q()
     return torch.cat([row[:, :6], q, row[:, 10:]], dim=-1)
 
@@ -545,6 +553,7 @@ def randomise_drive(
     gyro_bias_rad_s: float = 0.001,
     accel_bias_m_s2: float = 0.1,
     ramp_steps: int = 0,
+    fidelity_ranges: dict | None = None,
 ):
     """Per-world firmware and sensor parameters, drawn at each reset (1 ms steps).
 
@@ -589,6 +598,8 @@ def randomise_drive(
         drive.sag_ohm[env_ids] = 0.5 / 6.63 * toward(1.0, uniform(sag_scale, 1))
         bias = torch.tensor([gyro_bias_rad_s] * 3 + [accel_bias_m_s2] * 3, device=dev)
         drive.imu_bias[env_ids] = bias * toward(0.0, uniform((-1.0, 1.0), 6))
+    if drive.cfg.fidelity:
+        _randomise_fidelity(drive, env_ids, uniform, fidelity_ranges)
     if drive.spring:
         log = lambda r: uniform((math.log(r[0]), math.log(r[1])))
         nominal = drive.belt_scale
@@ -601,6 +612,51 @@ def randomise_drive(
                  toward(nominal[3], uniform(knee_lash_deg))], dim=-1,
             ),  # fmt: skip
         )
+
+
+def _randomise_fidelity(drive, env_ids, uniform, ranges=None):
+    """M18 per-world draws (bipe.m18.fidelity.RANGES, overridden by ``ranges``)."""
+    from ...m18 import fidelity
+
+    r = {**fidelity.RANGES, **(ranges or {})}
+    k, dev = len(env_ids), drive.device
+    sym = lambda x, *shape: uniform((-x, x), *shape)
+    drive.cog_amp[env_ids] = drive.cog_rated * uniform(r["cogging_fraction"], 1)
+    drive.cog_phase[env_ids] = uniform((0.0, 2 * math.pi), 6)
+    drive.stiction_ratio[env_ids] = uniform(r["stiction_ratio"], 1)
+    winding = uniform(r["winding_C"], 1)
+    drive.winding_C[env_ids] = winding
+    drive.torque_scale[env_ids] = drive.torque_scale[env_ids] * fidelity.kt_scale(winding)
+    drive.wheel_enc_scale[env_ids] = 1.0 / uniform(r["wheel_radius_ratio"], 2)
+    roll, pitch = torch.deg2rad(sym(r["imu_mount_deg"], 2)).unbind(-1)
+    cr, sr, cp, sp = roll.cos(), roll.sin(), pitch.cos(), pitch.sin()
+    zero, one = torch.zeros_like(roll), torch.ones_like(roll)
+    rx = torch.stack([one, zero, zero, zero, cr, sr, zero, -sr, cr], -1).view(k, 3, 3)
+    ry = torch.stack([cp, zero, -sp, zero, one, zero, sp, zero, cp], -1).view(k, 3, 3)
+    drive.imu_mount[env_ids] = ry @ rx
+    e = torch.diag_embed(sym(r["accel_scale"], 3))
+    off = sym(r["accel_cross"], 3, 3) * (1 - torch.eye(3, device=dev))
+    drive.imu_accel[env_ids] = torch.eye(3, device=dev) + e + off
+    drive.gyro_walk_std[env_ids] = uniform(r["gyro_walk"], 1)
+    drive.gyro_walk[env_ids] = 0.0
+    drive.encoder_offset[env_ids] = torch.deg2rad(sym(r["encoder_offset_deg"], 4))
+    lo, hi = r["jitter_ms"]
+    drive.jitter_steps[env_ids] = torch.randint(int(lo), int(hi) + 1, (k,), device=dev)
+    drive.packet_loss[env_ids] = uniform(r["packet_loss"])
+    drive.command_loss[env_ids] = uniform(r["command_loss"])
+
+
+def floor_softness(env, env_ids, stiffness: tuple[float, float] = (0.3, 1.0), base_tc: float = 0.002):
+    """M18 soft floor: the tire contact pairs' solref time constant per world, for a
+    contact stiffness scale s (time constant base / sqrt(s), mass-scaled reference)."""
+    asset = env.scene[ROBOT]
+    if env_ids is None:
+        env_ids = torch.arange(env.num_envs, device=env.device)
+    pairs = asset.indexing.pair_ids
+    s = torch.empty(len(env_ids), device=env.device).uniform_(*stiffness)
+    tc = base_tc / s.sqrt()
+    solref = env.sim.model.pair_solref
+    solref[env_ids[:, None], pairs[None, :], 0] = tc[:, None]
 
 
 def slope(

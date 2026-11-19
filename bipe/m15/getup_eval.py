@@ -58,6 +58,11 @@ ESTIMATE_SETTLE_TICKS, ATTITUDE_MARGIN = 50, 0.8
 # reading 1 g within 10 % (quasi-static, so its attitude can be trusted), for
 # ESTIMATE_SETTLE_TICKS ticks in a row. Set by --quiet-handover.
 QUIET_HANDOVER, QUIET_G_TOLERANCE = False, 0.1
+# M18: each trial also draws a robot from bipe.m18.fidelity's ranges (--fidelity).
+FIDELITY = False
+MEASURED = None
+"""M18 phase F: the measured robot's values (bipe.m18.measured, --measured) under every
+trial, with the --fidelity draw on top."""
 GETUP = None  # the get-up actor, set in the parent before the fork
 GETUP_PATH, RECORD, RECORD_DIR = None, set(), None
 # M16: the estimator's fallen mode in C (firmware/src/fallen.c, bipe_fallen_step) instead
@@ -289,6 +294,19 @@ def trial(state, record_to=None):
 
     p, gains, sensors, _ = SP.load()
     plant, config, seed = SP.variant_inputs(p, sensors, state["draw"]["plant"])
+    fid = None
+    if FIDELITY or MEASURED is not None:
+        # M18: the measured robot (--measured) and/or a random robot from the fidelity
+        # ranges (--fidelity) on top of the trial's plant; measured values stay fixed.
+        from ..m13 import policy_control
+        from ..m18 import fidelity, measured
+
+        fid = fidelity.sample(np.random.default_rng(1_000_003 + state["seed"])) if FIDELITY else {}
+        if MEASURED is not None:
+            fid.update(measured.draw(MEASURED))
+            plant, config = measured.apply_plant(plant, config, MEASURED)
+        plant, config, policy = fidelity.apply(plant, config, fid, seed=state["seed"])
+        policy_control.FIDELITY = policy
     library = str(build_candidate(p, gains, ROOT / native(p)["firmware_build"]))
     cls = _controller_class()
     qref = posture(40, p)
@@ -403,13 +421,9 @@ def _rel(path):
 
 
 def _commit():
-    import subprocess
+    from ..provenance import commit
 
-    try:
-        return subprocess.run(["git", "-C", str(ROOT), "describe", "--always", "--dirty"],
-                              capture_output=True, text=True, check=True).stdout.strip()
-    except (OSError, subprocess.CalledProcessError):
-        return None
+    return commit()
 
 
 def main():
@@ -434,6 +448,10 @@ def main():
     parser.add_argument("--classes", default=",".join(CLASSES),
                         help="only these start classes, comma separated (M16: sit alone "
                         "judges the sit_stand policy's stand)")
+    parser.add_argument("--fidelity", action="store_true",
+                        help="M18: each trial on a robot drawn from the fidelity ranges")
+    parser.add_argument("--measured", nargs="?", const="config/hardware-measured.json",
+                        help="M18: each trial on the measured robot (bipe.m18.measured)")
     parser.add_argument("--quiet-handover", action="store_true",
                         help="hand over only once the estimate itself is level and still "
                         "and the accelerometer reads 1 g (M16)")
@@ -443,6 +461,12 @@ def main():
     parser.add_argument("--prepose-s", type=float, default=PREPOSE_S)
     a = parser.parse_args()
     FALLEN, QUIET_HANDOVER, PREPOSE_S = a.fallen, a.quiet_handover, a.prepose_s
+    global FIDELITY, MEASURED
+    FIDELITY = a.fidelity
+    if a.measured:
+        from ..m18 import measured
+
+        MEASURED = measured.load(ROOT / a.measured)
     sides = [x for x in a.flat_prepose.split(",") if x]
     assert set(sides) <= {"front", "back"}, sides
     PREPOSE = dict.fromkeys(sides, stops_pose())
@@ -501,7 +525,8 @@ def main():
         "getup": _rel(a.getup), "locomotion": _rel(a.locomotion), "fallen": FALLEN,
         "quiet_handover": QUIET_HANDOVER, "flat_prepose": sorted(PREPOSE),
         "prepose_s": PREPOSE_S if PREPOSE else None, "flat_deg": FLAT_DEG,
-        "commit": _commit(),
+        "commit": _commit(), "mujoco": mujoco.__version__, "fidelity": FIDELITY,
+        "measured": MEASURED,
     }  # fmt: skip
     if not RECORD:
         (out / "summary.json").write_text(json.dumps(summary, indent=1) + "\n")

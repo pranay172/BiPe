@@ -32,15 +32,16 @@ firmware the robot runs.
 | Falls | Forward and backward tips keep a structural factor of at least 2.06 on every load path. |
 | Electronics | Six moteus-c1 drivers on CAN-FD, a Teensy 4.0 carrier, power board; 3.44 ms of the 5 ms control budget; 28–39 min runtime. |
 | Person following | Rendered camera frames in the loop with AprilTag detection: 60/60 nominal runs and 101/112 overall, no falls on the nominal plant. |
-| Learned policy | Trained with mjlab on MuJoCo Warp. Recovers 89/98 acceptance cases (classical 83/98), all 30 pushes, all 8 belt-range cases, no physical failures. Exported to ONNX and a 48k-parameter C forward pass that matches within 6.3e-7. |
-| Get-up | A second policy gets the robot up from a sit or a front or back lean and hands over to the locomotion policy, including from flat on the face or back (M17: legs to their stops for 0.5 s first): 59/60 held-out randomised falls (sit 20/20, front 20/20, back 19/20) and 40/40 on a fresh set. |
+| Learned policy | Trained with mjlab on MuJoCo Warp. Recovers 89/98 acceptance cases (classical 83/98), all 30 pushes, all 8 belt-range cases, no physical failures, and survives all 92 cases of the M18 fidelity suite (motor, sensor, timing and floor imperfections; classical 88/92). Exported to ONNX and a 48k-parameter C forward pass that matches within 6.3e-7. |
+| Get-up | A second policy gets the robot up from a sit or a front or back lean and hands over to the locomotion policy, including from flat on the face or back (M17: legs to their stops for 0.5 s first). M18's version, trained with motor, sensor, timing and floor imperfections: 60/60 held-out randomised falls, 40/40 on a fresh set, and 39/40 and 38/40 on two sets of robots drawn from those imperfections. |
 | Sit and stand | A third policy sits the robot down on its shell and stands it up again: 40/40 randomised cycles, each ending within 1.34 mm of the commanded height. |
 | Moves and following with the policy | Three expressive moves (crouch bob, spin and stop, wiggle) pass 3/3 nominal and 21/21 variants. Following with the policy: 60/60 nominal runs and 48/52 robustness runs. |
 
 Known gaps are kept in view: the policy passes 35 of 43 speed cases (the
 target is 40), the stress suite falls 5.9 % of the time (the target is 5 %),
-the get-up still misses one held-out start (flat on the back with low grip,
-1 of 60) and cannot recover a robot on its side, and neither the get-up nor the sit has had a structural
+the get-up misses 3 of 80 starts on robots drawn from the M18 imperfections
+(all lying almost flat, two on the back and one on the face) and cannot recover
+a robot on its side, and neither the get-up nor the sit has had a structural
 falls screen yet. See [docs/results.md](docs/results.md) for the full numbers,
 what each one measures, and what is still open.
 
@@ -79,7 +80,10 @@ plant instead. To record a full-plant shot,
 writes `local/demo/push_recovery_classical.npz` (standing, then pushes from
 behind and in front). To render it to video, to run the learned policy in the
 full plant, the test suite or the acceptance cases, see
-[docs/getting-started.md](docs/getting-started.md).
+[docs/getting-started.md](docs/getting-started.md). Full-plant runs of the
+learned policies use `requirements-eval.lock` (MuJoCo 3.14 with PyTorch and
+mjlab) instead of `requirements.lock`; every full-plant result is judged in that
+environment.
 
 ## Repository
 
@@ -107,18 +111,19 @@ More detail in [docs/repository-layout.md](docs/repository-layout.md).
   limits; the [policy contract](docs/policy-contract.md) they share; the
   [training playbook](docs/training-playbook.md).
 - [Milestone log](docs/milestones/README.md): the full plans and records,
-  M10 to M17.
+  M10 to M18.
 - [Hardware build plan](docs/hardware/build-plan.md) and
   [bill of materials](docs/hardware/bom.csv): about $3,600 with a
   single-leg test rig and spares. Nothing is bought yet.
 
 ## Roadmap
 
-1. **Done:** M10 to M17, ending with a behaviour set on one policy contract
+1. **Done:** M10 to M18, ending with a behaviour set on one policy contract
    (drive, get up, sit and stand, three moves, following), the `bipe sim`
-   front door, and get-up from flat on the face or back (November 2026).
-2. **Next:** the public release (policies on the Hugging Face Hub, a browser
-   replay).
+   front door, get-up from flat on the face or back, and a simulation with
+   the real robot's likely imperfections plus the bench tests that will
+   measure them (November 2026), and this public release.
+2. **Next:** policies on the Hugging Face Hub and a browser replay.
 3. **Hardware:** bench timing, a single-leg rig with system identification,
    a tethered robot (classical first, then the policy), then retraining on
    measured parameters.

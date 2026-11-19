@@ -21,9 +21,9 @@
     "getup": {
       "what": "get back onto the wheels from a sit, a front lean or a back lean, then hand over to drive",
       "kind": "policy",
-      "task": "python -m bipe train --task getup --seed N --resume-run <drive run>",
-      "export": "artifacts/m15/export/getup",
-      "milestone": "M15 getup_s1",
+      "task": "python -m bipe train --task getup --seed N --resume-run <drive run>, then --task getup-fidelity --resume-run RUN (M18)",
+      "export": "artifacts/m18/export/getup",
+      "milestone": "M18 getup_fid_s1 (M15 getup_s1 + 2000 iterations under the M18 fidelity models)",
       "gates": {
         "sit": "20/20",
         "front_lean": "16/20",
@@ -32,6 +32,9 @@
         "heldout_quiet_handover": "53/60 (sit 20, front 15, back 18)",
         "heldout_flat_prepose": "59/60 (sit 20, front 20, back 19), M17, 0.5 s flat pre-pose and quiet fallen-mode takeover",
         "fresh_flat_prepose": "40/40 (front 20, back 20; flat 23/23), M17, seeds 3000 to 3088",
+        "heldout_m18": "60/60 (sit 20, front 20, back 20; flat 19/19), M18 getup_fid_s1 with the M17 pre-pose",
+        "fresh_m18": "40/40 (front 20, back 20), seeds 3000 to 3088",
+        "fresh_fidelity_robot_m18": "39/40 (getup_s1 35/40), each trial on a robot drawn from the M18 fidelity ranges",
         "limit_checks_before_handover": "off (not turned on in M16)"
       }
     },

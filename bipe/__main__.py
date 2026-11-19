@@ -19,6 +19,9 @@ fine-tune tasks (``locomotion_ft2``, ``locomotion_ft3``).
 
 M16 names tasks by behaviour (config/behaviours.json): ``drive`` is ``locomotion`` and
 ``drive-finetune`` is ``finetune``; run names follow the name given.
+
+M18: ``train --task drive-fidelity --resume-run RUN`` fine-tunes on the drive task with
+the bipe.m18.fidelity models (env_cfg ``locomotion_fid``).
 """
 
 import argparse
@@ -29,7 +32,9 @@ TASKS = {"locomotion": "locomotion", "finetune": "locomotion_ft", "finetune2": "
          # M16 behaviour names (config/behaviours.json); the names above stay as aliases.
          "drive": "locomotion", "drive-finetune": "locomotion_ft",
          "finetune4": "locomotion_ft4", "drive-finetune4": "locomotion_ft4",
-         "sit_stand": "sit_stand", "sit-stand": "sit_stand"}
+         "sit_stand": "sit_stand", "sit-stand": "sit_stand",
+         # M18: the drive fine-tune under the fidelity models.
+         "drive-fidelity": "locomotion_fid", "getup-fidelity": "getup_fid"}
 
 
 def train(argv):

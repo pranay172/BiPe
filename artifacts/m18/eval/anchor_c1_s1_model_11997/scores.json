@@ -1,0 +1,363 @@
+{
+  "scores": {
+    "name": "anchor_c1_s1_model_11997",
+    "checkpoint": "local/m18/ckpt/anchor_c1_s1/model_11997.pt",
+    "checkpoint_sha256": "0db809417a683ea3041784eb4cbc7494ade9ae098595dc3c928f54caef574b1a",
+    "acceptance": {
+      "cases": 98,
+      "complete": true,
+      "recovered_98": 83,
+      "survived_98": 98,
+      "recovered_79": 65,
+      "matrix_cases": 79,
+      "belt_recovered": 8,
+      "belt_cases": 8,
+      "pushes_survived": 30,
+      "pushes_recovered": 25,
+      "push_cases": 30,
+      "physical_failures": [],
+      "not_recovered": [
+        "push_low_+0.5",
+        "push_low_+1",
+        "push_low_+1.5",
+        "push_low_+2",
+        "push_low_+2.5",
+        "slope_down_10",
+        "slope_down_4",
+        "slope_down_8",
+        "slope_hold_10",
+        "slope_hold_4",
+        "slope_hold_8",
+        "slope_up_10",
+        "slope_up_4",
+        "slope_up_8",
+        "wheel_lag_25ms_drive"
+      ],
+      "at_margin": [
+        "mismatch_body_com_x_m_0.005_hold",
+        "push_low_+0.5",
+        "push_low_+1",
+        "push_low_+1.5",
+        "push_low_+2",
+        "push_low_+2.5",
+        "push_low_-0.5",
+        "push_low_-1.5",
+        "slope_down_10",
+        "slope_down_8",
+        "slope_hold_10",
+        "slope_hold_8",
+        "slope_up_10",
+        "slope_up_8"
+      ],
+      "verdicts": {
+        "backlash_crouch_0": true,
+        "backlash_crouch_0.3": true,
+        "backlash_crouch_0.6": true,
+        "backlash_drive_0": true,
+        "backlash_drive_0.3": true,
+        "backlash_drive_0.6": true,
+        "backlash_hold_0": true,
+        "backlash_hold_0.3": true,
+        "backlash_hold_0.6": true,
+        "backlash_hold_0.6_half_timestep": true,
+        "backlash_turn_0": true,
+        "backlash_turn_0.3": true,
+        "backlash_turn_0.6": true,
+        "belt_hold_h0.1125_n0.225_k0": true,
+        "belt_hold_h0.1125_n0.225_k1": true,
+        "belt_hold_h0.1125_n0.9_k0": true,
+        "belt_hold_h0.1125_n0.9_k1": true,
+        "belt_hold_h0.45_n0.225_k0": true,
+        "belt_hold_h0.45_n0.225_k1": true,
+        "belt_hold_h0.45_n0.9_k0": true,
+        "belt_hold_h0.45_n0.9_k1": true,
+        "combined_half_timestep": true,
+        "combined_seed_20260931": true,
+        "combined_seed_20260932": true,
+        "delay_15ms_noise_x2_combined": true,
+        "delay_15ms_noise_x2_drive": true,
+        "friction_0p5_combined": true,
+        "friction_0p5_drive": true,
+        "mass_plus_15pct_combined": true,
+        "mass_plus_15pct_drive": true,
+        "mismatch_body_com_x_m_-0.005_combined": true,
+        "mismatch_body_com_x_m_-0.005_hold": true,
+        "mismatch_body_com_x_m_0.005_combined": true,
+        "mismatch_body_com_x_m_0.005_hold": true,
+        "mismatch_body_com_z_m_-0.003_combined": true,
+        "mismatch_body_com_z_m_-0.003_hold": true,
+        "mismatch_body_com_z_m_0.003_combined": true,
+        "mismatch_body_com_z_m_0.003_hold": true,
+        "mismatch_body_mass_scale_0.85_combined": true,
+        "mismatch_body_mass_scale_0.85_hold": true,
+        "mismatch_body_mass_scale_1.15_combined": true,
+        "mismatch_body_mass_scale_1.15_hold": true,
+        "mismatch_friction_0.5_combined": true,
+        "mismatch_friction_0.5_hold": true,
+        "mismatch_friction_1_combined": true,
+        "mismatch_friction_1_hold": true,
+        "push_drive_+0.5": true,
+        "push_drive_+1": true,
+        "push_drive_+1.5": true,
+        "push_drive_+2": true,
+        "push_drive_+2.5": true,
+        "push_drive_-0.5": true,
+        "push_drive_-1": true,
+        "push_drive_-1.5": true,
+        "push_drive_-2": true,
+        "push_drive_-2.5": true,
+        "push_hold_+0.5": true,
+        "push_hold_+1": true,
+        "push_hold_+1.5": true,
+        "push_hold_+2": true,
+        "push_hold_+2.5": true,
+        "push_hold_-0.5": true,
+        "push_hold_-1": true,
+        "push_hold_-1.5": true,
+        "push_hold_-2": true,
+        "push_hold_-2.5": true,
+        "push_low_+0.5": false,
+        "push_low_+1": false,
+        "push_low_+1.5": false,
+        "push_low_+2": false,
+        "push_low_+2.5": false,
+        "push_low_-0.5": true,
+        "push_low_-1": true,
+        "push_low_-1.5": true,
+        "push_low_-2": true,
+        "push_low_-2.5": true,
+        "sensors_combined": true,
+        "sensors_crouch": true,
+        "sensors_drive": true,
+        "sensors_hold": true,
+        "sensors_push": true,
+        "sensors_tilt_negative": true,
+        "sensors_tilt_positive": true,
+        "sensors_turn": true,
+        "slope_down_0": true,
+        "slope_down_10": false,
+        "slope_down_4": false,
+        "slope_down_8": false,
+        "slope_hold_0": true,
+        "slope_hold_10": false,
+        "slope_hold_4": false,
+        "slope_hold_8": false,
+        "slope_up_0": true,
+        "slope_up_10": false,
+        "slope_up_4": false,
+        "slope_up_8": false,
+        "wheel_lag_25ms_combined": true,
+        "wheel_lag_25ms_drive": false
+      }
+    },
+    "speed": {
+      "cases": 44,
+      "judged": 43,
+      "complete": true,
+      "survived_recovered": 37,
+      "classical_rule": 0,
+      "policy_rule": 31,
+      "policy_rule_variants": {
+        "case 10 mm": 32,
+        "case 5 mm": 23
+      },
+      "policy_rule_failing": {
+        "arc_r2": [
+          "overshoot"
+        ],
+        "drive_ramp": [
+          "overshoot"
+        ],
+        "drive_step": [
+          "overshoot"
+        ],
+        "push_fast_-2": [
+          "axle_depth_p95"
+        ],
+        "replay_corner_90": [
+          "path"
+        ],
+        "replay_curve_r1": [
+          "path"
+        ],
+        "replay_start_stop": [
+          "path"
+        ],
+        "replay_straight_1.0": [
+          "path"
+        ],
+        "reverse": [
+          "overshoot"
+        ],
+        "slope_down_10": [
+          "axle_depth_p95",
+          "survives_and_holds"
+        ],
+        "slope_down_8": [
+          "axle_depth_p95",
+          "survives_and_holds"
+        ],
+        "weave": [
+          "overshoot"
+        ]
+      },
+      "axle_steady_p95_mm_worst": [
+        8.215572277792731,
+        "push_fast_-2"
+      ],
+      "axle_case_p95_mm_worst": [
+        6.367540828695074,
+        "mass_plus_15pct_replay_corner_90"
+      ],
+      "axle_unchecked": [],
+      "physical_failures": [],
+      "verdicts": {
+        "arc_r1": true,
+        "arc_r2": false,
+        "delay_15ms_noise_x2_drive_step": true,
+        "delay_15ms_noise_x2_replay_corner_90": true,
+        "delay_15ms_noise_x2_weave": true,
+        "drive_ramp": false,
+        "drive_step": false,
+        "drive_step_half_timestep": true,
+        "friction_0p5_drive_step": true,
+        "friction_0p5_replay_corner_90": true,
+        "friction_0p5_weave": true,
+        "mass_plus_15pct_drive_step": true,
+        "mass_plus_15pct_replay_corner_90": true,
+        "mass_plus_15pct_weave": true,
+        "push_fast_+2": true,
+        "push_fast_-2": false,
+        "replay_corner_90": false,
+        "replay_curve_r1": false,
+        "replay_lateral_crossing": true,
+        "replay_loss_fov": true,
+        "replay_start_stop": false,
+        "replay_straight_1.0": false,
+        "reverse": false,
+        "seed_plus_1_drive_step": true,
+        "seed_plus_1_replay_corner_90": true,
+        "seed_plus_1_weave": true,
+        "seed_plus_2_drive_step": true,
+        "seed_plus_2_replay_corner_90": true,
+        "seed_plus_2_weave": true,
+        "slope_down_10": false,
+        "slope_down_4": true,
+        "slope_down_8": false,
+        "slope_up_10": true,
+        "slope_up_4": true,
+        "slope_up_8": true,
+        "spin": true,
+        "weave": false,
+        "wheel_lag_10ms_drive_step": true,
+        "wheel_lag_10ms_replay_corner_90": true,
+        "wheel_lag_10ms_weave": true,
+        "wheel_lag_25ms_drive_step": true,
+        "wheel_lag_25ms_replay_corner_90": true,
+        "wheel_lag_25ms_weave": true
+      }
+    },
+    "stress": {
+      "cases": 26,
+      "complete": true,
+      "survived": 25,
+      "recovered": 9,
+      "physical_failures": [
+        "push_back_d2"
+      ]
+    },
+    "hardware": {
+      "complete": true,
+      "belt_recovered": 8,
+      "belt_cases": 8,
+      "handover_recovered": 7,
+      "handover_cases": 10,
+      "physical_failures": [],
+      "at_margin": [
+        "push_low_-2.5",
+        "slope_up_8"
+      ],
+      "verdicts": {
+        "backlash_turn_0.6": true,
+        "belt_hold_h0.1125_n0.225_k0": true,
+        "belt_hold_h0.1125_n0.225_k1": true,
+        "belt_hold_h0.1125_n0.9_k0": true,
+        "belt_hold_h0.1125_n0.9_k1": true,
+        "belt_hold_h0.45_n0.225_k0": true,
+        "belt_hold_h0.45_n0.225_k1": true,
+        "belt_hold_h0.45_n0.9_k0": true,
+        "belt_hold_h0.45_n0.9_k1": true,
+        "delay_15ms_noise_x2_drive": true,
+        "push_drive_+2.5": true,
+        "push_hold_+2": true,
+        "push_hold_-2": true,
+        "push_low_-2.5": false,
+        "sensors_combined": true,
+        "slope_up_8": false,
+        "wheel_lag_25ms_drive": false
+      }
+    },
+    "training": null,
+    "stages": {
+      "hardware": {
+        "exit": 0,
+        "commit": "a868166ba2b2585affa78bdd79bfa6e49c9eef4a",
+        "dirty": false
+      },
+      "stress": {
+        "exit": 0,
+        "commit": "a868166ba2b2585affa78bdd79bfa6e49c9eef4a",
+        "dirty": false
+      },
+      "acceptance": {
+        "exit": 0,
+        "commit": "a868166ba2b2585affa78bdd79bfa6e49c9eef4a",
+        "dirty": false
+      },
+      "speed": {
+        "exit": 0,
+        "commit": "a868166ba2b2585affa78bdd79bfa6e49c9eef4a",
+        "dirty": false
+      }
+    },
+    "gates": {
+      "2_recovered_98": {
+        "value": 83,
+        "mark": 83,
+        "complete": true,
+        "passed": true
+      },
+      "2_belt": {
+        "value": 8,
+        "mark": 6,
+        "complete": true,
+        "passed": true
+      },
+      "2_pushes": {
+        "value": 25,
+        "mark": 30,
+        "complete": true,
+        "passed": false
+      },
+      "2_physical_failures": {
+        "value": 0,
+        "mark": 0,
+        "complete": true,
+        "passed": true
+      },
+      "3_speed_policy_rule": {
+        "value": 31,
+        "mark": 40,
+        "complete": true,
+        "passed": false
+      },
+      "5_stress_physical_failures": {
+        "value": 1,
+        "mark": 0,
+        "complete": true,
+        "passed": false
+      }
+    }
+  },
+  "baseline": null
+}

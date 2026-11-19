@@ -1473,6 +1473,15 @@ found four tooling faults and two reporting gaps.
 3. Forward pass placement and memory, as above, and the DWT measurement.
 4. A bench parity check of the Teensy build against `parity.json`, using
    the toolchain the image is built with (Teensy gcc 11.3).
+5. (M18) A synchronous control loop. The policy falls within a second if
+   sensor data arrives a whole tick late at random, because the C estimator
+   differentiates whatever encoder packet it is handed. Required: tick the
+   loop from a hardware timer, not `millis()` (today's `teensy_main.cpp`
+   paces on `now - last_body >= 5`); step the estimator once per tick on
+   that tick's replies, with dt from the tick; reuse the last reply when one
+   is missing and count it; and remove the 20 ms motor-data age allowance
+   in the stationary check. Bench test B9 (docs/hardware/bench-tests.md)
+   checks the result.
 
 **Follow-ups (low).**
 - Move the interface constants (`DriveActionCfg` defaults, `posture_table`)
